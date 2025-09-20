@@ -51,8 +51,8 @@ const Services = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">
-            Our <span className="gradient-primary bg-clip-text text-transparent">Core Services</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 text-foreground">
+            Our <span className="text-primary">Core Services</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Comprehensive automation solutions designed to transform Vietnamese businesses 

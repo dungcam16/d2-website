@@ -35,9 +35,9 @@ const Footer = () => {
               <div className="relative">
                 <Zap className="h-8 w-8 text-primary animate-pulse-glow" />
               </div>
-              <span className="text-2xl font-bold font-heading gradient-primary bg-clip-text text-transparent">
-                D2 GROUP
-              </span>
+            <span className="text-2xl font-bold font-heading text-foreground">
+              D2 <span className="text-primary">GROUP</span>
+            </span>
             </div>
             
             <p className="text-muted-foreground leading-relaxed">

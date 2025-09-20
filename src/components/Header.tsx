@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X, Zap, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,11 +21,14 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Case Studies', href: '#cases' },
+    { name: 'Home', href: '/' },
     { name: 'Contact', href: '#contact' },
+  ];
+
+  const serviceItems = [
+    { name: 'Multi-Platform Chatbots', href: '/services/chatbot' },
+    { name: 'Zalo OA Solutions', href: '/services/zalo' },
+    { name: 'N8N Enterprise Automation', href: '/services/automation' },
   ];
 
   return (
@@ -53,6 +62,27 @@ const Header = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
+            
+            {/* Services Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
+                Services
+                <ChevronDown className="ml-1 h-4 w-4" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-64 bg-card border-border z-50">
+                {serviceItems.map((service) => (
+                  <DropdownMenuItem key={service.name} asChild>
+                    <a
+                      href={service.href}
+                      className="block px-4 py-3 text-sm text-foreground hover:text-primary hover:bg-muted transition-colors"
+                    >
+                      {service.name}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
 
           {/* CTA Button */}
@@ -73,7 +103,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 glass-effect border-t border-border animate-slide-up">
+          <div className="md:hidden absolute top-full left-0 right-0 glass-effect border-t border-border animate-slide-up z-50">
             <nav className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
                 <a
@@ -85,6 +115,22 @@ const Header = () => {
                   {item.name}
                 </a>
               ))}
+              
+              {/* Mobile Services Menu */}
+              <div className="border-t border-border pt-4 mt-4">
+                <div className="text-sm font-medium text-muted-foreground mb-2">Services</div>
+                {serviceItems.map((service) => (
+                  <a
+                    key={service.name}
+                    href={service.href}
+                    className="block text-foreground hover:text-primary transition-smooth py-2 pl-4"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {service.name}
+                  </a>
+                ))}
+              </div>
+              
               <Button variant="default" className="w-full shadow-glow mt-4">
                 Get Free Consultation
               </Button>

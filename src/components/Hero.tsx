@@ -34,7 +34,7 @@ const Hero = () => {
         <div className="animate-slide-up">
           <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 leading-tight">
             <span className="block text-foreground">Automation Marketing</span>
-            <span className="block gradient-primary bg-clip-text text-transparent animate-glow">
+            <span className="block text-primary font-bold">
               Agency That Powers
             </span>
             <span className="block text-foreground">Vietnamese Businesses</span>

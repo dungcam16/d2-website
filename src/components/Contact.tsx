@@ -58,8 +58,8 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">
-            Start Your <span className="gradient-primary bg-clip-text text-transparent">Automation Journey</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 text-foreground">
+            Start Your <span className="text-primary">Automation Journey</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to transform your business with intelligent automation? 
