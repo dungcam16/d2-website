@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Play, Zap, Bot, Workflow } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-automation.jpg';
+import heroImage from '@/assets/hero-automation-light.jpg';
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
         <img 
           src={heroImage} 
           alt="Automation Technology Background"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-hero"></div>
       </div>

@@ -6,48 +6,48 @@
 
 @layer base {
   :root {
-    /* Dark tech theme */
-    --background: 220 15% 8%;
-    --foreground: 210 40% 98%;
+    /* Clean white theme with blue gradients like D2 logo */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
 
-    --card: 220 13% 11%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 98%;
+    --card-foreground: 220 20% 15%;
 
-    --popover: 220 13% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
 
-    /* Electric blue primary */
-    --primary: 194 100% 53%;
-    --primary-foreground: 220 15% 8%;
+    /* Blue gradient primary matching logo */
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 13% 15%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 220 20% 15%;
 
-    --muted: 220 13% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 13% 96%;
+    --muted-foreground: 220 13% 45%;
 
-    --accent: 194 100% 53%;
-    --accent-foreground: 220 15% 8%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 18%;
-    --input: 220 13% 15%;
-    --ring: 194 100% 53%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 210 100% 45%;
 
     --radius: 0.75rem;
 
-    /* Tech gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(194 100% 53%), hsl(210 100% 70%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 15% 8%) 0%, hsl(220 20% 12%) 50%, hsl(194 50% 15%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(220 13% 11%), hsl(220 15% 13%));
-    --gradient-glow: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), hsl(194 100% 53% / 0.15), transparent 40%);
+    /* Blue gradients matching D2 logo */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 45%), hsl(200 100% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 50%, hsl(210 100% 98%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 98%), hsl(210 40% 97%));
+    --gradient-accent: linear-gradient(135deg, hsl(200 100% 60%), hsl(210 100% 50%));
 
-    /* Shadows with electric blue glow */
-    --shadow-glow: 0 0 50px hsl(194 100% 53% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(220 15% 5% / 0.5);
-    --shadow-elevation: 0 20px 40px -12px hsl(220 15% 5% / 0.8);
+    /* Shadows with blue tint */
+    --shadow-glow: 0 0 50px hsl(210 100% 45% / 0.25);
+    --shadow-card: 0 10px 30px -10px hsl(220 20% 15% / 0.1);
+    --shadow-elevation: 0 20px 40px -12px hsl(220 20% 15% / 0.15);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -74,11 +74,12 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  /* Additional tech utilities */
-  .light {
-    /* Keep dark theme as default for tech aesthetic */
-    --background: 220 15% 8%;
-    --foreground: 210 40% 98%;
+  /* Dark mode variant (optional) */
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 0 0% 95%;
+    --card: 220 15% 10%;
+    --border: 220 13% 18%;
   }
 }
 
@@ -105,10 +106,10 @@
 
   @keyframes glow {
     0%, 100% { 
-      box-shadow: 0 0 20px hsl(194 100% 53% / 0.3), 0 0 40px hsl(194 100% 53% / 0.1);
+      box-shadow: 0 0 20px hsl(210 100% 45% / 0.3), 0 0 40px hsl(210 100% 45% / 0.1);
     }
     50% { 
-      box-shadow: 0 0 30px hsl(194 100% 53% / 0.5), 0 0 60px hsl(194 100% 53% / 0.2);
+      box-shadow: 0 0 30px hsl(210 100% 45% / 0.4), 0 0 60px hsl(210 100% 45% / 0.2);
     }
   }
 
@@ -140,7 +141,7 @@
   }
 
   @keyframes pulse-glow {
-    0%, 100% { opacity: 0.8; }
+    0%, 100% { opacity: 0.7; }
     50% { opacity: 1; }
   }
 }
@@ -200,13 +201,13 @@
 
   .glass-effect {
     backdrop-filter: blur(16px) saturate(180%);
-    background: hsl(220 13% 11% / 0.8);
-    border: 1px solid hsl(220 13% 18% / 0.5);
+    background: hsl(0 0% 100% / 0.8);
+    border: 1px solid hsl(220 13% 91% / 0.5);
   }
 
   .tech-border {
-    border: 1px solid hsl(194 100% 53% / 0.2);
-    box-shadow: inset 0 0 20px hsl(194 100% 53% / 0.05);
+    border: 1px solid hsl(210 100% 45% / 0.2);
+    box-shadow: inset 0 0 20px hsl(210 100% 45% / 0.05);
   }
 
   .shimmer-effect {
@@ -221,7 +222,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(194 100% 53% / 0.1), transparent);
+    background: linear-gradient(90deg, transparent, hsl(210 100% 45% / 0.1), transparent);
     transform: translateX(-100%);
     animation: shimmer 2s infinite;
   }

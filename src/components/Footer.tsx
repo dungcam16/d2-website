@@ -146,7 +146,7 @@ const Footer = () => {
       </div>
 
       {/* Background Effects */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-48 bg-blue-primary/5 rounded-full blur-3xl"></div>
     </footer>
   );
 };
