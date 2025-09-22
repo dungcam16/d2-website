@@ -29,13 +29,13 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Vietnam Office",
-      description: "Ho Chi Minh City, Vietnam",
+      title: "Văn phòng Việt Nam",
+      description: "Thành phố Hồ Chí Minh, Việt Nam",
       color: "text-red-400"
     },
     {
       icon: Phone,
-      title: "Phone",
+      title: "Điện thoại",
       description: "+84 xxx xxx xxx",
       color: "text-green-400"
     },
@@ -47,8 +47,8 @@ const Contact = () => {
     },
     {
       icon: MessageSquare,
-      title: "Quick Contact",
-      description: "WhatsApp & Zalo Available",
+      title: "Liên hệ nhanh",
+      description: "WhatsApp & Zalo",
       color: "text-primary"
     }
   ];
@@ -59,11 +59,11 @@ const Contact = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 text-foreground">
-            Start Your <span className="text-primary">Automation Journey</span>
+            Bắt Đầu <span className="text-primary">Hành Trình Automation</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to transform your business with intelligent automation? 
-            Let's discuss how our solutions can revolutionize your operations.
+            Sẵn sàng chuyển đổi doanh nghiệp với automation thông minh? 
+            Hãy thảo luận cách giải pháp của chúng tôi có thể cách mạng hóa hoạt động của bạn.
           </p>
         </div>
 
@@ -71,21 +71,21 @@ const Contact = () => {
           {/* Contact Form */}
           <Card className="gradient-card border-border tech-border p-8 animate-scale-in">
             <div className="mb-8">
-              <h3 className="text-2xl font-bold font-heading mb-4">Get Free Consultation</h3>
+              <h3 className="text-2xl font-bold font-heading mb-4">Nhận Tư Vấn Miễn Phí</h3>
               <p className="text-muted-foreground">
-                Share your automation needs and we'll create a customized solution for your business.
+                Chia sẻ nhu cầu automation và chúng tôi sẽ tạo giải pháp tùy chỉnh cho doanh nghiệp của bạn.
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Full Name</label>
+                  <label className="text-sm font-medium text-foreground">Họ và tên</label>
                   <Input
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Your full name"
+                    placeholder="Họ và tên của bạn"
                     className="bg-card/50 border-border focus:border-primary transition-colors"
                     required
                   />
@@ -98,7 +98,7 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="your@email.com"
+                    placeholder="email@cuaban.com"
                     className="bg-card/50 border-border focus:border-primary transition-colors"
                     required
                   />
@@ -106,30 +106,30 @@ const Contact = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">Company</label>
+                <label className="text-sm font-medium text-foreground">Công ty</label>
                 <Input
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  placeholder="Your company name"
+                  placeholder="Tên công ty của bạn"
                   className="bg-card/50 border-border focus:border-primary transition-colors"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">Message</label>
+                <label className="text-sm font-medium text-foreground">Tin nhắn</label>
                 <Textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell us about your automation needs..."
+                  placeholder="Chia sẻ nhu cầu automation của bạn..."
                   className="bg-card/50 border-border focus:border-primary transition-colors min-h-[120px]"
                   required
                 />
               </div>
 
               <Button type="submit" className="w-full shadow-glow group">
-                Send Message
+                Gửi tin nhắn
                 <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>
@@ -138,7 +138,7 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="animate-slide-up">
-              <h3 className="text-2xl font-bold font-heading mb-8">Contact Information</h3>
+              <h3 className="text-2xl font-bold font-heading mb-8">Thông Tin Liên Hệ</h3>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {contactInfo.map((info, index) => {
@@ -163,32 +163,32 @@ const Contact = () => {
 
             {/* Quick Action Buttons */}
             <div className="space-y-4 animate-slide-up" style={{ animationDelay: '0.5s' }}>
-              <h4 className="text-lg font-semibold text-foreground mb-4">Quick Actions</h4>
+              <h4 className="text-lg font-semibold text-foreground mb-4">Hành Động Nhanh</h4>
               
               <Button variant="outline" className="w-full justify-start tech-border group">
                 <MessageSquare className="mr-3 h-5 w-5 text-green-400" />
-                Chat on WhatsApp
+                Chat trên WhatsApp
               </Button>
               
               <Button variant="outline" className="w-full justify-start tech-border group">
                 <MessageSquare className="mr-3 h-5 w-5 text-blue-400" />
-                Message on Zalo
+                Nhắn tin Zalo
               </Button>
               
               <Button variant="outline" className="w-full justify-start tech-border group">
                 <Phone className="mr-3 h-5 w-5 text-primary" />
-                Schedule a Call
+                Đặt lịch gọi
               </Button>
             </div>
 
             {/* Call to Action */}
             <Card className="gradient-card border-border tech-border p-6 text-center animate-scale-in" style={{ animationDelay: '0.7s' }}>
-              <h4 className="text-xl font-bold text-foreground mb-2">Ready to Automate?</h4>
+              <h4 className="text-xl font-bold text-foreground mb-2">Sẵn sàng Automation?</h4>
               <p className="text-muted-foreground mb-4 text-sm">
-                Join 50+ Vietnamese businesses already benefiting from our automation solutions.
+                Tham gia cùng 50+ doanh nghiệp Việt Nam đã hưởng lợi từ giải pháp automation của chúng tôi.
               </p>
               <Button className="shadow-glow">
-                Book a Demo
+                Đặt lịch Demo
               </Button>
             </Card>
           </div>

@@ -49,9 +49,9 @@ const About = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">
-            <span className="text-foreground">Leading </span>
+            <span className="text-foreground">Agency </span>
             <span className="text-primary">Automation & Digital Performance</span>
-            <span className="text-foreground"> Agency</span>
+            <span className="text-foreground"> Hàng Đầu</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             D2 Group là đối tác tin cậy cho hơn 200 doanh nghiệp Việt Nam trong việc chuyển đổi số, 

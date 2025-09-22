@@ -7,26 +7,26 @@ const Services = () => {
   const services = [
     {
       icon: MessageCircle,
-      title: "Multi-Platform Chatbots",
-      description: "Intelligent conversational AI across Facebook Messenger, Instagram, WhatsApp, Telegram, Zalo, and Website integration.",
+      title: "Chatbot Đa Nền Tảng",
+      description: "AI hội thoại thông minh trên Facebook Messenger, Instagram, WhatsApp, Telegram, Zalo và tích hợp Website.",
       features: [
-        "Cross-platform messaging",
-        "AI-powered responses",
-        "Seamless handoffs",
-        "Analytics & insights"
+        "Tin nhắn đa nền tảng",
+        "Phản hồi AI thông minh",
+        "Chuyển tiếp liền mạch",
+        "Phân tích & báo cáo"
       ],
       color: "text-blue-400",
       delay: "0s"
     },
     {
       icon: Zap,
-      title: "Zalo OA Complete Solutions",
-      description: "Comprehensive Zalo Official Account management with ZNS messaging and integrated chatbot packages for Vietnamese market.",
+      title: "Giải Pháp Zalo OA Toàn Diện",
+      description: "Quản lý Zalo Official Account hoàn chỉnh với tin nhắn ZNS và gói chatbot tích hợp cho thị trường Việt Nam.",
       features: [
-        "Zalo OA setup & management",
-        "ZNS messaging campaigns",
-        "Integrated chatbot flows",
-        "Vietnamese market optimization"
+        "Thiết lập & quản lý Zalo OA",
+        "Chiến dịch tin nhắn ZNS",
+        "Luồng chatbot tích hợp",
+        "Tối ưu thị trường Việt Nam"
       ],
       color: "text-green-400",
       delay: "0.2s"
@@ -34,12 +34,12 @@ const Services = () => {
     {
       icon: Workflow,
       title: "N8N Enterprise Automation",
-      description: "Advanced business process automation using N8N workflows to optimize operations and eliminate manual tasks.",
+      description: "Tự động hóa quy trình kinh doanh nâng cao sử dụng N8N workflows để tối ưu vận hành và loại bỏ tác vụ thủ công.",
       features: [
-        "Custom workflow design",
-        "API integrations",
-        "Process optimization",
-        "Scalable automation"
+        "Thiết kế workflow tùy chỉnh",
+        "Tích hợp API",
+        "Tối ưu quy trình",
+        "Automation mở rộng"
       ],
       color: "text-primary",
       delay: "0.4s"
@@ -52,11 +52,11 @@ const Services = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 text-foreground">
-            Our <span className="text-primary">Core Services</span>
+            <span className="text-primary">Dịch Vụ Cốt Lõi</span> Của Chúng Tôi
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive automation solutions designed to transform Vietnamese businesses 
-            through intelligent technology and proven methodologies.
+            Giải pháp automation toàn diện được thiết kế để chuyển đổi doanh nghiệp Việt Nam 
+            thông qua công nghệ thông minh và phương pháp đã được chứng minh.
           </p>
         </div>
 
@@ -102,7 +102,7 @@ const Services = () => {
 
                     {/* CTA */}
                     <Button variant="outline" className="w-full tech-border group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                      Learn More
+                      Tìm hiểu thêm
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </div>
@@ -115,7 +115,7 @@ const Services = () => {
         {/* Technology Stack */}
         <div className="mt-20 text-center">
           <h3 className="text-2xl font-bold font-heading mb-8 text-foreground">
-            Powered by <span className="text-primary">Cutting-Edge Technology</span>
+            Được Hỗ Trợ Bởi <span className="text-primary">Công Nghệ Tiên Tiến</span>
           </h3>
           
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">

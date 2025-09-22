@@ -3,26 +3,26 @@ import { Zap, Facebook, Twitter, Linkedin, Mail, MapPin, Phone } from 'lucide-re
 
 const Footer = () => {
   const services = [
-    'Multi-Platform Chatbots',
-    'Zalo OA Solutions',
+    'Chatbot Đa Nền Tảng',
+    'Giải Pháp Zalo OA',
     'N8N Automation',
-    'Business Process Optimization'
+    'Tối Ưu Quy Trình Kinh Doanh'
   ];
 
   const company = [
-    'About Us',
-    'Our Team',
+    'Về Chúng Tôi',
+    'Đội Ngũ',
     'Case Studies',
-    'Careers',
-    'Partners'
+    'Tuyển Dụng',
+    'Đối Tác'
   ];
 
   const resources = [
     'Blog',
-    'Documentation',
-    'Support',
-    'Privacy Policy',
-    'Terms of Service'
+    'Tài Liệu',
+    'Hỗ Trợ',
+    'Chính Sách Bảo Mật',
+    'Điều Khoản Dịch Vụ'
   ];
 
   return (
@@ -41,14 +41,14 @@ const Footer = () => {
             </div>
             
             <p className="text-muted-foreground leading-relaxed">
-              Vietnam's leading automation marketing agency, transforming businesses through 
-              intelligent process automation and multi-platform customer engagement solutions.
+              Agency automation marketing hàng đầu Việt Nam, chuyển đổi doanh nghiệp thông qua 
+              tự động hóa quy trình thông minh và giải pháp tương tác khách hàng đa nền tảng.
             </p>
             
             <div className="space-y-2">
               <div className="flex items-center text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 mr-2 text-primary" />
-                Ho Chi Minh City, Vietnam
+                Thành phố Hồ Chí Minh, Việt Nam
               </div>
               <div className="flex items-center text-sm text-muted-foreground">
                 <Phone className="h-4 w-4 mr-2 text-primary" />
@@ -63,7 +63,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Services</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Dịch Vụ</h3>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service}>
@@ -80,7 +80,7 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Company</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Công Ty</h3>
             <ul className="space-y-2">
               {company.map((item) => (
                 <li key={item}>
@@ -97,7 +97,7 @@ const Footer = () => {
 
           {/* Resources */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Resources</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Tài Nguyên</h3>
             <ul className="space-y-2">
               {resources.map((resource) => (
                 <li key={resource}>
@@ -117,7 +117,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-muted-foreground">
-              © 2024 D2 Group. All rights reserved. Revolutionizing Vietnamese Business Through Intelligent Automation.
+              © 2024 D2 Group. Tất cả quyền được bảo lưu. Cách mạng hóa doanh nghiệp Việt Nam thông qua Automation thông minh.
             </div>
             
             {/* Social Links */}

@@ -21,13 +21,13 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Trang chủ', href: '/' },
+    { name: 'Liên hệ', href: '#contact' },
   ];
 
   const serviceItems = [
-    { name: 'Multi-Platform Chatbots', href: '/services/chatbot' },
-    { name: 'Zalo OA Solutions', href: '/services/zalo' },
+    { name: 'Chatbot Đa Nền Tảng', href: '/services/chatbot' },
+    { name: 'Giải Pháp Zalo OA', href: '/services/zalo' },
     { name: 'N8N Enterprise Automation', href: '/services/automation' },
   ];
 
@@ -66,7 +66,7 @@ const Header = () => {
             {/* Services Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
-                Services
+                Dịch vụ
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
@@ -88,7 +88,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="default" className="shadow-glow">
-              Get Free Consultation
+              Tư vấn miễn phí
             </Button>
           </div>
 
@@ -118,7 +118,7 @@ const Header = () => {
               
               {/* Mobile Services Menu */}
               <div className="border-t border-border pt-4 mt-4">
-                <div className="text-sm font-medium text-muted-foreground mb-2">Services</div>
+                <div className="text-sm font-medium text-muted-foreground mb-2">Dịch vụ</div>
                 {serviceItems.map((service) => (
                   <a
                     key={service.name}
@@ -132,7 +132,7 @@ const Header = () => {
               </div>
               
               <Button variant="default" className="w-full shadow-glow mt-4">
-                Get Free Consultation
+                Tư vấn miễn phí
               </Button>
             </nav>
           </div>
