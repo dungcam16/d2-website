@@ -1,11 +1,13 @@
 import React from 'react';
-import { Zap, Facebook, MessageCircle, Instagram, AtSign, Phone, Send, Mail, MapPin } from 'lucide-react';
+import { Zap, Facebook, MessageCircle, Instagram, AtSign, Phone, Send, Mail, MapPin, Shield } from 'lucide-react';
 
 const Footer = () => {
   const services = [
     'Chatbot Đa Nền Tảng',
-    'Giải Pháp Zalo OA',
+    'Giải Pháp Zalo OA', 
     'N8N Automation',
+    'Tối Ưu SEO',
+    'Content Marketing',
     'Tối Ưu Quy Trình Kinh Doanh'
   ];
 
@@ -59,8 +61,8 @@ const Footer = () => {
                 info@d2group.co
               </div>
               <div className="flex items-center text-sm text-muted-foreground">
-                <span className="font-medium mr-2">MST:</span>
-                3603788837
+                <Shield className="h-4 w-4 mr-2 text-primary" />
+                MST: 3603788837
               </div>
             </div>
           </div>
@@ -103,16 +105,23 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Tài Nguyên</h3>
             <ul className="space-y-2">
-              {resources.map((resource) => (
-                <li key={resource}>
-                  <a 
-                    href="#" 
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                  >
-                    {resource}
-                  </a>
-                </li>
-              ))}
+              {resources.map((resource) => {
+                let href = "#";
+                if (resource === "Blog") href = "/blog";
+                if (resource === "Chính Sách Bảo Mật") href = "/privacy-policy";
+                if (resource === "Điều Khoản Dịch Vụ") href = "/terms-of-service";
+                
+                return (
+                  <li key={resource}>
+                    <a 
+                      href={href}
+                      className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      {resource}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
