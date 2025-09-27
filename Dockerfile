@@ -1,44 +1,21 @@
-worker_processes 1;
+# 1. Build Stage
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
 
-events { worker_connections 1024; }
+# 2. Serve Stage
+FROM nginx:alpine
+# Remove default site
+RUN rm -rf /usr/share/nginx/html/*
 
-http {
-  include       mime.types;
-  default_type  application/octet-stream;
-  sendfile        on;
-  keepalive_timeout  65;
+# Copy custom Nginx config
+COPY nginx.conf /etc/nginx/nginx.conf
 
-  upstream blog_upstream {
-    server blog-server:3000;
-  }
+# Copy built files
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-  server {
-    listen 80;
-    server_name _;
-
-    # API/landing page tĩnh
-    root /usr/share/nginx/html;
-    index index.html;
-
-    # Proxy /blog và tất cả route con tới backend blog-server
-    location ^~ /blog/ {
-      proxy_pass         http://blog_upstream;
-      proxy_http_version 1.1;
-      proxy_set_header   Host $host;
-      proxy_set_header   X-Real-IP $remote_addr;
-      proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_set_header   X-Forwarded-Proto $scheme;
-    }
-
-    # Phục vụ SPA chính
-    location / {
-      try_files $uri $uri/ /index.html;
-    }
-
-    # Cache static assets
-    location ~* \.(?:js|css|png|jpg|jpeg|gif|svg|ico)$ {
-      expires 1y;
-      add_header Cache-Control "public";
-    }
-  }
-}
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
