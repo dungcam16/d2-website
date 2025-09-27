@@ -136,67 +136,67 @@ const AutomationService = () => {
   ];
 
   const enterpriseFeatures = [
-    { feature: "User Management", standard: "Limited users", enterprise: "Unlimited users, RBAC" },
-    { feature: "Execution Limits", standard: "Usage restrictions", enterprise: "Unlimited executions" },
-    { feature: "Data Retention", standard: "30 days", enterprise: "Unlimited retention" },
-    { feature: "Support", standard: "Community", enterprise: "24/7 dedicated support" },
-    { feature: "SLA", standard: "Best effort", enterprise: "99.9% uptime guarantee" },
-    { feature: "Compliance", standard: "Basic", enterprise: "SOC2, GDPR, HIPAA ready" }
+    { feature: "Quản Lý Người Dùng", standard: "Giới hạn người dùng", enterprise: "Người dùng không giới hạn, RBAC" },
+    { feature: "Giới Hạn Thực Thi", standard: "Hạn chế sử dụng", enterprise: "Thực thi không giới hạn" },
+    { feature: "Lưu Trữ Dữ Liệu", standard: "30 ngày", enterprise: "Lưu trữ không giới hạn" },
+    { feature: "Hỗ Trợ", standard: "Cộng đồng", enterprise: "Hỗ trợ chuyên dụng 24/7" },
+    { feature: "SLA", standard: "Cố gắng tốt nhất", enterprise: "Đảm bảo hoạt động 99.9%" },
+    { feature: "Tuân Thủ", standard: "Cơ bản", enterprise: "Sẵn sàng SOC2, GDPR, HIPAA" }
   ];
 
   const implementationPhases = [
     {
-      phase: "Discovery & Planning",
-      duration: "2 weeks",
-      description: "Requirements gathering, architecture design, security planning"
+      phase: "Khám Phá & Lập Kế Hoạch",
+      duration: "2 tuần",
+      description: "Thu thập yêu cầu, thiết kế kiến trúc, lập kế hoạch bảo mật"
     },
     {
-      phase: "Setup & Configuration", 
-      duration: "2 weeks",
-      description: "Infrastructure setup, security implementation, initial configuration"
+      phase: "Thiết Lập & Cấu Hình", 
+      duration: "2 tuần",
+      description: "Thiết lập hạ tầng, triển khai bảo mật, cấu hình ban đầu"
     },
     {
-      phase: "Migration & Testing",
-      duration: "3 weeks", 
-      description: "Legacy workflow migration, comprehensive testing, performance optimization"
+      phase: "Di Chuyển & Kiểm Thử",
+      duration: "3 tuần", 
+      description: "Di chuyển quy trình cũ, kiểm thử toàn diện, tối ưu hiệu suất"
     },
     {
-      phase: "Training & Go-live",
-      duration: "1 week",
-      description: "User training, documentation handover, production deployment"
+      phase: "Đào Tạo & Vận Hành",
+      duration: "1 tuần",
+      description: "Đào tạo người dùng, bàn giao tài liệu, triển khai sản xuất"
     }
   ];
 
   const pricingModels = [
     {
-      name: "Per User/Month",
+      name: "Theo Người Dùng/Tháng",
       price: "$50",
-      description: "Ideal cho teams với defined user count"
+      description: "Lý tưởng cho nhóm có số lượng người dùng xác định"
     },
     {
-      name: "Site License", 
-      price: "Fixed Price",
-      description: "Unlimited users, perfect cho large organizations"
+      name: "Giấy Phép Toàn Site", 
+      price: "Giá Cố Định",
+      description: "Người dùng không giới hạn, hoàn hảo cho tổ chức lớn"
     },
     {
-      name: "Usage-based",
-      price: "Per Execution",
-      description: "Pay theo actual workflow execution volume"
+      name: "Theo Mức Sử Dụng",
+      price: "Theo Lần Thực Thi",
+      description: "Thanh toán theo khối lượng thực thi quy trình thực tế"
     },
     {
-      name: "Custom Enterprise",
-      price: "Tailored",
-      description: "Flexible pricing dựa trên specific requirements"
+      name: "Doanh Nghiệp Tùy Chỉnh",
+      price: "Thiết Kế Riêng",
+      description: "Giá linh hoạt dựa trên yêu cầu cụ thể"
     }
   ];
 
   const securityFeatures = [
-    { name: "Data Encryption", description: "AES-256 encryption at rest và in transit" },
-    { name: "Access Controls", description: "SSO, MFA, role-based access control" },
-    { name: "Audit Logs", description: "Complete activity tracking và compliance reporting" },
-    { name: "Compliance", description: "SOC2 Type II, ISO 27001, HIPAA ready" },
-    { name: "Network Security", description: "VPN support, firewall rules, IP whitelisting" },
-    { name: "Data Residency", description: "Choose data storage location theo regulatory requirements" }
+    { name: "Mã Hóa Dữ Liệu", description: "Mã hóa AES-256 khi lưu trữ và truyền tải" },
+    { name: "Kiểm Soát Truy Cập", description: "SSO, MFA, kiểm soát truy cập theo vai trò" },
+    { name: "Nhật Ký Kiểm Toán", description: "Theo dõi hoạt động hoàn chỉnh và báo cáo tuân thủ" },
+    { name: "Tuân Thủ", description: "SOC2 Type II, ISO 27001, sẵn sàng HIPAA" },
+    { name: "Bảo Mật Mạng", description: "Hỗ trợ VPN, quy tắc tường lửa, danh sách IP trắng" },
+    { name: "Cư Trú Dữ Liệu", description: "Chọn vị trí lưu trữ dữ liệu theo yêu cầu quy định" }
   ];
 
   const roiResults = calculateROI();
@@ -211,14 +211,14 @@ const AutomationService = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
               <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
-                <span className="text-primary">N8N Enterprise Automation</span>
+                <span className="text-primary">Giải Pháp Tự Động Hóa</span>
                 <br />
-                <span className="text-foreground">Workflow Automation Cho Tổ Chức Lớn</span>
+                <span className="text-foreground">Quy Trình Làm Việc Cho Doanh Nghiệp</span>
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8">
-                800+ integrations, visual workflow builder, enterprise security. Giảm 90% manual tasks, 
-                tăng 60% productivity cho technical teams.
+                Hơn 800 tích hợp, trình tạo quy trình trực quan, bảo mật doanh nghiệp. Giảm 90% công việc thủ công, 
+                tăng 60% năng suất cho đội ngũ kỹ thuật.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -227,7 +227,7 @@ const AutomationService = () => {
                   className="shadow-glow"
                   onClick={() => window.location.href = '/contact'}
                 >
-                  Schedule Technical Demo
+                  Đặt Lịch Tư Vấn Kỹ Thuật
                   <PlayCircle className="ml-2 h-5 w-5" />
                 </Button>
                 <Button 
@@ -235,7 +235,7 @@ const AutomationService = () => {
                   size="lg"
                   onClick={() => window.location.href = '/contact'}
                 >
-                  Download Architecture Guide
+                  Tải Hướng Dẫn Kiến Trúc
                   <Download className="ml-2 h-5 w-5" />
                 </Button>
               </div>
@@ -243,15 +243,15 @@ const AutomationService = () => {
               <div className="grid grid-cols-3 gap-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary">800+</div>
-                  <div className="text-sm text-muted-foreground">Integrations</div>
+                  <div className="text-sm text-muted-foreground">Tích Hợp</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary">90%</div>
-                  <div className="text-sm text-muted-foreground">Tasks Automated</div>
+                  <div className="text-sm text-muted-foreground">Tác Vụ Tự Động</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary">24/7</div>
-                  <div className="text-sm text-muted-foreground">Operation</div>
+                  <div className="text-sm text-muted-foreground">Vận Hành</div>
                 </div>
               </div>
             </div>
@@ -259,34 +259,34 @@ const AutomationService = () => {
             <div className="animate-scale-in">
               <Card className="gradient-card p-6 shadow-2xl">
                 <div className="text-center mb-6">
-                  <h3 className="text-lg font-bold mb-2">N8N Enterprise Dashboard</h3>
-                  <div className="text-sm text-muted-foreground">Live workflow metrics</div>
+                  <h3 className="text-lg font-bold mb-2">Bảng Điều Khiển Tự Động Hóa</h3>
+                  <div className="text-sm text-muted-foreground">Số liệu quy trình thời gian thực</div>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="text-center p-3 rounded-lg bg-muted/50">
                     <div className="text-lg font-bold text-primary">98.5%</div>
-                    <div className="text-xs">Uptime</div>
+                    <div className="text-xs">Thời Gian Hoạt Động</div>
                   </div>
                   <div className="text-center p-3 rounded-lg bg-muted/50">
                     <div className="text-lg font-bold text-primary">60%</div>
-                    <div className="text-xs">Productivity Gain</div>
+                    <div className="text-xs">Tăng Năng Suất</div>
                   </div>
                   <div className="text-center p-3 rounded-lg bg-muted/50">
                     <div className="text-lg font-bold text-primary">90%</div>
-                    <div className="text-xs">Task Automation</div>
+                    <div className="text-xs">Tự Động Hóa</div>
                   </div>
                   <div className="text-center p-3 rounded-lg bg-muted/50">
                     <div className="text-lg font-bold text-primary">24/7</div>
-                    <div className="text-xs">Operation</div>
+                    <div className="text-xs">Vận Hành</div>
                   </div>
                 </div>
                 
                 <div className="h-32 rounded-lg bg-muted/30 flex items-center justify-center">
                   <div className="text-center text-sm text-muted-foreground">
-                    📊 Enterprise Workflow Dashboard
+                    📊 Bảng Điều Khiển Quy Trình Doanh Nghiệp
                     <br />
-                    Real-time automation monitoring
+                    Giám sát tự động hóa theo thời gian thực
                   </div>
                 </div>
               </Card>
@@ -427,9 +427,9 @@ const AutomationService = () => {
               <table className="w-full">
                 <thead className="bg-muted/50">
                   <tr>
-                    <th className="text-left p-4">Feature</th>
-                    <th className="text-left p-4 text-muted-foreground">Standard</th>
-                    <th className="text-left p-4 text-primary">Enterprise</th>
+                    <th className="text-left p-4">Tính Năng</th>
+                    <th className="text-left p-4 text-muted-foreground">Tiêu Chuẩn</th>
+                    <th className="text-left p-4 text-primary">Doanh Nghiệp</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -452,16 +452,16 @@ const AutomationService = () => {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             <Calculator className="inline-block mr-3 h-8 w-8 text-primary" />
-            ROI Calculator
+            Máy Tính ROI
           </h2>
           
           <Card className="gradient-card p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-bold mb-6">Input Your Data</h3>
+                <h3 className="text-xl font-bold mb-6">Nhập Dữ Liệu Của Bạn</h3>
                 <div className="space-y-4">
                   <div>
-                    <Label>Number of Employees</Label>
+                    <Label>Số Lượng Nhân Viên</Label>
                     <Input
                       type="number"
                       value={roiInputs.employees}
@@ -469,7 +469,7 @@ const AutomationService = () => {
                     />
                   </div>
                   <div>
-                    <Label>Average Hourly Cost ($)</Label>
+                    <Label>Chi Phí Trung Bình Mỗi Giờ ($)</Label>
                     <Input
                       type="number"
                       value={roiInputs.hourlyCost}
@@ -477,7 +477,7 @@ const AutomationService = () => {
                     />
                   </div>
                   <div>
-                    <Label>Hours Saved Per Week</Label>
+                    <Label>Số Giờ Tiết Kiệm Mỗi Tuần</Label>
                     <Input
                       type="number"
                       value={roiInputs.hoursPerWeek}
@@ -488,11 +488,11 @@ const AutomationService = () => {
               </div>
               
               <div>
-                <h3 className="text-xl font-bold mb-6">Projected Results</h3>
+                <h3 className="text-xl font-bold mb-6">Kết Quả Dự Kiến</h3>
                 <div className="space-y-6">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-primary">${roiResults.annualSavings}</div>
-                    <div className="text-muted-foreground">Annual Savings</div>
+                    <div className="text-muted-foreground">Tiết Kiệm Hàng Năm</div>
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-primary">{roiResults.roi}%</div>
@@ -500,7 +500,7 @@ const AutomationService = () => {
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-primary">{roiResults.paybackMonths}</div>
-                    <div className="text-muted-foreground">Payback (Months)</div>
+                    <div className="text-muted-foreground">Hoàn Vốn (Tháng)</div>
                   </div>
                 </div>
               </div>
@@ -513,7 +513,7 @@ const AutomationService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Implementation Process & <span className="text-primary">Support</span>
+            Quy Trình Triển Khai & <span className="text-primary">Hỗ Trợ</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -539,7 +539,7 @@ const AutomationService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Enterprise <span className="text-primary">Pricing Models</span>
+            Mô Hình Giá <span className="text-primary">Doanh Nghiệp</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -563,7 +563,7 @@ const AutomationService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Enterprise <span className="text-primary">Security</span> & Compliance
+            <span className="text-primary">Bảo Mật</span> & Tuân Thủ Doanh Nghiệp
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -592,23 +592,23 @@ const AutomationService = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold font-heading mb-6">
-                Xem <span className="text-primary">N8N Enterprise</span> Hoạt Động Với Data Thực Của Bạn
+                Xem <span className="text-primary">Giải Pháp Tự Động Hóa</span> Hoạt Động Với Dữ Liệu Thực Của Bạn
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Schedule technical demo với enterprise architects. Free POC setup cho qualified leads.
+                Đặt lịch tư vấn kỹ thuật với kiến trúc sư doanh nghiệp. Thiết lập POC miễn phí cho khách hàng tiềm năng phù hợp.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-primary mr-3" />
-                  <span>Free POC setup cho qualified leads</span>
+                  <span>Thiết lập POC miễn phí cho khách hàng tiềm năng phù hợp</span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-primary mr-3" />
-                  <span>Technical consultation included</span>
+                  <span>Bao gồm tư vấn kỹ thuật</span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-primary mr-3" />
-                  <span>Enterprise architecture review</span>
+                  <span>Đánh giá kiến trúc doanh nghiệp</span>
                 </div>
               </div>
             </div>
@@ -619,7 +619,7 @@ const AutomationService = () => {
                 className="shadow-glow"
                 onClick={() => window.location.href = '/contact'}
               >
-                Schedule Technical Demo
+                Đặt Lịch Tư Vấn Kỹ Thuật
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
