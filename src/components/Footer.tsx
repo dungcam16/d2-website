@@ -48,15 +48,19 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 mr-2 text-primary" />
-                Thành phố Hồ Chí Minh, Việt Nam
+                3603788837
+              </div>
+              <div className="flex items-center text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4 mr-2 text-primary" />
+                Số 3, Nguyễn Cơ Thạch, Phường An Khánh, Thành phố Hồ Chí Minh, Việt Nam
               </div>
               <div className="flex items-center text-sm text-muted-foreground">
                 <Phone className="h-4 w-4 mr-2 text-primary" />
-                +84 xxx xxx xxx
+                +84 977 027 634
               </div>
               <div className="flex items-center text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 mr-2 text-primary" />
-                hello@d2group.vn
+                info@d2group.co
               </div>
             </div>
           </div>
