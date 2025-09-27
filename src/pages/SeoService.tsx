@@ -924,12 +924,12 @@ const SeoService = () => {
                   </Button>
                 </div>
                 
-                <div className="mt-4 text-sm text-muted-foreground text-center">
-                  ✓ Completely free ✓ No commitment ✓ 24-hour delivery ✓ 50+ checkpoints
-                </div>
-              </div>
-            </div>
-          </Card>
+            <ContactForm 
+              service="seo"
+              title="Nhận SEO Audit Miễn Phí"
+              description="Chia sẻ thông tin website và chúng tôi sẽ audit SEO toàn diện cho bạn trong 24h."
+            />
+          </div>
         </div>
       </section>
 

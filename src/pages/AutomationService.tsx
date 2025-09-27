@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { 
-  Server, Shield, Users, Database, GitBranch, Workflow, 
-  CheckCircle, ArrowRight, Download, Play, Calculator,
-  Zap, Settings, Clock, TrendingUp, Lock, Globe,
-  Code, Monitor, BarChart3, Target, CreditCard
+  ArrowRight, Search, TrendingUp, Target, Shield, CheckCircle, Star, BarChart3, Zap, Globe,
+  Award, Clock, Users, Monitor, Database, Settings, Link, FileText, AlertTriangle,
+  Smartphone, Gauge, MapPin, Brain, Eye, Filter, Download, Lightbulb, Trophy,
+  Building, ShoppingCart, Heart, Code, Home, Briefcase, PlayCircle, Calculator
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import ContactForm from '@/components/ContactForm';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -201,67 +202,96 @@ const AutomationService = () => {
   const roiResults = calculateROI();
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#1a1a1a', color: '#f8fafc' }}>
+    <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8" style={{ background: 'linear-gradient(135deg, #1a1a1a 0%, #2d1b69 100%)' }}>
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="animate-slide-up">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-              N8N Enterprise Automation
-              <br />
-              <span style={{ color: '#6366f1' }}>Workflow Automation Cho Tổ Chức Lớn</span>
-            </h1>
-            
-            <p className="text-xl text-gray-300 mb-8 max-w-4xl mx-auto">
-              800+ integrations, visual workflow builder, enterprise security. Giảm 90% manual tasks, 
-              tăng 60% productivity cho technical teams.
-            </p>
+      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="animate-slide-up">
+              <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
+                <span className="text-primary">N8N Enterprise Automation</span>
+                <br />
+                <span className="text-foreground">Workflow Automation Cho Tổ Chức Lớn</span>
+              </h1>
+              
+              <p className="text-xl text-muted-foreground mb-8">
+                800+ integrations, visual workflow builder, enterprise security. Giảm 90% manual tasks, 
+                tăng 60% productivity cho technical teams.
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button 
-                size="lg" 
-                style={{ backgroundColor: '#6366f1', color: 'white' }}
-                className="hover:opacity-90"
-              >
-                Schedule Technical Demo
-                <Play className="ml-2 h-5 w-5" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                style={{ borderColor: '#6366f1', color: '#6366f1' }}
-                className="hover:bg-blue-600/10"
-              >
-                Download Architecture Guide
-                <Download className="ml-2 h-5 w-5" />
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <Button size="lg" className="shadow-glow">
+                  Schedule Technical Demo
+                  <PlayCircle className="ml-2 h-5 w-5" />
+                </Button>
+                <Button variant="outline" size="lg">
+                  Download Architecture Guide
+                  <Download className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+
+              <div className="grid grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">800+</div>
+                  <div className="text-sm text-muted-foreground">Integrations</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">90%</div>
+                  <div className="text-sm text-muted-foreground">Tasks Automated</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">24/7</div>
+                  <div className="text-sm text-muted-foreground">Operation</div>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl font-bold" style={{ color: '#10b981' }}>800+</div>
-                <div className="text-sm text-gray-400">Integrations</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold" style={{ color: '#f97316' }}>90%</div>
-                <div className="text-sm text-gray-400">Tasks Automated</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold" style={{ color: '#6366f1' }}>24/7</div>
-                <div className="text-sm text-gray-400">Operation</div>
-              </div>
+            <div className="animate-scale-in">
+              <Card className="gradient-card p-6 shadow-2xl">
+                <div className="text-center mb-6">
+                  <h3 className="text-lg font-bold mb-2">N8N Enterprise Dashboard</h3>
+                  <div className="text-sm text-muted-foreground">Live workflow metrics</div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="text-center p-3 rounded-lg bg-muted/50">
+                    <div className="text-lg font-bold text-primary">98.5%</div>
+                    <div className="text-xs">Uptime</div>
+                  </div>
+                  <div className="text-center p-3 rounded-lg bg-muted/50">
+                    <div className="text-lg font-bold text-primary">60%</div>
+                    <div className="text-xs">Productivity Gain</div>
+                  </div>
+                  <div className="text-center p-3 rounded-lg bg-muted/50">
+                    <div className="text-lg font-bold text-primary">90%</div>
+                    <div className="text-xs">Task Automation</div>
+                  </div>
+                  <div className="text-center p-3 rounded-lg bg-muted/50">
+                    <div className="text-lg font-bold text-primary">24/7</div>
+                    <div className="text-xs">Operation</div>
+                  </div>
+                </div>
+                
+                <div className="h-32 rounded-lg bg-muted/30 flex items-center justify-center">
+                  <div className="text-center text-sm text-muted-foreground">
+                    📊 Enterprise Workflow Dashboard
+                    <br />
+                    Real-time automation monitoring
+                  </div>
+                </div>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
       {/* Enterprise Challenges */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#262626' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">
-            Challenges Mà <span style={{ color: '#f97316' }}>Enterprise</span> Đang Gặp Phải
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Challenges Mà <span className="text-primary">Enterprise</span> Đang Gặp Phải
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -270,16 +300,16 @@ const AutomationService = () => {
               return (
                 <Card 
                   key={index}
-                  className="p-6 animate-scale-in border-gray-700"
-                  style={{ backgroundColor: '#1a1a1a', borderColor: '#374151', animationDelay: `${index * 0.1}s` }}
+                  className="gradient-card p-6 animate-scale-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start space-x-4">
-                    <div style={{ color: '#f97316' }}>
+                    <div className="text-primary">
                       <IconComponent className="h-8 w-8" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2 text-white">{challenge.title}</h3>
-                      <p className="text-gray-400 text-sm">{challenge.description}</p>
+                      <h3 className="text-lg font-semibold mb-2">{challenge.title}</h3>
+                      <p className="text-muted-foreground text-sm">{challenge.description}</p>
                     </div>
                   </div>
                 </Card>
@@ -292,8 +322,8 @@ const AutomationService = () => {
       {/* N8N Enterprise Solutions */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">
-            Tại Sao <span style={{ color: '#6366f1' }}>N8N</span> Là Lựa Chọn #1 Cho Enterprise?
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Tại Sao <span className="text-primary">N8N</span> Là Lựa Chọn #1 Cho Enterprise?
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -302,15 +332,15 @@ const AutomationService = () => {
               return (
                 <Card 
                   key={index}
-                  className="p-6 hover:shadow-lg transition-all duration-300 animate-scale-in border-gray-700"
-                  style={{ backgroundColor: '#262626', borderColor: '#374151', animationDelay: `${index * 0.1}s` }}
+                  className="gradient-card p-6 hover:shadow-elevation transition-all duration-300 animate-scale-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="text-center">
-                    <div className="mb-4" style={{ color: '#10b981' }}>
-                      <IconComponent className="h-12 w-12 mx-auto" />
+                    <div className="mb-4">
+                      <IconComponent className="h-12 w-12 mx-auto text-primary" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-white">{solution.title}</h3>
-                    <p className="text-gray-400">{solution.description}</p>
+                    <h3 className="text-xl font-bold mb-4">{solution.title}</h3>
+                    <p className="text-muted-foreground">{solution.description}</p>
                   </div>
                 </Card>
               );
@@ -320,25 +350,25 @@ const AutomationService = () => {
       </section>
 
       {/* Use Cases by Department */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#262626' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">
-            Automation Use Cases Theo <span style={{ color: '#6366f1' }}>Từng Department</span>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Automation Use Cases Theo <span className="text-primary">Từng Department</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {departments.map((dept, index) => (
               <Card 
                 key={index}
-                className="p-6 animate-scale-in border-gray-700"
-                style={{ backgroundColor: '#1a1a1a', borderColor: '#374151', animationDelay: `${index * 0.1}s` }}
+                className="gradient-card p-6 animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#6366f1' }}>{dept.name}</h3>
+                <h3 className="text-xl font-bold mb-4 text-primary">{dept.name}</h3>
                 <ul className="space-y-2">
                   {dept.useCases.map((useCase, ucIndex) => (
                     <li key={ucIndex} className="flex items-center text-sm">
-                      <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0" style={{ color: '#10b981' }} />
-                      <span className="text-gray-300">{useCase}</span>
+                      <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0 text-primary" />
+                      <span>{useCase}</span>
                     </li>
                   ))}
                 </ul>
@@ -351,23 +381,23 @@ const AutomationService = () => {
       {/* Integration Ecosystem */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">
-            Kết Nối Với <span style={{ color: '#10b981' }}>Hệ Sinh Thái Công Nghệ</span> Của Bạn
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Kết Nối Với <span className="text-primary">Hệ Sinh Thái Công Nghệ</span> Của Bạn
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {integrationCategories.map((category, index) => (
               <Card 
                 key={index}
-                className="p-6 animate-scale-in border-gray-700"
-                style={{ backgroundColor: '#262626', borderColor: '#374151', animationDelay: `${index * 0.1}s` }}
+                className="gradient-card p-6 animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#f97316' }}>{category.name}</h3>
+                <h3 className="text-xl font-bold mb-4 text-primary">{category.name}</h3>
                 <div className="space-y-2">
                   {category.tools.map((tool, toolIndex) => (
                     <div key={toolIndex} className="flex items-center">
-                      <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#10b981' }} />
-                      <span className="text-gray-300 text-sm">{tool}</span>
+                      <CheckCircle className="h-4 w-4 mr-2 text-primary" />
+                      <span className="text-sm">{tool}</span>
                     </div>
                   ))}
                 </div>
@@ -378,28 +408,28 @@ const AutomationService = () => {
       </section>
 
       {/* Enterprise Features Comparison */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#262626' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">
-            Tính Năng Dành Riêng Cho <span style={{ color: '#6366f1' }}>Enterprise</span>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Tính Năng Dành Riêng Cho <span className="text-primary">Enterprise</span>
           </h2>
           
-          <Card className="overflow-hidden border-gray-700" style={{ backgroundColor: '#1a1a1a', borderColor: '#374151' }}>
+          <Card className="gradient-card overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead style={{ backgroundColor: '#262626' }}>
+                <thead className="bg-muted/50">
                   <tr>
-                    <th className="text-left p-4 text-white">Feature</th>
-                    <th className="text-left p-4 text-gray-400">Standard</th>
-                    <th className="text-left p-4" style={{ color: '#6366f1' }}>Enterprise</th>
+                    <th className="text-left p-4">Feature</th>
+                    <th className="text-left p-4 text-muted-foreground">Standard</th>
+                    <th className="text-left p-4 text-primary">Enterprise</th>
                   </tr>
                 </thead>
                 <tbody>
                   {enterpriseFeatures.map((item, index) => (
-                    <tr key={index} className="border-t border-gray-700">
-                      <td className="p-4 text-white font-medium">{item.feature}</td>
-                      <td className="p-4 text-gray-400">{item.standard}</td>
-                      <td className="p-4 text-green-400">{item.enterprise}</td>
+                    <tr key={index} className="border-t border-border">
+                      <td className="p-4 font-medium">{item.feature}</td>
+                      <td className="p-4 text-muted-foreground">{item.standard}</td>
+                      <td className="p-4 text-primary font-medium">{item.enterprise}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -412,60 +442,57 @@ const AutomationService = () => {
       {/* ROI Calculator */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">
-            <Calculator className="inline-block mr-3 h-8 w-8" style={{ color: '#10b981' }} />
+          <h2 className="text-3xl font-bold text-center mb-12">
+            <Calculator className="inline-block mr-3 h-8 w-8 text-primary" />
             ROI Calculator
           </h2>
           
-          <Card className="p-8 border-gray-700" style={{ backgroundColor: '#262626', borderColor: '#374151' }}>
+          <Card className="gradient-card p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-bold mb-6 text-white">Input Your Data</h3>
+                <h3 className="text-xl font-bold mb-6">Input Your Data</h3>
                 <div className="space-y-4">
                   <div>
-                    <Label className="text-gray-300">Number of Employees</Label>
+                    <Label>Number of Employees</Label>
                     <Input
                       type="number"
                       value={roiInputs.employees}
                       onChange={(e) => setRoiInputs({...roiInputs, employees: parseInt(e.target.value) || 0})}
-                      className="bg-gray-800 border-gray-600 text-white"
                     />
                   </div>
                   <div>
-                    <Label className="text-gray-300">Average Hourly Cost ($)</Label>
+                    <Label>Average Hourly Cost ($)</Label>
                     <Input
                       type="number"
                       value={roiInputs.hourlyCost}
                       onChange={(e) => setRoiInputs({...roiInputs, hourlyCost: parseInt(e.target.value) || 0})}
-                      className="bg-gray-800 border-gray-600 text-white"
                     />
                   </div>
                   <div>
-                    <Label className="text-gray-300">Hours Saved Per Week</Label>
+                    <Label>Hours Saved Per Week</Label>
                     <Input
                       type="number"
                       value={roiInputs.hoursPerWeek}
                       onChange={(e) => setRoiInputs({...roiInputs, hoursPerWeek: parseInt(e.target.value) || 0})}
-                      className="bg-gray-800 border-gray-600 text-white"
                     />
                   </div>
                 </div>
               </div>
               
               <div>
-                <h3 className="text-xl font-bold mb-6 text-white">Projected Results</h3>
+                <h3 className="text-xl font-bold mb-6">Projected Results</h3>
                 <div className="space-y-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold" style={{ color: '#10b981' }}>${roiResults.annualSavings}</div>
-                    <div className="text-gray-400">Annual Savings</div>
+                    <div className="text-3xl font-bold text-primary">${roiResults.annualSavings}</div>
+                    <div className="text-muted-foreground">Annual Savings</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold" style={{ color: '#6366f1' }}>{roiResults.roi}%</div>
-                    <div className="text-gray-400">ROI</div>
+                    <div className="text-3xl font-bold text-primary">{roiResults.roi}%</div>
+                    <div className="text-muted-foreground">ROI</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold" style={{ color: '#f97316' }}>{roiResults.paybackMonths}</div>
-                    <div className="text-gray-400">Payback (Months)</div>
+                    <div className="text-3xl font-bold text-primary">{roiResults.paybackMonths}</div>
+                    <div className="text-muted-foreground">Payback (Months)</div>
                   </div>
                 </div>
               </div>
@@ -475,25 +502,25 @@ const AutomationService = () => {
       </section>
 
       {/* Implementation Process */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#262626' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">
-            Implementation Process & <span style={{ color: '#10b981' }}>Support</span>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Implementation Process & <span className="text-primary">Support</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {implementationPhases.map((phase, index) => (
               <Card 
                 key={index}
-                className="p-6 text-center animate-scale-in border-gray-700"
-                style={{ backgroundColor: '#1a1a1a', borderColor: '#374151', animationDelay: `${index * 0.2}s` }}
+                className="gradient-card p-6 text-center animate-scale-in"
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="text-3xl font-bold mb-4" style={{ color: '#6366f1' }}>
+                <div className="text-3xl font-bold mb-4 text-primary">
                   {String(index + 1).padStart(2, '0')}
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-white">{phase.phase}</h3>
-                <div className="text-sm mb-3" style={{ color: '#f97316' }}>{phase.duration}</div>
-                <p className="text-gray-400 text-sm">{phase.description}</p>
+                <h3 className="text-lg font-semibold mb-2">{phase.phase}</h3>
+                <div className="text-sm mb-3 text-primary">{phase.duration}</div>
+                <p className="text-muted-foreground text-sm">{phase.description}</p>
               </Card>
             ))}
           </div>
@@ -503,21 +530,21 @@ const AutomationService = () => {
       {/* Pricing Models */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">
-            Enterprise <span style={{ color: '#10b981' }}>Pricing Models</span>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Enterprise <span className="text-primary">Pricing Models</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {pricingModels.map((model, index) => (
               <Card 
                 key={index}
-                className="p-6 text-center animate-scale-in border-gray-700"
-                style={{ backgroundColor: '#262626', borderColor: '#374151', animationDelay: `${index * 0.1}s` }}
+                className="gradient-card p-6 text-center animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CreditCard className="h-8 w-8 mx-auto mb-4" style={{ color: '#6366f1' }} />
-                <h3 className="text-xl font-bold mb-2 text-white">{model.name}</h3>
-                <div className="text-2xl font-bold mb-4" style={{ color: '#10b981' }}>{model.price}</div>
-                <p className="text-gray-400 text-sm">{model.description}</p>
+                <Target className="h-8 w-8 mx-auto mb-4 text-primary" />
+                <h3 className="text-xl font-bold mb-2">{model.name}</h3>
+                <div className="text-2xl font-bold mb-4 text-primary">{model.price}</div>
+                <p className="text-muted-foreground text-sm">{model.description}</p>
               </Card>
             ))}
           </div>
@@ -525,24 +552,24 @@ const AutomationService = () => {
       </section>
 
       {/* Security & Compliance */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#262626' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">
-            Enterprise <span style={{ color: '#f97316' }}>Security</span> & Compliance
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Enterprise <span className="text-primary">Security</span> & Compliance
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {securityFeatures.map((feature, index) => (
               <Card 
                 key={index}
-                className="p-6 animate-scale-in border-gray-700"
-                style={{ backgroundColor: '#1a1a1a', borderColor: '#374151', animationDelay: `${index * 0.1}s` }}
+                className="gradient-card p-6 animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start space-x-4">
-                  <Shield className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#f97316' }} />
+                  <Shield className="h-6 w-6 mt-1 flex-shrink-0 text-primary" />
                   <div>
-                    <h3 className="text-lg font-semibold mb-2 text-white">{feature.name}</h3>
-                    <p className="text-gray-400 text-sm">{feature.description}</p>
+                    <h3 className="text-lg font-semibold mb-2">{feature.name}</h3>
+                    <p className="text-muted-foreground text-sm">{feature.description}</p>
                   </div>
                 </div>
               </Card>
@@ -553,52 +580,37 @@ const AutomationService = () => {
 
       {/* Technical Demo CTA */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <Card className="p-8 border-gray-700" style={{ background: 'linear-gradient(135deg, #2d1b69 0%, #1a1a1a 100%)', borderColor: '#374151' }}>
-            <h2 className="text-3xl font-bold mb-4 text-white">
-              Xem <span style={{ color: '#6366f1' }}>N8N Enterprise</span> Hoạt Động Với Data Thực Của Bạn
-            </h2>
-            <p className="text-gray-300 mb-8">
-              Schedule technical demo với enterprise architects. Free POC setup cho qualified leads.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div>
-                <Input placeholder="Company Name" className="bg-gray-800 border-gray-600 text-white mb-3" />
-                <Input placeholder="Your Role" className="bg-gray-800 border-gray-600 text-white mb-3" />
-                <Input placeholder="Primary Use Case" className="bg-gray-800 border-gray-600 text-white" />
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold font-heading mb-6">
+                Xem <span className="text-primary">N8N Enterprise</span> Hoạt Động Với Data Thực Của Bạn
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                Schedule technical demo với enterprise architects. Free POC setup cho qualified leads.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-3" />
+                  <span>Free POC setup cho qualified leads</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-3" />
+                  <span>Technical consultation included</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-3" />
+                  <span>Enterprise architecture review</span>
+                </div>
               </div>
-              <div>
-                <Input placeholder="Current Tools" className="bg-gray-800 border-gray-600 text-white mb-3" />
-                <Input placeholder="Team Size" className="bg-gray-800 border-gray-600 text-white mb-3" />
-                <Input placeholder="Email" className="bg-gray-800 border-gray-600 text-white" />
-              </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                style={{ backgroundColor: '#6366f1', color: 'white' }}
-                className="hover:opacity-90"
-                onClick={() => window.location.href = '/contact'}
-              >
-                Schedule Technical Demo
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                style={{ borderColor: '#10b981', color: '#10b981' }}
-                className="hover:bg-green-600/10"
-              >
-                Request Free POC
-              </Button>
-            </div>
-            
-            <div className="mt-6 text-sm text-gray-400">
-              ✓ Free POC setup cho qualified leads ✓ Technical consultation included
-            </div>
-          </Card>
+            <ContactForm 
+              service="automation"
+              title="Schedule Technical Demo"
+              description="Chia sẻ requirements và chúng tôi sẽ tạo demo N8N phù hợp với enterprise architecture của bạn."
+            />
+          </div>
         </div>
       </section>
 
