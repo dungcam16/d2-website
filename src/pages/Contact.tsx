@@ -304,7 +304,7 @@ const Contact = () => {
                     Đội ngũ chuyên gia của chúng tôi luôn sẵn sàng hỗ trợ bạn trong mọi thắc mắc về dịch vụ.
                   </p>
                   <p className="text-primary font-semibold">
-                    Phản hồi trong vòng 2 giờ
+                    Phản hồi trong vòng 1 giờ
                   </p>
                 </Card>
               </div>
