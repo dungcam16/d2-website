@@ -24,172 +24,172 @@ const SeoService = () => {
   const guaranteeDetails = [
     {
       icon: Trophy,
-      title: "Top 3 Results",
+      title: "Kết Quả Top 3",
       description: "Từ khóa chính trong top 3 Google VN",
-      guarantee: "Rank 1-3 position"
+      guarantee: "Vị trí 1-3"
     },
     {
       icon: Clock,
-      title: "6 Month Timeline",
+      title: "Thời Gian 6 Tháng",
       description: "Kết quả rõ ràng trong 6 tháng",
-      guarantee: "Fixed timeline"
+      guarantee: "Thời gian cố định"
     },
     {
       icon: Shield,
-      title: "Money-back Guarantee",
-      description: "100% refund if không đạt",
-      guarantee: "Full refund"
+      title: "Đảm Bảo Hoàn Tiền",
+      description: "100% hoàn tiền nếu không đạt",
+      guarantee: "Hoàn tiền đầy đủ"
     },
     {
       icon: TrendingUp,
-      title: "Traffic Growth",
-      description: "Minimum 200% tăng organic traffic",
-      guarantee: "Measurable results"
+      title: "Tăng Trưởng Lưu Lượng",
+      description: "Tối thiểu 200% tăng lưu lượng tự nhiên",
+      guarantee: "Kết quả đo được"
     },
     {
       icon: Target,
-      title: "Lead Quality",
-      description: "Qualified traffic, not just numbers",
-      guarantee: "Quality focused"
+      title: "Chất Lượng Khách Hàng Tiềm Năng",
+      description: "Lưu lượng chất lượng, không chỉ là con số",
+      guarantee: "Tập trung chất lượng"
     }
   ];
 
   const vietnamExpertise = [
     {
       icon: Globe,
-      title: "Vietnamese Language SEO",
-      description: "Tối ưu tiếng Việt native với hiểu biết sâu về ngữ cảnh và search behavior"
+      title: "SEO Tiếng Việt",
+      description: "Tối ưu tiếng Việt bản địa với hiểu biết sâu về ngữ cảnh và hành vi tìm kiếm"
     },
     {
       icon: MapPin,
-      title: "Local Search Optimization",
-      description: "Google My Business, local citations, và geo-targeting cho market Việt Nam"
+      title: "Tối Ưu Tìm Kiếm Địa Phương",
+      description: "Google My Business, trích dẫn địa phương, và định vị địa lý cho thị trường Việt Nam"
     },
     {
       icon: Users,
-      title: "Vietnam Market Understanding",
-      description: "Consumer behavior, search patterns và preferences của người Việt"
+      title: "Hiểu Biết Thị Trường Việt Nam",
+      description: "Hành vi người tiêu dùng, mô hình tìm kiếm và sở thích của người Việt"
     },
     {
       icon: Eye,
-      title: "Competitor Landscape",
-      description: "Deep knowledge về competitors VN và strategies đang thành công"
+      title: "Bối Cảnh Đối Thủ",
+      description: "Kiến thức sâu về đối thủ VN và chiến lược đang thành công"
     },
     {
       icon: Brain,
-      title: "Google VN Algorithm",
-      description: "Updates và changes specific cho VN market, local ranking factors"
+      title: "Thuật Toán Google VN",
+      description: "Cập nhật và thay đổi cụ thể cho thị trường VN, yếu tố xếp hạng địa phương"
     }
   ];
 
   const seoServices = [
     {
       icon: Settings,
-      title: "Technical SEO",
-      description: "Site speed, mobile, Core Web Vitals, indexing",
-      details: ["Page speed optimization", "Mobile-first indexing", "Core Web Vitals", "Crawl optimization"]
+      title: "SEO Kỹ Thuật",
+      description: "Tốc độ site, mobile, Core Web Vitals, lập chỉ mục",
+      details: ["Tối ưu tốc độ trang", "Lập chỉ mục mobile-first", "Core Web Vitals", "Tối ưu crawl"]
     },
     {
       icon: FileText,
-      title: "On-Page Optimization",
-      description: "Content optimization, internal linking",
-      details: ["Title & meta optimization", "Header structure", "Internal linking", "Content optimization"]
+      title: "Tối Ưu On-Page",
+      description: "Tối ưu nội dung, liên kết nội bộ",
+      details: ["Tối ưu title & meta", "Cấu trúc header", "Liên kết nội bộ", "Tối ưu nội dung"]
     },
     {
       icon: Link,
-      title: "Off-Page SEO",
-      description: "Link building, citations, brand mentions",
-      details: ["High-quality backlinks", "Local citations", "Brand mentions", "Authority building"]
+      title: "SEO Off-Page",
+      description: "Xây dựng liên kết, trích dẫn, đề cập thương hiệu",
+      details: ["Backlink chất lượng cao", "Trích dẫn địa phương", "Đề cập thương hiệu", "Xây dựng uy tín"]
     },
     {
       icon: MapPin,
-      title: "Local SEO",
-      description: "GMB optimization, local directories",
-      details: ["Google My Business", "Local citations", "Review management", "Local content"]
+      title: "SEO Địa Phương",
+      description: "Tối ưu GMB, thư mục địa phương",
+      details: ["Google My Business", "Trích dẫn địa phương", "Quản lý đánh giá", "Nội dung địa phương"]
     },
     {
       icon: Search,
-      title: "Content SEO",
-      description: "Keyword strategy, topic clusters, content gaps",
-      details: ["Keyword research", "Content strategy", "Topic clusters", "Content gaps"]
+      title: "SEO Nội Dung",
+      description: "Chiến lược từ khóa, cụm chủ đề, khoảng trống nội dung",
+      details: ["Nghiên cứu từ khóa", "Chiến lược nội dung", "Cụm chủ đề", "Khoảng trống nội dung"]
     },
     {
       icon: BarChart3,
-      title: "SEO Analytics",
-      description: "Performance tracking, competitor monitoring",
-      details: ["Rank tracking", "Traffic analysis", "Competitor monitoring", "ROI reporting"]
+      title: "Phân Tích SEO",
+      description: "Theo dõi hiệu suất, giám sát đối thủ",
+      details: ["Theo dõi xếp hạng", "Phân tích lưu lượng", "Giám sát đối thủ", "Báo cáo ROI"]
     }
   ];
 
   const technicalChecklist = [
     {
       icon: Gauge,
-      title: "Site Speed Optimization",
-      description: "<3s loading time guaranteed",
-      metric: "Core Web Vitals Score: 90+"
+      title: "Tối Ưu Tốc Độ Site",
+      description: "Đảm bảo thời gian tải <3s",
+      metric: "Điểm Core Web Vitals: 90+"
     },
     {
       icon: Smartphone,
-      title: "Mobile-First Indexing",
-      description: "Perfect mobile experience",
-      metric: "Mobile-Friendly Score: 100%"
+      title: "Lập Chỉ Mục Mobile-First",
+      description: "Trải nghiệm mobile hoàn hảo",
+      metric: "Điểm thân thiện mobile: 100%"
     },
     {
       icon: Monitor,
       title: "Core Web Vitals",
-      description: "LCP, FID, CLS optimization",
-      metric: "All metrics in green zone"
+      description: "Tối ưu LCP, FID, CLS",
+      metric: "Tất cả chỉ số trong vùng xanh"
     },
     {
       icon: Code,
       title: "Schema Markup",
-      description: "Rich snippets implementation",
-      metric: "Structured data coverage: 95%"
+      description: "Triển khai rich snippets",
+      metric: "Phủ sóng dữ liệu có cấu trúc: 95%"
     },
     {
       icon: Database,
-      title: "XML Sitemaps",
-      description: "Proper indexing structure",
-      metric: "100% pages indexed"
+      title: "Sơ Đồ Site XML",
+      description: "Cấu trúc lập chỉ mục phù hợp",
+      metric: "100% trang được lập chỉ mục"
     },
     {
       icon: Shield,
-      title: "SSL & Security",
-      description: "HTTPS, security headers",
-      metric: "Security score: A+"
+      title: "SSL & Bảo Mật",
+      description: "HTTPS, header bảo mật",
+      metric: "Điểm bảo mật: A+"
     }
   ];
 
   const linkBuildingStrategy = [
     {
-      title: "High-Authority Domains",
-      description: "DA 70+ websites với traffic cao",
-      metric: "Average DA: 75+"
+      title: "Tên Miền Uy Tín Cao",
+      description: "Website DA 70+ với lưu lượng cao",
+      metric: "DA trung bình: 75+"
     },
     {
-      title: "Relevant Niche",
-      description: "Industry-specific backlinks từ sites liên quan",
-      metric: "Niche relevance: 95%"
+      title: "Thích Hợp Ngành",
+      description: "Backlink cụ thể ngành từ site liên quan",
+      metric: "Liên quan ngành: 95%"
     },
     {
-      title: "Content-Based Links",
-      description: "Guest posts, resource pages, content partnerships",
-      metric: "Editorial links: 80%"
+      title: "Liên Kết Dựa Nội Dung",
+      description: "Bài viết khách, trang tài nguyên, đối tác nội dung",
+      metric: "Liên kết biên tập: 80%"
     },
     {
-      title: "Local Citations",
-      description: "Vietnamese business directories và local platforms",
-      metric: "Local citations: 50+"
+      title: "Trích Dẫn Địa Phương",
+      description: "Thư mục doanh nghiệp Việt Nam và nền tảng địa phương",
+      metric: "Trích dẫn địa phương: 50+"
     },
     {
-      title: "Brand Mentions",
-      description: "Convert unlinked mentions thành backlinks",
-      metric: "Mention conversion: 60%"
+      title: "Đề Cập Thương Hiệu",
+      description: "Chuyển đổi đề cập không liên kết thành backlink",
+      metric: "Chuyển đổi đề cập: 60%"
     },
     {
-      title: "Competitor Analysis",
-      description: "Reverse engineer competitor link strategies",
-      metric: "Gap coverage: 85%"
+      title: "Phân Tích Đối Thủ",
+      description: "Kỹ thuật đảo ngược chiến lược liên kết đối thủ",
+      metric: "Phủ sóng khoảng trống: 85%"
     }
   ];
 
@@ -273,29 +273,29 @@ const SeoService = () => {
 
   const seoTools = [
     {
-      category: "Research",
+      category: "Nghiên Cứu",
       tools: ["SEMrush Enterprise", "Ahrefs", "Screaming Frog"],
-      color: "#16a34a"
+      color: "text-foreground"
     },
     {
-      category: "Analytics",
+      category: "Phân Tích",
       tools: ["Google Analytics 4", "Search Console", "Data Studio"],
-      color: "#2563eb"
+      color: "text-foreground"
     },
     {
-      category: "Technical",
+      category: "Kỹ Thuật",
       tools: ["PageSpeed Insights", "GTmetrix", "Lighthouse"],
-      color: "#f59e0b"
+      color: "text-foreground"
     },
     {
-      category: "Monitoring",
-      tools: ["Rank tracking", "SERP monitoring", "Alert systems"],
-      color: "#16a34a"
+      category: "Giám Sát",
+      tools: ["Theo dõi xếp hạng", "Giám sát SERP", "Hệ thống cảnh báo"],
+      color: "text-foreground"
     },
     {
-      category: "Reporting",
-      tools: ["Custom dashboards", "Automated reports", "ROI tracking"],
-      color: "#2563eb"
+      category: "Báo Cáo",
+      tools: ["Bảng điều khiển tùy chỉnh", "Báo cáo tự động", "Theo dõi ROI"],
+      color: "text-foreground"
     }
   ];
 
@@ -441,8 +441,8 @@ const SeoService = () => {
             <div className="animate-scale-in">
               <Card className="p-6 shadow-2xl">
                 <div className="text-center mb-6">
-                  <h3 className="text-lg font-bold mb-2">Live Search Results</h3>
-                  <div className="text-sm text-muted-foreground">Client websites ranking</div>
+                  <h3 className="text-lg font-bold mb-2">Kết Quả Tìm Kiếm Trực Tiếp</h3>
+                  <div className="text-sm text-muted-foreground">Website khách hàng đang xếp hạng</div>
                 </div>
                 
                 <div className="space-y-4">
@@ -451,14 +451,14 @@ const SeoService = () => {
                     { site: "saas-platform.vn", position: "#2", traffic: "↗ 750%" },
                     { site: "local-business.com", position: "#3", traffic: "↗ 300%" }
                   ].map((result, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: '#f8fafc' }}>
+                    <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted">
                       <div>
                         <div className="font-medium text-sm">{result.site}</div>
-                        <div className="text-xs text-muted-foreground">Google Search Result</div>
+                        <div className="text-xs text-muted-foreground">Kết Quả Tìm Kiếm Google</div>
                       </div>
                       <div className="text-right">
-                        <div className="font-bold" style={{ color: '#16a34a' }}>{result.position}</div>
-                        <div className="text-xs" style={{ color: '#2563eb' }}>{result.traffic}</div>
+                        <div className="font-bold text-primary">{result.position}</div>
+                        <div className="text-xs text-foreground">{result.traffic}</div>
                       </div>
                     </div>
                   ))}
@@ -470,7 +470,7 @@ const SeoService = () => {
       </section>
 
       {/* SEO Guarantee Details */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             Cam Kết Kết Quả Rõ Ràng - <span className="text-primary">Không Lời Hứa Suông</span>
@@ -811,24 +811,28 @@ const SeoService = () => {
                 
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium">Before:</span>
+                    <span className="text-sm font-medium">Trước:</span>
                     <span className="text-sm text-red-600">{result.before}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium">After:</span>
-                    <span className="text-sm" style={{ color: '#16a34a' }}>{result.after}</span>
+                    <span className="text-sm font-medium">Sau:</span>
+                    <span className="text-sm text-primary">{result.after}</span>
                   </div>
                   <div className="border-t pt-3">
                     <div className="text-center">
-                      <div className="text-sm font-bold" style={{ color: '#2563eb' }}>{result.traffic}</div>
+                      <div className="text-sm font-bold text-foreground">{result.traffic}</div>
                       <div className="text-xs text-muted-foreground">{result.revenue}</div>
                     </div>
                   </div>
                 </div>
                 
-                <Button variant="outline" className="w-full mt-4" style={{ borderColor: '#2563eb', color: '#2563eb' }}>
+                <Button 
+                  variant="outline" 
+                  className="w-full mt-4"
+                  onClick={() => window.location.href = '/contact'}
+                >
                   <Download className="w-4 h-4 mr-2" />
-                  Download Case Study
+                  Tải Nghiên Cứu Điển Hình
                 </Button>
               </Card>
             ))}
@@ -836,63 +840,45 @@ const SeoService = () => {
         </div>
       </section>
 
-      {/* Free SEO Audit Offer */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Nhận <span style={{ color: '#16a34a' }}>SEO Audit Miễn Phí</span> - Phát Hiện 50+ Issues
+      {/* CTA Section - Replace Audit Form */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8">
+            Sẵn Sàng Lên <span className="text-primary">Top 3 Google</span> Trong 6 Tháng?
           </h2>
           
-          <Card className="p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-bold mb-6">Audit Deliverables:</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <AlertTriangle className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#f59e0b' }} />
-                    <div>
-                      <div className="font-semibold">Technical Issues Report</div>
-                      <div className="text-sm text-muted-foreground">Crawl errors, speed issues, mobile problems</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Search className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#16a34a' }} />
-                    <div>
-                      <div className="font-semibold">Keyword Opportunities</div>
-                      <div className="text-sm text-muted-foreground">High-potential keywords you're missing</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Target className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#2563eb' }} />
-                    <div>
-                      <div className="font-semibold">Competitor Gap Analysis</div>
-                      <div className="text-sm text-muted-foreground">What competitors are doing better</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Lightbulb className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#f59e0b' }} />
-                    <div>
-                      <div className="font-semibold">Action Plan</div>
-                      <div className="text-sm text-muted-foreground">Priority fixes for next 90 days</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <div className="text-center">
-                  <Button 
-                    size="lg" 
-                    className="shadow-glow"
-                    onClick={() => window.location.href = '/contact'}
-                  >
-                    Nhận SEO Audit Miễn Phí
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </div>
-              </div>
+          <p className="text-xl text-muted-foreground mb-8">
+            Đặt lịch tư vấn miễn phí để khám phá cách SEO có thể đưa website của bạn lên vị trí top.
+            Nhận kiểm toán SEO miễn phí trị giá 10 triệu đồng.
+          </p>
+
+          <div className="space-y-4 mb-8">
+            <div className="flex items-center justify-center">
+              <CheckCircle className="h-5 w-5 text-primary mr-3" />
+              <span>Phân tích kỹ thuật toàn diện 50+ yếu tố</span>
             </div>
-          </Card>
+            <div className="flex items-center justify-center">
+              <CheckCircle className="h-5 w-5 text-primary mr-3" />
+              <span>Phân tích khoảng trống từ khóa với đối thủ</span>
+            </div>
+            <div className="flex items-center justify-center">
+              <CheckCircle className="h-5 w-5 text-primary mr-3" />
+              <span>Kế hoạch hành động ưu tiên 90 ngày</span>
+            </div>
+            <div className="flex items-center justify-center">
+              <CheckCircle className="h-5 w-5 text-primary mr-3" />
+              <span>Đảm bảo top 3 hoặc hoàn tiền 100%</span>
+            </div>
+          </div>
+
+          <Button 
+            size="lg" 
+            className="shadow-glow"
+            onClick={() => window.location.href = '/contact'}
+          >
+            Nhận Kiểm Toán SEO Miễn Phí
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </section>
 
