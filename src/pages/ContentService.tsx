@@ -309,15 +309,15 @@ const ContentService = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
-              <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6 text-foreground">
+              <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
                 <span className="text-primary">Content Performance</span>
                 <br />
-                Content Không Chỉ Đẹp, Còn Phải <span className="text-accent">Bán</span>
+                Content Không Chỉ Đẹp, Còn Phải <span className="text-primary">Bán</span>
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8">
-                Data-driven content strategy giúp 200+ brands tăng 400% organic traffic, 250% lead generation. 
-                Every content piece được measure & optimize.
+                Chiến lược nội dung dựa trên dữ liệu giúp 200+ thương hiệu tăng 400% lưu lượng tự nhiên, 250% tạo khách hàng tiềm năng. 
+                Mỗi nội dung đều được đo lường và tối ưu hóa.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -343,43 +343,43 @@ const ContentService = () => {
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary">400%</div>
-                  <div className="text-sm text-muted-foreground">Traffic Growth</div>
+                  <div className="text-sm text-muted-foreground">Tăng trưởng lưu lượng</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-accent">250%</div>
-                  <div className="text-sm text-muted-foreground">Lead Generation</div>
+                  <div className="text-2xl font-bold text-primary">250%</div>
+                  <div className="text-sm text-muted-foreground">Tạo khách hàng tiềm năng</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary">200+</div>
-                  <div className="text-sm text-muted-foreground">Brands Served</div>
+                  <div className="text-sm text-muted-foreground">Thương hiệu phục vụ</div>
                 </div>
               </div>
             </div>
 
             <div className="animate-scale-in">
               <Card className="p-6 shadow-2xl">
-                <div className="text-center mb-6">
-                  <h3 className="text-lg font-bold mb-2">Live Performance Dashboard</h3>
-                  <div className="text-sm text-muted-foreground">Real client metrics</div>
-                </div>
+                  <div className="text-center mb-6">
+                    <h3 className="text-lg font-bold mb-2">Bảng điều khiển hiệu suất trực tiếp</h3>
+                    <div className="text-sm text-muted-foreground">Chỉ số khách hàng thực tế</div>
+                  </div>
                 
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="text-center p-3 rounded-lg bg-card">
-                    <div className="text-lg font-bold text-primary">127%</div>
-                    <div className="text-xs text-muted-foreground">Traffic Growth</div>
-                  </div>
-                  <div className="text-center p-3 rounded-lg bg-card">
-                    <div className="text-lg font-bold text-accent">85%</div>
-                    <div className="text-xs text-muted-foreground">Conversion Rate</div>
-                  </div>
-                  <div className="text-center p-3 rounded-lg bg-card">
-                    <div className="text-lg font-bold text-primary">340%</div>
-                    <div className="text-xs text-muted-foreground">Lead Quality</div>
-                  </div>
-                  <div className="text-center p-3 rounded-lg bg-card">
-                    <div className="text-lg font-bold text-accent">420%</div>
-                    <div className="text-xs text-muted-foreground">ROI</div>
-                  </div>
+                    <div className="text-center p-3 rounded-lg bg-card">
+                      <div className="text-lg font-bold text-primary">127%</div>
+                      <div className="text-xs text-muted-foreground">Tăng trưởng lưu lượng</div>
+                    </div>
+                    <div className="text-center p-3 rounded-lg bg-card">
+                      <div className="text-lg font-bold text-primary">85%</div>
+                      <div className="text-xs text-muted-foreground">Tỷ lệ chuyển đổi</div>
+                    </div>
+                    <div className="text-center p-3 rounded-lg bg-card">
+                      <div className="text-lg font-bold text-primary">340%</div>
+                      <div className="text-xs text-muted-foreground">Chất lượng khách hàng tiềm năng</div>
+                    </div>
+                    <div className="text-center p-3 rounded-lg bg-card">
+                      <div className="text-lg font-bold text-primary">420%</div>
+                      <div className="text-xs text-muted-foreground">ROI</div>
+                    </div>
                 </div>
                 
                 <div className="h-32 rounded-lg bg-muted/50">
@@ -398,8 +398,8 @@ const ContentService = () => {
       {/* Content Problems Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            Tại Sao <span className="text-destructive">Content Của Bạn</span> Không Convert?
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Tại Sao <span className="text-primary">Content Của Bạn</span> Không Chuyển Đổi?
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -412,11 +412,11 @@ const ContentService = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="text-destructive">
+                    <div className="text-primary">
                       <IconComponent className="h-8 w-8" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2 text-foreground">{problem.title}</h3>
+                      <h3 className="text-lg font-semibold mb-2">{problem.title}</h3>
                       <p className="text-muted-foreground text-sm">{problem.description}</p>
                     </div>
                   </div>
@@ -430,8 +430,8 @@ const ContentService = () => {
       {/* Methodology Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            Methodology: <span className="text-primary">Data-Driven Content Strategy</span>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Phương pháp: <span className="text-primary">Chiến lược nội dung dựa trên dữ liệu</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

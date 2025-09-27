@@ -36,93 +36,93 @@ const AutomationService = () => {
   const challenges = [
     {
       icon: GitBranch,
-      title: "Scattered tools không integrate",
+      title: "Công cụ rời rạc không tích hợp",
       description: "Dữ liệu phân tán khắp các hệ thống khác nhau"
     },
     {
       icon: Clock,
-      title: "Manual processes tốn thời gian",
+      title: "Quy trình thủ công tốn thời gian",
       description: "90% công việc lặp lại có thể tự động hóa"
     },
     {
       icon: Database,
-      title: "Data silos giữa các departments",
-      description: "Thiếu thông tin real-time để ra quyết định"
+      title: "Dữ liệu riêng lẻ giữa các phòng ban",
+      description: "Thiếu thông tin thời gian thực để ra quyết định"
     },
     {
       icon: Shield,
-      title: "Compliance và security concerns",
-      description: "Khó kiểm soát access và audit trails"
+      title: "Tuân thủ và bảo mật",
+      description: "Khó kiểm soát quyền truy cập và dấu vết kiểm toán"
     },
     {
       icon: TrendingUp,
-      title: "Scalability limitations",
-      description: "Hệ thống hiện tại không theo kịp growth"
+      title: "Hạn chế khả năng mở rộng",
+      description: "Hệ thống hiện tại không theo kịp tăng trưởng"
     },
     {
       icon: Code,
-      title: "Developer resource constraints",
-      description: "Team kỹ thuật quá tải với integration tasks"
+      title: "Hạn chế nguồn lực phát triển",
+      description: "Đội kỹ thuật quá tải với công việc tích hợp"
     }
   ];
 
   const solutions = [
     {
       icon: Server,
-      title: "Self-hosted Control",
-      description: "Deploy on premise hoặc private cloud. Kiểm soát hoàn toàn data và infrastructure."
+      title: "Kiểm soát tự lưu trữ",
+      description: "Triển khai tại chỗ hoặc đám mây riêng. Kiểm soát hoàn toàn dữ liệu và hạ tầng."
     },
     {
       icon: Workflow,
-      title: "800+ Pre-built Integrations",
-      description: "APIs, databases, SaaS tools. Kết nối mọi thứ trong enterprise ecosystem."
+      title: "800+ Tích hợp có sẵn",
+      description: "APIs, cơ sở dữ liệu, công cụ SaaS. Kết nối mọi thứ trong hệ sinh thái doanh nghiệp."
     },
     {
       icon: Monitor,
-      title: "Visual Workflow Builder",
-      description: "No-code cho non-technical users. Drag & drop interface để build automation."
+      title: "Công cụ xây dựng luồng trực quan",
+      description: "Không cần code cho người dùng phi kỹ thuật. Giao diện kéo thả để xây dựng tự động hóa."
     },
     {
       icon: Shield,
-      title: "Enterprise Security",
-      description: "SSO, RBAC, audit logs. Đáp ứng các tiêu chuẩn security cao nhất."
+      title: "Bảo mật doanh nghiệp",
+      description: "SSO, RBAC, nhật ký kiểm toán. Đáp ứng các tiêu chuẩn bảo mật cao nhất."
     },
     {
       icon: Zap,
-      title: "Unlimited Executions",
-      description: "No usage limits như Zapier. Scale without worrying về pricing tiers."
+      title: "Thực thi không giới hạn",
+      description: "Không giới hạn sử dụng như Zapier. Mở rộng mà không lo lắng về gói giá."
     },
     {
       icon: Settings,
-      title: "Custom Integrations",
-      description: "Build proprietary connectors. Support cho legacy systems và custom APIs."
+      title: "Tích hợp tùy chỉnh",
+      description: "Xây dựng kết nối độc quyền. Hỗ trợ hệ thống cũ và APIs tùy chỉnh."
     }
   ];
 
   const departments = [
     {
-      name: "IT Operations",
-      useCases: ["Server monitoring", "Automated provisioning", "Incident response", "Backup automation"]
+      name: "Vận hành CNTT",
+      useCases: ["Giám sát máy chủ", "Cung cấp tự động", "Phản ứng sự cố", "Tự động sao lưu"]
     },
     {
-      name: "Sales",
-      useCases: ["Lead routing", "CRM updates", "Proposal generation", "Pipeline management"]
+      name: "Bán hàng",
+      useCases: ["Định tuyến khách hàng tiềm năng", "Cập nhật CRM", "Tạo đề xuất", "Quản lý đường ống"]
     },
     {
       name: "Marketing",
-      useCases: ["Campaign automation", "Lead scoring", "Content distribution", "Performance tracking"]
+      useCases: ["Tự động chiến dịch", "Chấm điểm khách hàng tiềm năng", "Phân phối nội dung", "Theo dõi hiệu suất"]
     },
     {
-      name: "HR",
-      useCases: ["Onboarding workflows", "Leave approvals", "Performance reviews", "Recruitment automation"]
+      name: "Nhân sự",
+      useCases: ["Quy trình chào đón", "Phê duyệt nghỉ phép", "Đánh giá hiệu suất", "Tự động tuyển dụng"]
     },
     {
-      name: "Finance",
-      useCases: ["Invoice processing", "Expense approvals", "Budget tracking", "Compliance reporting"]
+      name: "Tài chính",
+      useCases: ["Xử lý hóa đơn", "Phê duyệt chi phí", "Theo dõi ngân sách", "Báo cáo tuân thủ"]
     },
     {
-      name: "Customer Success",
-      useCases: ["Ticket routing", "Satisfaction surveys", "Renewal workflows", "Support escalation"]
+      name: "Thành công khách hàng",
+      useCases: ["Định tuyến vé", "Khảo sát hài lòng", "Quy trình gia hạn", "Nâng cấp hỗ trợ"]
     }
   ];
 

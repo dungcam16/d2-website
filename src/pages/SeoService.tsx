@@ -403,9 +403,9 @@ const SeoService = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                <span style={{ color: '#16a34a' }}>SEO Boost</span>
+                <span className="text-primary">SEO Boost</span>
                 <br />
-                Top 3 Google Hoặc <span style={{ color: '#2563eb' }}>Hoàn Tiền 100%</span>
+                Top 3 Google Hoặc <span className="text-primary">Hoàn Tiền 100%</span>
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8">
@@ -432,9 +432,9 @@ const SeoService = () => {
                 </Button>
               </div>
 
-              <div className="inline-flex items-center px-6 py-3 rounded-full border-2" style={{ backgroundColor: '#f0fdf4', borderColor: '#16a34a' }}>
-                <Shield className="h-6 w-6 mr-3" style={{ color: '#16a34a' }} />
-                <span className="font-bold" style={{ color: '#16a34a' }}>Top 3 hoặc hoàn tiền 100%</span>
+              <div className="inline-flex items-center px-6 py-3 rounded-full bg-primary/10 border-2 border-primary">
+                <Shield className="h-6 w-6 mr-3 text-primary" />
+                <span className="font-bold text-primary">Top 3 hoặc hoàn tiền 100%</span>
               </div>
             </div>
 
@@ -473,7 +473,7 @@ const SeoService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Cam Kết Kết Quả Rõ Ràng - <span style={{ color: '#f59e0b' }}>Không Lời Hứa Suông</span>
+            Cam Kết Kết Quả Rõ Ràng - <span className="text-primary">Không Lời Hứa Suông</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -485,12 +485,12 @@ const SeoService = () => {
                   className="p-6 text-center hover:shadow-lg transition-all duration-300 animate-scale-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="mb-4" style={{ color: '#16a34a' }}>
+                  <div className="mb-4 text-primary">
                     <IconComponent className="h-10 w-10 mx-auto" />
                   </div>
                   <h3 className="text-lg font-bold mb-2">{detail.title}</h3>
                   <p className="text-sm text-muted-foreground mb-3">{detail.description}</p>
-                  <div className="text-xs font-medium px-3 py-1 rounded" style={{ backgroundColor: '#dcfce7', color: '#16a34a' }}>
+                  <div className="text-xs font-medium px-3 py-1 rounded bg-primary/10 text-primary">
                     {detail.guarantee}
                   </div>
                 </Card>
