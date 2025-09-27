@@ -11,6 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ContactForm from '@/components/ContactForm';
 
 const ZaloService = () => {
   const [formData, setFormData] = useState({
@@ -282,10 +283,11 @@ const ZaloService = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-800 text-white relative overflow-hidden">
+      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 gradient-bg opacity-90"></div>
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-300 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 left-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -300,36 +302,36 @@ const ZaloService = () => {
                 </div>
               </div>
               
-              <h1 className="text-4xl lg:text-6xl font-bold font-heading mb-6">
+              <h1 className="text-4xl lg:text-6xl font-bold font-heading mb-6 text-foreground">
                 Zalo OA All-in-One
                 <br />
-                <span className="text-blue-200">Giải Pháp Marketing Automation #1</span>
+                <span className="text-primary">Giải Pháp Marketing Automation #1</span>
               </h1>
               
-              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Từ Setup OA đến ZNS Automation, CRM tích hợp và Analytics dashboard. 
                 50M+ người dùng Zalo = cơ hội vàng cho business.
               </p>
 
               <div className="grid grid-cols-3 gap-4 mb-8">
                 <div className="text-center">
-                  <div className="text-2xl font-bold">50M+</div>
-                  <div className="text-sm text-blue-200">users</div>
+                  <div className="text-2xl font-bold text-foreground">50M+</div>
+                  <div className="text-sm text-muted-foreground">users</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold">300%</div>
-                  <div className="text-sm text-blue-200">ROAS</div>
+                  <div className="text-2xl font-bold text-foreground">300%</div>
+                  <div className="text-sm text-muted-foreground">ROAS</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold">24/7</div>
-                  <div className="text-sm text-blue-200">automation</div>
+                  <div className="text-2xl font-bold text-foreground">24/7</div>
+                  <div className="text-sm text-muted-foreground">automation</div>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg text-lg px-8"
+                  className="shadow-glow text-lg px-8"
                   onClick={() => window.location.href = '/contact'}
                 >
                   Nhận Setup OA Miễn Phí
@@ -338,7 +340,7 @@ const ZaloService = () => {
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="border-white text-white hover:bg-white hover:text-blue-600"
+                  className="tech-border"
                 >
                   <PlayCircle className="mr-2 h-5 w-5" />
                   Xem Demo Live
@@ -740,108 +742,26 @@ const ZaloService = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-800 text-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 gradient-bg opacity-90"></div>
+        <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-foreground">
               Đừng Để Competitors Vượt Mặt Trên Zalo
             </h2>
             <div className="bg-red-500 inline-block px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
               🔥 Chỉ nhận 10 khách hàng mới mỗi tháng
             </div>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-muted-foreground mb-8">
               Limited slots để đảm bảo quality service. Book ngay để secure spot!
             </p>
           </div>
 
-          <Card className="bg-white text-gray-900">
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Họ và tên *</label>
-                    <Input
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Nhập họ tên"
-                      required
-                      className="border-gray-300"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Số điện thoại *</label>
-                    <Input
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="Nhập SĐT"
-                      required
-                      className="border-gray-300"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Loại hình kinh doanh</label>
-                    <select
-                      name="business"
-                      value={formData.business}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="">Chọn ngành nghề</option>
-                      <option value="E-commerce">E-commerce</option>
-                      <option value="F&B">F&B</option>
-                      <option value="Real Estate">Bất động sản</option>
-                      <option value="Education">Giáo dục</option>
-                      <option value="Healthcare">Y tế</option>
-                      <option value="Financial">Tài chính</option>
-                      <option value="Other">Khác</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Ngân sách marketing/tháng</label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="">Chọn mức ngân sách</option>
-                      <option value="Under 10M">Dưới 10M</option>
-                      <option value="10M-30M">10M - 30M</option>
-                      <option value="30M-50M">30M - 50M</option>
-                      <option value="50M-100M">50M - 100M</option>
-                      <option value="Over 100M">Trên 100M</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="text-center">
-                  <Button type="submit" size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 text-lg">
-                    Đặt Lịch Tư Vấn Ngay
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                  <div className="flex items-center justify-center gap-4 mt-4 text-sm text-gray-600">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500" />
-                      <span>Tư vấn miễn phí</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Timer className="w-4 h-4 text-orange-500" />
-                      <span>Phản hồi trong 2h</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Shield className="w-4 h-4 text-green-500" />
-                      <span>Cam kết kết quả</span>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </CardContent>
-          </Card>
+          <ContactForm 
+            service="zalo"
+            title="Đăng Ký Setup OA Miễn Phí"
+            description="Để lại thông tin và nhận setup OA + strategy consultation miễn phí trong 24h."
+          />
         </div>
       </section>
 

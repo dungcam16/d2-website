@@ -415,11 +415,11 @@ const SeoService = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" style={{ backgroundColor: '#16a34a', color: 'white' }} className="hover:opacity-90">
+                <Button size="lg" className="shadow-glow">
                   Nhận SEO Audit Miễn Phí
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg" style={{ borderColor: '#2563eb', color: '#2563eb' }}>
+                <Button variant="outline" size="lg" className="tech-border">
                   Xem Results Showcase
                 </Button>
               </div>

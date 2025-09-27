@@ -310,10 +310,10 @@ const ContentService = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                <span style={{ color: '#7c3aed' }}>Content Performance</span>
+              <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6 text-foreground">
+                <span className="text-primary">Content Performance</span>
                 <br />
-                Content Không Chỉ Đẹp, Còn Phải <span style={{ color: '#059669' }}>Bán</span>
+                Content Không Chỉ Đẹp, Còn Phải <span className="text-accent">Bán</span>
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8">
@@ -322,11 +322,11 @@ const ContentService = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" style={{ backgroundColor: '#7c3aed', color: 'white' }} className="hover:opacity-90">
+                <Button size="lg" className="shadow-glow">
                   Nhận Content Audit Miễn Phí
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg" style={{ borderColor: '#059669', color: '#059669' }}>
+                <Button variant="outline" size="lg" className="tech-border">
                   <PlayCircle className="mr-2 h-5 w-5" />
                   Xem Demo Dashboard
                 </Button>
@@ -334,15 +334,15 @@ const ContentService = () => {
 
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-2xl font-bold" style={{ color: '#7c3aed' }}>400%</div>
+                  <div className="text-2xl font-bold text-primary">400%</div>
                   <div className="text-sm text-muted-foreground">Traffic Growth</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold" style={{ color: '#059669' }}>250%</div>
+                  <div className="text-2xl font-bold text-accent">250%</div>
                   <div className="text-sm text-muted-foreground">Lead Generation</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold" style={{ color: '#dc2626' }}>200+</div>
+                  <div className="text-2xl font-bold text-primary">200+</div>
                   <div className="text-sm text-muted-foreground">Brands Served</div>
                 </div>
               </div>
@@ -800,18 +800,11 @@ const ContentService = () => {
                     />
                   </div>
                   
-                  <Button 
-                    className="w-full mt-6" 
-                    style={{ backgroundColor: '#dc2626', color: 'white' }}
-                    onClick={() => window.location.href = '/contact'}
-                  >
-                    Nhận Audit Report Trong 48h
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </div>
-                
-                <div className="mt-4 text-sm text-muted-foreground text-center">
-                  ✓ Completely free ✓ No commitment required ✓ 48-hour delivery
+                  <ContactForm 
+                    service="content"
+                    title="Nhận Content Audit Miễn Phí"
+                    description="Chia sẻ website và mục tiêu content, chúng tôi sẽ audit toàn diện và đưa ra strategy trong 48h."
+                  />
                 </div>
               </div>
             </div>
