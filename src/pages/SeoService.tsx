@@ -446,11 +446,11 @@ const SeoService = () => {
             Nhận SEO audit miễn phí và consultation về strategy phù hợp với website của bạn
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="shadow-glow">
+            <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
               Nhận SEO Audit Miễn Phí
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" onClick={() => window.location.href = '/contact'}>
               Tư vấn chiến lược SEO
             </Button>
           </div>

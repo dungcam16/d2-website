@@ -140,7 +140,7 @@ const ZaloService = () => {
               và ZNS campaigns - tối ưu hóa cho thị trường Việt Nam.
             </p>
 
-            <Button size="lg" className="shadow-glow">
+            <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
               Tư vấn Zalo OA miễn phí
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -373,10 +373,10 @@ const ZaloService = () => {
               Tiếp cận 74M+ người dùng Việt Nam với chi phí marketing hiệu quả nhất.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="shadow-glow">
+              <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
                 Setup Zalo OA miễn phí
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" onClick={() => window.location.href = '/contact'}>
                 Tư vấn pricing
               </Button>
             </div>

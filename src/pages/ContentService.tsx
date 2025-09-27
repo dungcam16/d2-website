@@ -157,7 +157,7 @@ const ContentService = () => {
               250% lead generation và ROI 400% trong 6 tháng
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="shadow-glow">
+              <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
                 Tư vấn Content Strategy
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -316,6 +316,7 @@ const ContentService = () => {
                   <Button 
                     className="w-full" 
                     variant={plan.recommended ? "default" : "outline"}
+                    onClick={() => window.location.href = '/contact'}
                   >
                     {plan.price === "Tùy chỉnh" ? "Liên hệ tư vấn" : "Chọn gói này"}
                   </Button>
@@ -361,7 +362,7 @@ const ContentService = () => {
             Liên hệ ngay để nhận consultation miễn phí về chiến lược content phù hợp với doanh nghiệp
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="shadow-glow">
+            <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
               Đặt lịch tư vấn miễn phí
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

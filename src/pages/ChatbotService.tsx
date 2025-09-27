@@ -130,7 +130,7 @@ const ChatbotService = () => {
               Tự động hóa customer service và tăng hiệu quả kinh doanh.
             </p>
 
-            <Button size="lg" className="shadow-glow">
+            <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
               Tư vấn miễn phí
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -316,7 +316,7 @@ const ChatbotService = () => {
               Liên hệ ngay để được tư vấn miễn phí và demo chatbot phù hợp với doanh nghiệp của bạn.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="shadow-glow">
+              <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
                 Đặt lịch demo miễn phí
               </Button>
               <Button variant="outline" size="lg">

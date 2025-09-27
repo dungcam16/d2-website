@@ -24,7 +24,7 @@ const Header = () => {
     { name: 'Trang chủ', href: '/' },
   ];
 
-  const contactItem = { name: 'Liên hệ', href: '#contact' };
+  const contactItem = { name: 'Liên hệ', href: '/contact' };
 
   const serviceItems = [
     { name: 'Chatbot Đa Nền Tảng', href: '/services/chatbot' },
@@ -99,7 +99,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="default" className="shadow-glow">
+            <Button variant="default" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
               Tư vấn miễn phí
             </Button>
           </div>
@@ -154,7 +154,7 @@ const Header = () => {
                 </a>
               </div>
               
-              <Button variant="default" className="w-full shadow-glow mt-4">
+              <Button variant="default" className="w-full shadow-glow mt-4" onClick={() => window.location.href = '/contact'}>
                 Tư vấn miễn phí
               </Button>
             </nav>

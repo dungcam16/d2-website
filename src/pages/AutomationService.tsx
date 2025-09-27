@@ -421,7 +421,7 @@ const AutomationService = () => {
               Bắt đầu với audit quy trình miễn phí và tư vấn N8N automation phù hợp.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="shadow-glow">
+              <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
                 Đặt lịch audit miễn phí
               </Button>
               <Button variant="outline" size="lg">
