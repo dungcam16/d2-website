@@ -216,7 +216,7 @@ const Contact = () => {
                   
                   <Button variant="outline" className="w-full justify-start tech-border group">
                     <MessageSquare className="mr-3 h-5 w-5 text-muted-foreground" />
-                    Chat trên WhatsApp
+                    Nhắn tin WhatsApp
                   </Button>
                   
                   <Button variant="outline" className="w-full justify-start tech-border group">
@@ -226,8 +226,19 @@ const Contact = () => {
                   
                   <Button variant="outline" className="w-full justify-start tech-border group">
                     <Phone className="mr-3 h-5 w-5 text-primary" />
+                    Nhắn tin Messenger
+                  </Button>
+
+                  <Button variant="outline" className="w-full justify-start tech-border group">
+                    <Phone className="mr-3 h-5 w-5 text-primary" />
+                    Nhắn tin Telegram
+                  </Button>
+
+                  <Button variant="outline" className="w-full justify-start tech-border group">
+                    <Phone className="mr-3 h-5 w-5 text-primary" />
                     Đặt lịch gọi
                   </Button>
+                  
                 </div>
 
                 {/* Call to Action */}
