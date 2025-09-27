@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -13,8 +14,17 @@ const Contact = () => {
     email: '',
     phone: '',
     company: '',
+    service: '',
     message: ''
   });
+
+  const services = [
+    'Automation Service - Tự động hóa quy trình',
+    'Chatbot Service - Chatbot thông minh',
+    'Content Service - Sáng tạo nội dung',
+    'SEO Service - Tối ưu hóa tìm kiếm',
+    'Zalo Service - Marketing Zalo'
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,6 +39,8 @@ const Contact = () => {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
           note: formData.message
         }),
       });
@@ -40,6 +52,7 @@ const Contact = () => {
           email: '',
           phone: '',
           company: '',
+          service: '',
           message: ''
         });
       } else {
@@ -55,6 +68,13 @@ const Contact = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
+    });
+  };
+
+  const handleServiceChange = (value: string) => {
+    setFormData({
+      ...formData,
+      service: value
     });
   };
 
@@ -162,7 +182,24 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="Tên công ty của bạn"
                       className="bg-card/50 border-border focus:border-primary transition-colors"
+                      required
                     />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Dịch vụ cần tư vấn</label>
+                    <Select value={formData.service} onValueChange={handleServiceChange} required>
+                      <SelectTrigger className="bg-card/50 border-border focus:border-primary transition-colors">
+                        <SelectValue placeholder="Chọn dịch vụ bạn quan tâm" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {services.map((service) => (
+                          <SelectItem key={service} value={service}>
+                            {service}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div className="space-y-2">
@@ -214,42 +251,61 @@ const Contact = () => {
                 <div className="space-y-4 animate-slide-up" style={{ animationDelay: '0.5s' }}>
                   <h4 className="text-lg font-semibold text-foreground mb-4">Hành Động Nhanh</h4>
                   
-                  <Button variant="outline" className="w-full justify-start tech-border group">
-                    <MessageSquare className="mr-3 h-5 w-5 text-muted-foreground" />
-                    Nhắn tin WhatsApp
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start tech-border group"
+                    asChild
+                  >
+                    <a href="https://wa.me/84909099421" target="_blank" rel="noopener noreferrer">
+                      <MessageSquare className="mr-3 h-5 w-5 text-green-500" />
+                      Nhắn tin WhatsApp
+                    </a>
                   </Button>
                   
-                  <Button variant="outline" className="w-full justify-start tech-border group">
-                    <MessageSquare className="mr-3 h-5 w-5 text-muted-foreground" />
-                    Nhắn tin Zalo
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start tech-border group"
+                    asChild
+                  >
+                    <a href="https://zalo.me/d2group" target="_blank" rel="noopener noreferrer">
+                      <MessageSquare className="mr-3 h-5 w-5 text-blue-500" />
+                      Nhắn tin Zalo
+                    </a>
                   </Button>
                   
-                  <Button variant="outline" className="w-full justify-start tech-border group">
-                    <Phone className="mr-3 h-5 w-5 text-primary" />
-                    Nhắn tin Messenger
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start tech-border group"
+                    asChild
+                  >
+                    <a href="https://m.me/d2groupmarketing" target="_blank" rel="noopener noreferrer">
+                      <MessageSquare className="mr-3 h-5 w-5 text-blue-600" />
+                      Nhắn tin Messenger
+                    </a>
                   </Button>
 
-                  <Button variant="outline" className="w-full justify-start tech-border group">
-                    <Phone className="mr-3 h-5 w-5 text-primary" />
-                    Nhắn tin Telegram
-                  </Button>
-
-                  <Button variant="outline" className="w-full justify-start tech-border group">
-                    <Phone className="mr-3 h-5 w-5 text-primary" />
-                    Đặt lịch gọi
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start tech-border group"
+                    asChild
+                  >
+                    <a href="https://t.me/d2group" target="_blank" rel="noopener noreferrer">
+                      <MessageSquare className="mr-3 h-5 w-5 text-sky-500" />
+                      Nhắn tin Telegram
+                    </a>
                   </Button>
                   
                 </div>
 
-                {/* Call to Action */}
+                {/* Support Information */}
                 <Card className="gradient-card border-border tech-border p-6 text-center animate-scale-in" style={{ animationDelay: '0.7s' }}>
-                  <h4 className="text-xl font-bold text-foreground mb-2">Sẵn sàng Automation?</h4>
+                  <h4 className="text-xl font-bold text-foreground mb-2">Hỗ Trợ 24/7</h4>
                   <p className="text-muted-foreground mb-4 text-sm">
-                    Tham gia cùng 50+ doanh nghiệp Việt Nam đã hưởng lợi từ giải pháp automation của chúng tôi.
+                    Đội ngũ chuyên gia của chúng tôi luôn sẵn sàng hỗ trợ bạn trong mọi thắc mắc về dịch vụ.
                   </p>
-                  <Button className="shadow-glow">
-                    Đặt lịch Demo
-                  </Button>
+                  <p className="text-primary font-semibold">
+                    Phản hồi trong vòng 2 giờ
+                  </p>
                 </Card>
               </div>
             </div>
