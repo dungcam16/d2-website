@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Facebook, Twitter, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Zap, Facebook, MessageCircle, Instagram, AtSign, Phone, Send, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const services = [
@@ -57,6 +57,10 @@ const Footer = () => {
               <div className="flex items-center text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 mr-2 text-primary" />
                 info@d2group.co
+              </div>
+              <div className="flex items-center text-sm text-muted-foreground">
+                <span className="font-medium mr-2">MST:</span>
+                3603788837
               </div>
             </div>
           </div>
@@ -121,24 +125,69 @@ const Footer = () => {
             </div>
             
             {/* Social Links */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center flex-wrap gap-2">
               <a 
-                href="#" 
+                href="https://facebook.com/d2groupmarketing" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                title="Facebook"
               >
                 <Facebook className="h-4 w-4" />
               </a>
               <a 
-                href="#" 
+                href="https://m.me/d2groupmarketing" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                title="Messenger"
               >
-                <Twitter className="h-4 w-4" />
+                <MessageCircle className="h-4 w-4" />
               </a>
               <a 
-                href="#" 
+                href="https://www.instagram.com/d2group.co" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                title="Instagram"
               >
-                <Linkedin className="h-4 w-4" />
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://www.threads.com/@d2group.co" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                title="Threads"
+              >
+                <AtSign className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://wa.me/84909099421" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                title="WhatsApp"
+              >
+                <Phone className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://t.me/d2group" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                title="Telegram"
+              >
+                <Send className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://zalo.me/d2group" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                title="Zalo"
+              >
+                <MessageCircle className="h-4 w-4" />
               </a>
             </div>
           </div>
