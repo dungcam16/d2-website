@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Zap, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import logoD2Group from '@/assets/logo_d2_group.png';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu,
@@ -43,13 +44,14 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="relative">
-              <Zap className="h-8 w-8 text-primary animate-pulse-glow" />
-              <div className="absolute inset-0 bg-primary rounded-full opacity-20 animate-ping"></div>
-            </div>
-            <span className="text-2xl font-bold font-heading gradient-primary bg-clip-text text-transparent">
-              D2 GROUP
+          <div className="flex items-center space-x-3">
+            <img 
+              src={logoD2Group} 
+              alt="D2 Group Logo" 
+              className="h-10 w-10"
+            />
+            <span className="text-2xl font-bold font-heading text-foreground">
+              D2 GROUP MARKETING
             </span>
           </div>
 
