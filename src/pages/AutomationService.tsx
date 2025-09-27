@@ -51,6 +51,84 @@ const AutomationService = () => {
     { metric: '24/7', label: 'Hoạt động không gián đoạn' }
   ];
 
+  const testimonials = [
+    {
+      name: 'Nguyễn Minh E',
+      company: 'Manufacturing Company',
+      content: 'N8N automation giúp chúng tôi giảm 80% thời gian xử lý đơn hàng và tăng accuracy lên 99.5%.',
+      rating: 5
+    },
+    {
+      name: 'Hoàng Thị F',
+      company: 'SaaS Startup',
+      content: 'Lead scoring tự động và nurturing campaigns tăng conversion rate từ 2% lên 8% chỉ trong 2 tháng.',
+      rating: 5
+    }
+  ];
+
+  const pricing = [
+    {
+      name: 'Automation Starter',
+      price: '10,000,000',
+      period: 'setup + 3,000,000đ/tháng',
+      features: [
+        '5 workflows cơ bản',
+        '20 integrations',
+        'Standard support',
+        'Monthly reports',
+        '1 revision/tháng'
+      ],
+      popular: false
+    },
+    {
+      name: 'Business Pro',
+      price: '25,000,000',
+      period: 'setup + 8,000,000đ/tháng',
+      features: [
+        '15 workflows nâng cao',
+        'Unlimited integrations',
+        'Custom logic builder',
+        'Real-time monitoring',
+        'Priority support',
+        'Weekly optimization'
+      ],
+      popular: true
+    },
+    {
+      name: 'Enterprise',
+      price: 'Tùy chỉnh',
+      period: 'theo quy mô doanh nghiệp',
+      features: [
+        'Unlimited workflows',
+        'Custom integrations',
+        'On-premise deployment',
+        'Dedicated team',
+        '24/7 support',
+        'Performance SLA'
+      ],
+      popular: false
+    }
+  ];
+
+  const faqs = [
+    {
+      question: 'N8N có khác gì Zapier và các tools automation khác?',
+      answer: 'N8N là open-source, có khả năng tùy chỉnh cao hơn, self-hosted được và không có giới hạn về số lượng workflows như các SaaS tools.'
+    },
+    {
+      question: 'Có thể integrate với hệ thống ERP Việt Nam không?',
+      answer: 'Có, chúng tôi có kinh nghiệm tích hợp với các ERP phổ biến tại VN như MISA, Bravo, Fast và có thể custom API cho các hệ thống riêng.'
+    },
+    {
+      question: 'Thời gian ROI trung bình là bao lâu?',
+      answer: 'Thường 6-12 tháng tùy độ phức tạp quy trình. Nhiều case đạt ROI trong 3-6 tháng đầu nhờ tiết kiệm chi phí nhân sự.'
+    },
+    {
+      question: 'Team có cần training để sử dụng không?',
+      answer: 'Chúng tôi cung cấp training đầy đủ cho team và documentation chi tiết. Giao diện N8N visual rất dễ hiểu và maintain.'
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -223,6 +301,109 @@ const AutomationService = () => {
                 <div className="text-3xl font-bold text-primary mb-4">{phase.step}</div>
                 <h3 className="text-lg font-semibold mb-2">{phase.title}</h3>
                 <p className="text-muted-foreground text-sm">{phase.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            <span className="text-primary">Success stories</span> từ khách hàng
+          </h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card 
+                key={index}
+                className="p-8 animate-scale-in"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-xl">★</span>
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-6 italic">"{testimonial.content}"</p>
+                <div>
+                  <p className="font-semibold">{testimonial.name}</p>
+                  <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-card/50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Bảng giá <span className="text-primary">N8N Automation</span>
+          </h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {pricing.map((plan, index) => (
+              <Card 
+                key={index}
+                className={`p-8 relative ${plan.popular ? 'border-primary shadow-glow' : ''} animate-scale-in`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium">
+                      Được chọn nhiều nhất
+                    </span>
+                  </div>
+                )}
+                
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
+                  <div className="mb-2">
+                    <span className="text-4xl font-bold text-primary">{plan.price}</span>
+                  </div>
+                  <p className="text-muted-foreground">{plan.period}</p>
+                </div>
+                
+                <ul className="space-y-4 mb-8">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  className="w-full" 
+                  variant={plan.popular ? "default" : "outline"}
+                >
+                  Chọn gói {plan.name}
+                </Button>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Câu hỏi <span className="text-primary">thường gặp</span> về N8N
+          </h2>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <Card 
+                key={index}
+                className="p-6 animate-slide-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <h3 className="text-lg font-semibold mb-3 text-primary">{faq.question}</h3>
+                <p className="text-muted-foreground">{faq.answer}</p>
               </Card>
             ))}
           </div>
