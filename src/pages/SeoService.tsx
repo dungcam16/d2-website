@@ -12,6 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ContactForm from '@/components/ContactForm';
 
 const SeoService = () => {
   const [auditForm, setAuditForm] = useState({
@@ -871,65 +872,14 @@ const SeoService = () => {
               </div>
               
               <div>
-                <h3 className="text-xl font-bold mb-6">Get Your Free Audit</h3>
-                <div className="space-y-4">
-                  <div>
-                    <Label>Website URL</Label>
-                    <Input
-                      placeholder="https://yourwebsite.com"
-                      value={auditForm.website}
-                      onChange={(e) => setAuditForm({...auditForm, website: e.target.value})}
-                    />
-                  </div>
-                  <div>
-                    <Label>Industry</Label>
-                    <Select value={auditForm.industry} onValueChange={(value) => setAuditForm({...auditForm, industry: value})}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select your industry" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="ecommerce">E-commerce</SelectItem>
-                        <SelectItem value="local">Local Business</SelectItem>
-                        <SelectItem value="b2b">B2B Services</SelectItem>
-                        <SelectItem value="saas">SaaS/Tech</SelectItem>
-                        <SelectItem value="healthcare">Healthcare</SelectItem>
-                        <SelectItem value="realestate">Real Estate</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label>Current Rankings</Label>
-                    <Input
-                      placeholder="e.g., Not ranking, Page 2, Page 3+"
-                      value={auditForm.currentRankings}
-                      onChange={(e) => setAuditForm({...auditForm, currentRankings: e.target.value})}
-                    />
-                  </div>
-                  <div>
-                    <Label>Main Competitors (optional)</Label>
-                    <Input
-                      placeholder="competitor1.com, competitor2.com"
-                      value={auditForm.mainCompetitors}
-                      onChange={(e) => setAuditForm({...auditForm, mainCompetitors: e.target.value})}
-                    />
-                  </div>
-                  
-                  <Button 
-                    className="w-full mt-6" 
-                    style={{ backgroundColor: '#16a34a', color: 'white' }}
-                    onClick={() => window.location.href = '/contact'}
-                  >
-                    Nhận Audit Trong 24h
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </div>
-                
-            <ContactForm 
-              service="seo"
-              title="Nhận SEO Audit Miễn Phí"
-              description="Chia sẻ thông tin website và chúng tôi sẽ audit SEO toàn diện cho bạn trong 24h."
-            />
-          </div>
+                <ContactForm 
+                  service="seo"
+                  title="Nhận SEO Audit Miễn Phí"
+                  description="Chia sẻ thông tin website và chúng tôi sẽ audit SEO toàn diện cho bạn trong 24h."
+                />
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 

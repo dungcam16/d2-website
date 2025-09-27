@@ -3,7 +3,8 @@ import {
   ArrowRight, Search, TrendingUp, Target, Shield, CheckCircle, Star, BarChart3, Zap, Globe,
   Award, Clock, Users, Monitor, Database, Settings, Link, FileText, AlertTriangle,
   Smartphone, Gauge, MapPin, Brain, Eye, Filter, Download, Lightbulb, Trophy,
-  Building, ShoppingCart, Heart, Code, Home, Briefcase, PlayCircle, Calculator
+  Building, ShoppingCart, Heart, Code, Home, Briefcase, PlayCircle, Calculator,
+  GitBranch, Server, Workflow
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
