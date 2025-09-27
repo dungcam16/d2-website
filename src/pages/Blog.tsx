@@ -9,18 +9,19 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { supabase } from '@/integrations/supabase/client';
 
 interface BlogPost {
   id: string;
   title: string;
-  excerpt: string;
+  excerpt: string | null;
   content: string;
   author: string;
-  publishedAt: string;
+  published_at: string;
   tags: string[];
-  featuredImage?: string;
-  views: number;
-  readTime: number;
+  image_url?: string | null;
+  views: number | null;
+  read_time: number | null;
   slug: string;
 }
 
@@ -30,67 +31,25 @@ const Blog = () => {
   const [selectedTag, setSelectedTag] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // Sample data - replace with Supabase integration
-  const samplePosts: BlogPost[] = [
-    {
-      id: '1',
-      title: 'Cách Tối Ưu SEO Cho Website Thương Mại Điện Tử Việt Nam 2024',
-      excerpt: 'Hướng dẫn chi tiết từ A-Z để tăng traffic và conversion cho website e-commerce tại thị trường Việt Nam.',
-      content: 'Full content here...',
-      author: 'D2 GROUP Marketing Team',
-      publishedAt: '2024-01-15',
-      tags: ['SEO', 'E-commerce', 'Digital Marketing'],
-      views: 1250,
-      readTime: 8,
-      slug: 'seo-ecommerce-vietnam-2024'
-    },
-    {
-      id: '2',
-      title: 'Automation Marketing: Tự Động Hóa Lead Nurturing Hiệu Quả',
-      excerpt: 'Chiến lược automation giúp tăng 300% tỷ lệ chuyển đổi lead thành khách hàng thực.',
-      content: 'Full content here...',
-      author: 'D2 GROUP Marketing Team',
-      publishedAt: '2024-01-10',
-      tags: ['Automation', 'Lead Generation', 'Marketing'],
-      views: 980,
-      readTime: 6,
-      slug: 'automation-lead-nurturing'
-    },
-    {
-      id: '3',
-      title: 'Zalo OA vs Facebook Messenger: So Sánh Hiệu Quả Marketing',
-      excerpt: 'Phân tích chi tiết ưu nhược điểm của 2 platform messaging phổ biến nhất Việt Nam.',
-      content: 'Full content here...',
-      author: 'D2 GROUP Marketing Team',
-      publishedAt: '2024-01-05',
-      tags: ['Zalo', 'Facebook', 'Messaging Marketing'],
-      views: 1580,
-      readTime: 10,
-      slug: 'zalo-vs-facebook-messenger'
-    }
-  ];
-
   useEffect(() => {
-    // TODO: Replace with actual Supabase call
-    // const fetchPosts = async () => {
-    //   try {
-    //     const { data, error } = await supabase
-    //       .from('blog_posts')
-    //       .select('*')
-    //       .order('publishedAt', { ascending: false });
-    //     
-    //     if (error) throw error;
-    //     setPosts(data);
-    //   } catch (error) {
-    //     console.error('Error fetching posts:', error);
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // };
+    const fetchPosts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('blog_posts')
+          .select('*')
+          .eq('is_published', true)
+          .order('published_at', { ascending: false });
+        
+        if (error) throw error;
+        setPosts(data || []);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
     
-    // For now, use sample data
-    setPosts(samplePosts);
-    setLoading(false);
+    fetchPosts();
   }, []);
 
   const filteredPosts = posts.filter(post => {
@@ -162,8 +121,14 @@ const Blog = () => {
               <div className="space-y-8">
                 {filteredPosts.map((post) => (
                   <Card key={post.id} className="gradient-card overflow-hidden hover:shadow-elevation transition-all duration-300">
-                    {post.featuredImage && (
-                      <div className="h-48 bg-muted"></div>
+                    {post.image_url && (
+                      <div className="h-48 bg-muted rounded-t-lg">
+                        <img 
+                          src={post.image_url} 
+                          alt={post.title}
+                          className="w-full h-full object-cover rounded-t-lg"
+                        />
+                      </div>
                     )}
                     <CardContent className="p-6">
                       <div className="flex flex-wrap gap-2 mb-4">
@@ -181,7 +146,7 @@ const Blog = () => {
                       </h2>
                       
                       <p className="text-muted-foreground mb-4 line-clamp-3">
-                        {post.excerpt}
+                        {post.excerpt || ''}
                       </p>
                       
                       <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
@@ -192,18 +157,18 @@ const Blog = () => {
                           </div>
                           <div className="flex items-center gap-1">
                             <Calendar className="h-4 w-4" />
-                            <span>{new Date(post.publishedAt).toLocaleDateString('vi-VN')}</span>
+                            <span>{new Date(post.published_at).toLocaleDateString('vi-VN')}</span>
                           </div>
                           <div className="flex items-center gap-1">
                             <Clock className="h-4 w-4" />
-                            <span>{post.readTime} phút đọc</span>
+                            <span>{post.read_time || 5} phút đọc</span>
                           </div>
                         </div>
                         
                         <div className="flex items-center gap-2">
                           <div className="flex items-center gap-1">
                             <Eye className="h-4 w-4" />
-                            <span>{post.views}</span>
+                            <span>{post.views || 0}</span>
                           </div>
                         </div>
                       </div>
@@ -306,14 +271,14 @@ const Blog = () => {
               {/* CTA */}
               <Card className="gradient-card bg-primary text-primary-foreground">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold mb-2">Cần tư vấn marketing?</h3>
-                  <p className="text-sm mb-4 opacity-90">
+                  <h3 className="text-lg font-bold mb-2 text-primary-foreground">Cần tư vấn marketing?</h3>
+                  <p className="text-sm mb-4 text-primary-foreground/90">
                     Liên hệ với chuyên gia D2 GROUP để được tư vấn miễn phí
                   </p>
                   <Button 
-                    variant="secondary" 
+                    variant="outline" 
                     size="sm" 
-                    className="w-full"
+                    className="w-full bg-background text-foreground border-background hover:bg-background/90"
                     onClick={() => window.location.href = '/contact'}
                   >
                     Tư vấn miễn phí
