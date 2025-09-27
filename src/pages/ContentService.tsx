@@ -154,145 +154,145 @@ const ContentService = () => {
   ];
 
   const performanceMetrics = [
-    { metric: "+400%", label: "Organic Traffic Growth", description: "trong 6 tháng", color: "#7c3aed" },
-    { metric: "+250%", label: "Lead Generation", description: "qualified leads", color: "#059669" },
-    { metric: "85%", label: "Engagement Rate", description: "time on page", color: "#dc2626" },
-    { metric: "8.5%", label: "Conversion Rate", description: "content to lead", color: "#7c3aed" },
-    { metric: "65%", label: "Brand Awareness", description: "share of voice", color: "#059669" },
-    { metric: "420%", label: "ROI Attribution", description: "revenue traced", color: "#dc2626" }
+    { metric: "+400%", label: "Tăng Trưởng Lưu Lượng Tự Nhiên", description: "trong 6 tháng", color: "text-foreground" },
+    { metric: "+250%", label: "Tạo Khách Hàng Tiềm Năng", description: "khách hàng tiềm năng chất lượng", color: "text-foreground" },
+    { metric: "85%", label: "Tỷ Lệ Tương Tác", description: "thời gian trên trang", color: "text-foreground" },
+    { metric: "8.5%", label: "Tỷ Lệ Chuyển Đổi", description: "nội dung thành khách hàng tiềm năng", color: "text-foreground" },
+    { metric: "65%", label: "Nhận Biết Thương Hiệu", description: "chia sẻ tiếng nói", color: "text-foreground" },
+    { metric: "420%", label: "Gán ROI", description: "doanh thu theo dõi", color: "text-foreground" }
   ];
 
   const industries = [
     {
-      name: "SaaS/Tech",
-      description: "Product content, technical blogs, developer resources",
-      specialties: ["API Documentation", "Product Tours", "Technical Whitepapers", "Developer Guides"]
+      name: "SaaS/Công Nghệ",
+      description: "Nội dung sản phẩm, blog kỹ thuật, tài nguyên phát triển",
+      specialties: ["Tài Liệu API", "Tour Sản Phẩm", "Báo Cáo Kỹ Thuật", "Hướng Dẫn Phát Triển"]
     },
     {
-      name: "E-commerce",
-      description: "Product descriptions, buying guides, reviews",
-      specialties: ["Product Descriptions", "Buying Guides", "Customer Reviews", "Category Pages"]
+      name: "Thương Mại Điện Tử",
+      description: "Mô tả sản phẩm, hướng dẫn mua hàng, đánh giá",
+      specialties: ["Mô Tả Sản Phẩm", "Hướng Dẫn Mua Hàng", "Đánh Giá Khách Hàng", "Trang Danh Mục"]
     },
     {
-      name: "B2B Services",
-      description: "Thought leadership, case studies, white papers",
-      specialties: ["Industry Reports", "Case Studies", "Solution Guides", "Executive Content"]
+      name: "Dịch Vụ B2B",
+      description: "Tư duy lãnh đạo, nghiên cứu điển hình, báo cáo trắng",
+      specialties: ["Báo Cáo Ngành", "Nghiên Cứu Điển Hình", "Hướng Dẫn Giải Pháp", "Nội Dung Lãnh Đạo"]
     },
     {
-      name: "Healthcare",
-      description: "Compliance-ready, educational content",
-      specialties: ["Medical Content", "Patient Education", "Compliance Documentation", "Health Guides"]
+      name: "Y Tế",
+      description: "Sẵn sàng tuân thủ, nội dung giáo dục",
+      specialties: ["Nội Dung Y Khoa", "Giáo Dục Bệnh Nhân", "Tài Liệu Tuân Thủ", "Hướng Dẫn Sức Khỏe"]
     },
     {
-      name: "Finance",
-      description: "Regulatory-compliant, trust-building content", 
-      specialties: ["Financial Planning", "Investment Guides", "Regulatory Content", "Market Analysis"]
+      name: "Tài Chính",
+      description: "Tuân thủ quy định, xây dựng lòng tin", 
+      specialties: ["Lập Kế Hoạch Tài Chính", "Hướng Dẫn Đầu Tư", "Nội Dung Quy Định", "Phân Tích Thị Trường"]
     },
     {
-      name: "Education",
-      description: "Course content, student resources",
-      specialties: ["Course Materials", "Student Guides", "Educational Videos", "Learning Resources"]
+      name: "Giáo Dục",
+      description: "Nội dung khóa học, tài nguyên sinh viên",
+      specialties: ["Tài Liệu Khóa Học", "Hướng Dẫn Sinh Viên", "Video Giáo Dục", "Tài Nguyên Học Tập"]
     }
   ];
 
   const workflow = [
-    { step: 1, title: "Content Strategy & Planning", duration: "Week 1", description: "Competitor analysis, audience research, content pillars" },
-    { step: 2, title: "Keyword Research & Topic Ideation", duration: "Week 1", description: "Search intent analysis, content gap identification" },
-    { step: 3, title: "Content Brief Creation", duration: "Week 2", description: "Detailed outlines, SEO requirements, brand guidelines" },
-    { step: 4, title: "Writing & Creation", duration: "Week 2-3", description: "Content production, visual design, multimedia integration" },
-    { step: 5, title: "SEO Optimization", duration: "Week 3", description: "Technical SEO, meta optimization, schema markup" },
-    { step: 6, title: "Review & Approval", duration: "Week 4", description: "Quality assurance, brand compliance, stakeholder approval" },
-    { step: 7, title: "Publishing & Promotion", duration: "Week 4", description: "Multi-channel distribution, social amplification" },
-    { step: 8, title: "Performance Tracking", duration: "Ongoing", description: "Analytics monitoring, performance optimization" }
+    { step: 1, title: "Chiến Lược & Lập Kế Hoạch Nội Dung", duration: "Tuần 1", description: "Phân tích đối thủ, nghiên cứu khán giả, trụ cột nội dung" },
+    { step: 2, title: "Nghiên Cứu Từ Khóa & Ý Tưởng Chủ Đề", duration: "Tuần 1", description: "Phân tích ý định tìm kiếm, xác định khoảng trống nội dung" },
+    { step: 3, title: "Tạo Bản Tóm Tắt Nội Dung", duration: "Tuần 2", description: "Đề cương chi tiết, yêu cầu SEO, hướng dẫn thương hiệu" },
+    { step: 4, title: "Viết & Tạo", duration: "Tuần 2-3", description: "Sản xuất nội dung, thiết kế hình ảnh, tích hợp đa phương tiện" },
+    { step: 5, title: "Tối Ưu SEO", duration: "Tuần 3", description: "SEO kỹ thuật, tối ưu meta, đánh dấu schema" },
+    { step: 6, title: "Đánh Giá & Phê Duyệt", duration: "Tuần 4", description: "Đảm bảo chất lượng, tuân thủ thương hiệu, phê duyệt bên liên quan" },
+    { step: 7, title: "Xuất Bản & Khuyến Mãi", duration: "Tuần 4", description: "Phân phối đa kênh, khuếch đại mạng xã hội" },
+    { step: 8, title: "Theo Dõi Hiệu Suất", duration: "Liên tục", description: "Giám sát phân tích, tối ưu hiệu suất" }
   ];
 
   const tools = [
-    { category: "Research", tools: ["SEMrush", "Ahrefs", "Google Analytics"], color: "#7c3aed" },
-    { category: "Planning", tools: ["ContentKing", "CoSchedule", "Asana"], color: "#059669" },
-    { category: "Creation", tools: ["Grammarly", "Hemingway", "Canva Pro"], color: "#dc2626" },
-    { category: "SEO", tools: ["Yoast", "Schema markup", "Core Web Vitals"], color: "#7c3aed" },
-    { category: "Analytics", tools: ["Google Analytics 4", "Search Console", "Hotjar"], color: "#059669" },
-    { category: "Automation", tools: ["Buffer", "Hootsuite", "Zapier"], color: "#dc2626" }
+    { category: "Nghiên Cứu", tools: ["SEMrush", "Ahrefs", "Google Analytics"], color: "text-foreground" },
+    { category: "Lập Kế Hoạch", tools: ["ContentKing", "CoSchedule", "Asana"], color: "text-foreground" },
+    { category: "Tạo", tools: ["Grammarly", "Hemingway", "Canva Pro"], color: "text-foreground" },
+    { category: "SEO", tools: ["Yoast", "Schema markup", "Core Web Vitals"], color: "text-foreground" },
+    { category: "Phân Tích", tools: ["Google Analytics 4", "Search Console", "Hotjar"], color: "text-foreground" },
+    { category: "Tự Động", tools: ["Buffer", "Hootsuite", "Zapier"], color: "text-foreground" }
   ];
 
   const caseStudies = [
     {
-      title: "SaaS Startup: 0 to 50K Monthly Traffic",
+      title: "Startup SaaS: Từ 0 Đến 50K Lưu Lượng Hàng Tháng",
       duration: "8 tháng",
-      results: ["50K organic monthly visitors", "300% increase in trial signups", "85% qualified lead rate"],
-      strategy: "Technical content, SEO optimization, developer-focused resources"
+      results: ["50K khách truy cập tự nhiên hàng tháng", "Tăng 300% đăng ký dùng thử", "85% tỷ lệ khách hàng tiềm năng chất lượng"],
+      strategy: "Nội dung kỹ thuật, tối ưu SEO, tài nguyên tập trung nhà phát triển"
     },
     {
-      title: "E-commerce: 300% Product Page Conversions", 
+      title: "Thương Mại Điện Tử: 300% Chuyển Đổi Trang Sản Phẩm", 
       duration: "6 tháng",
-      results: ["300% conversion improvement", "250% increase in average order value", "40% reduction in bounce rate"],
-      strategy: "Product content optimization, buying guides, customer reviews"
+      results: ["Cải thiện 300% chuyển đổi", "Tăng 250% giá trị đơn hàng trung bình", "Giảm 40% tỷ lệ thoát"],
+      strategy: "Tối ưu nội dung sản phẩm, hướng dẫn mua hàng, đánh giá khách hàng"
     },
     {
-      title: "B2B Agency: 5X Lead Generation",
+      title: "Đại Lý B2B: Tăng 5X Tạo Khách Hàng Tiềm Năng",
       duration: "12 tháng", 
-      results: ["500% lead generation increase", "Thought leader positioning", "3x speaking opportunities"],
-      strategy: "Thought leadership content, industry reports, executive positioning"
+      results: ["Tăng 500% tạo khách hàng tiềm năng", "Định vị tư duy lãnh đạo", "3x cơ hội phát biểu"],
+      strategy: "Nội dung tư duy lãnh đạo, báo cáo ngành, định vị điều hành"
     }
   ];
 
   const packages = [
     {
-      name: "STARTER",
+      name: "KHỞI ĐẦU",
       price: "8M",
       period: "/tháng",
-      description: "Perfect cho SME bắt đầu content journey",
+      description: "Hoàn hảo cho doanh nghiệp vừa và nhỏ bắt đầu hành trình nội dung",
       features: [
-        "4 blog posts SEO-optimized",
-        "Basic content strategy",
-        "Monthly performance report", 
-        "Social media adaptation",
-        "Email support"
+        "4 bài viết blog tối ưu SEO",
+        "Chiến lược nội dung cơ bản",
+        "Báo cáo hiệu suất hàng tháng", 
+        "Thích ứng mạng xã hội",
+        "Hỗ trợ qua email"
       ],
       popular: false
     },
     {
-      name: "GROWTH", 
+      name: "TĂNG TRƯỞNG", 
       price: "15M",
       period: "/tháng",
-      description: "Comprehensive solution cho growing businesses",
+      description: "Giải pháp toàn diện cho doanh nghiệp đang phát triển",
       features: [
-        "8 blog posts + advanced SEO",
-        "Social content calendar",
-        "Email sequence templates",
-        "Bi-weekly performance reviews",
-        "Video script writing",
-        "Priority support"
+        "8 bài viết blog + SEO nâng cao",
+        "Lịch nội dung mạng xã hội",
+        "Mẫu chuỗi email",
+        "Đánh giá hiệu suất hai tuần một lần",
+        "Viết kịch bản video",
+        "Hỗ trợ ưu tiên"
       ],
       popular: true
     },
     {
-      name: "SCALE",
+      name: "MỞ RỘNG",
       price: "25M", 
       period: "/tháng",
-      description: "Full-scale content operations",
+      description: "Vận hành nội dung quy mô lớn",
       features: [
-        "12 long-form articles",
-        "Video content scripts",
-        "Email automation sequences", 
-        "Landing page copy",
-        "Weekly strategy calls",
-        "A/B testing & optimization"
+        "12 bài viết dài",
+        "Kịch bản nội dung video",
+        "Chuỗi tự động email", 
+        "Bản sao trang đích",
+        "Cuộc gọi chiến lược hàng tuần",
+        "Kiểm tra A/B & tối ưu"
       ],
       popular: false
     },
     {
-      name: "ENTERPRISE",
-      price: "Custom",
+      name: "DOANH NGHIỆP",
+      price: "Tùy Chỉnh",
       period: "",
-      description: "Dedicated content team cho large organizations",
+      description: "Đội ngũ nội dung chuyên dụng cho tổ chức lớn",
       features: [
-        "Unlimited content production",
-        "Dedicated content manager",
-        "Multi-language support",
-        "Custom content types",
-        "Real-time performance dashboard",
-        "24/7 support"
+        "Sản xuất nội dung không giới hạn",
+        "Quản lý nội dung chuyên dụng",
+        "Hỗ trợ đa ngôn ngữ",
+        "Loại nội dung tùy chỉnh",
+        "Bảng điều khiển hiệu suất thời gian thực",
+        "Hỗ trợ 24/7"
       ],
       popular: false
     }
@@ -467,8 +467,8 @@ const ContentService = () => {
       {/* Content Types Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            <span className="text-accent">Full-Stack</span> Content Services
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Dịch Vụ Nội Dung <span className="text-primary">Toàn Diện</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -486,7 +486,7 @@ const ContentService = () => {
                     </div>
                     <h3 className="text-lg font-bold mb-2 text-foreground">{type.title}</h3>
                     <p className="text-sm text-muted-foreground mb-3">{type.description}</p>
-                    <div className="text-xs font-medium p-2 rounded bg-accent/10 text-accent">
+                    <div className="text-xs font-medium p-2 rounded bg-muted text-foreground">
                       {type.metrics}
                     </div>
                   </div>
@@ -612,13 +612,13 @@ const ContentService = () => {
                 className="p-6 hover:shadow-lg transition-all duration-300 animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <h3 className="text-xl font-bold mb-3" style={{ color: '#7c3aed' }}>{industry.name}</h3>
+                <h3 className="text-xl font-bold mb-3 text-foreground">{industry.name}</h3>
                 <p className="text-muted-foreground mb-4">{industry.description}</p>
                 
                 <div className="space-y-2">
                   {industry.specialties.map((specialty, idx) => (
                     <div key={idx} className="flex items-center text-sm">
-                      <CheckCircle className="h-3 w-3 mr-2 flex-shrink-0" style={{ color: '#059669' }} />
+                      <CheckCircle className="h-3 w-3 mr-2 flex-shrink-0 text-primary" />
                       <span>{specialty}</span>
                     </div>
                   ))}
@@ -644,7 +644,7 @@ const ContentService = () => {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="mb-4">
-                  <div className="text-sm font-medium mb-2" style={{ color: '#7c3aed' }}>{study.duration}</div>
+                  <div className="text-sm font-medium mb-2 text-primary">{study.duration}</div>
                   <h3 className="text-lg font-bold mb-3">{study.title}</h3>
                   <p className="text-sm text-muted-foreground mb-4">{study.strategy}</p>
                 </div>
@@ -652,7 +652,7 @@ const ContentService = () => {
                 <div className="space-y-3">
                   {study.results.map((result, idx) => (
                     <div key={idx} className="flex items-center text-sm">
-                      <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0" style={{ color: '#059669' }} />
+                      <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0 text-primary" />
                       <span>{result}</span>
                     </div>
                   ))}
@@ -705,7 +705,7 @@ const ContentService = () => {
                 <ul className="space-y-3 mb-6">
                   {pkg.features.map((feature, idx) => (
                      <li key={idx} className="flex items-center text-sm">
-                       <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0 text-accent" />
+                       <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0 text-primary" />
                        <span className="text-muted-foreground">{feature}</span>
                      </li>
                   ))}
