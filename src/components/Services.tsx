@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Zap, Workflow, ArrowRight, Bot, Globe, Settings } from 'lucide-react';
+import { MessageCircle, Zap, Workflow, ArrowRight, Bot, Globe, Settings, TrendingUp, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
@@ -16,7 +16,8 @@ const Services = () => {
         "Phân tích & báo cáo"
       ],
       color: "text-blue-400",
-      delay: "0s"
+      delay: "0s",
+      href: "/services/chatbot"
     },
     {
       icon: Zap,
@@ -29,7 +30,8 @@ const Services = () => {
         "Tối ưu thị trường Việt Nam"
       ],
       color: "text-green-400",
-      delay: "0.2s"
+      delay: "0.2s",
+      href: "/services/zalo"
     },
     {
       icon: Workflow,
@@ -42,7 +44,36 @@ const Services = () => {
         "Automation mở rộng"
       ],
       color: "text-primary",
-      delay: "0.4s"
+      delay: "0.4s",
+      href: "/services/automation"
+    },
+    {
+      icon: TrendingUp,
+      title: "Content Performance",
+      description: "Chiến lược content marketing toàn diện với SEO optimization, analytics và performance tracking cho tăng trưởng bền vững.",
+      features: [
+        "Content strategy & planning",
+        "SEO content optimization",
+        "Performance analytics",
+        "Multi-channel distribution"
+      ],
+      color: "text-orange-400",
+      delay: "0.6s",
+      href: "/services/content"
+    },
+    {
+      icon: Search,
+      title: "SEO Boost",
+      description: "Dịch vụ SEO chuyên nghiệp với cam kết top 3 Google, tăng 400% organic traffic và ROI bền vững cho doanh nghiệp.",
+      features: [
+        "Technical SEO audit",
+        "Keyword strategy & optimization",
+        "Content & link building",
+        "Top 3 ranking guarantee"
+      ],
+      color: "text-purple-400",
+      delay: "0.8s",
+      href: "/services/seo"
     }
   ];
 
@@ -61,7 +92,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             
@@ -101,7 +132,11 @@ const Services = () => {
                     </ul>
 
                     {/* CTA */}
-                    <Button variant="outline" className="w-full tech-border group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                    <Button 
+                      variant="outline" 
+                      className="w-full tech-border group-hover:bg-primary group-hover:text-primary-foreground transition-all"
+                      onClick={() => window.location.href = service.href}
+                    >
                       Tìm hiểu thêm
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>

@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import ChatbotService from "./pages/ChatbotService";
 import ZaloService from "./pages/ZaloService";
 import AutomationService from "./pages/AutomationService";
+import ContentService from "./pages/ContentService";
+import SeoService from "./pages/SeoService";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +24,8 @@ const App = () => (
           <Route path="/services/chatbot" element={<ChatbotService />} />
           <Route path="/services/zalo" element={<ZaloService />} />
           <Route path="/services/automation" element={<AutomationService />} />
+          <Route path="/services/content" element={<ContentService />} />
+          <Route path="/services/seo" element={<SeoService />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

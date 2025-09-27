@@ -30,6 +30,8 @@ const Header = () => {
     { name: 'Chatbot Đa Nền Tảng', href: '/services/chatbot' },
     { name: 'Giải Pháp Zalo OA', href: '/services/zalo' },
     { name: 'N8N Enterprise Automation', href: '/services/automation' },
+    { name: 'Content Performance', href: '/services/content' },
+    { name: 'SEO Boost', href: '/services/seo' },
   ];
 
   return (
