@@ -45,111 +45,111 @@ const ContentService = () => {
   const contentProblems = [
     {
       icon: AlertCircle,
-      title: "Viết content theo cảm tính",
-      description: "Không có data để back up content decisions"
+      title: "Viết nội dung theo cảm tính",
+      description: "Không có dữ liệu để hỗ trợ quyết định nội dung"
     },
     {
       icon: BarChart3,
-      title: "Không track performance metrics",
-      description: "Không biết content nào work, content nào không"
+      title: "Không theo dõi chỉ số hiệu suất",
+      description: "Không biết nội dung nào hiệu quả, nội dung nào không"
     },
     {
       icon: Search,
-      title: "SEO và user experience conflict",
-      description: "Content tối ưu cho search engine nhưng không friendly cho users"
+      title: "SEO và trải nghiệm người dùng xung đột",
+      description: "Nội dung tối ưu cho công cụ tìm kiếm nhưng không thân thiện với người dùng"
     },
     {
       icon: Target,
-      title: "Content không align với sales funnel",
-      description: "Thiếu content cho từng stage của customer journey"
+      title: "Nội dung không phù hợp với phễu bán hàng",
+      description: "Thiếu nội dung cho từng giai đoạn của hành trình khách hàng"
     },
     {
       icon: Layers,
-      title: "Thiếu repurposing strategy",
-      description: "Waste resource vì không tái sử dụng content hiệu quả"
+      title: "Thiếu chiến lược tái sử dụng",
+      description: "Lãng phí tài nguyên vì không tái sử dụng nội dung hiệu quả"
     },
     {
       icon: Calculator,
       title: "ROI không đo được",
-      description: "Không attribute revenue back to content efforts"
+      description: "Không gán doanh thu trở lại cho nỗ lực nội dung"
     }
   ];
 
   const methodology = [
     {
       icon: Database,
-      title: "Research & Analytics",
-      description: "Keyword research, competitor analysis, audience insights",
-      details: ["Competitor content gap analysis", "Search intent mapping", "Audience persona development", "Content opportunity identification"]
+      title: "Nghiên Cứu & Phân Tích",
+      description: "Nghiên cứu từ khóa, phân tích đối thủ, hiểu rõ khán giả",
+      details: ["Phân tích khoảng trống nội dung đối thủ", "Lập bản đồ ý định tìm kiếm", "Phát triển persona khán giả", "Xác định cơ hội nội dung"]
     },
     {
       icon: Brain,
-      title: "Strategic Planning", 
-      description: "Content calendar, funnel mapping, topic clusters",
-      details: ["Content pillar development", "Editorial calendar planning", "Funnel stage mapping", "Topic cluster architecture"]
+      title: "Lập Kế Hoạch Chiến Lược", 
+      description: "Lịch nội dung, lập bản đồ phễu, cụm chủ đề",
+      details: ["Phát triển trụ cột nội dung", "Lập kế hoạch lịch biên tập", "Lập bản đồ giai đoạn phễu", "Kiến trúc cụm chủ đề"]
     },
     {
       icon: Edit,
-      title: "Content Creation",
-      description: "SEO-optimized, conversion-focused writing",
-      details: ["SEO-optimized copywriting", "Visual content creation", "Multi-format adaptation", "Brand voice consistency"]
+      title: "Tạo Nội Dung",
+      description: "Viết tối ưu SEO, tập trung chuyển đổi",
+      details: ["Viết bản sao tối ưu SEO", "Tạo nội dung hình ảnh", "Thích ứng đa định dạng", "Tính nhất quán giọng điệu thương hiệu"]
     },
     {
       icon: LineChart,
-      title: "Performance Optimization",
-      description: "A/B testing, continuous improvement",
-      details: ["A/B testing headlines", "Content performance analysis", "Continuous optimization", "ROI attribution tracking"]
+      title: "Tối Ưu Hiệu Suất",
+      description: "Kiểm tra A/B, cải tiến liên tục",
+      details: ["Kiểm tra A/B tiêu đề", "Phân tích hiệu suất nội dung", "Tối ưu liên tục", "Theo dõi gán ROI"]
     }
   ];
 
   const contentTypes = [
     {
       icon: FileText,
-      title: "Blog Articles",
-      description: "SEO-optimized, 2000+ words, thought leadership",
-      metrics: "Average 300% traffic increase"
+      title: "Bài Viết Blog",
+      description: "Tối ưu SEO, 2000+ từ, tư duy lãnh đạo",
+      metrics: "Trung bình tăng 300% lưu lượng"
     },
     {
       icon: Award,
-      title: "Case Studies", 
-      description: "Results-focused storytelling, client success stories",
-      metrics: "85% lead qualification rate"
+      title: "Nghiên Cứu Điển Hình", 
+      description: "Kể chuyện tập trung kết quả, câu chuyện thành công khách hàng",
+      metrics: "85% tỷ lệ chất lượng khách hàng tiềm năng"
     },
     {
       icon: Presentation,
-      title: "White Papers",
-      description: "In-depth research, lead magnets, authority building", 
-      metrics: "40% email signup conversion"
+      title: "Báo Cáo Trắng",
+      description: "Nghiên cứu sâu, nam châm khách hàng tiềm năng, xây dựng uy tín", 
+      metrics: "40% chuyển đổi đăng ký email"
     },
     {
       icon: Target,
-      title: "Landing Pages",
-      description: "Conversion-optimized copy, A/B tested headlines",
-      metrics: "250% conversion rate improvement"
+      title: "Trang Đích",
+      description: "Bản sao tối ưu chuyển đổi, tiêu đề kiểm tra A/B",
+      metrics: "Cải thiện 250% tỷ lệ chuyển đổi"
     },
     {
       icon: Globe,
-      title: "Social Content",
-      description: "Platform-specific, engagement-driven",
-      metrics: "400% engagement increase"
+      title: "Nội Dung Mạng Xã Hội",
+      description: "Đặc thù nền tảng, thúc đẩy tương tác",
+      metrics: "Tăng 400% tương tác"
     },
     {
       icon: Mail,
-      title: "Email Sequences",
-      description: "Nurture campaigns, automation-ready",
-      metrics: "60% open rate average"
+      title: "Chuỗi Email",
+      description: "Chiến dịch nuôi dưỡng, sẵn sàng tự động",
+      metrics: "Trung bình 60% tỷ lệ mở"
     },
     {
       icon: Video,
-      title: "Video Scripts",
-      description: "YouTube, webinars, product demos",
-      metrics: "80% completion rate"
+      title: "Kịch Bản Video",
+      description: "YouTube, webinar, demo sản phẩm",
+      metrics: "80% tỷ lệ hoàn thành"
     },
     {
       icon: Presentation,
-      title: "Sales Collaterals",
-      description: "Presentations, one-pagers, proposals",
-      metrics: "45% close rate improvement"
+      title: "Tài Liệu Bán Hàng",
+      description: "Thuyết trình, tài liệu một trang, đề xuất",
+      metrics: "Cải thiện 45% tỷ lệ đóng"
     }
   ];
 
@@ -310,9 +310,9 @@ const ContentService = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
               <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
-                <span className="text-primary">Content Performance</span>
+                <span className="text-primary">Hiệu Suất Nội Dung</span>
                 <br />
-                Content Không Chỉ Đẹp, Còn Phải <span className="text-primary">Bán</span>
+                Nội Dung Không Chỉ Đẹp, Còn Phải <span className="text-primary">Bán</span>
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8">
@@ -326,7 +326,7 @@ const ContentService = () => {
                   className="shadow-glow"
                   onClick={() => window.location.href = '/contact'}
                 >
-                  Nhận Content Audit Miễn Phí
+                  Nhận Kiểm Toán Nội Dung Miễn Phí
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button 
@@ -336,7 +336,7 @@ const ContentService = () => {
                   onClick={() => window.location.href = '/contact'}
                 >
                   <PlayCircle className="mr-2 h-5 w-5" />
-                  Xem Demo Dashboard
+                  Xem Demo Bảng Điều Khiển
                 </Button>
               </div>
 
@@ -601,8 +601,8 @@ const ContentService = () => {
       {/* Industry Expertise */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            Chuyên Môn Sâu <span className="text-accent">Theo Ngành</span>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Chuyên Môn Sâu <span className="text-primary">Theo Ngành</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -632,8 +632,8 @@ const ContentService = () => {
       {/* Case Studies */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            Success Stories: <span className="text-destructive">Numbers Don't Lie</span>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Câu Chuyện Thành Công: <span className="text-primary">Con Số Không Nói Dối</span>
           </h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -658,8 +658,12 @@ const ContentService = () => {
                   ))}
                 </div>
                 
-                <Button variant="outline" className="w-full mt-6 tech-border">
-                  View Full Case Study
+                <Button 
+                  variant="outline" 
+                  className="w-full mt-6 tech-border"
+                  onClick={() => window.location.href = '/contact'}
+                >
+                  Xem Nghiên Cứu Điển Hình Đầy Đủ
                 </Button>
               </Card>
             ))}
@@ -684,7 +688,7 @@ const ContentService = () => {
                 {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <span className="px-4 py-2 rounded-full text-sm font-medium bg-primary text-primary-foreground">
-                      Most Popular
+                      Phổ Biến Nhất
                     </span>
                   </div>
                 )}
@@ -712,7 +716,7 @@ const ContentService = () => {
                   variant={pkg.popular ? "default" : "outline"}
                   onClick={() => window.location.href = '/contact'}
                 >
-                  {pkg.price === "Custom" ? "Contact Sales" : "Get Started"}
+                  {pkg.price === "Custom" ? "Liên Hệ Bán Hàng" : "Bắt Đầu Ngay"}
                 </Button>
               </Card>
             ))}
@@ -720,107 +724,41 @@ const ContentService = () => {
         </div>
       </section>
 
-      {/* Content Audit Offer */}
+      {/* CTA Section - Replace Audit Form */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            <span className="text-destructive">Miễn Phí:</span> Content Performance Audit Cho Website Của Bạn
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8">
+            Sẵn Sàng Tăng <span className="text-primary">400% Lưu Lượng</span> Với Nội Dung Chất Lượng?
           </h2>
           
-          <Card className="p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-bold mb-6 text-foreground">Audit Includes:</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <Search className="h-5 w-5 mt-1 flex-shrink-0 text-primary" />
-                    <div>
-                      <div className="font-semibold text-foreground">SEO Analysis</div>
-                      <div className="text-sm text-muted-foreground">Keyword gaps, technical issues</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Target className="h-5 w-5 mt-1 flex-shrink-0 text-accent" />
-                    <div>
-                      <div className="font-semibold text-foreground">Content Gap Analysis</div>
-                      <div className="text-sm text-muted-foreground">Missing topics, competitor comparison</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <BarChart3 className="h-5 w-5 mt-1 flex-shrink-0 text-destructive" />
-                    <div>
-                      <div className="font-semibold text-foreground">Performance Review</div>
-                      <div className="text-sm text-muted-foreground">Traffic, engagement, conversion metrics</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Lightbulb className="h-5 w-5 mt-1 flex-shrink-0 text-primary" />
-                    <div>
-                      <div className="font-semibold text-foreground">Strategy Recommendations</div>
-                      <div className="text-sm text-muted-foreground">90-day action plan</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-bold mb-6">Get Your Free Audit</h3>
-                <div className="space-y-4">
-                  <div>
-                    <Label>Website URL</Label>
-                    <Input
-                      placeholder="https://yourwebsite.com"
-                      value={auditForm.website}
-                      onChange={(e) => setAuditForm({...auditForm, website: e.target.value})}
-                    />
-                  </div>
-                  <div>
-                    <Label>Industry</Label>
-                    <Select value={auditForm.industry} onValueChange={(value) => setAuditForm({...auditForm, industry: value})}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select your industry" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="saas">SaaS/Tech</SelectItem>
-                        <SelectItem value="ecommerce">E-commerce</SelectItem>
-                        <SelectItem value="b2b">B2B Services</SelectItem>
-                        <SelectItem value="healthcare">Healthcare</SelectItem>
-                        <SelectItem value="finance">Finance</SelectItem>
-                        <SelectItem value="education">Education</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label>Current Monthly Traffic</Label>
-                    <Input
-                      placeholder="e.g., 10,000"
-                      value={auditForm.currentTraffic}
-                      onChange={(e) => setAuditForm({...auditForm, currentTraffic: e.target.value})}
-                    />
-                  </div>
-                  <div>
-                    <Label>Primary Goals</Label>
-                    <Input
-                      placeholder="e.g., increase leads, improve SEO"
-                      value={auditForm.goals}
-                      onChange={(e) => setAuditForm({...auditForm, goals: e.target.value})}
-                    />
-                  </div>
-                  
-                  <div className="text-center mt-6">
-                    <Button 
-                      size="lg" 
-                      className="shadow-glow"
-                      onClick={() => window.location.href = '/contact'}
-                    >
-                      Nhận Content Audit Miễn Phí
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
+          <p className="text-xl text-muted-foreground mb-8">
+            Đặt lịch tư vấn miễn phí để khám phá cách chiến lược nội dung có thể biến đổi doanh nghiệp của bạn.
+            Nhận kiểm toán nội dung miễn phí trị giá 5 triệu đồng.
+          </p>
+
+          <div className="space-y-4 mb-8">
+            <div className="flex items-center justify-center">
+              <CheckCircle className="h-5 w-5 text-primary mr-3" />
+              <span>Kiểm toán SEO và nội dung miễn phí</span>
             </div>
-          </Card>
+            <div className="flex items-center justify-center">
+              <CheckCircle className="h-5 w-5 text-primary mr-3" />
+              <span>Kế hoạch hành động 90 ngày chi tiết</span>
+            </div>
+            <div className="flex items-center justify-center">
+              <CheckCircle className="h-5 w-5 text-primary mr-3" />
+              <span>Tư vấn chiến lược từ chuyên gia</span>
+            </div>
+          </div>
+
+          <Button 
+            size="lg" 
+            className="shadow-glow"
+            onClick={() => window.location.href = '/contact'}
+          >
+            Đặt Lịch Tư Vấn Miễn Phí
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </section>
 
