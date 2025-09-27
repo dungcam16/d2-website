@@ -1,179 +1,395 @@
-import React from 'react';
-import { ArrowRight, Search, TrendingUp, Target, Shield, CheckCircle, Star, BarChart3, Zap, Globe } from 'lucide-react';
+import React, { useState } from 'react';
+import { 
+  ArrowRight, Search, TrendingUp, Target, Shield, CheckCircle, Star, BarChart3, Zap, Globe,
+  Award, Clock, Users, Monitor, Database, Settings, Link, FileText, AlertTriangle,
+  Smartphone, Gauge, MapPin, Brain, Eye, Filter, Download, Lightbulb, Trophy,
+  Building, ShoppingCart, Heart, Code, Home, Briefcase
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const SeoService = () => {
-  const services = [
-    {
-      icon: Search,
-      title: "Technical SEO Audit",
-      description: "Kiểm tra kỹ thuật website toàn diện với 200+ yếu tố ranking",
-      features: ["Core Web Vitals optimization", "Site architecture analysis", "Mobile-first indexing", "Schema markup implementation"]
-    },
-    {
-      icon: Target,
-      title: "Keyword Strategy",
-      description: "Nghiên cứu từ khóa chuyên sâu và xây dựng content cluster",
-      features: ["Competitor keyword analysis", "Search intent mapping", "Long-tail keyword research", "SERP feature optimization"]
-    },
-    {
-      icon: TrendingUp,
-      title: "On-Page Optimization",
-      description: "Tối ưu hóa từng trang web để đạt ranking cao nhất",
-      features: ["Title & meta optimization", "Internal linking strategy", "Content optimization", "Featured snippet targeting"]
-    },
-    {
-      icon: Globe,
-      title: "Local SEO",
-      description: "Tối ưu hóa cho tìm kiếm địa phương và Google My Business",
-      features: ["Google My Business optimization", "Local citation building", "Review management", "Local keyword targeting"]
-    }
-  ];
+  const [auditForm, setAuditForm] = useState({
+    website: '',
+    industry: '',
+    currentRankings: '',
+    mainCompetitors: ''
+  });
 
-  const benefits = [
+  const guaranteeDetails = [
     {
-      icon: TrendingUp,
-      title: "Top 3 Rankings Đảm Bảo",
-      description: "Cam kết đưa website lên top 3 Google hoặc hoàn tiền 100%",
-      metric: "98% thành công"
+      icon: Trophy,
+      title: "Top 3 Results",
+      description: "Từ khóa chính trong top 3 Google VN",
+      guarantee: "Rank 1-3 position"
     },
     {
-      icon: BarChart3,
-      title: "Tăng 400% Organic Traffic",
-      description: "Tăng trưởng traffic tự nhiên bền vững từ Google Search",
-      metric: "Trong 6-12 tháng"
+      icon: Clock,
+      title: "6 Month Timeline",
+      description: "Kết quả rõ ràng trong 6 tháng",
+      guarantee: "Fixed timeline"
     },
     {
       icon: Shield,
-      title: "White-Hat SEO 100%",
-      description: "Tuân thủ nghiêm ngặt Google Guidelines, không rủi ro penalty",
-      metric: "An toàn tuyệt đối"
+      title: "Money-back Guarantee",
+      description: "100% refund if không đạt",
+      guarantee: "Full refund"
+    },
+    {
+      icon: TrendingUp,
+      title: "Traffic Growth",
+      description: "Minimum 200% tăng organic traffic",
+      guarantee: "Measurable results"
+    },
+    {
+      icon: Target,
+      title: "Lead Quality",
+      description: "Qualified traffic, not just numbers",
+      guarantee: "Quality focused"
     }
   ];
 
-  const testimonials = [
+  const vietnamExpertise = [
     {
-      name: "Lê Văn C",
-      company: "CEO E-commerce",
-      content: "Sau 8 tháng làm SEO với D2 Group, traffic organic tăng 500%, doanh số online tăng 300%. ROI rất ấn tượng.",
-      rating: 5,
-      result: "+500% traffic"
+      icon: Globe,
+      title: "Vietnamese Language SEO",
+      description: "Tối ưu tiếng Việt native với hiểu biết sâu về ngữ cảnh và search behavior"
     },
     {
-      name: "Phạm Thị D",
-      company: "Marketing Manager",
-      content: "D2 Group đã đưa 15/20 từ khóa target lên top 3 Google. Technical SEO audit của họ rất chi tiết và chuyên nghiệp.",
-      rating: 5,
-      result: "15/20 top 3 keywords"
+      icon: MapPin,
+      title: "Local Search Optimization",
+      description: "Google My Business, local citations, và geo-targeting cho market Việt Nam"
+    },
+    {
+      icon: Users,
+      title: "Vietnam Market Understanding",
+      description: "Consumer behavior, search patterns và preferences của người Việt"
+    },
+    {
+      icon: Eye,
+      title: "Competitor Landscape",
+      description: "Deep knowledge về competitors VN và strategies đang thành công"
+    },
+    {
+      icon: Brain,
+      title: "Google VN Algorithm",
+      description: "Updates và changes specific cho VN market, local ranking factors"
     }
   ];
 
-  const pricing = [
+  const seoServices = [
     {
-      title: "SEO Starter",
-      price: "2,000",
-      currency: "USD",
-      period: "/tháng",
-      description: "Phù hợp cho website nhỏ, startup",
-      features: [
-        "5-10 target keywords",
-        "Technical SEO audit",
-        "On-page optimization",
-        "Monthly reporting",
-        "Email support"
-      ],
-      recommended: false
+      icon: Settings,
+      title: "Technical SEO",
+      description: "Site speed, mobile, Core Web Vitals, indexing",
+      details: ["Page speed optimization", "Mobile-first indexing", "Core Web Vitals", "Crawl optimization"]
     },
     {
-      title: "SEO Professional",
-      price: "5,000",
-      currency: "USD", 
-      period: "/tháng",
-      description: "Giải pháp toàn diện cho doanh nghiệp vừa",
-      features: [
-        "20-50 target keywords",
-        "Advanced technical SEO",
-        "Content optimization",
-        "Link building strategy",
-        "Weekly consultation",
-        "Competitor analysis"
-      ],
-      recommended: true
+      icon: FileText,
+      title: "On-Page Optimization",
+      description: "Content optimization, internal linking",
+      details: ["Title & meta optimization", "Header structure", "Internal linking", "Content optimization"]
     },
     {
-      title: "SEO Enterprise",
-      price: "8,000",
-      currency: "USD",
+      icon: Link,
+      title: "Off-Page SEO",
+      description: "Link building, citations, brand mentions",
+      details: ["High-quality backlinks", "Local citations", "Brand mentions", "Authority building"]
+    },
+    {
+      icon: MapPin,
+      title: "Local SEO",
+      description: "GMB optimization, local directories",
+      details: ["Google My Business", "Local citations", "Review management", "Local content"]
+    },
+    {
+      icon: Search,
+      title: "Content SEO",
+      description: "Keyword strategy, topic clusters, content gaps",
+      details: ["Keyword research", "Content strategy", "Topic clusters", "Content gaps"]
+    },
+    {
+      icon: BarChart3,
+      title: "SEO Analytics",
+      description: "Performance tracking, competitor monitoring",
+      details: ["Rank tracking", "Traffic analysis", "Competitor monitoring", "ROI reporting"]
+    }
+  ];
+
+  const technicalChecklist = [
+    {
+      icon: Gauge,
+      title: "Site Speed Optimization",
+      description: "<3s loading time guaranteed",
+      metric: "Core Web Vitals Score: 90+"
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile-First Indexing",
+      description: "Perfect mobile experience",
+      metric: "Mobile-Friendly Score: 100%"
+    },
+    {
+      icon: Monitor,
+      title: "Core Web Vitals",
+      description: "LCP, FID, CLS optimization",
+      metric: "All metrics in green zone"
+    },
+    {
+      icon: Code,
+      title: "Schema Markup",
+      description: "Rich snippets implementation",
+      metric: "Structured data coverage: 95%"
+    },
+    {
+      icon: Database,
+      title: "XML Sitemaps",
+      description: "Proper indexing structure",
+      metric: "100% pages indexed"
+    },
+    {
+      icon: Shield,
+      title: "SSL & Security",
+      description: "HTTPS, security headers",
+      metric: "Security score: A+"
+    }
+  ];
+
+  const linkBuildingStrategy = [
+    {
+      title: "High-Authority Domains",
+      description: "DA 70+ websites với traffic cao",
+      metric: "Average DA: 75+"
+    },
+    {
+      title: "Relevant Niche",
+      description: "Industry-specific backlinks từ sites liên quan",
+      metric: "Niche relevance: 95%"
+    },
+    {
+      title: "Content-Based Links",
+      description: "Guest posts, resource pages, content partnerships",
+      metric: "Editorial links: 80%"
+    },
+    {
+      title: "Local Citations",
+      description: "Vietnamese business directories và local platforms",
+      metric: "Local citations: 50+"
+    },
+    {
+      title: "Brand Mentions",
+      description: "Convert unlinked mentions thành backlinks",
+      metric: "Mention conversion: 60%"
+    },
+    {
+      title: "Competitor Analysis",
+      description: "Reverse engineer competitor link strategies",
+      metric: "Gap coverage: 85%"
+    }
+  ];
+
+  const auditCategories = [
+    {
+      icon: Settings,
+      title: "Technical Issues",
+      description: "Crawl errors, indexing problems",
+      checks: "35+ technical factors"
+    },
+    {
+      icon: FileText,
+      title: "On-Page Analysis",
+      description: "Title tags, meta descriptions, headers",
+      checks: "25+ on-page elements"
+    },
+    {
+      icon: Search,
+      title: "Content Analysis",
+      description: "Keyword optimization, content gaps",
+      checks: "20+ content factors"
+    },
+    {
+      icon: Link,
+      title: "Backlink Profile",
+      description: "Link quality, toxic links audit",
+      checks: "15+ link metrics"
+    },
+    {
+      icon: Target,
+      title: "Competitor Analysis",
+      description: "Gap analysis vs top competitors",
+      checks: "30+ competitive factors"
+    },
+    {
+      icon: MapPin,
+      title: "Local SEO",
+      description: "GMB, citations, local rankings",
+      checks: "20+ local factors"
+    }
+  ];
+
+  const industries = [
+    {
+      icon: ShoppingCart,
+      name: "E-commerce SEO",
+      description: "Product optimization, category pages",
+      specialties: ["Product page SEO", "Category optimization", "Shopping feed", "Review schemas"]
+    },
+    {
+      icon: Building,
+      name: "Local Business",
+      description: "GMB, local citations, review management",
+      specialties: ["Google My Business", "Local citations", "Review management", "Local content"]
+    },
+    {
+      icon: Briefcase,
+      name: "B2B Services",
+      description: "Lead generation, thought leadership content",
+      specialties: ["Service page SEO", "Case studies", "Industry content", "Lead magnets"]
+    },
+    {
+      icon: Code,
+      name: "SaaS/Tech",
+      description: "Technical content, developer resources",
+      specialties: ["Technical content", "API documentation", "Product pages", "Developer SEO"]
+    },
+    {
+      icon: Heart,
+      name: "Healthcare",
+      description: "Compliance, local health search",
+      specialties: ["Medical content", "Local health SEO", "Compliance", "Patient resources"]
+    },
+    {
+      icon: Home,
+      name: "Real Estate",
+      description: "Local property search, MLS optimization",
+      specialties: ["Property listings", "Local area content", "MLS optimization", "Market reports"]
+    }
+  ];
+
+  const seoTools = [
+    {
+      category: "Research",
+      tools: ["SEMrush Enterprise", "Ahrefs", "Screaming Frog"],
+      color: "#16a34a"
+    },
+    {
+      category: "Analytics",
+      tools: ["Google Analytics 4", "Search Console", "Data Studio"],
+      color: "#2563eb"
+    },
+    {
+      category: "Technical",
+      tools: ["PageSpeed Insights", "GTmetrix", "Lighthouse"],
+      color: "#f59e0b"
+    },
+    {
+      category: "Monitoring",
+      tools: ["Rank tracking", "SERP monitoring", "Alert systems"],
+      color: "#16a34a"
+    },
+    {
+      category: "Reporting",
+      tools: ["Custom dashboards", "Automated reports", "ROI tracking"],
+      color: "#2563eb"
+    }
+  ];
+
+  const packages = [
+    {
+      name: "LOCAL SEO",
+      price: "5M",
       period: "/tháng",
-      description: "Giải pháp enterprise cho website lớn",
+      description: "Perfect cho local business và SME",
       features: [
-        "100+ target keywords",
-        "Multi-site SEO management",
-        "Advanced analytics setup",
-        "Dedicated SEO team",
-        "24/7 monitoring",
+        "Google My Business optimization",
+        "10 local keywords",
+        "Local citations building",
+        "Review management",
+        "Local content creation",
+        "Monthly local ranking reports"
+      ],
+      guarantee: "Top 3 local results",
+      popular: false
+    },
+    {
+      name: "NATIONAL SEO",
+      price: "12M",
+      period: "/tháng",
+      description: "Comprehensive SEO cho national market",
+      features: [
+        "25 target keywords",
+        "Technical SEO optimization",
+        "Content strategy & creation",
+        "Link building campaign",
+        "Competitor analysis",
+        "Weekly performance reports"
+      ],
+      guarantee: "Top 3 national results",
+      popular: true
+    },
+    {
+      name: "COMPETITIVE SEO",
+      price: "20M",
+      period: "/tháng",
+      description: "Advanced SEO cho high-competition markets",
+      features: [
+        "50+ competitive keywords",
+        "Advanced technical optimization",
+        "Premium content creation",
+        "Authority link building",
+        "Advanced competitor tracking",
         "Custom reporting dashboard"
       ],
-      recommended: false
+      guarantee: "Top 3 competitive results",
+      popular: false
+    },
+    {
+      name: "ENTERPRISE SEO",
+      price: "Custom",
+      period: "",
+      description: "Tailored solution cho large organizations",
+      features: [
+        "Unlimited keywords",
+        "Multi-site SEO management",
+        "Dedicated SEO team",
+        "Custom development",
+        "24/7 monitoring",
+        "Executive reporting"
+      ],
+      guarantee: "Custom KPIs",
+      popular: false
     }
   ];
 
-  const faqs = [
+  const resultsShowcase = [
     {
-      question: "Bao lâu để thấy kết quả SEO?",
-      answer: "Thông thường bạn sẽ thấy cải thiện đầu tiên sau 3-4 tháng, và kết quả rõ rệt sau 6-12 tháng. SEO là chiến lược dài hạn mang lại kết quả bền vững."
+      client: "E-commerce Fashion",
+      industry: "Retail",
+      before: "Position 50+",
+      after: "Position 2",
+      traffic: "+750% organic traffic",
+      revenue: "+400% revenue from SEO"
     },
     {
-      question: "D2 Group có đảm bảo ranking không?",
-      answer: "Chúng tôi cam kết đưa website lên top 3 Google cho các từ khóa target hoặc hoàn tiền 100%. Tỷ lệ thành công hiện tại là 98%."
+      client: "SaaS Platform",
+      industry: "Technology",
+      before: "500 monthly visitors",
+      after: "25,000 monthly visitors",
+      traffic: "+4900% traffic growth",
+      revenue: "+300% qualified leads"
     },
     {
-      question: "Có rủi ro penalty từ Google không?",
-      answer: "Hoàn toàn không. Chúng tôi chỉ sử dụng White-Hat SEO techniques tuân thủ 100% Google Guidelines. Website của bạn sẽ an toàn tuyệt đối."
-    },
-    {
-      question: "Tôi có thể theo dõi tiến độ SEO như thế nào?",
-      answer: "Chúng tôi cung cấp dashboard real-time tracking rankings, traffic, và conversions. Báo cáo chi tiết được gửi hàng tuần/tháng."
-    },
-    {
-      question: "SEO có phù hợp với mọi loại hình kinh doanh?",
-      answer: "SEO hiệu quả cho hầu hết các ngành nghề, đặc biệt là B2B, e-commerce, dịch vụ địa phương. Chúng tôi sẽ đánh giá và tư vấn strategy phù hợp."
-    }
-  ];
-
-  const process = [
-    {
-      step: "01",
-      title: "SEO Audit & Analysis",
-      description: "Phân tích toàn diện website, đối thủ và từ khóa",
-      duration: "Tuần 1-2"
-    },
-    {
-      step: "02", 
-      title: "Strategy Development",
-      description: "Xây dựng chiến lược SEO chi tiết và roadmap",
-      duration: "Tuần 2-3"
-    },
-    {
-      step: "03",
-      title: "Technical Implementation",
-      description: "Triển khai tối ưu hóa kỹ thuật và on-page",
-      duration: "Tuần 3-6"
-    },
-    {
-      step: "04",
-      title: "Content & Link Building",
-      description: "Tối ưu nội dung và xây dựng backlink chất lượng",
-      duration: "Tuần 6-12"
-    },
-    {
-      step: "05",
-      title: "Monitor & Optimize",
-      description: "Theo dõi kết quả và tối ưu hóa liên tục",
-      duration: "Liên tục"
+      client: "Local Restaurant Chain",
+      industry: "Food & Beverage",
+      before: "10 locations visible",
+      after: "50 locations top 3",
+      traffic: "+200% local traffic",
+      revenue: "+150% foot traffic"
     }
   ];
 
@@ -182,278 +398,538 @@ const SeoService = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              <Search className="w-4 h-4 mr-2" />
-              SEO Boost Solutions
-            </div>
-            <h1 className="text-4xl lg:text-6xl font-bold font-heading mb-6">
-              <span className="gradient-primary bg-clip-text text-transparent">
-                SEO Boost
-              </span>
-              <br />
-              Top 3 Google Đảm Bảo
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Dịch vụ SEO chuyên nghiệp với cam kết đưa website lên top 3 Google 
-              hoặc hoàn tiền 100%. Tăng 400% organic traffic trong 6-12 tháng.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="shadow-glow">
-                Nhận SEO Audit Miễn Phí
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="lg">
-                Xem Case Studies
-              </Button>
-            </div>
-            
-            {/* Guarantee Badge */}
-            <div className="mt-12 inline-flex items-center px-6 py-3 rounded-full bg-green-50 border border-green-200">
-              <Shield className="w-5 h-5 text-green-600 mr-2" />
-              <span className="text-green-800 font-medium">Top 3 Google hoặc hoàn tiền 100%</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="animate-slide-up">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                <span style={{ color: '#16a34a' }}>SEO Boost</span>
+                <br />
+                Top 3 Google Hoặc <span style={{ color: '#2563eb' }}>Hoàn Tiền 100%</span>
+              </h1>
+              
+              <p className="text-xl text-muted-foreground mb-8">
+                Cam kết results rõ ràng: Top 3 trong 6 tháng cho từ khóa chính, hoặc hoàn lại 100% chi phí. 
+                300+ websites đã tăng trưởng 500% organic traffic.
+              </p>
 
-      {/* Services Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-4">
-              Dịch Vụ SEO Chuyên Nghiệp
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Giải pháp SEO toàn diện từ technical audit đến content optimization
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-elevation transition-all duration-300 animate-slide-up border-0 gradient-card">
-                <CardHeader className="pb-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:shadow-glow transition-all duration-300">
-                        <service.icon className="w-6 h-6 text-primary" />
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <Button size="lg" style={{ backgroundColor: '#16a34a', color: 'white' }} className="hover:opacity-90">
+                  Nhận SEO Audit Miễn Phí
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Button variant="outline" size="lg" style={{ borderColor: '#2563eb', color: '#2563eb' }}>
+                  Xem Results Showcase
+                </Button>
+              </div>
+
+              <div className="inline-flex items-center px-6 py-3 rounded-full border-2" style={{ backgroundColor: '#f0fdf4', borderColor: '#16a34a' }}>
+                <Shield className="h-6 w-6 mr-3" style={{ color: '#16a34a' }} />
+                <span className="font-bold" style={{ color: '#16a34a' }}>Top 3 hoặc hoàn tiền 100%</span>
+              </div>
+            </div>
+
+            <div className="animate-scale-in">
+              <Card className="p-6 shadow-2xl">
+                <div className="text-center mb-6">
+                  <h3 className="text-lg font-bold mb-2">Live Search Results</h3>
+                  <div className="text-sm text-muted-foreground">Client websites ranking</div>
+                </div>
+                
+                <div className="space-y-4">
+                  {[
+                    { site: "client-ecommerce.com", position: "#1", traffic: "↗ 500%" },
+                    { site: "saas-platform.vn", position: "#2", traffic: "↗ 750%" },
+                    { site: "local-business.com", position: "#3", traffic: "↗ 300%" }
+                  ].map((result, index) => (
+                    <div key={index} className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: '#f8fafc' }}>
+                      <div>
+                        <div className="font-medium text-sm">{result.site}</div>
+                        <div className="text-xs text-muted-foreground">Google Search Result</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-bold" style={{ color: '#16a34a' }}>{result.position}</div>
+                        <div className="text-xs" style={{ color: '#2563eb' }}>{result.traffic}</div>
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                      <CardDescription className="text-base">{service.description}</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                        <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-4">
-              Tại Sao Chọn SEO Boost D2 Group?
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Cam kết kết quả và hiệu quả đã được chứng minh
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center group hover:shadow-elevation transition-all duration-300 border-0">
-                <CardContent className="pt-8">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow transition-all duration-300">
-                    <benefit.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">{benefit.title}</h3>
-                  <div className="text-sm text-primary font-semibold mb-4">{benefit.metric}</div>
-                  <p className="text-muted-foreground">{benefit.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-4">
-              Quy Trình SEO Chuyên Nghiệp
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              5 bước đưa website lên top 3 Google
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            {process.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-4 text-lg font-bold">
-                  {step.step}
+                  ))}
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground mb-2">{step.description}</p>
-                <div className="text-xs text-primary font-medium">{step.duration}</div>
-              </div>
-            ))}
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-4">
-              Khách Hàng Thành Công
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Kết quả thực tế từ các dự án SEO
-            </p>
-          </div>
+      {/* SEO Guarantee Details */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Cam Kết Kết Quả Rõ Ràng - <span style={{ color: '#f59e0b' }}>Không Lời Hứa Suông</span>
+          </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-0 gradient-card">
-                <CardContent className="pt-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {guaranteeDetails.map((detail, index) => {
+              const IconComponent = detail.icon;
+              return (
+                <Card 
+                  key={index}
+                  className="p-6 text-center hover:shadow-lg transition-all duration-300 animate-scale-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="mb-4" style={{ color: '#16a34a' }}>
+                    <IconComponent className="h-10 w-10 mx-auto" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-2">{detail.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-3">{detail.description}</p>
+                  <div className="text-xs font-medium px-3 py-1 rounded" style={{ backgroundColor: '#dcfce7', color: '#16a34a' }}>
+                    {detail.guarantee}
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Vietnam SEO Expertise */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Chuyên Gia SEO <span style={{ color: '#2563eb' }}>#1 Thị Trường Việt Nam</span>
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {vietnamExpertise.map((expertise, index) => {
+              const IconComponent = expertise.icon;
+              return (
+                <Card 
+                  key={index}
+                  className="p-6 hover:shadow-lg transition-all duration-300 animate-scale-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-start space-x-4">
+                    <div style={{ color: '#2563eb' }}>
+                      <IconComponent className="h-8 w-8" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">{expertise.title}</h3>
+                      <p className="text-muted-foreground text-sm">{expertise.description}</p>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Comprehensive SEO Services */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            SEO Toàn Diện - <span style={{ color: '#16a34a' }}>Technical</span> đến <span style={{ color: '#2563eb' }}>Content</span>
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {seoServices.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <Card 
+                  key={index}
+                  className="p-6 hover:shadow-lg transition-all duration-300 animate-scale-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="text-center">
+                    <div className="mb-4" style={{ color: '#16a34a' }}>
+                      <IconComponent className="h-10 w-10 mx-auto" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                    <p className="text-muted-foreground mb-4">{service.description}</p>
+                    
+                    <ul className="space-y-2 text-left">
+                      {service.details.map((detail, idx) => (
+                        <li key={idx} className="flex items-center text-sm">
+                          <CheckCircle className="h-3 w-3 mr-2 flex-shrink-0" style={{ color: '#16a34a' }} />
+                          <span>{detail}</span>
+                        </li>
                       ))}
+                    </ul>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical SEO Deep Dive */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Technical SEO - <span style={{ color: '#f59e0b' }}>Foundation</span> Vững Chắc Cho Rankings
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {technicalChecklist.map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <Card 
+                  key={index}
+                  className="p-6 hover:shadow-lg transition-all duration-300 animate-scale-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-start space-x-4">
+                    <div style={{ color: '#f59e0b' }}>
+                      <IconComponent className="h-6 w-6" />
                     </div>
-                    <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                      {testimonial.result}
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                      <p className="text-muted-foreground text-sm mb-3">{item.description}</p>
+                      <div className="text-xs font-medium px-3 py-1 rounded" style={{ backgroundColor: '#fef3c7', color: '#f59e0b' }}>
+                        {item.metric}
+                      </div>
                     </div>
                   </div>
-                  <p className="text-muted-foreground mb-6 italic">"{testimonial.content}"</p>
-                  <div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.company}</div>
-                  </div>
-                </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Link Building Strategy */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            White-Hat Link Building - <span style={{ color: '#2563eb' }}>Authority Thật</span>, Không Spam
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {linkBuildingStrategy.map((strategy, index) => (
+              <Card 
+                key={index}
+                className="p-6 text-center hover:shadow-lg transition-all duration-300 animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <h3 className="text-lg font-bold mb-3" style={{ color: '#2563eb' }}>{strategy.title}</h3>
+                <p className="text-muted-foreground mb-4">{strategy.description}</p>
+                <div className="text-sm font-medium px-3 py-2 rounded" style={{ backgroundColor: '#dbeafe', color: '#2563eb' }}>
+                  {strategy.metric}
+                </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-4">
-              Gói Dịch Vụ SEO
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Giá cả minh bạch, cam kết kết quả
-            </p>
-          </div>
+      {/* SEO Audit Process */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            SEO Audit Chuyên Sâu <span style={{ color: '#16a34a' }}>150+ Điểm Kiểm Tra</span>
+          </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pricing.map((plan, index) => (
-              <Card key={index} className={`relative ${plan.recommended ? 'border-primary shadow-glow' : 'border-0'}`}>
-                {plan.recommended && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
-                      Phổ biến nhất
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {auditCategories.map((category, index) => {
+              const IconComponent = category.icon;
+              return (
+                <Card 
+                  key={index}
+                  className="p-6 hover:shadow-lg transition-all duration-300 animate-scale-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="text-center">
+                    <div className="mb-4" style={{ color: '#16a34a' }}>
+                      <IconComponent className="h-10 w-10 mx-auto" />
                     </div>
+                    <h3 className="text-xl font-bold mb-3">{category.title}</h3>
+                    <p className="text-muted-foreground mb-4">{category.description}</p>
+                    <div className="text-sm font-medium px-3 py-2 rounded" style={{ backgroundColor: '#dcfce7', color: '#16a34a' }}>
+                      {category.checks}
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Industry-Specific SEO */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            SEO Strategies <span style={{ color: '#2563eb' }}>Theo Từng Ngành</span>
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {industries.map((industry, index) => {
+              const IconComponent = industry.icon;
+              return (
+                <Card 
+                  key={index}
+                  className="p-6 hover:shadow-lg transition-all duration-300 animate-scale-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-start space-x-4 mb-4">
+                    <div style={{ color: '#2563eb' }}>
+                      <IconComponent className="h-8 w-8" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold mb-2">{industry.name}</h3>
+                      <p className="text-muted-foreground text-sm">{industry.description}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {industry.specialties.map((specialty, idx) => (
+                      <div key={idx} className="flex items-center text-sm">
+                        <CheckCircle className="h-3 w-3 mr-2 flex-shrink-0" style={{ color: '#16a34a' }} />
+                        <span>{specialty}</span>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Tools & Technology */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Professional <span style={{ color: '#f59e0b' }}>SEO Tool Stack</span>
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {seoTools.map((toolCategory, index) => (
+              <Card 
+                key={index}
+                className="p-6 text-center hover:shadow-lg transition-all duration-300 animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <h3 className="text-lg font-bold mb-4" style={{ color: toolCategory.color }}>{toolCategory.category}</h3>
+                <div className="space-y-2">
+                  {toolCategory.tools.map((tool, idx) => (
+                    <div key={idx} className="text-sm text-muted-foreground p-2 rounded" style={{ backgroundColor: '#f8fafc' }}>
+                      {tool}
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing & Packages */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            SEO Packages Với <span style={{ color: '#16a34a' }}>Guarantee</span> Rõ Ràng
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {packages.map((pkg, index) => (
+              <Card 
+                key={index}
+                className={`p-6 relative ${pkg.popular ? 'border-green-500 shadow-lg' : ''} animate-scale-in`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {pkg.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="px-4 py-2 rounded-full text-sm font-medium text-white" style={{ backgroundColor: '#16a34a' }}>
+                      Most Popular
+                    </span>
                   </div>
                 )}
-                <CardHeader className="text-center pb-8">
-                  <CardTitle className="text-2xl mb-2">{plan.title}</CardTitle>
-                  <div className="text-4xl font-bold">
-                    {plan.currency && <span className="text-lg font-normal">{plan.currency} </span>}
-                    {plan.price}
-                    <span className="text-lg font-normal text-muted-foreground">{plan.period}</span>
+                
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold mb-2" style={{ color: '#2563eb' }}>{pkg.name}</h3>
+                  <div className="text-3xl font-bold mb-2">
+                    {pkg.price}
+                    <span className="text-lg font-normal text-muted-foreground">{pkg.period}</span>
                   </div>
-                  <CardDescription className="mt-2">{plan.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center">
-                        <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button 
-                    className="w-full" 
-                    variant={plan.recommended ? "default" : "outline"}
-                  >
-                    Chọn gói này
-                  </Button>
-                </CardContent>
+                  <p className="text-sm text-muted-foreground mb-3">{pkg.description}</p>
+                  <div className="text-xs font-medium px-3 py-1 rounded" style={{ backgroundColor: '#dcfce7', color: '#16a34a' }}>
+                    {pkg.guarantee}
+                  </div>
+                </div>
+                
+                <ul className="space-y-3 mb-6">
+                  {pkg.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-sm">
+                      <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0" style={{ color: '#16a34a' }} />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  className="w-full" 
+                  variant={pkg.popular ? "default" : "outline"}
+                  style={pkg.popular ? { backgroundColor: '#16a34a', color: 'white' } : { borderColor: '#16a34a', color: '#16a34a' }}
+                  onClick={() => window.location.href = '/contact'}
+                >
+                  {pkg.price === "Custom" ? "Contact Sales" : "Chọn Package"}
+                </Button>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-4">
-              Câu Hỏi Thường Gặp
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Giải đáp thắc mắc về dịch vụ SEO
-            </p>
-          </div>
-          
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <Card key={index} className="border-0 gradient-card">
-                <CardContent className="pt-6">
-                  <h3 className="text-lg font-semibold mb-3">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6">
-            Sẵn Sàng Lên Top 3 Google?
+      {/* Results Showcase */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Kết Quả Thực Tế Từ <span style={{ color: '#2563eb' }}>300+ Dự Án</span>
           </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Nhận SEO audit miễn phí và consultation về strategy phù hợp với website của bạn
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
-              Nhận SEO Audit Miễn Phí
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button variant="outline" size="lg" onClick={() => window.location.href = '/contact'}>
-              Tư vấn chiến lược SEO
-            </Button>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {resultsShowcase.map((result, index) => (
+              <Card 
+                key={index}
+                className="p-6 hover:shadow-lg transition-all duration-300 animate-scale-in"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="text-center mb-4">
+                  <h3 className="text-lg font-bold mb-1">{result.client}</h3>
+                  <div className="text-sm text-muted-foreground">{result.industry}</div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium">Before:</span>
+                    <span className="text-sm text-red-600">{result.before}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium">After:</span>
+                    <span className="text-sm" style={{ color: '#16a34a' }}>{result.after}</span>
+                  </div>
+                  <div className="border-t pt-3">
+                    <div className="text-center">
+                      <div className="text-sm font-bold" style={{ color: '#2563eb' }}>{result.traffic}</div>
+                      <div className="text-xs text-muted-foreground">{result.revenue}</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <Button variant="outline" className="w-full mt-4" style={{ borderColor: '#2563eb', color: '#2563eb' }}>
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Case Study
+                </Button>
+              </Card>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Free SEO Audit Offer */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Nhận <span style={{ color: '#16a34a' }}>SEO Audit Miễn Phí</span> - Phát Hiện 50+ Issues
+          </h2>
+          
+          <Card className="p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-bold mb-6">Audit Deliverables:</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <AlertTriangle className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#f59e0b' }} />
+                    <div>
+                      <div className="font-semibold">Technical Issues Report</div>
+                      <div className="text-sm text-muted-foreground">Crawl errors, speed issues, mobile problems</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Search className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#16a34a' }} />
+                    <div>
+                      <div className="font-semibold">Keyword Opportunities</div>
+                      <div className="text-sm text-muted-foreground">High-potential keywords you're missing</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Target className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#2563eb' }} />
+                    <div>
+                      <div className="font-semibold">Competitor Gap Analysis</div>
+                      <div className="text-sm text-muted-foreground">What competitors are doing better</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Lightbulb className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#f59e0b' }} />
+                    <div>
+                      <div className="font-semibold">Action Plan</div>
+                      <div className="text-sm text-muted-foreground">Priority fixes for next 90 days</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-bold mb-6">Get Your Free Audit</h3>
+                <div className="space-y-4">
+                  <div>
+                    <Label>Website URL</Label>
+                    <Input
+                      placeholder="https://yourwebsite.com"
+                      value={auditForm.website}
+                      onChange={(e) => setAuditForm({...auditForm, website: e.target.value})}
+                    />
+                  </div>
+                  <div>
+                    <Label>Industry</Label>
+                    <Select value={auditForm.industry} onValueChange={(value) => setAuditForm({...auditForm, industry: value})}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select your industry" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="ecommerce">E-commerce</SelectItem>
+                        <SelectItem value="local">Local Business</SelectItem>
+                        <SelectItem value="b2b">B2B Services</SelectItem>
+                        <SelectItem value="saas">SaaS/Tech</SelectItem>
+                        <SelectItem value="healthcare">Healthcare</SelectItem>
+                        <SelectItem value="realestate">Real Estate</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label>Current Rankings</Label>
+                    <Input
+                      placeholder="e.g., Not ranking, Page 2, Page 3+"
+                      value={auditForm.currentRankings}
+                      onChange={(e) => setAuditForm({...auditForm, currentRankings: e.target.value})}
+                    />
+                  </div>
+                  <div>
+                    <Label>Main Competitors (optional)</Label>
+                    <Input
+                      placeholder="competitor1.com, competitor2.com"
+                      value={auditForm.mainCompetitors}
+                      onChange={(e) => setAuditForm({...auditForm, mainCompetitors: e.target.value})}
+                    />
+                  </div>
+                  
+                  <Button 
+                    className="w-full mt-6" 
+                    style={{ backgroundColor: '#16a34a', color: 'white' }}
+                    onClick={() => window.location.href = '/contact'}
+                  >
+                    Nhận Audit Trong 24h
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+                
+                <div className="mt-4 text-sm text-muted-foreground text-center">
+                  ✓ Completely free ✓ No commitment ✓ 24-hour delivery ✓ 50+ checkpoints
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 
