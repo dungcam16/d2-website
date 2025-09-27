@@ -9,14 +9,44 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     company: '',
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission
+    
+    try {
+      const response = await fetch('https://n8n.d2group.co/webhook/website_d2group', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          note: formData.message
+        }),
+      });
+
+      if (response.ok) {
+        alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Gửi form thất bại');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -31,19 +61,19 @@ const Contact = () => {
       icon: MapPin,
       title: "Văn phòng Việt Nam",
       description: "Thành phố Hồ Chí Minh, Việt Nam",
-      color: "text-red-400"
+      color: "text-muted-foreground"
     },
     {
       icon: Phone,
       title: "Điện thoại",
       description: "+84 xxx xxx xxx",
-      color: "text-green-400"
+      color: "text-muted-foreground"
     },
     {
       icon: Mail,
       title: "Email",
       description: "hello@d2group.vn",
-      color: "text-blue-400"
+      color: "text-muted-foreground"
     },
     {
       icon: MessageSquare,
@@ -103,6 +133,19 @@ const Contact = () => {
                     required
                   />
                 </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground">Số điện thoại</label>
+                <Input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="0xxx xxx xxx"
+                  className="bg-card/50 border-border focus:border-primary transition-colors"
+                  required
+                />
               </div>
 
               <div className="space-y-2">
@@ -166,12 +209,12 @@ const Contact = () => {
               <h4 className="text-lg font-semibold text-foreground mb-4">Hành Động Nhanh</h4>
               
               <Button variant="outline" className="w-full justify-start tech-border group">
-                <MessageSquare className="mr-3 h-5 w-5 text-green-400" />
+                <MessageSquare className="mr-3 h-5 w-5 text-muted-foreground" />
                 Chat trên WhatsApp
               </Button>
               
               <Button variant="outline" className="w-full justify-start tech-border group">
-                <MessageSquare className="mr-3 h-5 w-5 text-blue-400" />
+                <MessageSquare className="mr-3 h-5 w-5 text-muted-foreground" />
                 Nhắn tin Zalo
               </Button>
               
@@ -196,8 +239,8 @@ const Contact = () => {
       </div>
 
       {/* Background Effects */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-primary/5 rounded-full blur-3xl animate-pulse-glow"></div>
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-light/3 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-glow"></div>
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent/3 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '2s' }}></div>
     </section>
   );
 };

@@ -22,8 +22,9 @@ const Header = () => {
 
   const navItems = [
     { name: 'Trang chủ', href: '/' },
-    { name: 'Liên hệ', href: '#contact' },
   ];
+
+  const contactItem = { name: 'Liên hệ', href: '#contact' };
 
   const serviceItems = [
     { name: 'Chatbot Đa Nền Tảng', href: '/services/chatbot' },
@@ -83,6 +84,15 @@ const Header = () => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+
+            {/* Contact Link */}
+            <a
+              href={contactItem.href}
+              className="text-foreground hover:text-primary transition-smooth relative group"
+            >
+              {contactItem.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
           </nav>
 
           {/* CTA Button */}
@@ -129,6 +139,17 @@ const Header = () => {
                     {service.name}
                   </a>
                 ))}
+              </div>
+
+              {/* Mobile Contact Link */}
+              <div className="border-t border-border pt-4 mt-4">
+                <a
+                  href={contactItem.href}
+                  className="block text-foreground hover:text-primary transition-smooth py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {contactItem.name}
+                </a>
               </div>
               
               <Button variant="default" className="w-full shadow-glow mt-4">
