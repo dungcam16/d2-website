@@ -21,7 +21,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  const mainNavItems = [
     { name: 'Trang chủ', href: '/' },
     { name: 'Blog', href: '/blog' },
     { name: 'Liên hệ', href: '/contact' },
@@ -57,16 +57,14 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-foreground hover:text-primary transition-smooth relative group"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
+            {/* Trang chủ */}
+            <a
+              href="/"
+              className="text-foreground hover:text-primary transition-smooth relative group"
+            >
+              Trang chủ
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
             
             {/* Services Dropdown */}
             <DropdownMenu>
@@ -89,6 +87,23 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
+            {/* Blog */}
+            <a
+              href="/blog"
+              className="text-foreground hover:text-primary transition-smooth relative group"
+            >
+              Blog
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            {/* Contact */}
+            <a
+              href="/contact"
+              className="text-foreground hover:text-primary transition-smooth relative group"
+            >
+              Liên hệ
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
           </nav>
 
           {/* CTA Button */}
@@ -111,7 +126,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 glass-effect border-t border-border animate-slide-up z-50">
             <nav className="px-4 py-6 space-y-4">
-              {navItems.map((item) => (
+              {mainNavItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
@@ -136,7 +151,6 @@ const Header = () => {
                   </a>
                 ))}
               </div>
-
               
               <Button variant="default" className="w-full shadow-glow mt-4" onClick={() => window.location.href = '/contact'}>
                 Tư vấn miễn phí
