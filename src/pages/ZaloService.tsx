@@ -1,202 +1,408 @@
-import React from 'react';
-import { MessageCircle, Zap, Users, BarChart3, CheckCircle, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { 
+  MessageCircle, Users, TrendingUp, Clock, Shield, CheckCircle, ArrowRight,
+  Smartphone, BarChart3, Settings, Zap, Star, PlayCircle, Calendar, 
+  Phone, Mail, Globe, Target, Award, Timer, Calculator
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const ZaloService = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    business: '',
+    budget: ''
+  });
+
+  const [roiData, setRoiData] = useState({
+    monthlyBudget: '',
+    currentConversion: '',
+    targetConversion: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      const response = await fetch('https://n8n.d2group.co/webhook/website_d2group', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: '',
+          phone: formData.phone,
+          note: `Loại hình: ${formData.business}, Ngân sách: ${formData.budget}`
+        }),
+      });
+
+      if (response.ok) {
+        alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ liên hệ trong 24h.');
+        setFormData({ name: '', phone: '', business: '', budget: '' });
+      }
+    } catch (error) {
+      alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const marketStats = [
+    {
+      number: "50M+",
+      label: "người dùng active",
+      icon: Users
+    },
+    {
+      number: "85%",
+      label: "mở rate vs 20% email",
+      icon: BarChart3
+    },
+    {
+      number: "3x",
+      label: "higher engagement vs Facebook",
+      icon: TrendingUp
+    },
+    {
+      number: "800-1200đ",
+      label: "giá ZNS/tin nhắn",
+      icon: MessageCircle
+    }
+  ];
+
   const services = [
     {
-      icon: MessageCircle,
-      title: 'Zalo OA Setup & Management',
-      description: 'Thiết lập và quản lý tài khoản Zalo Official Account chuyên nghiệp',
-      features: ['Xác minh tài khoản', 'Thiết kế profile', 'Content strategy', 'Performance tracking']
+      icon: Settings,
+      title: "OA Setup & Verification",
+      description: "Từ đăng ký đến approved official, hỗ trợ toàn bộ quy trình",
+      features: ["Đăng ký OA", "Xác thực doanh nghiệp", "Profile optimization"]
+    },
+    {
+      icon: Calendar,
+      title: "Content Strategy", 
+      description: "Lịch post tự động, content calendar được tối ưu engagement",
+      features: ["Content calendar", "Auto posting", "Engagement tracking"]
     },
     {
       icon: Zap,
-      title: 'ZNS Messaging Campaigns',
-      description: 'Chiến dịch tin nhắn ZNS hiệu quả với tỷ lệ mở cao',
-      features: ['Template design', 'Audience targeting', 'A/B testing', 'Analytics reporting']
+      title: "ZNS Automation",
+      description: "Triggered messages, customer journey automation chuyên nghiệp",
+      features: ["Welcome series", "Cart abandonment", "Transaction updates"]
     },
     {
-      icon: Users,
-      title: 'Integrated Chatbot',
-      description: 'Chatbot tích hợp sâu với hệ sinh thái Zalo',
-      features: ['Natural conversation', 'Lead qualification', 'Order tracking', 'Customer support']
+      icon: BarChart3,
+      title: "Mini CRM Integration",
+      description: "Quản lý lead, customer data và lifecycle marketing",
+      features: ["Lead management", "Customer segmentation", "Lifecycle tracking"]
+    },
+    {
+      icon: TrendingUp,
+      title: "Analytics Dashboard",
+      description: "Performance tracking, ROI reports và insights chi tiết",
+      features: ["Real-time analytics", "ROI tracking", "Custom reports"]
+    },
+    {
+      icon: Shield,
+      title: "24/7 Support",
+      description: "Technical support và strategy consulting chuyên sâu",
+      features: ["Technical support", "Strategy consulting", "Performance optimization"]
     }
   ];
 
-  const stats = [
-    { number: '15M+', label: 'Users tiếp cận hàng tháng' },
-    { number: '85%', label: 'Tỷ lệ mở tin nhắn ZNS' },
-    { number: '3x', label: 'Tăng engagement rate' },
-    { number: '50%', label: 'Giảm chi phí marketing' }
-  ];
-
-  const whyZalo = [
-    'Nền tảng #1 tại Việt Nam với 74M+ users',
-    'Tỷ lệ mở tin nhắn cao nhất (85%+)',
-    'Tích hợp thanh toán và e-commerce',
-    'Hỗ trợ đa dạng content format',
-    'API mạnh mẽ cho automation',
-    'Chi phí marketing hiệu quả'
-  ];
-
-  const testimonials = [
+  const automationScenarios = [
     {
-      name: 'Lê Văn C',
-      company: 'F&B Chain',
-      content: 'Zalo OA của D2 Group giúp chúng tôi tiếp cận 2M+ khách hàng với chi phí chỉ bằng 1/3 Facebook Ads.',
-      rating: 5
+      title: "Welcome Series",
+      description: "Chào mừng customer mới với chuỗi tin nhắn được cá nhân hóa",
+      trigger: "Khi user follow OA lần đầu"
     },
     {
-      name: 'Phạm Thị D',
-      company: 'Beauty Brand',
-      content: 'ZNS campaigns có tỷ lệ mở 88%, cao gấp 4 lần email marketing. Sales tăng 180% sau 6 tháng.',
-      rating: 5
+      title: "Abandoned Cart",
+      description: "Nhắc nhở giỏ hàng bỏ quên với ưu đãi hấp dẫn",
+      trigger: "15 phút sau khi add to cart"
+    },
+    {
+      title: "Birthday/Anniversary", 
+      description: "Personalized offers vào dịp đặc biệt của khách hàng",
+      trigger: "Ngày sinh nhật hoặc anniversary"
+    },
+    {
+      title: "Re-engagement",
+      description: "Win-back inactive customers với campaigns chuyên biệt",
+      trigger: "30 ngày không tương tác"
+    },
+    {
+      title: "Transaction Updates",
+      description: "Order status, shipping updates tự động real-time",
+      trigger: "Khi trạng thái đơn hàng thay đổi"
+    },
+    {
+      title: "Survey & Feedback",
+      description: "Post-purchase experience để cải thiện service quality",
+      trigger: "48h sau khi nhận hàng"
     }
   ];
 
-  const pricing = [
+  const industryTargets = [
     {
-      name: 'Setup Cơ Bản',
-      price: '3,000,000',
-      period: 'một lần + 1,500,000đ/tháng',
-      features: [
-        'Setup Zalo OA',
-        'Xác minh chính thức',
-        'Template cơ bản',
-        '1,000 ZNS/tháng',
-        'Báo cáo cơ bản'
-      ],
-      popular: false
+      industry: "E-commerce",
+      solutions: "Cart recovery, product updates, reviews collection",
+      icon: "🛒"
     },
     {
-      name: 'Pro Package',
-      price: '8,000,000',
-      period: 'setup + 3,500,000đ/tháng',
-      features: [
-        'Tất cả tính năng Basic',
-        '10,000 ZNS/tháng',
-        'Chatbot tích hợp',
-        'Advanced analytics',
-        'A/B testing',
-        'Priority support'
-      ],
-      popular: true
+      industry: "F&B", 
+      solutions: "Menu updates, delivery status, loyalty programs",
+      icon: "🍔"
     },
     {
-      name: 'Enterprise',
-      price: 'Liên hệ',
-      period: 'tùy chỉnh theo quy mô',
-      features: [
-        'Unlimited ZNS',
-        'Custom chatbot flows',
-        'API integration',
-        'White-label solution',
-        'Dedicated account manager',
-        'Training & workshop'
-      ],
-      popular: false
+      industry: "Real Estate",
+      solutions: "Property alerts, viewing appointments, market updates",
+      icon: "🏠"
+    },
+    {
+      industry: "Healthcare",
+      solutions: "Appointment reminders, health tips, test results",
+      icon: "🏥"
+    },
+    {
+      industry: "Education",
+      solutions: "Course updates, exam schedules, grade notifications",
+      icon: "🎓"
+    },
+    {
+      industry: "Financial",
+      solutions: "Transaction alerts, payment reminders, investment tips",
+      icon: "💰"
     }
   ];
 
-  const faqs = [
+  const successMetrics = [
+    { metric: "Message delivery rate", value: "98.5%", trend: "+2.3%" },
+    { metric: "Open rate", value: "85%", trend: "+12%" },
+    { metric: "Click-through rate", value: "15%", trend: "+8.5%" },
+    { metric: "Conversion rate", value: "8.2%", trend: "+4.1%" },
+    { metric: "ROAS", value: "300%", trend: "+45%" },
+    { metric: "Customer retention", value: "+45%", trend: "+15%" }
+  ];
+
+  const implementationSteps = [
     {
-      question: 'ZNS (Zalo Notification Service) khác gì với tin nhắn thường?',
-      answer: 'ZNS là tin nhắn chính thức từ doanh nghiệp với tỷ lệ mở cao (85%+), có thể gửi đến tất cả user Zalo mà không cần kết bạn trước.'
+      day: "Day 1-2",
+      title: "OA Setup & Verification",
+      description: "Đăng ký OA, verification submit và profile setup"
     },
     {
-      question: 'Chi phí ZNS như thế nào?',
-      answer: 'Chi phí ZNS từ 200-800đ/tin nhắn tùy loại template. Rẻ hơn 50-70% so với SMS marketing truyền thống.'
+      day: "Day 3-4", 
+      title: "Content Strategy Design",
+      description: "Content strategy, automation design và workflow mapping"
     },
     {
-      question: 'Có thể tích hợp Zalo OA với website không?',
-      answer: 'Có, chúng tôi tích hợp Zalo chat widget vào website và kết nối với hệ thống CRM để quản lý lead hiệu quả.'
+      day: "Day 5-6",
+      title: "Integration & Testing", 
+      description: "Integration setup, testing và quality assurance"
     },
     {
-      question: 'Quy trình xác minh Zalo OA mất bao lâu?',
-      answer: 'Thường 3-7 ngày làm việc. Chúng tôi sẽ hỗ trợ chuẩn bị đầy đủ giấy tờ để tăng tỷ lệ approval.'
+      day: "Day 7",
+      title: "Go-live & Training",
+      description: "Go-live deployment, training handover và documentation"
     }
   ];
+
+  const caseStudies = [
+    {
+      company: "Thế Giới Di Động",
+      industry: "E-commerce",
+      challenge: "Low conversion rate from social traffic",
+      solution: "Automated Zalo OA funnel với personalized offers",
+      results: "350% tăng conversion, 25% tăng AOV, 2M+ leads/tháng",
+      testimonial: "Zalo OA automation đã thay đổi hoàn toàn cách chúng tôi tiếp cận khách hàng. ROI vượt kỳ vọng.",
+      author: "Nguyễn Văn A - Marketing Director"
+    },
+    {
+      company: "Highlands Coffee",
+      industry: "F&B Chain",
+      challenge: "Customer retention và loyalty program effectiveness",
+      solution: "ZNS automation cho loyalty rewards và personalized offers",
+      results: "40% tăng repeat purchase, 60% tăng app engagement",
+      testimonial: "Khách hàng thích việc nhận thông báo ưu đãi qua Zalo hơn email. Engagement rate cao hơn rất nhiều.",
+      author: "Trần Thị B - CRM Manager"
+    },
+    {
+      company: "Novaland",
+      industry: "Real Estate",
+      challenge: "Lead qualification và follow-up hiệu quả",
+      solution: "Zalo OA với AI chatbot và automated nurturing sequences",
+      results: "200% tăng qualified leads, giảm 50% cost per lead",
+      testimonial: "Hệ thống lead nurturing qua Zalo giúp sales team focus vào hot leads, closing rate tăng đáng kể.",
+      author: "Lê Văn C - Sales Director"
+    },
+    {
+      company: "VinFast",
+      industry: "Automotive",
+      challenge: "Customer service và after-sales support",
+      solution: "ZNS automation cho service reminders và customer support",
+      results: "85% customer satisfaction, 30% giảm support tickets",
+      testimonial: "Automation service reminders qua Zalo giúp khách hàng không bao giờ quên lịch bảo dưỡng.",
+      author: "Phạm Thị D - Customer Success"
+    }
+  ];
+
+  const calculateROI = () => {
+    const budget = parseFloat(roiData.monthlyBudget) || 0;
+    const current = parseFloat(roiData.currentConversion) || 0;
+    const target = parseFloat(roiData.targetConversion) || 0;
+    
+    if (budget && current && target) {
+      const improvement = ((target - current) / current) * 100;
+      const additionalRevenue = budget * (target - current) / 100;
+      const roiPercentage = (additionalRevenue / (budget * 0.3)) * 100; // Assuming 30% of budget for Zalo
+      
+      return {
+        improvement: improvement.toFixed(1),
+        additionalRevenue: additionalRevenue.toLocaleString(),
+        roi: roiPercentage.toFixed(0)
+      };
+    }
+    return null;
+  };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-50">
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="animate-slide-up">
-            <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
-              <span className="text-foreground">Zalo OA</span>
-              <br />
-              <span className="gradient-primary bg-clip-text text-transparent">Complete Solutions</span>
-            </h1>
-            
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Giải pháp toàn diện cho Zalo Official Account. Từ setup, quản lý đến automation 
-              và ZNS campaigns - tối ưu hóa cho thị trường Việt Nam.
-            </p>
-
-            <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
-              Tư vấn Zalo OA miễn phí
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
+      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-300 rounded-full blur-3xl"></div>
         </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-card/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div 
-                key={index}
-                className="text-center animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="text-4xl font-bold text-primary mb-2">{stat.number}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="animate-fade-in">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium">
+                  #1 Việt Nam
+                </div>
+                <div className="bg-green-500 px-3 py-1 rounded-full text-sm font-medium">
+                  Official Partner
+                </div>
               </div>
-            ))}
+              
+              <h1 className="text-4xl lg:text-6xl font-bold font-heading mb-6">
+                Zalo OA All-in-One
+                <br />
+                <span className="text-blue-200">Giải Pháp Marketing Automation #1</span>
+              </h1>
+              
+              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+                Từ Setup OA đến ZNS Automation, CRM tích hợp và Analytics dashboard. 
+                50M+ người dùng Zalo = cơ hội vàng cho business.
+              </p>
+
+              <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="text-center">
+                  <div className="text-2xl font-bold">50M+</div>
+                  <div className="text-sm text-blue-200">users</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold">300%</div>
+                  <div className="text-sm text-blue-200">ROAS</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold">24/7</div>
+                  <div className="text-sm text-blue-200">automation</div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg text-lg px-8"
+                  onClick={() => window.location.href = '/contact'}
+                >
+                  Nhận Setup OA Miễn Phí
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-blue-600"
+                >
+                  <PlayCircle className="mr-2 h-5 w-5" />
+                  Xem Demo Live
+                </Button>
+              </div>
+            </div>
+
+            <div className="animate-scale-in">
+              <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+                <div className="bg-white rounded-lg p-6 shadow-xl">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                      <MessageCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="font-semibold text-gray-900">Zalo OA Dashboard</span>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Messages sent today</span>
+                      <span className="font-bold text-blue-600">2,847</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Open rate</span>
+                      <span className="font-bold text-green-600">85.2%</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Conversion rate</span>
+                      <span className="font-bold text-purple-600">12.8%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-blue-600 h-2 rounded-full" style={{ width: '85%' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      {/* Vietnam Market Advantage */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Dịch vụ <span className="text-primary">Zalo OA</span> toàn diện
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
+              Tại Sao Zalo OA Là Kênh Marketing #1 Tại Việt Nam?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Con số không nói dối - Zalo dominates Vietnamese messaging market
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {marketStats.map((stat, index) => {
+              const IconComponent = stat.icon;
               return (
-                <Card 
-                  key={index}
-                  className="p-8 hover:shadow-card transition-all duration-300 animate-scale-in"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <div className="text-primary mb-6">
-                    <IconComponent className="h-12 w-12" />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
-                  
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center">
-                        <CheckCircle className="h-4 w-4 text-primary mr-2" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <Card key={stat.label} className="text-center hover:shadow-lg transition-all duration-300 animate-scale-in bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <CardContent className="p-8">
+                    <div className="inline-flex p-4 rounded-full bg-blue-100 text-blue-600 mb-6">
+                      <IconComponent className="h-8 w-8" />
+                    </div>
+                    <div className="text-3xl font-bold text-blue-600 mb-2">{stat.number}</div>
+                    <p className="text-gray-700 font-medium">{stat.label}</p>
+                  </CardContent>
                 </Card>
               );
             })}
@@ -204,182 +410,437 @@ const ZaloService = () => {
         </div>
       </section>
 
-      {/* Why Zalo */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-card/50">
+      {/* All-in-One Services */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">
-                Tại sao chọn <span className="text-primary">Zalo</span>?
-              </h2>
-              
-              <div className="space-y-4">
-                {whyZalo.map((reason, index) => (
-                  <div 
-                    key={index}
-                    className="flex items-center space-x-3 animate-slide-up"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-muted-foreground">{reason}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
+              Dịch Vụ Toàn Diện Từ A-Z
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Từ setup OA đến optimization campaigns - chúng tôi handle everything
+            </p>
+          </div>
 
-            <Card className="p-8">
-              <h3 className="text-2xl font-bold mb-4 text-primary">Zalo Market Dominance</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span>Market Share</span>
-                  <span className="font-bold">85%</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <Card key={service.title} className="hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="flex-shrink-0 p-3 bg-blue-100 rounded-lg">
+                        <IconComponent className="h-6 w-6 text-blue-600" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold font-heading mb-2 text-gray-900">{service.title}</h3>
+                        <p className="text-gray-600 text-sm mb-4">{service.description}</p>
+                      </div>
+                    </div>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2 text-sm text-gray-600">
+                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ZNS Automation Deep Dive */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
+              ZNS Automation - Gửi Tin Nhắn Đúng Người, Đúng Lúc
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Smart triggers và behavioral automation để maximize engagement
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {automationScenarios.map((scenario, index) => (
+              <Card key={scenario.title} className="hover:shadow-lg transition-all duration-300 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center text-white font-bold">
+                      {index + 1}
+                    </div>
+                    <h3 className="text-lg font-bold font-heading text-gray-900">{scenario.title}</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">{scenario.description}</p>
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <span className="text-xs font-medium text-blue-600">TRIGGER:</span>
+                    <p className="text-sm text-blue-800 mt-1">{scenario.trigger}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Solutions */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
+              Giải Pháp Chuyên Biệt Theo Ngành
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Tailored solutions cho từng industry với best practices đã được verify
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {industryTargets.map((industry, index) => (
+              <Card key={industry.industry} className="text-center hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-8">
+                  <div className="text-4xl mb-4">{industry.icon}</div>
+                  <h3 className="text-xl font-bold font-heading mb-3 text-gray-900">{industry.industry}</h3>
+                  <p className="text-gray-600">{industry.solutions}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Success Metrics */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
+              Kết Quả Đo Lường Được
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Metrics dashboard thực tế từ campaigns đang chạy
+            </p>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-lg p-8 border">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {successMetrics.map((metric, index) => (
+                <div key={metric.metric} className="text-center animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="text-3xl font-bold text-blue-600 mb-2">{metric.value}</div>
+                  <div className="text-gray-700 font-medium mb-2">{metric.metric}</div>
+                  <div className="flex items-center justify-center gap-1">
+                    <TrendingUp className="w-4 h-4 text-green-500" />
+                    <span className="text-sm text-green-600 font-medium">{metric.trend}</span>
+                  </div>
                 </div>
-                <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-primary h-2 rounded-full" style={{ width: '85%' }}></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Implementation Process */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
+              Quy Trình Triển Khai Trong 7 Ngày
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Từ zero đến hero - go live Zalo OA automation chỉ trong 1 tuần
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {implementationSteps.map((step, index) => (
+              <div key={step.day} className="text-center animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+                <div className="relative mb-6">
+                  <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-4">
+                    {step.day}
+                  </div>
+                  {index < implementationSteps.length - 1 && (
+                    <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-blue-200 z-0" style={{ transform: 'translateX(50%)' }}></div>
+                  )}
                 </div>
-                
-                <div className="flex justify-between items-center">
-                  <span>Daily Active Users</span>
-                  <span className="font-bold">45M+</span>
-                </div>
-                <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-primary h-2 rounded-full" style={{ width: '70%' }}></div>
-                </div>
-                
-                <div className="flex justify-between items-center">
-                  <span>Message Open Rate</span>
-                  <span className="font-bold">85%</span>
-                </div>
-                <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-primary h-2 rounded-full" style={{ width: '85%' }}></div>
-                </div>
+                <h3 className="text-lg font-bold font-heading mb-2 text-gray-900">{step.title}</h3>
+                <p className="text-sm text-gray-600">{step.description}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Transparent */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
+              Bảng Giá Minh Bạch, Không Phí Ẩn
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Investment breakdown chi tiết với ROI calculator
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Pricing Table */}
+            <Card className="p-8">
+              <CardHeader>
+                <CardTitle className="text-center text-2xl font-bold">Service Breakdown</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="flex justify-between items-center border-b pb-3">
+                  <div>
+                    <div className="font-semibold">Setup Fee</div>
+                    <div className="text-sm text-gray-600">One-time setup & configuration</div>
+                  </div>
+                  <div className="text-lg font-bold text-blue-600">3,000,000đ</div>
+                </div>
+                <div className="flex justify-between items-center border-b pb-3">
+                  <div>
+                    <div className="font-semibold">Monthly Retainer</div>
+                    <div className="text-sm text-gray-600">Management & optimization</div>
+                  </div>
+                  <div className="text-lg font-bold text-blue-600">5,000,000đ/tháng</div>
+                </div>
+                <div className="flex justify-between items-center border-b pb-3">
+                  <div>
+                    <div className="font-semibold">ZNS Credits</div>
+                    <div className="text-sm text-gray-600">Pay-as-use messaging</div>
+                  </div>
+                  <div className="text-lg font-bold text-blue-600">800-1200đ/tin</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <div className="font-semibold">Additional Services</div>
+                    <div className="text-sm text-gray-600">Custom development & integrations</div>
+                  </div>
+                  <div className="text-lg font-bold text-blue-600">Custom quote</div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* ROI Calculator */}
+            <Card className="p-8 bg-gradient-to-br from-blue-50 to-indigo-50">
+              <CardHeader>
+                <CardTitle className="text-center text-2xl font-bold flex items-center justify-center gap-2">
+                  <Calculator className="w-6 h-6" />
+                  ROI Calculator
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Monthly Marketing Budget (VNĐ)</label>
+                  <Input
+                    type="number"
+                    placeholder="50,000,000"
+                    value={roiData.monthlyBudget}
+                    onChange={(e) => setRoiData({...roiData, monthlyBudget: e.target.value})}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Current Conversion Rate (%)</label>
+                  <Input
+                    type="number"
+                    placeholder="2.5"
+                    value={roiData.currentConversion}
+                    onChange={(e) => setRoiData({...roiData, currentConversion: e.target.value})}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Target Conversion Rate (%)</label>
+                  <Input
+                    type="number"
+                    placeholder="8.0"
+                    value={roiData.targetConversion}
+                    onChange={(e) => setRoiData({...roiData, targetConversion: e.target.value})}
+                  />
+                </div>
+                
+                {calculateROI() && (
+                  <div className="bg-white rounded-lg p-4 mt-6">
+                    <h4 className="font-bold mb-3">Projected Results:</h4>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span>Conversion Improvement:</span>
+                        <span className="font-bold text-green-600">+{calculateROI()?.improvement}%</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Additional Revenue/Month:</span>
+                        <span className="font-bold text-blue-600">{calculateROI()?.additionalRevenue}đ</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>ROI:</span>
+                        <span className="font-bold text-purple-600">{calculateROI()?.roi}%</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      {/* Case Studies */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Khách hàng <span className="text-primary">thành công</span> với Zalo OA
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card 
-                key={index}
-                className="p-8 animate-scale-in"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-xl">★</span>
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-6 italic">"{testimonial.content}"</p>
-                <div>
-                  <p className="font-semibold">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.company}</p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-card/50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Bảng giá <span className="text-primary">Zalo OA</span> dịch vụ
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {pricing.map((plan, index) => (
-              <Card 
-                key={index}
-                className={`p-8 relative ${plan.popular ? 'border-primary shadow-glow' : ''} animate-scale-in`}
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium">
-                      Được chọn nhiều nhất
-                    </span>
-                  </div>
-                )}
-                
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
-                  <div className="mb-2">
-                    <span className="text-4xl font-bold text-primary">{plan.price}</span>
-                  </div>
-                  <p className="text-muted-foreground">{plan.period}</p>
-                </div>
-                
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <Button 
-                  className="w-full" 
-                  variant={plan.popular ? "default" : "outline"}
-                >
-                  Chọn gói {plan.name}
-                </Button>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Câu hỏi <span className="text-primary">thường gặp</span> về Zalo OA
-          </h2>
-          
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <Card 
-                key={index}
-                className="p-6 animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <h3 className="text-lg font-semibold mb-3 text-primary">{faq.question}</h3>
-                <p className="text-muted-foreground">{faq.answer}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <Card className="p-8 gradient-card">
-            <h2 className="text-3xl font-bold mb-4">
-              Bắt đầu với <span className="text-primary">Zalo OA</span> ngay hôm nay
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
+              Success Stories Từ Khách Hàng
             </h2>
-            <p className="text-muted-foreground mb-6">
-              Tiếp cận 74M+ người dùng Việt Nam với chi phí marketing hiệu quả nhất.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Real results từ các brands lớn đã triển khai Zalo OA automation
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
-                Setup Zalo OA miễn phí
-              </Button>
-              <Button variant="outline" size="lg" onClick={() => window.location.href = '/contact'}>
-                Tư vấn pricing
-              </Button>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {caseStudies.map((study, index) => (
+              <Card key={study.company} className="hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Award className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold font-heading text-gray-900">{study.company}</h3>
+                      <span className="text-sm text-blue-600">{study.industry}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-sm text-gray-700 mb-1">Challenge:</h4>
+                      <p className="text-sm text-gray-600">{study.challenge}</p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-sm text-gray-700 mb-1">Solution:</h4>
+                      <p className="text-sm text-gray-600">{study.solution}</p>
+                    </div>
+                    
+                    <div className="bg-green-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-sm text-green-700 mb-1">Results:</h4>
+                      <p className="text-sm font-medium text-green-800">{study.results}</p>
+                    </div>
+                    
+                    <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-700">
+                      "{study.testimonial}"
+                      <footer className="text-sm text-gray-500 mt-2">- {study.author}</footer>
+                    </blockquote>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-800 text-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6">
+              Đừng Để Competitors Vượt Mặt Trên Zalo
+            </h2>
+            <div className="bg-red-500 inline-block px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
+              🔥 Chỉ nhận 10 khách hàng mới mỗi tháng
             </div>
+            <p className="text-xl text-blue-100 mb-8">
+              Limited slots để đảm bảo quality service. Book ngay để secure spot!
+            </p>
+          </div>
+
+          <Card className="bg-white text-gray-900">
+            <CardContent className="p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Họ và tên *</label>
+                    <Input
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Nhập họ tên"
+                      required
+                      className="border-gray-300"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Số điện thoại *</label>
+                    <Input
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Nhập SĐT"
+                      required
+                      className="border-gray-300"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Loại hình kinh doanh</label>
+                    <select
+                      name="business"
+                      value={formData.business}
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="">Chọn ngành nghề</option>
+                      <option value="E-commerce">E-commerce</option>
+                      <option value="F&B">F&B</option>
+                      <option value="Real Estate">Bất động sản</option>
+                      <option value="Education">Giáo dục</option>
+                      <option value="Healthcare">Y tế</option>
+                      <option value="Financial">Tài chính</option>
+                      <option value="Other">Khác</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Ngân sách marketing/tháng</label>
+                    <select
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="">Chọn mức ngân sách</option>
+                      <option value="Under 10M">Dưới 10M</option>
+                      <option value="10M-30M">10M - 30M</option>
+                      <option value="30M-50M">30M - 50M</option>
+                      <option value="50M-100M">50M - 100M</option>
+                      <option value="Over 100M">Trên 100M</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="text-center">
+                  <Button type="submit" size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 text-lg">
+                    Đặt Lịch Tư Vấn Ngay
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                  <div className="flex items-center justify-center gap-4 mt-4 text-sm text-gray-600">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Tư vấn miễn phí</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Timer className="w-4 h-4 text-orange-500" />
+                      <span>Phản hồi trong 2h</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Shield className="w-4 h-4 text-green-500" />
+                      <span>Cam kết kết quả</span>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </CardContent>
           </Card>
         </div>
       </section>
