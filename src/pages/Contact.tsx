@@ -62,25 +62,25 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Văn phòng Việt Nam",
-      description: "Thành phố Hồ Chí Minh, Việt Nam",
+      description: "Số 3, Nguyễn Cơ Thạch, Phường An Khánh, Thành phố Hồ Chí Minh, Việt Nam",
       color: "text-muted-foreground"
     },
     {
       icon: Phone,
       title: "Điện thoại",
-      description: "+84 xxx xxx xxx",
+      description: "+84 977 027 634",
       color: "text-muted-foreground"
     },
     {
       icon: Mail,
       title: "Email",
-      description: "hello@d2group.vn",
+      description: "info@d2group.co",
       color: "text-muted-foreground"
     },
     {
       icon: MessageSquare,
       title: "Liên hệ nhanh",
-      description: "WhatsApp & Zalo",
+      description: "Zalo",
       color: "text-primary"
     }
   ];
