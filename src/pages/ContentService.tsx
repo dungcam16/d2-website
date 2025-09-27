@@ -356,25 +356,25 @@ const ContentService = () => {
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="text-center p-3 rounded-lg" style={{ backgroundColor: '#f3f4f6' }}>
-                    <div className="text-lg font-bold" style={{ color: '#7c3aed' }}>127%</div>
-                    <div className="text-xs">Traffic Growth</div>
+                  <div className="text-center p-3 rounded-lg bg-card">
+                    <div className="text-lg font-bold text-primary">127%</div>
+                    <div className="text-xs text-muted-foreground">Traffic Growth</div>
                   </div>
-                  <div className="text-center p-3 rounded-lg" style={{ backgroundColor: '#f3f4f6' }}>
-                    <div className="text-lg font-bold" style={{ color: '#059669' }}>85%</div>
-                    <div className="text-xs">Conversion Rate</div>
+                  <div className="text-center p-3 rounded-lg bg-card">
+                    <div className="text-lg font-bold text-accent">85%</div>
+                    <div className="text-xs text-muted-foreground">Conversion Rate</div>
                   </div>
-                  <div className="text-center p-3 rounded-lg" style={{ backgroundColor: '#f3f4f6' }}>
-                    <div className="text-lg font-bold" style={{ color: '#dc2626' }}>340%</div>
-                    <div className="text-xs">Lead Quality</div>
+                  <div className="text-center p-3 rounded-lg bg-card">
+                    <div className="text-lg font-bold text-primary">340%</div>
+                    <div className="text-xs text-muted-foreground">Lead Quality</div>
                   </div>
-                  <div className="text-center p-3 rounded-lg" style={{ backgroundColor: '#f3f4f6' }}>
-                    <div className="text-lg font-bold" style={{ color: '#7c3aed' }}>420%</div>
-                    <div className="text-xs">ROI</div>
+                  <div className="text-center p-3 rounded-lg bg-card">
+                    <div className="text-lg font-bold text-accent">420%</div>
+                    <div className="text-xs text-muted-foreground">ROI</div>
                   </div>
                 </div>
                 
-                <div className="h-32 rounded-lg" style={{ backgroundColor: '#f9fafb' }}>
+                <div className="h-32 rounded-lg bg-muted/50">
                   <div className="p-4 text-center text-sm text-muted-foreground">
                     📈 Interactive Analytics Dashboard
                     <br />
@@ -388,10 +388,10 @@ const ContentService = () => {
       </section>
 
       {/* Content Problems Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Tại Sao <span style={{ color: '#dc2626' }}>Content Của Bạn</span> Không Convert?
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
+            Tại Sao <span className="text-destructive">Content Của Bạn</span> Không Convert?
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -404,11 +404,11 @@ const ContentService = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start space-x-4">
-                    <div style={{ color: '#dc2626' }}>
+                    <div className="text-destructive">
                       <IconComponent className="h-8 w-8" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">{problem.title}</h3>
+                      <h3 className="text-lg font-semibold mb-2 text-foreground">{problem.title}</h3>
                       <p className="text-muted-foreground text-sm">{problem.description}</p>
                     </div>
                   </div>
@@ -422,8 +422,8 @@ const ContentService = () => {
       {/* Methodology Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Methodology: <span style={{ color: '#7c3aed' }}>Data-Driven Content Strategy</span>
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
+            Methodology: <span className="text-primary">Data-Driven Content Strategy</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -435,17 +435,17 @@ const ContentService = () => {
                   className="p-6 text-center hover:shadow-lg transition-all duration-300 animate-scale-in"
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                  <div className="mb-4" style={{ color: '#7c3aed' }}>
+                  <div className="mb-4 text-primary">
                     <IconComponent className="h-12 w-12 mx-auto" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4">{method.title}</h3>
+                  <h3 className="text-xl font-bold mb-4 text-foreground">{method.title}</h3>
                   <p className="text-muted-foreground mb-4">{method.description}</p>
                   
                   <ul className="text-left text-sm space-y-1">
                     {method.details.map((detail, idx) => (
                       <li key={idx} className="flex items-center">
-                        <CheckCircle className="h-3 w-3 mr-2 flex-shrink-0" style={{ color: '#059669' }} />
-                        <span>{detail}</span>
+                        <CheckCircle className="h-3 w-3 mr-2 flex-shrink-0 text-accent" />
+                        <span className="text-muted-foreground">{detail}</span>
                       </li>
                     ))}
                   </ul>
@@ -457,10 +457,10 @@ const ContentService = () => {
       </section>
 
       {/* Content Types Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <span style={{ color: '#059669' }}>Full-Stack</span> Content Services
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
+            <span className="text-accent">Full-Stack</span> Content Services
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -473,12 +473,12 @@ const ContentService = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="text-center">
-                    <div className="mb-4" style={{ color: '#7c3aed' }}>
+                    <div className="mb-4 text-primary">
                       <IconComponent className="h-8 w-8 mx-auto" />
                     </div>
-                    <h3 className="text-lg font-bold mb-2">{type.title}</h3>
+                    <h3 className="text-lg font-bold mb-2 text-foreground">{type.title}</h3>
                     <p className="text-sm text-muted-foreground mb-3">{type.description}</p>
-                    <div className="text-xs font-medium p-2 rounded" style={{ backgroundColor: '#f0fdf4', color: '#059669' }}>
+                    <div className="text-xs font-medium p-2 rounded bg-accent/10 text-accent">
                       {type.metrics}
                     </div>
                   </div>
@@ -492,8 +492,8 @@ const ContentService = () => {
       {/* Performance Metrics Dashboard */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <span style={{ color: '#7c3aed' }}>Metrics</span> We Track & Optimize
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
+            <span className="text-primary">Metrics</span> We Track & Optimize
           </h2>
           
           <Card className="p-8 mb-8">
@@ -504,10 +504,10 @@ const ContentService = () => {
                   className="text-center animate-scale-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="text-4xl font-bold mb-2" style={{ color: metric.color }}>
+                  <div className="text-4xl font-bold mb-2 text-primary">
                     {metric.metric}
                   </div>
-                  <div className="text-lg font-semibold mb-1">{metric.label}</div>
+                  <div className="text-lg font-semibold mb-1 text-foreground">{metric.label}</div>
                   <div className="text-sm text-muted-foreground">{metric.description}</div>
                 </div>
               ))}
@@ -529,17 +529,17 @@ const ContentService = () => {
       </section>
 
       {/* ROI Calculator */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <Calculator className="inline-block mr-3 h-8 w-8" style={{ color: '#7c3aed' }} />
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
+            <Calculator className="inline-block mr-3 h-8 w-8 text-primary" />
             Content Performance Calculator
           </h2>
           
           <Card className="p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-bold mb-6">Current Metrics</h3>
+                <h3 className="text-xl font-bold mb-6 text-foreground">Current Metrics</h3>
                 <div className="space-y-4">
                   <div>
                     <Label>Monthly Website Traffic</Label>
@@ -569,7 +569,7 @@ const ContentService = () => {
               </div>
               
               <div>
-                <h3 className="text-xl font-bold mb-6">Projected Results</h3>
+                <h3 className="text-xl font-bold mb-6 text-foreground">Projected Results</h3>
                 <div className="space-y-6">
                   <div className="text-center p-4 rounded-lg" style={{ backgroundColor: '#f0f9ff' }}>
                     <div className="text-2xl font-bold" style={{ color: '#7c3aed' }}>${roiResults.currentRevenue}</div>
@@ -593,8 +593,8 @@ const ContentService = () => {
       {/* Industry Expertise */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Chuyên Môn Sâu <span style={{ color: '#059669' }}>Theo Ngành</span>
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
+            Chuyên Môn Sâu <span className="text-accent">Theo Ngành</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -622,10 +622,10 @@ const ContentService = () => {
       </section>
 
       {/* Case Studies */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Success Stories: <span style={{ color: '#dc2626' }}>Numbers Don't Lie</span>
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
+            Success Stories: <span className="text-destructive">Numbers Don't Lie</span>
           </h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -650,7 +650,7 @@ const ContentService = () => {
                   ))}
                 </div>
                 
-                <Button variant="outline" className="w-full mt-6" style={{ borderColor: '#7c3aed', color: '#7c3aed' }}>
+                <Button variant="outline" className="w-full mt-6 tech-border">
                   View Full Case Study
                 </Button>
               </Card>
@@ -663,7 +663,7 @@ const ContentService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Gói Dịch Vụ <span style={{ color: '#7c3aed' }}>Content Performance</span>
+            Gói Dịch Vụ <span className="text-primary">Content Performance</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -675,15 +675,15 @@ const ContentService = () => {
               >
                 {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="px-4 py-2 rounded-full text-sm font-medium text-white" style={{ backgroundColor: '#7c3aed' }}>
+                    <span className="px-4 py-2 rounded-full text-sm font-medium bg-primary text-primary-foreground">
                       Most Popular
                     </span>
                   </div>
                 )}
                 
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold mb-2" style={{ color: '#7c3aed' }}>{pkg.name}</h3>
-                  <div className="text-3xl font-bold mb-2">
+                  <h3 className="text-xl font-bold mb-2 text-primary">{pkg.name}</h3>
+                  <div className="text-3xl font-bold mb-2 text-foreground">
                     {pkg.price}
                     <span className="text-lg font-normal text-muted-foreground">{pkg.period}</span>
                   </div>
@@ -692,17 +692,16 @@ const ContentService = () => {
                 
                 <ul className="space-y-3 mb-6">
                   {pkg.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm">
-                      <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0" style={{ color: '#059669' }} />
-                      <span>{feature}</span>
-                    </li>
+                     <li key={idx} className="flex items-center text-sm">
+                       <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0 text-accent" />
+                       <span className="text-muted-foreground">{feature}</span>
+                     </li>
                   ))}
                 </ul>
                 
                 <Button 
                   className="w-full" 
                   variant={pkg.popular ? "default" : "outline"}
-                  style={pkg.popular ? { backgroundColor: '#7c3aed', color: 'white' } : { borderColor: '#7c3aed', color: '#7c3aed' }}
                   onClick={() => window.location.href = '/contact'}
                 >
                   {pkg.price === "Custom" ? "Contact Sales" : "Get Started"}
@@ -714,42 +713,42 @@ const ContentService = () => {
       </section>
 
       {/* Content Audit Offer */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fafafa' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <span style={{ color: '#dc2626' }}>Miễn Phí:</span> Content Performance Audit Cho Website Của Bạn
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
+            <span className="text-destructive">Miễn Phí:</span> Content Performance Audit Cho Website Của Bạn
           </h2>
           
           <Card className="p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-bold mb-6">Audit Includes:</h3>
+                <h3 className="text-xl font-bold mb-6 text-foreground">Audit Includes:</h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
-                    <Search className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#7c3aed' }} />
+                    <Search className="h-5 w-5 mt-1 flex-shrink-0 text-primary" />
                     <div>
-                      <div className="font-semibold">SEO Analysis</div>
+                      <div className="font-semibold text-foreground">SEO Analysis</div>
                       <div className="text-sm text-muted-foreground">Keyword gaps, technical issues</div>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <Target className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#059669' }} />
+                    <Target className="h-5 w-5 mt-1 flex-shrink-0 text-accent" />
                     <div>
-                      <div className="font-semibold">Content Gap Analysis</div>
+                      <div className="font-semibold text-foreground">Content Gap Analysis</div>
                       <div className="text-sm text-muted-foreground">Missing topics, competitor comparison</div>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <BarChart3 className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#dc2626' }} />
+                    <BarChart3 className="h-5 w-5 mt-1 flex-shrink-0 text-destructive" />
                     <div>
-                      <div className="font-semibold">Performance Review</div>
+                      <div className="font-semibold text-foreground">Performance Review</div>
                       <div className="text-sm text-muted-foreground">Traffic, engagement, conversion metrics</div>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <Lightbulb className="h-5 w-5 mt-1 flex-shrink-0" style={{ color: '#7c3aed' }} />
+                    <Lightbulb className="h-5 w-5 mt-1 flex-shrink-0 text-primary" />
                     <div>
-                      <div className="font-semibold">Strategy Recommendations</div>
+                      <div className="font-semibold text-foreground">Strategy Recommendations</div>
                       <div className="text-sm text-muted-foreground">90-day action plan</div>
                     </div>
                   </div>
