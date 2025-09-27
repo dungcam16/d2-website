@@ -23,6 +23,7 @@ const Header = () => {
 
   const navItems = [
     { name: 'Trang chủ', href: '/' },
+    { name: 'Blog', href: '/blog' },
   ];
 
   const contactItem = { name: 'Liên hệ', href: '/contact' };

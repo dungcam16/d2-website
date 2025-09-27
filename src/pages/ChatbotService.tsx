@@ -6,21 +6,11 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import ContactForm from '@/components/ContactForm';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const ChatbotService = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    business: '',
-    budget: ''
-  });
 
   const benefits = [
     {
@@ -253,11 +243,19 @@ const ChatbotService = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" className="shadow-glow">
+                <Button 
+                  size="lg" 
+                  className="shadow-glow"
+                  onClick={() => window.location.href = '/contact'}
+                >
                   Nhận Tư Vấn Miễn Phí
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  onClick={() => window.location.href = '/contact'}
+                >
                   <PlayCircle className="mr-2 h-5 w-5" />
                   Xem Demo Live
                 </Button>
@@ -577,11 +575,16 @@ const ChatbotService = () => {
               </div>
             </div>
             
-            <ContactForm 
-              service="chatbot"
-              title="Đặt Lịch Tư Vấn Chatbot"
-              description="Chia sẻ nhu cầu chatbot và chúng tôi sẽ tạo demo phù hợp với doanh nghiệp của bạn."
-            />
+            <div className="text-center">
+              <Button 
+                size="lg" 
+                className="shadow-glow"
+                onClick={() => window.location.href = '/contact'}
+              >
+                Đặt Lịch Tư Vấn Chatbot Ngay
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>

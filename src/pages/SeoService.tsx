@@ -12,7 +12,6 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ContactForm from '@/components/ContactForm';
 
 const SeoService = () => {
   const [auditForm, setAuditForm] = useState({
@@ -415,11 +414,20 @@ const SeoService = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" className="shadow-glow">
+                <Button 
+                  size="lg" 
+                  className="shadow-glow"
+                  onClick={() => window.location.href = '/contact'}
+                >
                   Nhận SEO Audit Miễn Phí
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg" className="tech-border">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="tech-border"
+                  onClick={() => window.location.href = '/contact'}
+                >
                   Xem Results Showcase
                 </Button>
               </div>
@@ -872,11 +880,16 @@ const SeoService = () => {
               </div>
               
               <div>
-                <ContactForm 
-                  service="seo"
-                  title="Nhận SEO Audit Miễn Phí"
-                  description="Chia sẻ thông tin website và chúng tôi sẽ audit SEO toàn diện cho bạn trong 24h."
-                />
+                <div className="text-center">
+                  <Button 
+                    size="lg" 
+                    className="shadow-glow"
+                    onClick={() => window.location.href = '/contact'}
+                  >
+                    Nhận SEO Audit Miễn Phí
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
               </div>
             </div>
           </Card>

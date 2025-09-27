@@ -10,7 +10,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import ContactForm from '@/components/ContactForm';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -322,11 +321,20 @@ const ContentService = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" className="shadow-glow">
+                <Button 
+                  size="lg" 
+                  className="shadow-glow"
+                  onClick={() => window.location.href = '/contact'}
+                >
                   Nhận Content Audit Miễn Phí
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg" className="tech-border">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="tech-border"
+                  onClick={() => window.location.href = '/contact'}
+                >
                   <PlayCircle className="mr-2 h-5 w-5" />
                   Xem Demo Dashboard
                 </Button>
@@ -799,11 +807,16 @@ const ContentService = () => {
                     />
                   </div>
                   
-                  <ContactForm 
-                    service="content"
-                    title="Nhận Content Audit Miễn Phí"
-                    description="Chia sẻ website và mục tiêu content, chúng tôi sẽ audit toàn diện và đưa ra strategy trong 48h."
-                  />
+                  <div className="text-center mt-6">
+                    <Button 
+                      size="lg" 
+                      className="shadow-glow"
+                      onClick={() => window.location.href = '/contact'}
+                    >
+                      Nhận Content Audit Miễn Phí
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>

@@ -7,58 +7,16 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ContactForm from '@/components/ContactForm';
 
 const ZaloService = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    business: '',
-    budget: ''
-  });
-
   const [roiData, setRoiData] = useState({
     monthlyBudget: '',
     currentConversion: '',
     targetConversion: ''
   });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      const response = await fetch('https://n8n.d2group.co/webhook/website_d2group', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: '',
-          phone: formData.phone,
-          note: `Loại hình: ${formData.business}, Ngân sách: ${formData.budget}`
-        }),
-      });
-
-      if (response.ok) {
-        alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ liên hệ trong 24h.');
-        setFormData({ name: '', phone: '', business: '', budget: '' });
-      }
-    } catch (error) {
-      alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
 
   const marketStats = [
     {
@@ -341,6 +299,7 @@ const ZaloService = () => {
                   variant="outline" 
                   size="lg"
                   className="tech-border"
+                  onClick={() => window.location.href = '/contact'}
                 >
                   <PlayCircle className="mr-2 h-5 w-5" />
                   Xem Demo Live
@@ -757,11 +716,14 @@ const ZaloService = () => {
             </p>
           </div>
 
-          <ContactForm 
-            service="zalo"
-            title="Đăng Ký Setup OA Miễn Phí"
-            description="Để lại thông tin và nhận setup OA + strategy consultation miễn phí trong 24h."
-          />
+          <Button 
+            size="lg" 
+            className="shadow-glow text-lg px-8"
+            onClick={() => window.location.href = '/contact'}
+          >
+            Đăng Ký Setup OA Miễn Phí
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </section>
 

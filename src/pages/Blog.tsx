@@ -1,0 +1,334 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Calendar, User, Clock, ArrowRight, Search, Tag, 
+  Filter, Eye, BookOpen, Share2, MessageCircle
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Badge } from '@/components/ui/badge';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  author: string;
+  publishedAt: string;
+  tags: string[];
+  featuredImage?: string;
+  views: number;
+  readTime: number;
+  slug: string;
+}
+
+const Blog = () => {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTag, setSelectedTag] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  // Sample data - replace with Supabase integration
+  const samplePosts: BlogPost[] = [
+    {
+      id: '1',
+      title: 'Cách Tối Ưu SEO Cho Website Thương Mại Điện Tử Việt Nam 2024',
+      excerpt: 'Hướng dẫn chi tiết từ A-Z để tăng traffic và conversion cho website e-commerce tại thị trường Việt Nam.',
+      content: 'Full content here...',
+      author: 'D2 GROUP Marketing Team',
+      publishedAt: '2024-01-15',
+      tags: ['SEO', 'E-commerce', 'Digital Marketing'],
+      views: 1250,
+      readTime: 8,
+      slug: 'seo-ecommerce-vietnam-2024'
+    },
+    {
+      id: '2',
+      title: 'Automation Marketing: Tự Động Hóa Lead Nurturing Hiệu Quả',
+      excerpt: 'Chiến lược automation giúp tăng 300% tỷ lệ chuyển đổi lead thành khách hàng thực.',
+      content: 'Full content here...',
+      author: 'D2 GROUP Marketing Team',
+      publishedAt: '2024-01-10',
+      tags: ['Automation', 'Lead Generation', 'Marketing'],
+      views: 980,
+      readTime: 6,
+      slug: 'automation-lead-nurturing'
+    },
+    {
+      id: '3',
+      title: 'Zalo OA vs Facebook Messenger: So Sánh Hiệu Quả Marketing',
+      excerpt: 'Phân tích chi tiết ưu nhược điểm của 2 platform messaging phổ biến nhất Việt Nam.',
+      content: 'Full content here...',
+      author: 'D2 GROUP Marketing Team',
+      publishedAt: '2024-01-05',
+      tags: ['Zalo', 'Facebook', 'Messaging Marketing'],
+      views: 1580,
+      readTime: 10,
+      slug: 'zalo-vs-facebook-messenger'
+    }
+  ];
+
+  useEffect(() => {
+    // TODO: Replace with actual Supabase call
+    // const fetchPosts = async () => {
+    //   try {
+    //     const { data, error } = await supabase
+    //       .from('blog_posts')
+    //       .select('*')
+    //       .order('publishedAt', { ascending: false });
+    //     
+    //     if (error) throw error;
+    //     setPosts(data);
+    //   } catch (error) {
+    //     console.error('Error fetching posts:', error);
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
+    
+    // For now, use sample data
+    setPosts(samplePosts);
+    setLoading(false);
+  }, []);
+
+  const filteredPosts = posts.filter(post => {
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesTag = selectedTag === '' || post.tags.includes(selectedTag);
+    return matchesSearch && matchesTag;
+  });
+
+  const allTags = Array.from(new Set(posts.flatMap(post => post.tags)));
+
+  const categories = [
+    { name: 'SEO', count: 12, color: 'bg-primary' },
+    { name: 'Content Marketing', count: 8, color: 'bg-accent' },
+    { name: 'Automation', count: 6, color: 'bg-secondary' },
+    { name: 'Zalo Marketing', count: 10, color: 'bg-primary' },
+    { name: 'Lead Generation', count: 5, color: 'bg-accent' }
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      {/* Hero Section */}
+      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
+            <span className="text-primary">D2 GROUP</span>
+            <br />
+            <span className="text-foreground">Marketing Blog</span>
+          </h1>
+          
+          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            Insights, strategies và case studies từ các chuyên gia marketing hàng đầu. 
+            Cập nhật xu hướng mới nhất trong digital marketing.
+          </p>
+
+          <div className="max-w-md mx-auto relative mb-8">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
+            <Input
+              placeholder="Tìm kiếm bài viết..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10"
+            />
+          </div>
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          
+          {/* Main Content */}
+          <div className="lg:col-span-3">
+            {loading ? (
+              <div className="space-y-8">
+                {[...Array(3)].map((_, i) => (
+                  <Card key={i} className="animate-pulse">
+                    <div className="h-48 bg-muted rounded-t-lg"></div>
+                    <CardContent className="p-6">
+                      <div className="h-4 bg-muted rounded w-3/4 mb-4"></div>
+                      <div className="h-4 bg-muted rounded w-1/2 mb-2"></div>
+                      <div className="h-4 bg-muted rounded w-2/3"></div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-8">
+                {filteredPosts.map((post) => (
+                  <Card key={post.id} className="gradient-card overflow-hidden hover:shadow-elevation transition-all duration-300">
+                    {post.featuredImage && (
+                      <div className="h-48 bg-muted"></div>
+                    )}
+                    <CardContent className="p-6">
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {post.tags.map((tag) => (
+                          <Badge key={tag} variant="secondary" className="text-xs">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                      
+                      <h2 className="text-2xl font-bold mb-4 hover:text-primary transition-colors">
+                        <a href={`/blog/${post.slug}`}>
+                          {post.title}
+                        </a>
+                      </h2>
+                      
+                      <p className="text-muted-foreground mb-4 line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                        <div className="flex items-center gap-4">
+                          <div className="flex items-center gap-1">
+                            <User className="h-4 w-4" />
+                            <span>{post.author}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Calendar className="h-4 w-4" />
+                            <span>{new Date(post.publishedAt).toLocaleDateString('vi-VN')}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Clock className="h-4 w-4" />
+                            <span>{post.readTime} phút đọc</span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-1">
+                            <Eye className="h-4 w-4" />
+                            <span>{post.views}</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <Button variant="outline" size="sm">
+                          <BookOpen className="h-4 w-4 mr-2" />
+                          Đọc tiếp
+                        </Button>
+                        
+                        <div className="flex gap-2">
+                          <Button variant="ghost" size="sm">
+                            <Share2 className="h-4 w-4" />
+                          </Button>
+                          <Button variant="ghost" size="sm">
+                            <MessageCircle className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="space-y-8">
+              
+              {/* Categories */}
+              <Card className="gradient-card">
+                <CardHeader>
+                  <CardTitle className="text-lg">Chủ đề phổ biến</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {categories.map((category) => (
+                      <div key={category.name} className="flex items-center justify-between">
+                        <span className="text-sm">{category.name}</span>
+                        <Badge variant="secondary" className="text-xs">
+                          {category.count}
+                        </Badge>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Tags Filter */}
+              <Card className="gradient-card">
+                <CardHeader>
+                  <CardTitle className="text-lg">Lọc theo tags</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    <Button
+                      variant={selectedTag === '' ? 'default' : 'outline'}
+                      size="sm"
+                      onClick={() => setSelectedTag('')}
+                    >
+                      Tất cả
+                    </Button>
+                    {allTags.map((tag) => (
+                      <Button
+                        key={tag}
+                        variant={selectedTag === tag ? 'default' : 'outline'}
+                        size="sm"
+                        onClick={() => setSelectedTag(tag)}
+                      >
+                        {tag}
+                      </Button>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Newsletter Signup */}
+              <Card className="gradient-card">
+                <CardHeader>
+                  <CardTitle className="text-lg">Đăng ký nhận tin</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Nhận những insights marketing mới nhất từ D2 GROUP
+                  </p>
+                  <div className="space-y-3">
+                    <Input placeholder="Email của bạn" />
+                    <Button 
+                      className="w-full"
+                      onClick={() => window.location.href = '/contact'}
+                    >
+                      Đăng ký ngay
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* CTA */}
+              <Card className="gradient-card bg-primary text-primary-foreground">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-bold mb-2">Cần tư vấn marketing?</h3>
+                  <p className="text-sm mb-4 opacity-90">
+                    Liên hệ với chuyên gia D2 GROUP để được tư vấn miễn phí
+                  </p>
+                  <Button 
+                    variant="secondary" 
+                    size="sm" 
+                    className="w-full"
+                    onClick={() => window.location.href = '/contact'}
+                  >
+                    Tư vấn miễn phí
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Blog;

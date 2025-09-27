@@ -10,7 +10,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import ContactForm from '@/components/ContactForm';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -223,11 +222,19 @@ const AutomationService = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" className="shadow-glow">
+                <Button 
+                  size="lg" 
+                  className="shadow-glow"
+                  onClick={() => window.location.href = '/contact'}
+                >
                   Schedule Technical Demo
                   <PlayCircle className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  onClick={() => window.location.href = '/contact'}
+                >
                   Download Architecture Guide
                   <Download className="ml-2 h-5 w-5" />
                 </Button>
@@ -606,11 +613,16 @@ const AutomationService = () => {
               </div>
             </div>
             
-            <ContactForm 
-              service="automation"
-              title="Schedule Technical Demo"
-              description="Chia sẻ requirements và chúng tôi sẽ tạo demo N8N phù hợp với enterprise architecture của bạn."
-            />
+            <div className="text-center">
+              <Button 
+                size="lg" 
+                className="shadow-glow"
+                onClick={() => window.location.href = '/contact'}
+              >
+                Schedule Technical Demo
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
