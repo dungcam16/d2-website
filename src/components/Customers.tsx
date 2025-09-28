@@ -2,18 +2,18 @@ import React from 'react';
 
 const Customers = () => {
   const customers = [
-    { name: "Vingroup", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Vingroup_logo.svg/200px-Vingroup_logo.svg.png" },
-    { name: "FPT Corporation", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/FPT_logo.svg/200px-FPT_logo.svg.png" },
-    { name: "Viettel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Viettel_logo.svg/200px-Viettel_logo.svg.png" },
-    { name: "BIDV", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/BIDV_logo.svg/200px-BIDV_logo.svg.png" },
-    { name: "VinFast", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/VinFast_logo.svg/200px-VinFast_logo.svg.png" },
-    { name: "Sacombank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Sacombank_logo.svg/200px-Sacombank_logo.svg.png" },
-    { name: "Techcombank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Techcombank_logo.svg/200px-Techcombank_logo.svg.png" },
-    { name: "Masan Group", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Masan_Group_logo.svg/200px-Masan_Group_logo.svg.png" },
-    { name: "VNG Corporation", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/VNG_Corporation_logo.svg/200px-VNG_Corporation_logo.svg.png" },
-    { name: "Tiki", logo: "https://salt.tikicdn.com/ts/upload/5e/0d/bc/6ebe510c99e49b65b7d2d1da71e41b73.png" },
-    { name: "Sendo", logo: "https://media.sendo.vn/media/logo/sendo-icon-60x60.png" },
-    { name: "MoMo", logo: "https://developers.momo.vn/v3/assets/images/square-logo.svg" }
+    { name: "TechCorp Vietnam", logo: "https://via.placeholder.com/120x60/2563eb/ffffff?text=TechCorp" },
+    { name: "GreenTech Solutions", logo: "https://via.placeholder.com/120x60/059669/ffffff?text=GreenTech" },
+    { name: "SmartLogistics", logo: "https://via.placeholder.com/120x60/dc2626/ffffff?text=SmartLog" },
+    { name: "EduTech Plus", logo: "https://via.placeholder.com/120x60/7c3aed/ffffff?text=EduTech" },
+    { name: "HealthCare Digital", logo: "https://via.placeholder.com/120x60/0891b2/ffffff?text=HealthCare" },
+    { name: "FinTech Pro", logo: "https://via.placeholder.com/120x60/ea580c/ffffff?text=FinTech" },
+    { name: "AgriSmart", logo: "https://via.placeholder.com/120x60/16a34a/ffffff?text=AgriSmart" },
+    { name: "RetailTech", logo: "https://via.placeholder.com/120x60/c2410c/ffffff?text=RetailTech" },
+    { name: "FoodTech Vietnam", logo: "https://via.placeholder.com/120x60/be185d/ffffff?text=FoodTech" },
+    { name: "PropertyTech", logo: "https://via.placeholder.com/120x60/0d9488/ffffff?text=PropertyTech" },
+    { name: "TravelTech Plus", logo: "https://via.placeholder.com/120x60/4338ca/ffffff?text=TravelTech" },
+    { name: "MediaTech Solutions", logo: "https://via.placeholder.com/120x60/9333ea/ffffff?text=MediaTech" }
   ];
 
   return (
