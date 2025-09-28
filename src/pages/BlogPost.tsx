@@ -1,0 +1,223 @@
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { 
+  Calendar, User, Clock, ArrowLeft, Share2, 
+  MessageCircle, Eye, Tag
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { supabase } from '@/integrations/supabase/client';
+
+interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string | null;
+  content: string;
+  author: string;
+  published_at: string;
+  tags: string[];
+  image_url?: string | null;
+  views: number | null;
+  read_time: number | null;
+  slug: string;
+}
+
+const BlogPost = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      if (!slug) {
+        setError('Không tìm thấy slug của bài viết');
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const { data, error } = await supabase
+          .from('blog_posts')
+          .select('*')
+          .eq('slug', slug)
+          .eq('is_published', true)
+          .maybeSingle();
+        
+        if (error) throw error;
+        
+        if (!data) {
+          setError('Không tìm thấy bài viết');
+        } else {
+          setPost(data);
+          // Increment view count
+          await supabase
+            .from('blog_posts')
+            .update({ views: (data.views || 0) + 1 })
+            .eq('id', data.id);
+        }
+      } catch (error) {
+        console.error('Error fetching post:', error);
+        setError('Có lỗi xảy ra khi tải bài viết');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchPost();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+          <Card className="animate-pulse">
+            <div className="h-64 bg-muted rounded-t-lg"></div>
+            <CardContent className="p-8">
+              <div className="h-8 bg-muted rounded w-3/4 mb-6"></div>
+              <div className="space-y-4">
+                <div className="h-4 bg-muted rounded w-full"></div>
+                <div className="h-4 bg-muted rounded w-full"></div>
+                <div className="h-4 bg-muted rounded w-2/3"></div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error || !post) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4">Không tìm thấy bài viết</h1>
+            <p className="text-muted-foreground mb-8">{error}</p>
+            <Button onClick={() => navigate('/blog')}>
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Quay lại Blog
+            </Button>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+        <Button 
+          variant="ghost" 
+          onClick={() => navigate('/blog')}
+          className="mb-8"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Quay lại Blog
+        </Button>
+
+        <article>
+          {post.image_url && (
+            <div className="mb-8">
+              <img 
+                src={post.image_url} 
+                alt={post.title}
+                className="w-full h-64 sm:h-96 object-cover rounded-lg"
+              />
+            </div>
+          )}
+
+          <header className="mb-8">
+            <div className="flex flex-wrap gap-2 mb-4">
+              {post.tags.map((tag) => (
+                <Badge key={tag} variant="secondary" className="text-xs">
+                  <Tag className="h-3 w-3 mr-1" />
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+
+            <h1 className="text-3xl md:text-5xl font-bold font-heading mb-6 text-foreground">
+              {post.title}
+            </h1>
+
+            {post.excerpt && (
+              <p className="text-xl text-muted-foreground mb-6">
+                {post.excerpt}
+              </p>
+            )}
+
+            <div className="flex items-center justify-between border-b border-border pb-6">
+              <div className="flex items-center gap-6 text-sm text-muted-foreground">
+                <div className="flex items-center gap-1">
+                  <User className="h-4 w-4" />
+                  <span>{post.author}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Calendar className="h-4 w-4" />
+                  <span>{new Date(post.published_at).toLocaleDateString('vi-VN')}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Clock className="h-4 w-4" />
+                  <span>{post.read_time || 5} phút đọc</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Eye className="h-4 w-4" />
+                  <span>{(post.views || 0) + 1}</span>
+                </div>
+              </div>
+
+              <div className="flex gap-2">
+                <Button variant="outline" size="sm">
+                  <Share2 className="h-4 w-4 mr-2" />
+                  Chia sẻ
+                </Button>
+                <Button variant="outline" size="sm">
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  Bình luận
+                </Button>
+              </div>
+            </div>
+          </header>
+
+          <div className="prose prose-lg max-w-none">
+            <div 
+              className="text-foreground leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          </div>
+        </article>
+
+        {/* Call to Action */}
+        <div className="mt-16 p-8 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg border">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold mb-4">Cần hỗ trợ marketing cho doanh nghiệp?</h3>
+            <p className="text-muted-foreground mb-6">
+              Liên hệ với D2 GROUP để được tư vấn miễn phí và nhận chiến lược marketing phù hợp nhất
+            </p>
+            <Button 
+              size="lg"
+              onClick={() => navigate('/contact')}
+            >
+              Tư vấn miễn phí ngay
+            </Button>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default BlogPost;
