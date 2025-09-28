@@ -5,6 +5,14 @@ import zapierLogo from '@/assets/zapier-logo.png';
 import openaiLogo from '@/assets/openai-logo.png';
 import anthropicLogo from '@/assets/anthropic-logo.png';
 import googleAiLogo from '@/assets/google-ai-logo.png';
+import dockerLogo from '@/assets/docker-logo.svg';
+import traefikLogo from '@/assets/traefik-logo.png';
+import nginxLogo from '@/assets/nginx-logo.png';
+import cloudfareLogo from '@/assets/cloudflare-logo.svg';
+import supabaseLogo from '@/assets/supabase-logo.png';
+import postgresqlLogo from '@/assets/postgresql-logo.svg';
+import viteLogo from '@/assets/vite-logo.svg';
+import reactLogo from '@/assets/react-logo.svg';
 
 const Partners = () => {
   const partners = [
@@ -14,12 +22,15 @@ const Partners = () => {
     { name: "OpenAI", logo: openaiLogo },
     { name: "Anthropic", logo: anthropicLogo },
     { name: "Google AI", logo: googleAiLogo },
-    { name: "Microsoft AI", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png" },
-    { name: "Airtable", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Airtable_Logo.svg/200px-Airtable_Logo.svg.png" },
-    { name: "Notion", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/200px-Notion-logo.svg.png" },
-    { name: "Slack", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/200px-Slack_icon_2019.svg.png" },
-    { name: "Discord", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Discord_blue_logo.svg/200px-Discord_blue_logo.svg.png" },
-    { name: "Shopify", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopify_logo_2018.svg/200px-Shopify_logo_2018.svg.png" }
+    { name: "Docker", logo: dockerLogo },
+    { name: "Coolify", logo: "https://avatars.githubusercontent.com/u/82715100?s=200&v=4" },
+    { name: "Traefik", logo: traefikLogo },
+    { name: "Nginx", logo: nginxLogo },
+    { name: "Cloudflare", logo: cloudfareLogo },
+    { name: "Supabase", logo: supabaseLogo },
+    { name: "PostgreSQL", logo: postgresqlLogo },
+    { name: "Vite", logo: viteLogo },
+    { name: "React", logo: reactLogo }
   ];
 
   return (
