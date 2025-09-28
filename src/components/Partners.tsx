@@ -50,7 +50,7 @@ const Partners = () => {
         {/* Scrolling Partners */}
         <div className="relative overflow-hidden">
           <div className="flex animate-scroll-horizontal space-x-12 w-fit"
-               style={{ animationDuration: '20s' }}>
+               style={{ animationDuration: '60s' }}>
             {[...partners, ...partners, ...partners].map((partner, index) => (
               <div
                 key={index}
