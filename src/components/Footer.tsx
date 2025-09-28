@@ -8,7 +8,7 @@ const Footer = () => {
     'N8N Automation',
     'Tối Ưu SEO',
     'Content Marketing',
-    'Tối Ưu Quy Trình Kinh Doanh'
+    'Website Development'
   ];
 
   const company = [
@@ -49,19 +49,19 @@ const Footer = () => {
             
             <div className="space-y-2">
               <div className="flex items-center text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 mr-2 text-primary" />
+                <MapPin className="h-5 w-5 mr-2 text-primary" />
                 Số 3, Nguyễn Cơ Thạch, Phường An Khánh, Thành phố Hồ Chí Minh, Việt Nam
               </div>
               <div className="flex items-center text-sm text-muted-foreground">
-                <Phone className="h-4 w-4 mr-2 text-primary" />
+                <Phone className="h-5 w-5 mr-2 text-primary" />
                 +84 977 027 634
               </div>
               <div className="flex items-center text-sm text-muted-foreground">
-                <Mail className="h-4 w-4 mr-2 text-primary" />
+                <Mail className="h-5 w-5 mr-2 text-primary" />
                 info@d2group.co
               </div>
               <div className="flex items-center text-sm text-muted-foreground">
-                <Shield className="h-4 w-4 mr-2 text-primary" />
+                <Shield className="h-5 w-5 mr-2 text-primary" />
                 MST: 3603788837
               </div>
             </div>
@@ -90,12 +90,9 @@ const Footer = () => {
             <ul className="space-y-2">
               {company.map((item) => (
                 <li key={item}>
-                  <a 
-                    href="#" 
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                  >
+                  <span className="text-muted-foreground text-sm">
                     {item}
-                  </a>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -108,6 +105,7 @@ const Footer = () => {
               {resources.map((resource) => {
                 let href = "#";
                 if (resource === "Blog") href = "/blog";
+                if (resource === "Tài Liệu" || resource === "Hỗ Trợ") href = "/contact";
                 if (resource === "Chính Sách Bảo Mật") href = "/privacy-policy";
                 if (resource === "Điều Khoản Dịch Vụ") href = "/terms-of-service";
                 
