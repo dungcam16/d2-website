@@ -22,11 +22,11 @@ const Partners = () => {
         {/* Header */}
         <div className="text-center mb-12 animate-slide-up">
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
-            <span className="text-foreground">Đối Tác </span>
+            <span className="text-foreground">Nền Tảng </span>
             <span className="text-primary">Công Nghệ</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Chúng tôi hợp tác với những thương hiệu công nghệ hàng đầu thế giới
+            Chúng tôi sử dụng nền tảng công nghệ của các thương hiệu hàng đầu thế giới
           </p>
         </div>
 
