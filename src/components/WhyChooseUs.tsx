@@ -73,26 +73,6 @@ const WhyChooseUs = () => {
             </Card>
           ))}
         </div>
-
-        {/* CTA Section */}
-        <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-          <div className="bg-background rounded-2xl p-8 shadow-elegant">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              Sẵn sàng bắt đầu hành trình automation?
-            </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Liên hệ ngay để được tư vấn miễn phí và nhận báo giá chi tiết cho doanh nghiệp của bạn.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <div className="bg-primary/10 px-4 py-2 rounded-lg">
-                <span className="text-primary font-semibold">📞 Hotline: 0977 027 634</span>
-              </div>
-              <div className="bg-primary/10 px-4 py-2 rounded-lg">
-                <span className="text-primary font-semibold">📧 Email: info@d2group.co</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
