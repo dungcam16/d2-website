@@ -33,6 +33,7 @@ const Header = () => {
     { name: 'N8N Enterprise Automation', href: '/services/automation' },
     { name: 'Content Performance', href: '/services/content' },
     { name: 'SEO Boost', href: '/services/seo' },
+    { name: 'Website Development', href: '/services/website' },
   ];
 
   return (

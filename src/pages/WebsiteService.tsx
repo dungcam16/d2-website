@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { 
   Code, Globe, Smartphone, Zap, ArrowRight, CheckCircle, 
   Phone, Mail, Users, Clock, TrendingUp, Shield, Settings, BarChart3,
-  Monitor, Search, ChevronDown, Star, PlayCircle, Layers, Palette
+  Monitor, Search, ChevronDown, Star, PlayCircle, Layers, Palette,
+  ExternalLink
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -41,52 +43,135 @@ const WebsiteService = () => {
 
   const features = [
     {
-      title: "Modern UI/UX Design",
+      title: "Thiết Kế UI/UX Hiện Đại",
       description: "Thiết kế đẹp mắt, trải nghiệm tối ưu",
       icon: Palette,
-      details: ["User-centered design", "Mobile-first approach", "Accessibility standards", "Brand consistency"]
+      details: ["Thiết kế tập trung người dùng", "Tối ưu mobile-first", "Tiêu chuẩn accessibility", "Thống nhất thương hiệu"]
     },
     {
-      title: "Responsive Framework",
+      title: "Framework Responsive",
       description: "Hoạt động hoàn hảo mọi thiết bị",
       icon: Monitor,
-      details: ["Cross-browser compatibility", "Mobile optimization", "Tablet-friendly", "Desktop experience"]
+      details: ["Tương thích đa trình duyệt", "Tối ưu mobile", "Thân thiện tablet", "Trải nghiệm desktop"]
     },
     {
-      title: "Performance Optimization",
+      title: "Tối Ưu Hiệu Suất",
       description: "Tốc độ tải nhanh, SEO friendly",
       icon: Zap,
-      details: ["Image optimization", "Code minification", "CDN integration", "Caching strategies"]
+      details: ["Tối ưu hình ảnh", "Nén code", "Tích hợp CDN", "Chiến lược cache"]
     },
     {
-      title: "CMS Integration",
+      title: "Tích Hợp CMS",
       description: "Quản lý nội dung dễ dàng",
       icon: Settings,
-      details: ["Content management", "User-friendly admin", "Blog system", "Media library"]
+      details: ["Quản lý nội dung", "Admin thân thiện", "Hệ thống blog", "Thư viện media"]
     },
     {
       title: "Analytics & Tracking",
       description: "Theo dõi hiệu suất chi tiết",
       icon: BarChart3,
-      details: ["Google Analytics", "Conversion tracking", "User behavior", "Performance metrics"]
+      details: ["Google Analytics", "Tracking conversion", "Hành vi người dùng", "Metrics hiệu suất"]
     },
     {
-      title: "Security & Maintenance",
+      title: "Bảo Mật & Bảo Trì",
       description: "Bảo mật cao, cập nhật thường xuyên",
       icon: Shield,
-      details: ["SSL certificates", "Security monitoring", "Regular updates", "Backup systems"]
+      details: ["Chứng chỉ SSL", "Giám sát bảo mật", "Cập nhật định kỳ", "Hệ thống backup"]
     }
   ];
 
   const technologies = [
-    { name: "React", description: "Frontend framework", icon: Code },
-    { name: "WordPress", description: "CMS platform", icon: Globe },
-    { name: "Next.js", description: "Full-stack framework", icon: Layers },
-    { name: "Tailwind CSS", description: "Styling framework", icon: Palette },
+    { name: "React", description: "Framework frontend", icon: Code },
+    { name: "WordPress", description: "Nền tảng CMS", icon: Globe },
+    { name: "Next.js", description: "Framework full-stack", icon: Layers },
+    { name: "Tailwind CSS", description: "Framework styling", icon: Palette },
     { name: "Node.js", description: "Backend runtime", icon: Settings },
-    { name: "MongoDB", description: "Database", icon: BarChart3 },
+    { name: "MongoDB", description: "Cơ sở dữ liệu", icon: BarChart3 },
     { name: "AWS", description: "Cloud hosting", icon: Monitor },
-    { name: "Cloudflare", description: "CDN & Security", icon: Shield }
+    { name: "Cloudflare", description: "CDN & Bảo mật", icon: Shield }
+  ];
+
+  const demoWebsites = [
+    {
+      title: "E-commerce Fashion",
+      industry: "Thời trang",
+      description: "Website bán quần áo online với giỏ hàng và thanh toán",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://fashion-demo.lovable.app",
+      features: ["Product catalog", "Shopping cart", "Payment gateway"]
+    },
+    {
+      title: "Restaurant & F&B",
+      industry: "Nhà hàng",
+      description: "Website nhà hàng với menu online và đặt bàn",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://restaurant-demo.lovable.app",
+      features: ["Online menu", "Reservation system", "Location map"]
+    },
+    {
+      title: "Medical Clinic",
+      industry: "Y tế",
+      description: "Website phòng khám với đặt lịch hẹn online",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://medical-demo.lovable.app",
+      features: ["Appointment booking", "Doctor profiles", "Services info"]
+    },
+    {
+      title: "Real Estate",
+      industry: "Bất động sản",
+      description: "Website bất động sản với tìm kiếm và lọc",
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://realestate-demo.lovable.app",
+      features: ["Property search", "Virtual tours", "Contact agents"]
+    },
+    {
+      title: "Education Center",
+      industry: "Giáo dục",
+      description: "Website trung tâm đào tạo với khóa học online",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://education-demo.lovable.app",
+      features: ["Course catalog", "Online learning", "Student portal"]
+    },
+    {
+      title: "SaaS Platform",
+      industry: "Công nghệ",
+      description: "Landing page cho sản phẩm SaaS",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://saas-demo.lovable.app",
+      features: ["Product showcase", "Pricing plans", "User dashboard"]
+    },
+    {
+      title: "Law Firm",
+      industry: "Luật sư",
+      description: "Website văn phòng luật với tư vấn online",
+      image: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://law-demo.lovable.app",
+      features: ["Legal services", "Case studies", "Consultation booking"]
+    },
+    {
+      title: "Beauty Salon",
+      industry: "Làm đẹp",
+      description: "Website salon với đặt lịch và showcase dịch vụ",
+      image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://beauty-demo.lovable.app",
+      features: ["Service booking", "Gallery", "Staff profiles"]
+    },
+    {
+      title: "Fitness Gym",
+      industry: "Thể dục",
+      description: "Website phòng gym với class schedule và membership",
+      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://fitness-demo.lovable.app",
+      features: ["Class schedules", "Membership plans", "Trainer profiles"]
+    },
+    {
+      title: "Corporate Business",
+      industry: "Doanh nghiệp",
+      description: "Website công ty với portfolio và team showcase",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://corporate-demo.lovable.app",
+      features: ["Company profile", "Project portfolio", "Team members"]
+    }
   ];
 
   const caseStudies = [
@@ -117,12 +202,12 @@ const WebsiteService = () => {
       period: "",
       description: "Website 1 trang, tối ưu conversion",
       features: [
-        "Responsive design",
-        "SEO optimization",
-        "Contact form integration",
+        "Thiết kế responsive",
+        "Tối ưu SEO",
+        "Tích hợp form liên hệ",
         "Google Analytics",
-        "SSL certificate",
-        "3 tháng support"
+        "Chứng chỉ SSL",
+        "3 tháng hỗ trợ"
       ],
       popular: false
     },
@@ -132,13 +217,13 @@ const WebsiteService = () => {
       period: "",
       description: "Website đa trang với CMS",
       features: [
-        "5-10 pages website",
-        "CMS integration",
-        "Blog system",
-        "Advanced SEO",
-        "Social media integration",
-        "6 tháng support",
-        "Performance optimization"
+        "Website 5-10 trang",
+        "Tích hợp CMS",
+        "Hệ thống blog",
+        "SEO nâng cao",
+        "Tích hợp social media",
+        "6 tháng hỗ trợ",
+        "Tối ưu hiệu suất"
       ],
       popular: true
     },
@@ -148,13 +233,13 @@ const WebsiteService = () => {
       period: "",
       description: "Website bán hàng online",
       features: [
-        "Product catalog",
-        "Shopping cart & checkout",
-        "Payment integration",
-        "Order management",
-        "Customer dashboard",
-        "Inventory system",
-        "12 tháng support"
+        "Danh mục sản phẩm",
+        "Giỏ hàng & thanh toán",
+        "Tích hợp payment",
+        "Quản lý đơn hàng",
+        "Dashboard khách hàng",
+        "Hệ thống inventory",
+        "12 tháng hỗ trợ"
       ],
       popular: false
     }
@@ -163,25 +248,25 @@ const WebsiteService = () => {
   const workflow = [
     {
       step: "1",
-      title: "Discovery & Planning",
+      title: "Khám Phá & Lập Kế Hoạch",
       description: "Phân tích yêu cầu và lập kế hoạch dự án",
       duration: "2-3 ngày"
     },
     {
       step: "2", 
-      title: "Design & Prototype",
+      title: "Thiết Kế & Prototype",
       description: "Thiết kế UI/UX và tạo prototype",
       duration: "5-7 ngày"
     },
     {
       step: "3",
-      title: "Development & Testing",
+      title: "Phát Triển & Testing",
       description: "Phát triển website và test toàn diện",
       duration: "10-15 ngày"
     },
     {
       step: "4",
-      title: "Launch & Support",
+      title: "Launch & Hỗ Trợ",
       description: "Go-live và hỗ trợ vận hành",
       duration: "ongoing"
     }
@@ -409,6 +494,73 @@ const WebsiteService = () => {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Websites Carousel */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Website <span className="text-primary">Demo</span> Theo Từng Ngành
+          </h2>
+          
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-1">
+              {demoWebsites.map((demo, index) => (
+                <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
+                  <Card className="gradient-card h-full hover:shadow-elevation transition-all duration-300">
+                    <div className="relative">
+                      <img 
+                        src={demo.image} 
+                        alt={demo.title}
+                        className="w-full h-48 object-cover rounded-t-lg"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                          {demo.industry}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold mb-2">{demo.title}</h3>
+                      <p className="text-muted-foreground mb-4">{demo.description}</p>
+                      
+                      <ul className="space-y-2 mb-6">
+                        {demo.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-center text-sm">
+                            <CheckCircle className="h-3 w-3 text-primary mr-2 flex-shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      
+                      <Button 
+                        variant="outline" 
+                        className="w-full"
+                        onClick={() => window.open(demo.demoUrl, '_blank')}
+                      >
+                        Xem Demo Live
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </Button>
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+          
+          <div className="text-center mt-8">
+            <Button 
+              size="lg"
+              onClick={() => window.location.href = '/contact'}
+            >
+              Yêu Cầu Demo Tùy Chỉnh
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
         </div>
       </section>
