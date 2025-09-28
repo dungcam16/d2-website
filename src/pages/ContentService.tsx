@@ -12,6 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const ContentService = () => {
   const [auditForm, setAuditForm] = useState({
@@ -26,6 +27,23 @@ const ContentService = () => {
     conversionRate: 2,
     averageOrderValue: 100
   });
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Dịch vụ Content Marketing",
+    "provider": {
+      "@type": "Organization",
+      "name": "D2 Group",
+      "url": "https://d2group.co"
+    },
+    "description": "Dịch vụ content marketing chuyên nghiệp, content marketing agency hàng đầu. Dịch vụ viết content, thuê viết content và giải pháp content marketing trọn gói cho doanh nghiệp.",
+    "offers": {
+      "@type": "Offer",
+      "price": "12000000",
+      "priceCurrency": "VND"
+    }
+  };
 
   const calculateContentROI = () => {
     const currentRevenue = calculatorInputs.monthlyTraffic * (calculatorInputs.conversionRate / 100) * calculatorInputs.averageOrderValue;

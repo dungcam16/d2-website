@@ -9,8 +9,48 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const ChatbotService = () => {
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Dịch vụ Chatbot Doanh nghiệp",
+    "provider": {
+      "@type": "Organization",
+      "name": "D2 Group",
+      "url": "https://d2group.co"
+    },
+    "description": "Dịch vụ chatbot chuyên nghiệp cho doanh nghiệp B2B. Giải pháp chatbot AI toàn diện với tích hợp đa nền tảng và hỗ trợ 24/7.",
+    "offers": {
+      "@type": "Offer",
+      "price": "5000000",
+      "priceCurrency": "VND",
+      "priceValidUntil": "2025-12-31"
+    },
+    "areaServed": "Vietnam",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Gói dịch vụ Chatbot",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Gói Starter - Chatbot cơ bản"
+          }
+        },
+        {
+          "@type": "Offer", 
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Gói Business - Chatbot nâng cao"
+          }
+        }
+      ]
+    }
+  };
 
   const benefits = [
     {
@@ -224,6 +264,13 @@ const ChatbotService = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Dịch vụ Chatbot Chuyên nghiệp - Giải pháp Chatbot AI cho Doanh nghiệp B2B"
+        description="Công ty cung cấp chatbot hàng đầu Việt Nam. Dịch vụ chatbot trọn gói, thiết kế chatbot theo yêu cầu, xây dựng chatbot chuyên nghiệp cho doanh nghiệp với AI và tích hợp đa nền tảng."
+        keywords="dịch vụ chatbot, giải pháp chatbot cho doanh nghiệp, chatbot cho B2B, công ty cung cấp chatbot, chatbot AI cho doanh nghiệp, xây dựng chatbot chuyên nghiệp, chatbot marketing agency, thiết kế chatbot theo yêu cầu, dịch vụ chatbot trọn gói"
+        canonicalUrl="/services/chatbot"
+        structuredData={structuredData}
+      />
       <Header />
       
       {/* Hero Section */}
@@ -232,13 +279,14 @@ const ChatbotService = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
               <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
-                <span className="text-primary">Chatbot Đa Nền Tảng</span>
+                <span className="text-primary">Dịch vụ Chatbot Chuyên nghiệp</span>
                 <br />
-                <span className="text-foreground">Tự Động Hóa Chăm Sóc Khách Hàng 24/7</span>
+                <span className="text-foreground">Giải pháp Chatbot AI cho Doanh nghiệp B2B</span>
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8">
-                Tích hợp thông minh trên Website, Facebook Messenger, Zalo, WhatsApp, Telegram. 
+                Công ty cung cấp chatbot hàng đầu với dịch vụ chatbot trọn gói. 
+                Thiết kế chatbot theo yêu cầu, xây dựng chatbot chuyên nghiệp với AI cho doanh nghiệp B2B. 
                 Tăng conversion 300%, giảm 80% chi phí support.
               </p>
 
@@ -320,7 +368,7 @@ const ChatbotService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Tại Sao <span className="text-primary">500+ Doanh Nghiệp</span> Tin Tưởng Chatbot D2 GROUP?
+            Tại Sao <span className="text-primary">500+ Doanh Nghiệp B2B</span> Tin Tưởng Dịch vụ Chatbot D2 GROUP?
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

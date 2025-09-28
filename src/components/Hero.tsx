@@ -32,30 +32,30 @@ const Hero = () => {
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-slide-up">
-          <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 leading-tight">
-            <span className="block text-foreground">Automation Marketing</span>
-            <span className="block text-primary font-bold">
-              Agency Hàng Đầu
-            </span>
-            <span className="block text-foreground">Việt Nam</span>
-          </h1>
+              <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 leading-tight">
+                <span className="block text-foreground">Agency Marketing B2B</span>
+                <span className="block text-primary font-bold">
+                  Hàng Đầu Việt Nam
+                </span>
+                <span className="block text-foreground">Dịch vụ Marketing Tổng thể</span>
+              </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-            Cách mạng hóa quy trình kinh doanh với <span className="text-primary font-semibold">N8N workflows</span>, 
-            chatbot đa nền tảng, và <span className="text-primary font-semibold">giải pháp Zalo OA</span> 
-            được thiết kế riêng cho thị trường Việt Nam.
-          </p>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
+              Công ty marketing B2B chuyên cung cấp <span className="text-primary font-semibold">giải pháp marketing cho doanh nghiệp</span>, 
+              tư vấn chiến lược marketing, và <span className="text-primary font-semibold">dịch vụ digital marketing</span> 
+              tổng thể cho thị trường B2B Việt Nam.
+            </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button size="lg" className="shadow-glow group text-lg px-8 py-4">
-              Bắt đầu hành trình Automation
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+              <Button size="lg" className="shadow-glow group text-lg px-8 py-4">
+                Nhận Tư vấn Marketing B2B Miễn phí
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
             
-            <Button variant="outline" size="lg" className="tech-border group text-lg px-8 py-4">
-              <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-              Xem Demo Automation
-            </Button>
+              <Button variant="outline" size="lg" className="tech-border group text-lg px-8 py-4">
+                <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                Xem Dịch vụ Marketing
+              </Button>
           </div>
 
           {/* Stats */}

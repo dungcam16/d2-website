@@ -12,6 +12,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const AutomationService = () => {
   const [roiInputs, setRoiInputs] = useState({
@@ -19,6 +20,24 @@ const AutomationService = () => {
     hourlyCost: 50,
     hoursPerWeek: 10
   });
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Dịch vụ N8N Automation - Tự động hóa Quy trình Doanh nghiệp",
+    "provider": {
+      "@type": "Organization", 
+      "name": "D2 Group",
+      "url": "https://d2group.co"
+    },
+    "description": "Dịch vụ N8N chuyên nghiệp, triển khai N8N cho doanh nghiệp. N8N automation agency hàng đầu Việt Nam với giải pháp tự động hóa quy trình và xây dựng workflow N8N.",
+    "offers": {
+      "@type": "Offer",
+      "price": "150000000",
+      "priceCurrency": "VND"
+    },
+    "areaServed": "Vietnam"
+  };
 
   const calculateROI = () => {
     const annualSavings = roiInputs.employees * roiInputs.hourlyCost * roiInputs.hoursPerWeek * 52;
@@ -203,6 +222,13 @@ const AutomationService = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Dịch vụ N8N Chuyên nghiệp - Triển khai N8N cho Doanh nghiệp"
+        description="N8N automation agency hàng đầu Việt Nam. Dịch vụ N8N chuyên nghiệp, triển khai N8N cho doanh nghiệp, tự động hóa quy trình với N8N, xây dựng workflow và tích hợp hệ thống."
+        keywords="dịch vụ n8n, triển khai n8n cho doanh nghiệp, tự động hóa quy trình với n8n, công ty tư vấn n8n, n8n automation agency, xây dựng workflow n8n, dịch vụ n8n self-hosted, giải pháp tự động hóa n8n, tích hợp hệ thống bằng n8n"
+        canonicalUrl="/services/automation"
+        structuredData={structuredData}
+      />
       <Header />
       
       {/* Hero Section */}
@@ -211,13 +237,14 @@ const AutomationService = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
               <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
-                <span className="text-primary">Giải Pháp Tự Động Hóa</span>
+                <span className="text-primary">Dịch vụ N8N Chuyên nghiệp</span>
                 <br />
-                <span className="text-foreground">Quy Trình Làm Việc Cho Doanh Nghiệp</span>
+                <span className="text-foreground">Triển khai N8N và Tự động hóa Quy trình Doanh nghiệp</span>
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8">
-                Hơn 800 tích hợp, trình tạo quy trình trực quan, bảo mật doanh nghiệp. Giảm 90% công việc thủ công, 
+                N8N automation agency hàng đầu Việt Nam. Công ty tư v�n N8N chuyên nghiệp với 800+ tích hợp, 
+                xây dựng workflow N8N và giải pháp tự động hóa N8N self-hosted. Giảm 90% công việc thủ công, 
                 tăng 60% năng suất cho đội ngũ kỹ thuật.
               </p>
 

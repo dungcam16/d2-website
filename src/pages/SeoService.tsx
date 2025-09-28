@@ -12,6 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const SeoService = () => {
   const [auditForm, setAuditForm] = useState({
@@ -20,6 +21,23 @@ const SeoService = () => {
     currentRankings: '',
     mainCompetitors: ''
   });
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Dịch vụ SEO Chuyên nghiệp",
+    "provider": {
+      "@type": "Organization",
+      "name": "D2 Group",
+      "url": "https://d2group.co"
+    },
+    "description": "Dịch vụ SEO uy tín và chuyên nghiệp. SEO agency hàng đầu Việt Nam chuyên dịch vụ SEO tổng thể, thuê làm SEO website với cam kết top 3 Google.",
+    "offers": {
+      "@type": "Offer",
+      "price": "15000000",
+      "priceCurrency": "VND"
+    }
+  };
 
   const guaranteeDetails = [
     {

@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const ZaloService = () => {
   const [roiData, setRoiData] = useState({
@@ -17,6 +18,24 @@ const ZaloService = () => {
     currentConversion: '',
     targetConversion: ''
   });
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Dịch vụ Zalo OA - Setup và Quản lý Zalo Official Account",
+    "provider": {
+      "@type": "Organization",
+      "name": "D2 Group",
+      "url": "https://d2group.co"
+    },
+    "description": "Công ty cung cấp dịch vụ Zalo OA chuyên nghiệp. Dịch vụ setup Zalo OA trọn gói, quản lý và triển khai Zalo Official Account cho doanh nghiệp B2B.",
+    "offers": {
+      "@type": "Offer",
+      "price": "8000000",
+      "priceCurrency": "VND"
+    },
+    "areaServed": "Vietnam"
+  };
 
   const marketStats = [
     {
@@ -238,6 +257,13 @@ const ZaloService = () => {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <SEO
+        title="Dịch vụ Zalo OA Chuyên nghiệp - Setup và Quản lý Zalo Official Account"
+        description="Công ty cung cấp dịch vụ Zalo OA hàng đầu Việt Nam. Dịch vụ setup Zalo OA trọn gói, quản lý chuyên nghiệp, triển khai và xác thực Zalo OA cho doanh nghiệp B2B."
+        keywords="dịch vụ zalo oa, dịch vụ quản lý zalo oa, dịch vụ setup zalo oa trọn gói, công ty cung cấp dịch vụ zalo oa, giải pháp zalo oa cho doanh nghiệp, triển khai zalo oa chuyên nghiệp, dịch vụ xác thực zalo oa, dịch vụ tích vàng zalo oa, zalo oa cho doanh nghiệp b2b, tạo zalo oa cho doanh nghiệp"
+        canonicalUrl="/services/zalo"
+        structuredData={structuredData}
+      />
       <Header />
       
       {/* Hero Section */}
@@ -261,13 +287,14 @@ const ZaloService = () => {
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold font-heading mb-6 text-foreground">
-                Zalo OA All-in-One
+                Dịch vụ Zalo OA Chuyên nghiệp
                 <br />
-                <span className="text-primary">Giải Pháp Marketing Automation #1</span>
+                <span className="text-primary">Giải Pháp Setup và Quản lý Zalo Official Account</span>
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Từ Setup OA đến ZNS Automation, CRM tích hợp và Analytics dashboard. 
+                Công ty cung cấp dịch vụ Zalo OA trọn gói từ setup, xác thực đến quản lý chuyên nghiệp. 
+                Triển khai Zalo OA cho doanh nghiệp B2B với ZNS automation và tích hợp CRM. 
                 50M+ người dùng Zalo = cơ hội vàng cho business.
               </p>
 

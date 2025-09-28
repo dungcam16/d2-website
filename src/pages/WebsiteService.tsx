@@ -11,8 +11,26 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const WebsiteService = () => {
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Dịch vụ Thiết kế Website",
+    "provider": {
+      "@type": "Organization",
+      "name": "D2 Group",
+      "url": "https://d2group.co"
+    },
+    "description": "Công ty thiết kế website chuyên nghiệp. Dịch vụ thiết kế website trọn gói, làm website theo yêu cầu cho doanh nghiệp với giá uy tín.",
+    "offers": {
+      "@type": "Offer",
+      "price": "20000000",
+      "priceCurrency": "VND"
+    }
+  };
 
   const benefits = [
     {
@@ -392,6 +410,13 @@ const WebsiteService = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Dịch vụ Thiết kế Website Chuyên nghiệp - Công ty Thiết kế Web Uy tín"
+        description="Công ty thiết kế website hàng đầu Việt Nam. Dịch vụ thiết kế website trọn gói, làm website theo yêu cầu chuyên nghiệp với báo giá uy tín cho doanh nghiệp."
+        keywords="dịch vụ thiết kế website, công ty thiết kế website, thiết kế website chuyên nghiệp, thiết kế website trọn gói, làm website theo yêu cầu, báo giá thiết kế website, thiết kế web cho doanh nghiệp, thiết kế website uy tín"
+        canonicalUrl="/services/website"
+        structuredData={structuredData}
+      />
       <Header />
       
       {/* Hero Section */}
