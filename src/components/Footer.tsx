@@ -49,7 +49,7 @@ const Footer = () => {
             
             <div className="space-y-2">
               <div className="flex items-center text-sm text-muted-foreground">
-                <MapPin className="h-5 w-5 mr-2 text-primary" />
+                <MapPin className="h-5 w-5 mr-2 text-primary" strokeWidth={2} />
                 Số 3, Nguyễn Cơ Thạch, Phường An Khánh, Thành phố Hồ Chí Minh, Việt Nam
               </div>
               <div className="flex items-center text-sm text-muted-foreground">
