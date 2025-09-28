@@ -160,25 +160,6 @@ const Services = () => {
             );
           })}
         </div>
-
-        {/* Technology Stack */}
-        <div className="mt-20 text-center">
-          <h3 className="text-2xl font-bold font-heading mb-8 text-foreground">
-            Được Hỗ Trợ Bởi <span className="text-primary">Công Nghệ Tiên Tiến</span>
-          </h3>
-          
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {['N8N', 'Zalo', 'WhatsApp', 'Facebook', 'Instagram', 'Telegram'].map((tech, index) => (
-              <div 
-                key={tech}
-                className="px-6 py-3 glass-effect rounded-lg tech-border hover:text-primary transition-all cursor-pointer animate-float"
-                style={{ animationDelay: `${index * 0.5}s` }}
-              >
-                {tech}
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* Background Effects */}
