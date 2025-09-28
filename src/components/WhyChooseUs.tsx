@@ -85,10 +85,10 @@ const WhyChooseUs = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <div className="bg-primary/10 px-4 py-2 rounded-lg">
-                <span className="text-primary font-semibold">📞 Hotline: 0901 234 567</span>
+                <span className="text-primary font-semibold">📞 Hotline: 0977 027 634</span>
               </div>
               <div className="bg-primary/10 px-4 py-2 rounded-lg">
-                <span className="text-primary font-semibold">📧 Email: contact@d2group.vn</span>
+                <span className="text-primary font-semibold">📧 Email: info@d2group.co</span>
               </div>
             </div>
           </div>
