@@ -97,7 +97,7 @@ const WebsiteService = () => {
       industry: "Năng lượng",
       description: "Website năng lượng mặt trời với công cụ tính toán và simulation",
       image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://nangluong.d2groupmarketing.lovable.app",
+      demoUrl: "https://solar-sim-showcase.lovable.app",
       features: ["Solar calculator", "Energy simulation", "Installation guide"]
     },
     {
@@ -105,15 +105,15 @@ const WebsiteService = () => {
       industry: "Quản lý dự án",
       description: "Ứng dụng quản lý dự án với todo list và tracking",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://quanly.d2groupmarketing.lovable.app",
+      demoUrl: "https://preview--project-planner-sunny.lovable.app",
       features: ["Task management", "Team collaboration", "Progress tracking"]
     },
     {
-      title: "Restaurant & F&B",
+      title: "Food & Restaurant",
       industry: "Nhà hàng",
       description: "Website nhà hàng với menu online và đặt bàn",
       image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://nhahang.d2groupmarketing.lovable.app",
+      demoUrl: "https://hungry-raccoon.lovable.app",
       features: ["Online menu", "Reservation system", "Location map"]
     },
     {
@@ -121,7 +121,7 @@ const WebsiteService = () => {
       industry: "Tài chính",
       description: "Nền tảng tự động hóa tài chính với AI",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://taichinh.d2groupmarketing.lovable.app",
+      demoUrl: "https://finance-ai-automations-lab.lovable.app",
       features: ["AI automation", "Financial analysis", "Process optimization"]
     },
     {
@@ -129,7 +129,7 @@ const WebsiteService = () => {
       industry: "Marketing",
       description: "Công cụ tạo caption tự động cho social media",
       image: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://marketing.d2groupmarketing.lovable.app",
+      demoUrl: "https://reach-boost-captions-craft.lovable.app",
       features: ["AI caption generation", "SEO optimization", "Multi-platform support"]
     },
     {
@@ -137,7 +137,7 @@ const WebsiteService = () => {
       industry: "Y tế",
       description: "Nền tảng tuân thủ y tế cho thiết bị y tế",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://yte.d2groupmarketing.lovable.app",
+      demoUrl: "https://vivacomply.lovable.app",
       features: ["Compliance tracking", "Medical device management", "Regulatory reports"]
     },
     {
@@ -145,7 +145,7 @@ const WebsiteService = () => {
       industry: "Cộng đồng",
       description: "Nền tảng chat cộng đồng với water cooler chat",
       image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://congdong.d2groupmarketing.lovable.app",
+      demoUrl: "https://water-cooler-chat-club.lovable.app",
       features: ["Community chat", "Group discussions", "Member management"]
     },
     {
@@ -153,7 +153,7 @@ const WebsiteService = () => {
       industry: "Phân tích",
       description: "Công cụ phân tích trải nghiệm khách hàng",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://phantich.d2groupmarketing.lovable.app",
+      demoUrl: "https://cx-truth-teller-app.lovable.app",
       features: ["CX analytics", "Customer insights", "Feedback tracking"]
     },
     {
@@ -161,7 +161,7 @@ const WebsiteService = () => {
       industry: "Sáng tạo",
       description: "Studio tạo webtoon và manga với AI",
       image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://sangtao.d2groupmarketing.lovable.app",
+      demoUrl: "https://manga-craft-boost.lovable.app",
       features: ["AI-powered creation", "Webtoon tools", "Creative workflow"]
     },
     {
@@ -169,7 +169,7 @@ const WebsiteService = () => {
       industry: "Ẩm thực",
       description: "Ứng dụng lập kế hoạch và ghi nhật ký ăn uống",
       image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://amthuc.d2groupmarketing.lovable.app",
+      demoUrl: "https://meal-muse-journal.lovable.app",
       features: ["Meal planning", "Recipe journal", "Nutrition tracking"]
     }
   ];
