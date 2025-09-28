@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 interface BlogPost {
   id: string;
@@ -30,6 +31,9 @@ const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
   const [loading, setLoading] = useState(true);
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -60,6 +64,53 @@ const Blog = () => {
   });
 
   const allTags = Array.from(new Set(posts.flatMap(post => post.tags)));
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email) {
+      toast({
+        title: "Lỗi",
+        description: "Vui lòng nhập email của bạn",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('https://n8n.d2group.co/webhook/website_d2group_newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          source: 'blog_page',
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Thành công!",
+          description: "Bạn đã đăng ký nhận tin thành công",
+        });
+        setEmail('');
+      } else {
+        throw new Error('Failed to submit');
+      }
+    } catch (error) {
+      toast({
+        title: "Lỗi",
+        description: "Có lỗi xảy ra, vui lòng thử lại sau",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const categories = [
     { name: 'SEO', count: 12, color: 'bg-primary' },
@@ -118,73 +169,66 @@ const Blog = () => {
                 ))}
               </div>
             ) : (
-              <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {filteredPosts.map((post) => (
-                  <Card key={post.id} className="gradient-card overflow-hidden hover:shadow-elevation transition-all duration-300">
-                    {post.image_url && (
-                      <div className="h-48 bg-muted rounded-t-lg">
-                        <img 
-                          src={post.image_url} 
-                          alt={post.title}
-                          className="w-full h-full object-cover rounded-t-lg"
-                        />
-                      </div>
-                    )}
-                    <CardContent className="p-6">
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {post.tags.map((tag) => (
+                  <Card key={post.id} className="gradient-card overflow-hidden hover:shadow-elevation transition-all duration-300 h-fit">
+                    <div className="h-48 bg-muted">
+                      <img 
+                        src={post.image_url || '/placeholder.svg'} 
+                        alt={post.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.currentTarget as HTMLImageElement;
+                          target.src = '/placeholder.svg';
+                        }}
+                      />
+                    </div>
+                    <CardContent className="p-4">
+                      <div className="flex flex-wrap gap-1 mb-3">
+                        {post.tags.slice(0, 2).map((tag) => (
                           <Badge key={tag} variant="secondary" className="text-xs">
                             {tag}
                           </Badge>
                         ))}
                       </div>
                       
-                      <h2 className="text-2xl font-bold mb-4 hover:text-primary transition-colors">
+                      <h2 className="text-lg font-bold mb-3 hover:text-primary transition-colors line-clamp-2">
                         <a href={`/blog/${post.slug}`}>
                           {post.title}
                         </a>
                       </h2>
                       
-                      <p className="text-muted-foreground mb-4 line-clamp-3">
+                      <p className="text-muted-foreground mb-4 line-clamp-3 text-sm">
                         {post.excerpt || ''}
                       </p>
                       
-                      <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                        <div className="flex items-center gap-4">
+                      <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
+                        <div className="flex items-center gap-2">
                           <div className="flex items-center gap-1">
-                            <User className="h-4 w-4" />
+                            <User className="h-3 w-3" />
                             <span>{post.author}</span>
                           </div>
                           <div className="flex items-center gap-1">
-                            <Calendar className="h-4 w-4" />
-                            <span>{new Date(post.published_at).toLocaleDateString('vi-VN')}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Clock className="h-4 w-4" />
-                            <span>{post.read_time || 5} phút đọc</span>
+                            <Clock className="h-3 w-3" />
+                            <span>{post.read_time || 5}p</span>
                           </div>
                         </div>
                         
-                        <div className="flex items-center gap-2">
-                          <div className="flex items-center gap-1">
-                            <Eye className="h-4 w-4" />
-                            <span>{post.views || 0}</span>
-                          </div>
+                        <div className="flex items-center gap-1">
+                          <Eye className="h-3 w-3" />
+                          <span>{post.views || 0}</span>
                         </div>
                       </div>
                       
                       <div className="flex items-center justify-between">
-                        <Button variant="outline" size="sm">
-                          <BookOpen className="h-4 w-4 mr-2" />
+                        <Button variant="outline" size="sm" className="text-xs">
+                          <BookOpen className="h-3 w-3 mr-1" />
                           Đọc tiếp
                         </Button>
                         
-                        <div className="flex gap-2">
+                        <div className="flex gap-1">
                           <Button variant="ghost" size="sm">
-                            <Share2 className="h-4 w-4" />
-                          </Button>
-                          <Button variant="ghost" size="sm">
-                            <MessageCircle className="h-4 w-4" />
+                            <Share2 className="h-3 w-3" />
                           </Button>
                         </div>
                       </div>
@@ -255,30 +299,37 @@ const Blog = () => {
                   <p className="text-sm text-muted-foreground mb-4">
                     Nhận những insights marketing mới nhất từ D2 GROUP
                   </p>
-                  <div className="space-y-3">
-                    <Input placeholder="Email của bạn" />
+                  <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                    <Input 
+                      placeholder="Email của bạn" 
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
                     <Button 
+                      type="submit"
                       className="w-full"
-                      onClick={() => window.location.href = '/contact'}
+                      disabled={isSubmitting}
                     >
-                      Đăng ký ngay
+                      {isSubmitting ? 'Đang gửi...' : 'Đăng ký ngay'}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
-                  </div>
+                  </form>
                 </CardContent>
               </Card>
 
               {/* CTA */}
-              <Card className="gradient-card bg-primary text-primary-foreground">
+              <Card className="gradient-card bg-background border-2">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold mb-2 text-primary-foreground">Cần tư vấn marketing?</h3>
-                  <p className="text-sm mb-4 text-primary-foreground/90">
+                  <h3 className="text-lg font-bold mb-2 text-foreground">Cần tư vấn marketing?</h3>
+                  <p className="text-sm mb-4 text-muted-foreground">
                     Liên hệ với chuyên gia D2 GROUP để được tư vấn miễn phí
                   </p>
                   <Button 
-                    variant="outline" 
+                    variant="default" 
                     size="sm" 
-                    className="w-full bg-background text-foreground border-background hover:bg-background/90"
+                    className="w-full"
                     onClick={() => window.location.href = '/contact'}
                   >
                     Tư vấn miễn phí
