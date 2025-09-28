@@ -93,84 +93,84 @@ const WebsiteService = () => {
 
   const demoWebsites = [
     {
-      title: "E-commerce Fashion",
-      industry: "Thời trang",
-      description: "Website bán quần áo online với giỏ hàng và thanh toán",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://fashion-demo.lovable.app",
-      features: ["Product catalog", "Shopping cart", "Payment gateway"]
+      title: "Solar Energy Solutions",
+      industry: "Năng lượng",
+      description: "Website năng lượng mặt trời với công cụ tính toán và simulation",
+      image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://nangluong.mydomain",
+      features: ["Solar calculator", "Energy simulation", "Installation guide"]
+    },
+    {
+      title: "Project Management Tool",
+      industry: "Quản lý dự án",
+      description: "Ứng dụng quản lý dự án với todo list và tracking",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://quanly.mydomain",
+      features: ["Task management", "Team collaboration", "Progress tracking"]
     },
     {
       title: "Restaurant & F&B",
       industry: "Nhà hàng",
       description: "Website nhà hàng với menu online và đặt bàn",
       image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://restaurant-demo.lovable.app",
+      demoUrl: "https://nhahang.mydomain",
       features: ["Online menu", "Reservation system", "Location map"]
     },
     {
-      title: "Medical Clinic",
+      title: "AI Finance Automation",
+      industry: "Tài chính",
+      description: "Nền tảng tự động hóa tài chính với AI",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://taichinh.mydomain",
+      features: ["AI automation", "Financial analysis", "Process optimization"]
+    },
+    {
+      title: "Social Media Caption AI",
+      industry: "Marketing",
+      description: "Công cụ tạo caption tự động cho social media",
+      image: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://marketing.mydomain",
+      features: ["AI caption generation", "SEO optimization", "Multi-platform support"]
+    },
+    {
+      title: "Medical Compliance Platform",
       industry: "Y tế",
-      description: "Website phòng khám với đặt lịch hẹn online",
+      description: "Nền tảng tuân thủ y tế cho thiết bị y tế",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://medical-demo.lovable.app",
-      features: ["Appointment booking", "Doctor profiles", "Services info"]
+      demoUrl: "https://yte.mydomain",
+      features: ["Compliance tracking", "Medical device management", "Regulatory reports"]
     },
     {
-      title: "Real Estate",
-      industry: "Bất động sản",
-      description: "Website bất động sản với tìm kiếm và lọc",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://realestate-demo.lovable.app",
-      features: ["Property search", "Virtual tours", "Contact agents"]
+      title: "Chat Community Platform",
+      industry: "Cộng đồng",
+      description: "Nền tảng chat cộng đồng với water cooler chat",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://congdong.mydomain",
+      features: ["Community chat", "Group discussions", "Member management"]
     },
     {
-      title: "Education Center",
-      industry: "Giáo dục",
-      description: "Website trung tâm đào tạo với khóa học online",
-      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://education-demo.lovable.app",
-      features: ["Course catalog", "Online learning", "Student portal"]
-    },
-    {
-      title: "SaaS Platform",
-      industry: "Công nghệ",
-      description: "Landing page cho sản phẩm SaaS",
+      title: "Customer Experience Analytics",
+      industry: "Phân tích",
+      description: "Công cụ phân tích trải nghiệm khách hàng",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://saas-demo.lovable.app",
-      features: ["Product showcase", "Pricing plans", "User dashboard"]
+      demoUrl: "https://phantich.mydomain",
+      features: ["CX analytics", "Customer insights", "Feedback tracking"]
     },
     {
-      title: "Law Firm",
-      industry: "Luật sư",
-      description: "Website văn phòng luật với tư vấn online",
-      image: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://law-demo.lovable.app",
-      features: ["Legal services", "Case studies", "Consultation booking"]
+      title: "Manga Creation Studio",
+      industry: "Sáng tạo",
+      description: "Studio tạo webtoon và manga với AI",
+      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://sangtao.mydomain",
+      features: ["AI-powered creation", "Webtoon tools", "Creative workflow"]
     },
     {
-      title: "Beauty Salon",
-      industry: "Làm đẹp",
-      description: "Website salon với đặt lịch và showcase dịch vụ",
-      image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://beauty-demo.lovable.app",
-      features: ["Service booking", "Gallery", "Staff profiles"]
-    },
-    {
-      title: "Fitness Gym",
-      industry: "Thể dục",
-      description: "Website phòng gym với class schedule và membership",
-      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://fitness-demo.lovable.app",
-      features: ["Class schedules", "Membership plans", "Trainer profiles"]
-    },
-    {
-      title: "Corporate Business",
-      industry: "Doanh nghiệp",
-      description: "Website công ty với portfolio và team showcase",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://corporate-demo.lovable.app",
-      features: ["Company profile", "Project portfolio", "Team members"]
+      title: "Meal Planning Journal",
+      industry: "Ẩm thực",
+      description: "Ứng dụng lập kế hoạch và ghi nhật ký ăn uống",
+      image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://amthuc.mydomain",
+      features: ["Meal planning", "Recipe journal", "Nutrition tracking"]
     }
   ];
 
