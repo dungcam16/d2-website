@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Zap, Workflow, ArrowRight, Bot, Globe, Settings, TrendingUp, Search } from 'lucide-react';
+import { MessageCircle, Zap, Workflow, ArrowRight, Bot, Globe, Settings, TrendingUp, Search, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
@@ -74,6 +74,20 @@ const Services = () => {
       color: "text-purple-400",
       delay: "0.8s",
       href: "/services/seo"
+    },
+    {
+      icon: Code,
+      title: "Website Development",
+      description: "Phát triển website hiện đại, responsive với UI/UX tối ưu, tích hợp đầy đủ tính năng và tối ưu SEO từ đầu.",
+      features: [
+        "Responsive design & mobile-first",
+        "Modern UI/UX experience",
+        "SEO optimization built-in",
+        "CMS integration & automation"
+      ],
+      color: "text-cyan-400",
+      delay: "1.0s",
+      href: "/services/website"
     }
   ];
 

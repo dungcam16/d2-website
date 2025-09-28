@@ -9,6 +9,7 @@ import ZaloService from "./pages/ZaloService";
 import AutomationService from "./pages/AutomationService";
 import ContentService from "./pages/ContentService";
 import SeoService from "./pages/SeoService";
+import WebsiteService from "./pages/WebsiteService";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/services/automation" element={<AutomationService />} />
           <Route path="/services/content" element={<ContentService />} />
           <Route path="/services/seo" element={<SeoService />} />
+          <Route path="/services/website" element={<WebsiteService />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
