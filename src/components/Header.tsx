@@ -29,11 +29,11 @@ const Header = () => {
 
   const serviceItems = [
     { name: 'Chatbot Đa Nền Tảng', href: '/services/chatbot' },
-    { name: 'Giải Pháp Zalo OA', href: '/services/zalo' },
-    { name: 'N8N Enterprise Automation', href: '/services/automation' },
+    { name: 'Giải Pháp Zalo OA Toàn Diện ', href: '/services/zalo' },
+    { name: 'Tự Động Hóa N8N Doanh Nghiệp', href: '/services/automation' },
     { name: 'Content Performance', href: '/services/content' },
     { name: 'SEO Boost', href: '/services/seo' },
-    { name: 'Website Development', href: '/services/website' },
+    { name: 'Thiết Kế Website Doanh Nghiệp', href: '/services/website' },
   ];
 
   return (
