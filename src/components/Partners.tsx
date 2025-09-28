@@ -49,8 +49,8 @@ const Partners = () => {
 
         {/* Scrolling Partners */}
         <div className="relative overflow-hidden">
-          <div className="flex animate-scroll-horizontal space-x-12">
-            {[...partners, ...partners].map((partner, index) => (
+          <div className="flex animate-scroll-horizontal space-x-12 w-fit">
+            {[...partners, ...partners, ...partners].map((partner, index) => (
               <div
                 key={index}
                 className="flex-shrink-0 flex items-center justify-center bg-card rounded-lg border tech-border p-6 hover:shadow-glow transition-all duration-300 min-w-[200px]"
