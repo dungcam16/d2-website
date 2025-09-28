@@ -1,13 +1,19 @@
 import React from 'react';
+import n8nLogo from '@/assets/n8n-logo.png';
+import makeLogo from '@/assets/make-logo.png';
+import zapierLogo from '@/assets/zapier-logo.png';
+import openaiLogo from '@/assets/openai-logo.png';
+import anthropicLogo from '@/assets/anthropic-logo.png';
+import googleAiLogo from '@/assets/google-ai-logo.png';
 
 const Partners = () => {
   const partners = [
-    { name: "N8N", logo: "https://n8n.io/n8n-logo.svg" },
-    { name: "Make", logo: "https://www.make.com/en/hq/wp-content/uploads/2023/02/make-logo.svg" },
-    { name: "Zapier", logo: "https://zapier.com/engine/static/zapier-logo.svg" },
-    { name: "OpenAI", logo: "https://openai.com/content/images/2022/05/openai-avatar.png" },
-    { name: "Anthropic", logo: "https://www.anthropic.com/images/icons/anthropic-icon.svg" },
-    { name: "Google AI", logo: "https://developers.google.com/static/ai/images/ai-logo.svg" },
+    { name: "N8N", logo: n8nLogo },
+    { name: "Make", logo: makeLogo },
+    { name: "Zapier", logo: zapierLogo },
+    { name: "OpenAI", logo: openaiLogo },
+    { name: "Anthropic", logo: anthropicLogo },
+    { name: "Google AI", logo: googleAiLogo },
     { name: "Microsoft AI", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png" },
     { name: "Airtable", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Airtable_Logo.svg/200px-Airtable_Logo.svg.png" },
     { name: "Notion", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/200px-Notion-logo.svg.png" },
