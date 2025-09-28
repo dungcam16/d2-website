@@ -144,6 +144,11 @@
     0%, 100% { opacity: 0.7; }
     50% { opacity: 1; }
   }
+
+  @keyframes scroll-horizontal {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 }
 
 @layer utilities {
@@ -165,6 +170,10 @@
   
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-scroll-horizontal {
+    animation: scroll-horizontal 30s linear infinite;
   }
 
   .gradient-primary {
