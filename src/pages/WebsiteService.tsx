@@ -92,6 +92,49 @@ const WebsiteService = () => {
   ];
 
   const demoWebsites = [
+    // Các ngành cơ bản ở đầu
+    {
+      title: "Food & Restaurant",
+      industry: "Nhà hàng",
+      description: "Website nhà hàng với menu online và đặt bàn",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://hungry-raccoon.lovable.app",
+      features: ["Online menu", "Reservation system", "Location map"]
+    },
+    {
+      title: "Fashion E-commerce",
+      industry: "Thời trang",
+      description: "Website bán quần áo online với giỏ hàng và thanh toán",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://preview--vintage-smile-capture.lovable.app",
+      features: ["Product catalog", "Shopping cart", "Payment gateway"]
+    },
+    {
+      title: "Travel & Tourism",
+      industry: "Du lịch",
+      description: "Website du lịch với booking tour và khách sạn",
+      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://shipped.lovable.app",
+      features: ["Tour booking", "Hotel reservation", "Travel guide"]
+    },
+    {
+      title: "E-commerce Store",
+      industry: "Thương mại điện tử",
+      description: "Website bán hàng online với hệ thống quản lý đơn hàng",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://meal-muse-journal.lovable.app",
+      features: ["Product management", "Order tracking", "Customer service"]
+    },
+    {
+      title: "Retail Store",
+      industry: "Bán lẻ",
+      description: "Website cửa hàng bán lẻ với inventory management",
+      image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://mobiledevs.lovable.app",
+      features: ["Inventory system", "POS integration", "Customer loyalty"]
+    },
+    
+    // Các ngành khác
     {
       title: "Solar Energy Solutions",
       industry: "Năng lượng",
@@ -109,12 +152,12 @@ const WebsiteService = () => {
       features: ["Task management", "Team collaboration", "Progress tracking"]
     },
     {
-      title: "Food & Restaurant",
-      industry: "Nhà hàng",
-      description: "Website nhà hàng với menu online và đặt bàn",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://hungry-raccoon.lovable.app",
-      features: ["Online menu", "Reservation system", "Location map"]
+      title: "Daily Todo App",
+      industry: "Productivity",
+      description: "Ứng dụng quản lý công việc hàng ngày",
+      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://preview--easy-daily-todo.lovable.app",
+      features: ["Task scheduling", "Reminder system", "Progress tracking"]
     },
     {
       title: "AI Finance Automation",
@@ -165,12 +208,52 @@ const WebsiteService = () => {
       features: ["AI-powered creation", "Webtoon tools", "Creative workflow"]
     },
     {
-      title: "Meal Planning Journal",
-      industry: "Ẩm thực",
-      description: "Ứng dụng lập kế hoạch và ghi nhật ký ăn uống",
-      image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=300&fit=crop&crop=center",
-      demoUrl: "https://meal-muse-journal.lovable.app",
-      features: ["Meal planning", "Recipe journal", "Nutrition tracking"]
+      title: "Real Estate Platform",
+      industry: "Bất động sản",
+      description: "Website bất động sản với tìm kiếm và virtual tour",
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://solar-sim-showcase.lovable.app",
+      features: ["Property search", "Virtual tours", "Agent profiles"]
+    },
+    {
+      title: "Education Platform",
+      industry: "Giáo dục",
+      description: "Nền tảng học tập online với course management",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://shipped.lovable.app",
+      features: ["Course catalog", "Online learning", "Student portal"]
+    },
+    {
+      title: "Photography Portfolio",
+      industry: "Nhiếp ảnh",
+      description: "Website portfolio cho photographer và creative",
+      image: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://preview--vintage-smile-capture.lovable.app",
+      features: ["Gallery showcase", "Client booking", "Portfolio management"]
+    },
+    {
+      title: "Fitness & Gym",
+      industry: "Thể dục",
+      description: "Website phòng gym với class booking và membership",
+      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://mobiledevs.lovable.app",
+      features: ["Class schedules", "Membership plans", "Trainer profiles"]
+    },
+    {
+      title: "Beauty & Spa",
+      industry: "Làm đẹp",
+      description: "Website spa và salon với appointment booking",
+      image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://water-cooler-chat-club.lovable.app",
+      features: ["Service booking", "Staff profiles", "Treatment packages"]
+    },
+    {
+      title: "Law Firm",
+      industry: "Luật sư",
+      description: "Website văn phòng luật với consultation booking",
+      image: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400&h=300&fit=crop&crop=center",
+      demoUrl: "https://cx-truth-teller-app.lovable.app",
+      features: ["Legal services", "Case studies", "Attorney profiles"]
     }
   ];
 
