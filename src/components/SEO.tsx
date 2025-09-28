@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 
 interface SEOProps {
   title: string;
@@ -21,42 +21,78 @@ const SEO: React.FC<SEOProps> = ({
   const baseUrl = "https://d2group.co";
   const fullCanonicalUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : baseUrl;
 
-  return (
-    <Helmet>
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
+  useEffect(() => {
+    // Update document title
+    document.title = fullTitle;
+
+    // Helper function to update or create meta tags
+    const updateMetaTag = (name: string, content: string, property = false) => {
+      const attribute = property ? 'property' : 'name';
+      let element = document.querySelector(`meta[${attribute}="${name}"]`) as HTMLMetaElement;
       
-      {/* Canonical URL */}
-      <link rel="canonical" href={fullCanonicalUrl} />
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attribute, name);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', content);
+    };
+
+    // Helper function to update or create link tags
+    const updateLinkTag = (rel: string, href: string) => {
+      let element = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement;
       
-      {/* Open Graph */}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:url" content={fullCanonicalUrl} />
-      <meta property="og:type" content="website" />
-      <meta property="og:locale" content="vi_VN" />
-      
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
-      
-      {/* Additional meta tags */}
-      <meta name="robots" content="index, follow" />
-      <meta name="language" content="Vietnamese" />
-      <meta name="author" content="D2 Group" />
-      
-      {/* Structured Data */}
-      {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      )}
-    </Helmet>
-  );
+      if (!element) {
+        element = document.createElement('link');
+        element.setAttribute('rel', rel);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('href', href);
+    };
+
+    // Update meta tags
+    updateMetaTag('description', description);
+    if (keywords) updateMetaTag('keywords', keywords);
+    updateMetaTag('robots', 'index, follow');
+    updateMetaTag('language', 'Vietnamese');
+    updateMetaTag('author', 'D2 Group');
+
+    // Update Open Graph tags
+    updateMetaTag('og:title', fullTitle, true);
+    updateMetaTag('og:description', description, true);
+    updateMetaTag('og:image', ogImage, true);
+    updateMetaTag('og:url', fullCanonicalUrl, true);
+    updateMetaTag('og:type', 'website', true);
+    updateMetaTag('og:locale', 'vi_VN', true);
+
+    // Update Twitter Card tags
+    updateMetaTag('twitter:card', 'summary_large_image');
+    updateMetaTag('twitter:title', fullTitle);
+    updateMetaTag('twitter:description', description);
+    updateMetaTag('twitter:image', ogImage);
+
+    // Update canonical URL
+    updateLinkTag('canonical', fullCanonicalUrl);
+
+    // Update structured data
+    if (structuredData) {
+      let script = document.querySelector('script[type="application/ld+json"]');
+      if (!script) {
+        script = document.createElement('script');
+        script.setAttribute('type', 'application/ld+json');
+        document.head.appendChild(script);
+      }
+      script.textContent = JSON.stringify(structuredData);
+    }
+
+    // Cleanup function
+    return () => {
+      // Note: We don't clean up meta tags on unmount as they should persist
+      // across route changes for SEO purposes
+    };
+  }, [title, description, keywords, ogImage, canonicalUrl, structuredData, fullTitle, fullCanonicalUrl]);
+
+  return null; // This component doesn't render anything
 };
 
 export default SEO;
