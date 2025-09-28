@@ -110,7 +110,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="default" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
-              Tư vấn miễn phí
+              Tư vấn triển khai
             </Button>
           </div>
 
