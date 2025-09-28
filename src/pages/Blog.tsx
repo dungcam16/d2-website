@@ -332,7 +332,7 @@ const Blog = () => {
                     className="w-full"
                     onClick={() => window.location.href = '/contact'}
                   >
-                    Tư vấn miễn phí
+                    Tư vấn triển khai
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
