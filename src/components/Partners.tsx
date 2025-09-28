@@ -47,19 +47,18 @@ const Partners = () => {
           </p>
         </div>
 
-        {/* Scrolling Partners */}
+        {/* Scrolling Customers */}
         <div className="relative overflow-hidden">
-          <div className="flex animate-scroll-horizontal space-x-12 w-fit"
-               style={{ animationDuration: '60s' }}>
-            {[...partners, ...partners, ...partners].map((partner, index) => (
+          <div className="flex animate-scroll-horizontal space-x-12">
+            {[...customers, ...customers].map((customer, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 flex items-center justify-center bg-card rounded-lg border tech-border p-6 hover:shadow-glow transition-all duration-1000 min-w-[200px]"
+                className="flex-shrink-0 flex items-center justify-center bg-card rounded-lg border tech-border p-6 hover:shadow-glow transition-all duration-300 min-w-[200px]"
               >
                 <div className="text-center">
                   <img 
-                    src={partner.logo} 
-                    alt={partner.name}
+                    src={customer.logo} 
+                    alt={customer.name}
                     className="h-12 w-auto mx-auto mb-2 object-contain"
                     onError={(e) => {
                       const target = e.currentTarget as HTMLImageElement;
@@ -68,8 +67,8 @@ const Partners = () => {
                       if (fallback) fallback.style.display = 'block';
                     }}
                   />
-                  <div className="text-4xl mb-2 hidden">🔧</div>
-                  <div className="text-sm font-medium text-foreground">{partner.name}</div>
+                  <div className="text-4xl mb-2 hidden">🏢</div>
+                  <div className="text-sm font-medium text-foreground">{customer.name}</div>
                 </div>
               </div>
             ))}
