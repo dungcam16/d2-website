@@ -8,20 +8,31 @@ export const ZaloPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Show popup after a short delay when component mounts
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 2000);
+    // Check if popup was already dismissed
+    const isDismissed = localStorage.getItem('zalo-popup-dismissed');
+    
+    if (!isDismissed) {
+      // Show popup after a short delay when component mounts
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 2000);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
+  const handleClose = () => {
+    setIsOpen(false);
+    // Save dismissed state to localStorage
+    localStorage.setItem('zalo-popup-dismissed', 'true');
+  };
+
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="max-w-2xl p-0 overflow-hidden border-0 bg-gradient-to-br from-blue-50 to-white">
         <div className="relative">
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={handleClose}
             className="absolute right-4 top-4 z-10 rounded-full bg-white/80 p-2 hover:bg-white transition-colors"
           >
             <X className="h-4 w-4" />
@@ -83,7 +94,7 @@ export const ZaloPopup = () => {
                 <Button 
                   size="lg"
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold"
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleClose}
                 >
                   Liên hệ tư vấn ngay
                 </Button>
