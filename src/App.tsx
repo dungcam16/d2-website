@@ -25,8 +25,8 @@ const App = () => (
   <TooltipProvider>
     <Toaster />
     <Sonner />
-    <ZaloPopup />
     <BrowserRouter>
+      <ZaloPopup />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/services/chatbot" element={<ChatbotService />} />
