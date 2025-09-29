@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ZaloPopup } from "@/components/ZaloPopup";
 import Index from "./pages/Index";
 import ChatbotService from "./pages/ChatbotService";
 import ZaloService from "./pages/ZaloService";
@@ -24,6 +25,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ZaloPopup />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
