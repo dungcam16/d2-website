@@ -28,13 +28,18 @@ const Header = () => {
     { name: 'Liên hệ', href: '/contact' },
   ];
 
-  const serviceItems = [
-    { name: 'Chatbot Đa Nền Tảng', href: '/services/chatbot' },
-    { name: 'Giải Pháp Zalo OA Toàn Diện ', href: '/services/zalo' },
-    { name: 'Tự Động Hóa N8N Doanh Nghiệp', href: '/services/automation' },
-    { name: 'Content Performance', href: '/services/content' },
-    { name: 'SEO Boost', href: '/services/seo' },
-    { name: 'Thiết Kế Website Doanh Nghiệp', href: '/services/website' },
+  const automationServices = [
+    { name: 'N8N Workflow Development', href: '/services/n8n-workflow' },
+    { name: 'Business Process Automation', href: '/services/business-process' },
+    { name: 'AI Integration & Optimization', href: '/services/ai-integration' },
+  ];
+
+  const digitalServices = [
+    { name: 'Chatbot & Conversational AI', href: '/services/chatbot' },
+    { name: 'Zalo OA Management', href: '/services/zalo' },
+    { name: 'Content Performance Marketing', href: '/services/content' },
+    { name: 'Technical SEO Optimization', href: '/services/seo' },
+    { name: 'Automation-Ready Website', href: '/services/website' },
   ];
 
   return (
@@ -84,17 +89,34 @@ const Header = () => {
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-64 bg-card border-border z-50">
-                {serviceItems.map((service) => (
-                  <DropdownMenuItem key={service.name} asChild>
-                    <a
-                      href={service.href}
-                      className="block px-4 py-3 text-sm text-foreground hover:text-primary hover:bg-muted transition-colors"
-                    >
-                      {service.name}
-                    </a>
-                  </DropdownMenuItem>
-                ))}
+              <DropdownMenuContent className="w-80 bg-card border-border z-50">
+                <div className="px-4 py-2">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">🎯 Automation Services</div>
+                  {automationServices.map((service) => (
+                    <DropdownMenuItem key={service.name} asChild>
+                      <a
+                        href={service.href}
+                        className="block px-4 py-2 text-sm text-foreground hover:text-primary hover:bg-muted transition-colors rounded"
+                      >
+                        {service.name}
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </div>
+                <div className="border-t border-border my-2"></div>
+                <div className="px-4 py-2">
+                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">💼 Digital Services</div>
+                  {digitalServices.map((service) => (
+                    <DropdownMenuItem key={service.name} asChild>
+                      <a
+                        href={service.href}
+                        className="block px-4 py-2 text-sm text-foreground hover:text-primary hover:bg-muted transition-colors rounded"
+                      >
+                        {service.name}
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </div>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -150,8 +172,20 @@ const Header = () => {
               
               {/* Mobile Services Menu */}
               <div className="border-t border-border pt-4 mt-4">
-                <div className="text-sm font-medium text-muted-foreground mb-2">Dịch vụ</div>
-                {serviceItems.map((service) => (
+                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">🎯 Automation Services</div>
+                {automationServices.map((service) => (
+                  <a
+                    key={service.name}
+                    href={service.href}
+                    className="block text-foreground hover:text-primary transition-smooth py-2 pl-4"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {service.name}
+                  </a>
+                ))}
+                
+                <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-4 mb-2">💼 Digital Services</div>
+                {digitalServices.map((service) => (
                   <a
                     key={service.name}
                     href={service.href}

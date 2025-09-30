@@ -34,20 +34,6 @@ const Services = () => {
       href: "/services/zalo"
     },
     {
-      icon: Workflow,
-      title: "N8N Enterprise Automation",
-      description: "Tự động hóa quy trình kinh doanh nâng cao sử dụng N8N workflows để tối ưu vận hành và loại bỏ tác vụ thủ công.",
-      features: [
-        "Thiết kế workflow tùy chỉnh",
-        "Tích hợp API",
-        "Tối ưu quy trình",
-        "Automation mở rộng"
-      ],
-      color: "text-primary",
-      delay: "0.4s",
-      href: "/services/automation"
-    },
-    {
       icon: TrendingUp,
       title: "Content Performance",
       description: "Chiến lược content marketing toàn diện với SEO optimization, analytics và performance tracking cho tăng trưởng bền vững.",

@@ -6,7 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ChatbotService from "./pages/ChatbotService";
 import ZaloService from "./pages/ZaloService";
-import AutomationService from "./pages/AutomationService";
+import N8nWorkflowService from "./pages/N8nWorkflowService";
+import BusinessProcessService from "./pages/BusinessProcessService";
+import AiIntegrationService from "./pages/AiIntegrationService";
 import ContentService from "./pages/ContentService";
 import SeoService from "./pages/SeoService";
 import WebsiteService from "./pages/WebsiteService";
@@ -30,7 +32,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/services/chatbot" element={<ChatbotService />} />
           <Route path="/services/zalo" element={<ZaloService />} />
-          <Route path="/services/automation" element={<AutomationService />} />
+          <Route path="/services/n8n-workflow" element={<N8nWorkflowService />} />
+          <Route path="/services/business-process" element={<BusinessProcessService />} />
+          <Route path="/services/ai-integration" element={<AiIntegrationService />} />
           <Route path="/services/content" element={<ContentService />} />
           <Route path="/services/seo" element={<SeoService />} />
           <Route path="/services/website" element={<WebsiteService />} />
