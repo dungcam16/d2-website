@@ -23,6 +23,7 @@ const Header = () => {
 
   const mainNavItems = [
     { name: 'Trang chủ', href: '/' },
+    { name: 'Hồ sơ năng lực', href: '/portfolio' },
     { name: 'Blog', href: '/blog' },
     { name: 'Liên hệ', href: '/contact' },
   ];
@@ -64,6 +65,15 @@ const Header = () => {
               className="text-foreground hover:text-primary transition-smooth relative group"
             >
               Trang chủ
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            {/* Hồ sơ năng lực */}
+            <a
+              href="/portfolio"
+              className="text-foreground hover:text-primary transition-smooth relative group"
+            >
+              Hồ sơ năng lực
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
             
