@@ -28,6 +28,7 @@ import {
   Phone,
   Mail,
   MapPin,
+  ArrowRight,
 } from "lucide-react";
 
 const Portfolio = () => {
@@ -95,9 +96,11 @@ const Portfolio = () => {
 
   const caseStudies = [
     {
+      id: "youtube-automation",
       icon: Youtube,
       title: "YouTube Content Automation System",
       client: "Kênh YouTube với 100K+ subscribers",
+      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop",
       challenge: [
         "Upload thủ công 10+ video/ngày tốn 4 giờ",
         "Lỗi metadata và thiếu consistency trong branding",
@@ -118,9 +121,11 @@ const Portfolio = () => {
       tech: "n8n, YouTube API v3, FFmpeg, Google Cloud APIs, Docker",
     },
     {
+      id: "crm-automation",
       icon: Building2,
       title: "CRM Lead Management Automation",
       client: "Công ty bất động sản 50+ nhân viên",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
       challenge: [
         "Lead data scattered across multiple platforms",
         "Manual lead scoring và assignment",
@@ -141,9 +146,11 @@ const Portfolio = () => {
       tech: "n8n, HubSpot API, Zapier, Google Analytics, Slack",
     },
     {
+      id: "ecommerce-automation",
       icon: ShoppingCart,
       title: "E-commerce Inventory Automation",
       client: "Online store với 1000+ sản phẩm",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop",
       challenge: [
         "Manual inventory tracking",
         "Stockout frequency cao",
@@ -311,31 +318,6 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Vision & Mission */}
-        <section className="py-16 px-6 bg-muted/30">
-          <div className="container mx-auto max-w-6xl">
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="border-2 border-primary/20">
-                <CardHeader>
-                  <Target className="w-10 h-10 text-primary mb-2" />
-                  <CardTitle className="text-2xl">Tầm Nhìn</CardTitle>
-                </CardHeader>
-                <CardContent className="text-lg">
-                  Trở thành đối tác tin cậy hàng đầu về automation cho doanh nghiệp Việt Nam
-                </CardContent>
-              </Card>
-              <Card className="border-2 border-primary/20">
-                <CardHeader>
-                  <Sparkles className="w-10 h-10 text-primary mb-2" />
-                  <CardTitle className="text-2xl">Sứ Mệnh</CardTitle>
-                </CardHeader>
-                <CardContent className="text-lg">
-                  Giúp doanh nghiệp tự động hóa 80% công việc lặp lại, tập trung vào phát triển chiến lược
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
 
         {/* Services */}
         <section className="py-20 px-6">
@@ -380,61 +362,80 @@ const Portfolio = () => {
             <div className="space-y-12">
               {caseStudies.map((study, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-xl transition-all">
-                  <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10">
-                    <div className="flex items-center gap-4 mb-2">
-                      <study.icon className="w-10 h-10 text-primary" />
-                      <div>
+                  <div className="grid md:grid-cols-2 gap-0">
+                    {/* Workflow Image */}
+                    <div className="relative h-64 md:h-auto overflow-hidden bg-muted">
+                      <img 
+                        src={study.image} 
+                        alt={`${study.title} workflow`}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                      <study.icon className="absolute bottom-4 left-4 w-12 h-12 text-primary" />
+                    </div>
+
+                    {/* Content */}
+                    <div>
+                      <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10">
                         <CardTitle className="text-2xl">{study.title}</CardTitle>
                         <CardDescription className="text-base mt-1">{study.client}</CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="pt-6">
-                    <div className="grid md:grid-cols-2 gap-8 mb-6">
-                      <div>
-                        <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
-                          <span className="text-destructive">Challenge:</span>
-                        </h4>
-                        <ul className="space-y-2">
-                          {study.challenge.map((item, idx) => (
-                            <li key={idx} className="text-muted-foreground">
-                              • {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
-                          <span className="text-primary">Solution:</span>
-                        </h4>
-                        <ul className="space-y-2">
-                          {study.solution.map((item, idx) => (
-                            <li key={idx} className="text-muted-foreground">
-                              • {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    <Separator className="my-6" />
-
-                    <div>
-                      <h4 className="font-semibold text-lg mb-4">Results:</h4>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                        {study.results.map((result, idx) => (
-                          <div key={idx} className="text-center p-4 bg-primary/5 rounded-lg">
-                            <div className="text-2xl font-bold text-primary mb-1">{result.value}</div>
-                            <div className="text-sm text-muted-foreground">{result.label}</div>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        <div className="grid grid-cols-1 gap-6 mb-6">
+                          <div>
+                            <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                              <span className="text-destructive">Challenge:</span>
+                            </h4>
+                            <ul className="space-y-2">
+                              {study.challenge.map((item, idx) => (
+                                <li key={idx} className="text-muted-foreground text-sm">
+                                  • {item}
+                                </li>
+                              ))}
+                            </ul>
                           </div>
-                        ))}
-                      </div>
-                      <Badge variant="outline" className="text-xs">
-                        <Code className="w-3 h-3 mr-1" />
-                        {study.tech}
-                      </Badge>
+                          <div>
+                            <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                              <span className="text-primary">Solution:</span>
+                            </h4>
+                            <ul className="space-y-2">
+                              {study.solution.map((item, idx) => (
+                                <li key={idx} className="text-muted-foreground text-sm">
+                                  • {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+
+                        <Separator className="my-6" />
+
+                        <div>
+                          <h4 className="font-semibold text-lg mb-4">Results:</h4>
+                          <div className="grid grid-cols-2 gap-3 mb-6">
+                            {study.results.map((result, idx) => (
+                              <div key={idx} className="text-center p-3 bg-primary/5 rounded-lg">
+                                <div className="text-xl font-bold text-primary mb-1">{result.value}</div>
+                                <div className="text-xs text-muted-foreground">{result.label}</div>
+                              </div>
+                            ))}
+                          </div>
+                          <div className="flex flex-wrap gap-3 items-center">
+                            <Badge variant="outline" className="text-xs">
+                              <Code className="w-3 h-3 mr-1" />
+                              {study.tech}
+                            </Badge>
+                            <Button size="sm" variant="default" asChild>
+                              <Link to={`/case-study/${study.id}`}>
+                                Xem chi tiết
+                                <ArrowRight className="w-4 h-4 ml-2" />
+                              </Link>
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
                     </div>
-                  </CardContent>
+                  </div>
                 </Card>
               ))}
             </div>
