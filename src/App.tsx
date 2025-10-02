@@ -19,6 +19,9 @@ import BlogPost from "./pages/BlogPost";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
+import CaseStudyYoutubeAutomation from "./pages/CaseStudyYoutubeAutomation";
+import CaseStudyCrmAutomation from "./pages/CaseStudyCrmAutomation";
+import CaseStudyEcommerceAutomation from "./pages/CaseStudyEcommerceAutomation";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +45,9 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/case-study/youtube-automation" element={<CaseStudyYoutubeAutomation />} />
+          <Route path="/case-study/crm-automation" element={<CaseStudyCrmAutomation />} />
+          <Route path="/case-study/ecommerce-automation" element={<CaseStudyEcommerceAutomation />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
