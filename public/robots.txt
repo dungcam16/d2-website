@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://d2group.co/sitemap.xml
+Sitemap: https://n8n.d2group.co/webhook/d2group.co_sitemap_generator
 
 # Disallow admin pages (if any exist in future)
 Disallow: /admin/
