@@ -41,7 +41,7 @@ const Customers = () => {
                 <div className="text-center">
                   <img 
                     src={customer.logo} 
-                    alt={customer.name}
+                    alt={`Logo của ${customer.name} - Khách hàng tin tưởng D2 Group`}
                     className="h-12 w-auto mx-auto mb-2 object-contain"
                     onError={(e) => {
                       const target = e.currentTarget as HTMLImageElement;

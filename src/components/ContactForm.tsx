@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
+import { toast } from '@/hooks/use-toast';
 
 interface ContactFormProps {
   service?: string;
@@ -43,7 +44,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
       });
 
       if (response.ok) {
-        alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.');
+        toast({
+          title: "Gửi thành công!",
+          description: "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.",
+        });
         setFormData({
           name: '',
           email: '',
@@ -56,7 +60,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
+      toast({
+        title: "Có lỗi xảy ra",
+        description: "Vui lòng thử lại sau hoặc liên hệ trực tiếp qua hotline.",
+        variant: "destructive"
+      });
     }
   };
 

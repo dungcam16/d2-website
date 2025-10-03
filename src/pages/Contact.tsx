@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { toast } from '@/hooks/use-toast';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -46,7 +47,10 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.');
+        toast({
+          title: "Gửi thành công!",
+          description: "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.",
+        });
         setFormData({
           name: '',
           email: '',
@@ -60,7 +64,11 @@ const Contact = () => {
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
+      toast({
+        title: "Có lỗi xảy ra",
+        description: "Vui lòng thử lại sau hoặc liên hệ trực tiếp qua hotline.",
+        variant: "destructive"
+      });
     }
   };
 
