@@ -619,21 +619,21 @@ const Portfolio = () => {
                 <Mail className="w-6 h-6" />
                 <div className="text-left">
                   <div className="text-sm opacity-80">Email</div>
-                  <div className="font-semibold">contact@d2group.co</div>
+                  <div className="font-semibold">info@d2group.co</div>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-3">
                 <Phone className="w-6 h-6" />
                 <div className="text-left">
                   <div className="text-sm opacity-80">Hotline</div>
-                  <div className="font-semibold">+84 xxx xxx xxx</div>
+                  <div className="font-semibold">+84 977 027 634</div>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-3">
                 <MapPin className="w-6 h-6" />
                 <div className="text-left">
                   <div className="text-sm opacity-80">Địa chỉ</div>
-                  <div className="font-semibold">HCM City, Vietnam</div>
+                  <div className="font-semibold">Số 3 Nguyễn Cơ Thạch, Phường An Lợi Đông, Q2, HCM City, Vietnam</div>
                 </div>
               </div>
             </div>
