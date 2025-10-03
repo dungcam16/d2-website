@@ -1,27 +1,5 @@
 User-agent: *
-Allow: /
-
-# Sitemaps
-Sitemap: https://n8n.d2group.co/webhook/d2group.co_sitemap_generator
-
-# Disallow admin pages (if any exist in future)
 Disallow: /admin/
 Disallow: /private/
 
-# Allow all service pages
-Allow: /services/chatbot
-Allow: /services/zalo  
-Allow: /services/automation
-Allow: /services/content
-Allow: /services/seo
-Allow: /services/website
-
-# Allow blog pages
-Allow: /blog
-Allow: /blog/*
-
-# Allow contact page
-Allow: /contact
-
-# Crawl delay
-Crawl-delay: 1
+Sitemap: [https://n8n.d2group.co/webhook/d2group.co_sitemap_generator](https://n8n.d2group.co/webhook/d2group.co_sitemap_generator)
