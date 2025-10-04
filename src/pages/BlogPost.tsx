@@ -9,6 +9,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import { supabase } from '@/integrations/supabase/client';
 
 interface BlogPost {
@@ -112,8 +113,43 @@ const BlogPost = () => {
     );
   }
 
+  // Create structured data for blog post
+  const articleStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "image": post.image_url || "https://storage.googleapis.com/gpt-engineer-file-uploads/GfwJGgB5PVUTbVt9ullbKBHrjTg2/social-images/social-1758965925583-514270009_692154340477059_2925918850980454621_n (1).jpg",
+    "author": {
+      "@type": "Organization",
+      "name": post.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "D2 Group",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://d2group.co/logo_d2_group.png"
+      }
+    },
+    "datePublished": post.published_at,
+    "dateModified": post.published_at,
+    "description": post.excerpt || post.title,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://d2group.co/blog/${post.slug}`
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={post.title}
+        description={post.excerpt || `Đọc bài viết ${post.title} từ D2 Group - Agency Marketing B2B hàng đầu Việt Nam`}
+        keywords={post.tags?.join(', ')}
+        ogImage={post.image_url || undefined}
+        canonicalUrl={`/blog/${post.slug}`}
+        structuredData={articleStructuredData}
+      />
       <Header />
       
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
@@ -131,8 +167,9 @@ const BlogPost = () => {
             <div className="mb-8">
               <img 
                 src={post.image_url} 
-                alt={post.title}
+                alt={`Hình ảnh minh họa cho bài viết ${post.title} - D2 Group`}
                 className="w-full h-64 sm:h-96 object-cover rounded-lg"
+                loading="lazy"
               />
             </div>
           )}

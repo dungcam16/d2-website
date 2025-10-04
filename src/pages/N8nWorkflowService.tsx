@@ -24,6 +24,26 @@ const N8nWorkflowService = () => {
     "areaServed": "Vietnam"
   };
 
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://d2group.co/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dịch vụ",
+      "item": "https://d2group.co/services"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "N8N Workflow Development"
+    }]
+  };
+
   const features = [
     {
       icon: GitBranch,
@@ -140,7 +160,7 @@ const N8nWorkflowService = () => {
         description="Dịch vụ thiết kế và triển khai N8N workflows. Xây dựng trigger, nodes, error handling, sub-workflows với JavaScript/TypeScript. Custom scripting và tối ưu hiệu suất."
         keywords="n8n workflow development, thiết kế workflow n8n, triển khai n8n workflow, n8n custom scripting, n8n function nodes, n8n error handling, n8n sub-workflows"
         canonicalUrl="/services/n8n-workflow"
-        structuredData={structuredData}
+        structuredData={[structuredData, breadcrumbStructuredData]}
       />
       <Header />
       

@@ -52,6 +52,26 @@ const ChatbotService = () => {
     }
   };
 
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://d2group.co/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dịch vụ",
+      "item": "https://d2group.co/services"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Dịch vụ Chatbot"
+    }]
+  };
+
   const benefits = [
     {
       title: "Tiết Kiệm 80% Chi Phí",
@@ -269,7 +289,7 @@ const ChatbotService = () => {
         description="Công ty cung cấp chatbot hàng đầu Việt Nam. Dịch vụ chatbot trọn gói, thiết kế chatbot theo yêu cầu, xây dựng chatbot chuyên nghiệp cho doanh nghiệp với AI và tích hợp đa nền tảng."
         keywords="dịch vụ chatbot, giải pháp chatbot cho doanh nghiệp, chatbot cho B2B, công ty cung cấp chatbot, chatbot AI cho doanh nghiệp, xây dựng chatbot chuyên nghiệp, chatbot marketing agency, thiết kế chatbot theo yêu cầu, dịch vụ chatbot trọn gói"
         canonicalUrl="/services/chatbot"
-        structuredData={structuredData}
+        structuredData={[structuredData, breadcrumbStructuredData]}
       />
       <Header />
       

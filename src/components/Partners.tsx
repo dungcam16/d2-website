@@ -58,8 +58,9 @@ const Partners = () => {
                 <div className="text-center">
                   <img 
                     src={partner.logo} 
-                    alt={partner.name}
+                    alt={`Logo đối tác công nghệ ${partner.name} của D2 Group`}
                     className="h-12 w-auto mx-auto mb-2 object-contain"
+                    loading="lazy"
                     onError={(e) => {
                       const target = e.currentTarget as HTMLImageElement;
                       target.style.display = 'none';

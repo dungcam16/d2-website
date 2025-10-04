@@ -24,6 +24,26 @@ const BusinessProcessService = () => {
     "areaServed": "Vietnam"
   };
 
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://d2group.co/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dịch vụ",
+      "item": "https://d2group.co/services"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Tối ưu Quy trình Doanh nghiệp"
+    }]
+  };
+
   const features = [
     {
       icon: FileText,
@@ -226,7 +246,7 @@ const BusinessProcessService = () => {
         description="Dịch vụ tư vấn quy trình kinh doanh chuyên nghiệp. Phân tích AS-IS/TO-BE, thiết kế flowcharts, định nghĩa KPI/SLA, mapping data flow và xây dựng blueprint automation."
         keywords="tư vấn quy trình kinh doanh, business process automation, phân tích quy trình AS-IS TO-BE, thiết kế flowchart, định nghĩa KPI SLA, data flow mapping, blueprint automation"
         canonicalUrl="/services/business-process"
-        structuredData={structuredData}
+        structuredData={[structuredData, breadcrumbStructuredData]}
       />
       <Header />
       

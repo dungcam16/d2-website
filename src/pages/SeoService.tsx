@@ -39,6 +39,26 @@ const SeoService = () => {
     }
   };
 
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://d2group.co/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dịch vụ",
+      "item": "https://d2group.co/services"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Dịch vụ SEO"
+    }]
+  };
+
   const guaranteeDetails = [
     {
       icon: Trophy,
@@ -413,6 +433,13 @@ const SeoService = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Dịch vụ SEO Chuyên nghiệp - Cam kết Top 3 Google"
+        description="Dịch vụ SEO uy tín hàng đầu Việt Nam. SEO agency chuyên nghiệp với dịch vụ SEO tổng thể, thuê làm SEO website cam kết top 3 Google. Báo giá SEO minh bạch."
+        keywords="dịch vụ SEO, dịch vụ SEO tổng thể, công ty SEO uy tín, thuê làm SEO, SEO agency Việt Nam, cam kết top Google, báo giá dịch vụ SEO, dịch vụ SEO website"
+        canonicalUrl="/services/seo"
+        structuredData={[structuredData, breadcrumbStructuredData]}
+      />
       <Header />
       
       {/* Hero Section */}

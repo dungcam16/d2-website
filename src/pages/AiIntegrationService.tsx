@@ -24,6 +24,26 @@ const AiIntegrationService = () => {
     "areaServed": "Vietnam"
   };
 
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://d2group.co/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dịch vụ",
+      "item": "https://d2group.co/services"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Tích hợp AI"
+    }]
+  };
+
   const features = [
     {
       icon: Brain,
@@ -218,7 +238,7 @@ const AiIntegrationService = () => {
         description="Dịch vụ tích hợp AI chuyên nghiệp. Large Language Models (GPT-4, Claude), AI chatbot automation, document parsing, sentiment analysis, predictive analytics cho workflows."
         keywords="tích hợp AI workflow, AI automation, GPT-4 integration, Claude AI, chatbot AI, document parsing AI, sentiment analysis, predictive analytics, machine learning workflow"
         canonicalUrl="/services/ai-integration"
-        structuredData={structuredData}
+        structuredData={[structuredData, breadcrumbStructuredData]}
       />
       <Header />
       

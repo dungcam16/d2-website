@@ -37,6 +37,26 @@ const ZaloService = () => {
     "areaServed": "Vietnam"
   };
 
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://d2group.co/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dịch vụ",
+      "item": "https://d2group.co/services"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Dịch vụ Zalo OA"
+    }]
+  };
+
   const marketStats = [
     {
       number: "50M+",
@@ -262,7 +282,7 @@ const ZaloService = () => {
         description="Công ty cung cấp dịch vụ Zalo OA hàng đầu Việt Nam. Dịch vụ setup Zalo OA trọn gói, quản lý chuyên nghiệp, triển khai và xác thực Zalo OA cho doanh nghiệp B2B."
         keywords="dịch vụ zalo oa, dịch vụ quản lý zalo oa, dịch vụ setup zalo oa trọn gói, công ty cung cấp dịch vụ zalo oa, giải pháp zalo oa cho doanh nghiệp, triển khai zalo oa chuyên nghiệp, dịch vụ xác thực zalo oa, dịch vụ tích vàng zalo oa, zalo oa cho doanh nghiệp b2b, tạo zalo oa cho doanh nghiệp"
         canonicalUrl="/services/zalo"
-        structuredData={structuredData}
+        structuredData={[structuredData, breadcrumbStructuredData]}
       />
       <Header />
       

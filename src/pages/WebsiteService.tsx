@@ -32,6 +32,26 @@ const WebsiteService = () => {
     }
   };
 
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://d2group.co/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dịch vụ",
+      "item": "https://d2group.co/services"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Thiết kế Website"
+    }]
+  };
+
   const benefits = [
     {
       title: "Responsive Design",
@@ -415,7 +435,7 @@ const WebsiteService = () => {
         description="Công ty thiết kế website hàng đầu Việt Nam. Dịch vụ thiết kế website trọn gói, làm website theo yêu cầu chuyên nghiệp với báo giá uy tín cho doanh nghiệp."
         keywords="dịch vụ thiết kế website, công ty thiết kế website, thiết kế website chuyên nghiệp, thiết kế website trọn gói, làm website theo yêu cầu, báo giá thiết kế website, thiết kế web cho doanh nghiệp, thiết kế website uy tín"
         canonicalUrl="/services/website"
-        structuredData={structuredData}
+        structuredData={[structuredData, breadcrumbStructuredData]}
       />
       <Header />
       
