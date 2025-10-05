@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: [https://n8n.d2group.co/webhook/d2group.co_sitemap_generator](https://n8n.d2group.co/webhook/d2group.co_sitemap_generator)
+Sitemap: https://d2group.co/sitemap.xml
