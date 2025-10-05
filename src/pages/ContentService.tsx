@@ -344,7 +344,7 @@ const ContentService = () => {
                   className="shadow-glow"
                   onClick={() => window.location.href = '/contact'}
                 >
-                  Nhận Kiểm Toán Nội Dung Miễn Phí
+                  Nhận Chiến Lược Content Miễn Phí
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button 

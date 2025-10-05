@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import ChatbotService from "./pages/ChatbotService";
 import ZaloService from "./pages/ZaloService";
 import N8nWorkflowService from "./pages/N8nWorkflowService";
+import AutomationService from "./pages/AutomationService";
 import BusinessProcessService from "./pages/BusinessProcessService";
 import AiIntegrationService from "./pages/AiIntegrationService";
 import ContentService from "./pages/ContentService";
@@ -14,6 +15,7 @@ import SeoService from "./pages/SeoService";
 import WebsiteService from "./pages/WebsiteService";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
+import AboutUs from "./pages/AboutUs";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -35,6 +37,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/services/chatbot" element={<ChatbotService />} />
           <Route path="/services/zalo" element={<ZaloService />} />
+          <Route path="/services/automation" element={<AutomationService />} />
           <Route path="/services/n8n-workflow" element={<N8nWorkflowService />} />
           <Route path="/services/business-process" element={<BusinessProcessService />} />
           <Route path="/services/ai-integration" element={<AiIntegrationService />} />
@@ -45,6 +48,7 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/case-study/youtube-automation" element={<CaseStudyYoutubeAutomation />} />
           <Route path="/case-study/crm-automation" element={<CaseStudyCrmAutomation />} />
           <Route path="/case-study/ecommerce-automation" element={<CaseStudyEcommerceAutomation />} />

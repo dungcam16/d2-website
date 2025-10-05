@@ -254,7 +254,7 @@ const AutomationService = () => {
                   className="shadow-glow"
                   onClick={() => window.location.href = '/contact'}
                 >
-                  Đặt Lịch Tư Vấn Kỹ Thuật
+                  Đặt Lịch Tư Vấn N8N Miễn Phí
                   <PlayCircle className="ml-2 h-5 w-5" />
                 </Button>
                 <Button 
@@ -262,7 +262,7 @@ const AutomationService = () => {
                   size="lg"
                   onClick={() => window.location.href = '/contact'}
                 >
-                  Tải Hướng Dẫn Kiến Trúc
+                  Tải Tài Liệu Kiến Trúc N8N
                   <Download className="ml-2 h-5 w-5" />
                 </Button>
               </div>
