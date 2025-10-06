@@ -244,8 +244,23 @@ const TemplateDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Thumbnail */}
-            {template.thumbnail_url && (
+            {/* Workflow Embed - Full width interactive preview */}
+            {template.workflow_json?.embed_url && (
+              <Card className="overflow-hidden">
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    src={template.workflow_json.embed_url}
+                    className="absolute top-0 left-0 w-full h-full border-0"
+                    title={`${template.title} - Workflow Preview`}
+                    allow="fullscreen"
+                    loading="lazy"
+                  />
+                </div>
+              </Card>
+            )}
+
+            {/* Thumbnail - Only show if no embed */}
+            {!template.workflow_json?.embed_url && template.thumbnail_url && (
               <div className="rounded-lg overflow-hidden border">
                 <img
                   src={template.thumbnail_url}
