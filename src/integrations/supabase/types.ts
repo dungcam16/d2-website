@@ -65,6 +65,72 @@ export type Database = {
         }
         Relationships: []
       }
+      workflow_templates: {
+        Row: {
+          author: string
+          category: string | null
+          content: string
+          created_at: string
+          description: string | null
+          difficulty_level: string | null
+          downloads: number | null
+          id: string
+          integrations: string[] | null
+          is_published: boolean | null
+          node_count: number | null
+          published_at: string
+          slug: string
+          tags: string[] | null
+          thumbnail_url: string | null
+          title: string
+          updated_at: string
+          views: number | null
+          workflow_json: Json | null
+        }
+        Insert: {
+          author?: string
+          category?: string | null
+          content: string
+          created_at?: string
+          description?: string | null
+          difficulty_level?: string | null
+          downloads?: number | null
+          id?: string
+          integrations?: string[] | null
+          is_published?: boolean | null
+          node_count?: number | null
+          published_at?: string
+          slug: string
+          tags?: string[] | null
+          thumbnail_url?: string | null
+          title: string
+          updated_at?: string
+          views?: number | null
+          workflow_json?: Json | null
+        }
+        Update: {
+          author?: string
+          category?: string | null
+          content?: string
+          created_at?: string
+          description?: string | null
+          difficulty_level?: string | null
+          downloads?: number | null
+          id?: string
+          integrations?: string[] | null
+          is_published?: boolean | null
+          node_count?: number | null
+          published_at?: string
+          slug?: string
+          tags?: string[] | null
+          thumbnail_url?: string | null
+          title?: string
+          updated_at?: string
+          views?: number | null
+          workflow_json?: Json | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

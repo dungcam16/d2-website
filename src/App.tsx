@@ -24,6 +24,8 @@ import NotFound from "./pages/NotFound";
 import CaseStudyYoutubeAutomation from "./pages/CaseStudyYoutubeAutomation";
 import CaseStudyCrmAutomation from "./pages/CaseStudyCrmAutomation";
 import CaseStudyEcommerceAutomation from "./pages/CaseStudyEcommerceAutomation";
+import Templates from "./pages/Templates";
+import TemplateDetail from "./pages/TemplateDetail";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +48,8 @@ const App = () => (
           <Route path="/services/website" element={<WebsiteService />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/templates" element={<Templates />} />
+          <Route path="/templates/:slug" element={<TemplateDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<AboutUs />} />

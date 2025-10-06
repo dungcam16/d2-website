@@ -25,6 +25,7 @@ const Header = () => {
     { name: 'Trang chủ', href: '/' },
     { name: 'Hồ sơ năng lực', href: '/portfolio' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Templates', href: '/templates' },
     { name: 'Liên hệ', href: '/contact' },
   ];
 
@@ -169,6 +170,15 @@ const Header = () => {
               className="text-foreground hover:text-primary transition-smooth relative group"
             >
               Blog
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            {/* Templates */}
+            <a
+              href="/templates"
+              className="text-foreground hover:text-primary transition-smooth relative group"
+            >
+              Templates
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
