@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Download, Eye, Grid3x3, Calendar, User, Tag, ExternalLink } from "lucide-react";
 import Header from "@/components/Header";
@@ -39,6 +39,19 @@ const TemplateDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
+  const n8nDemoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Load n8n demo component script
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component/n8n-demo.bundled.js';
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   useEffect(() => {
     if (slug) {
@@ -244,23 +257,23 @@ const TemplateDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Workflow Embed - Full width interactive preview */}
-            {template.workflow_json?.embed_url && (
+            {/* N8N Workflow Demo - Interactive visualization */}
+            {template.workflow_json && (
               <Card className="overflow-hidden">
-                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                  <iframe
-                    src={template.workflow_json.embed_url}
-                    className="absolute top-0 left-0 w-full h-full border-0"
-                    title={`${template.title} - Workflow Preview`}
-                    allow="fullscreen"
-                    loading="lazy"
+                <CardContent className="p-6">
+                  <div 
+                    ref={n8nDemoRef}
+                    dangerouslySetInnerHTML={{
+                      __html: `<n8n-demo workflow='${JSON.stringify(template.workflow_json)}'></n8n-demo>`
+                    }}
+                    className="min-h-[500px]"
                   />
-                </div>
+                </CardContent>
               </Card>
             )}
 
-            {/* Thumbnail - Only show if no embed */}
-            {!template.workflow_json?.embed_url && template.thumbnail_url && (
+            {/* Fallback Thumbnail - Only show if no workflow JSON */}
+            {!template.workflow_json && template.thumbnail_url && (
               <div className="rounded-lg overflow-hidden border">
                 <img
                   src={template.thumbnail_url}
