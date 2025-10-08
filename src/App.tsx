@@ -26,8 +26,6 @@ import CaseStudyCrmAutomation from "./pages/CaseStudyCrmAutomation";
 import CaseStudyEcommerceAutomation from "./pages/CaseStudyEcommerceAutomation";
 import Templates from "./pages/Templates";
 import TemplateDetail from "./pages/TemplateDetail";
-import Auth from "./pages/Auth";
-import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -52,8 +50,6 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/templates" element={<Templates />} />
           <Route path="/templates/:slug" element={<TemplateDetail />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/admin/*" element={<Admin />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<AboutUs />} />

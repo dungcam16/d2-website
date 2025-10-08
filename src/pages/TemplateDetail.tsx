@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Download, Eye, Grid3x3, Calendar, User, Tag, ExternalLink } from "lucide-react";
 import Header from "@/components/Header";
@@ -39,59 +39,6 @@ const TemplateDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
-  const n8nDemoRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Load n8n demo component script
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = 'https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component/n8n-demo.bundled.js';
-    
-    script.onload = () => {
-      console.log('n8n-demo script loaded');
-      // Re-render after script loads
-      if (template?.workflow_json && n8nDemoRef.current) {
-        const workflowString = JSON.stringify(template.workflow_json)
-          .replace(/'/g, '&apos;')
-          .replace(/"/g, '&quot;');
-        
-        n8nDemoRef.current.innerHTML = `
-          <n8n-demo 
-            workflow='${workflowString}'
-            theme="light"
-            hidecanvaserrors="true"
-            clicktointeract="true"
-          ></n8n-demo>
-        `;
-      }
-    };
-    
-    document.head.appendChild(script);
-
-    return () => {
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    // Update n8n-demo when template changes
-    if (template?.workflow_json && n8nDemoRef.current) {
-      const workflowString = JSON.stringify(template.workflow_json)
-        .replace(/'/g, '&apos;')
-        .replace(/"/g, '&quot;');
-      
-      n8nDemoRef.current.innerHTML = `
-        <n8n-demo 
-          workflow='${workflowString}'
-          theme="light"
-          hidecanvaserrors="true"
-          clicktointeract="true"
-        ></n8n-demo>
-      `;
-    }
-  }, [template]);
 
   useEffect(() => {
     if (slug) {
@@ -297,20 +244,23 @@ const TemplateDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* N8N Workflow Demo - Interactive visualization */}
-            {template.workflow_json && (
+            {/* Workflow Embed - Full width interactive preview */}
+            {template.workflow_json?.embed_url && (
               <Card className="overflow-hidden">
-                <CardContent className="p-6">
-                  <div 
-                    ref={n8nDemoRef}
-                    className="min-h-[500px] rounded-xl overflow-hidden bg-white"
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    src={template.workflow_json.embed_url}
+                    className="absolute top-0 left-0 w-full h-full border-0"
+                    title={`${template.title} - Workflow Preview`}
+                    allow="fullscreen"
+                    loading="lazy"
                   />
-                </CardContent>
+                </div>
               </Card>
             )}
 
-            {/* Fallback Thumbnail - Only show if no workflow JSON */}
-            {!template.workflow_json && template.thumbnail_url && (
+            {/* Thumbnail - Only show if no embed */}
+            {!template.workflow_json?.embed_url && template.thumbnail_url && (
               <div className="rounded-lg overflow-hidden border">
                 <img
                   src={template.thumbnail_url}

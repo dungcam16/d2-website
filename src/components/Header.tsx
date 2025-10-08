@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Shield } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import logoD2Group from '@/assets/logo_d2_group.png';
 import { Button } from '@/components/ui/button';
 import { 
@@ -8,12 +8,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useAuth } from '@/hooks/useAuth';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { user, isAdmin, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -192,45 +190,13 @@ const Header = () => {
               Liên hệ
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-
-            {/* Admin Link - Only visible to admins */}
-            {isAdmin && (
-              <a
-                href="/admin"
-                className="text-foreground hover:text-primary transition-smooth relative group flex items-center gap-1"
-              >
-                <Shield className="h-4 w-4" />
-                Admin
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            )}
           </nav>
 
-          {/* CTA Button or User Menu */}
-          <div className="hidden md:flex items-center gap-3">
-            {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="sm">
-                    {user.email}
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={() => signOut()}>
-                    Đăng xuất
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <>
-                <Button variant="ghost" size="sm" onClick={() => window.location.href = '/auth'}>
-                  Đăng nhập
-                </Button>
-                <Button variant="default" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
-                  Tư vấn triển khai
-                </Button>
-              </>
-            )}
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <Button variant="default" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
+              Tư vấn triển khai
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
