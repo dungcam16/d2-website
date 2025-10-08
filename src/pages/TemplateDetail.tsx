@@ -46,12 +46,52 @@ const TemplateDetail = () => {
     const script = document.createElement('script');
     script.type = 'module';
     script.src = 'https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component/n8n-demo.bundled.js';
+    
+    script.onload = () => {
+      console.log('n8n-demo script loaded');
+      // Re-render after script loads
+      if (template?.workflow_json && n8nDemoRef.current) {
+        const workflowString = JSON.stringify(template.workflow_json)
+          .replace(/'/g, '&apos;')
+          .replace(/"/g, '&quot;');
+        
+        n8nDemoRef.current.innerHTML = `
+          <n8n-demo 
+            workflow='${workflowString}'
+            theme="light"
+            hidecanvaserrors="true"
+            clicktointeract="true"
+          ></n8n-demo>
+        `;
+      }
+    };
+    
     document.head.appendChild(script);
 
     return () => {
-      document.head.removeChild(script);
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
     };
   }, []);
+
+  useEffect(() => {
+    // Update n8n-demo when template changes
+    if (template?.workflow_json && n8nDemoRef.current) {
+      const workflowString = JSON.stringify(template.workflow_json)
+        .replace(/'/g, '&apos;')
+        .replace(/"/g, '&quot;');
+      
+      n8nDemoRef.current.innerHTML = `
+        <n8n-demo 
+          workflow='${workflowString}'
+          theme="light"
+          hidecanvaserrors="true"
+          clicktointeract="true"
+        ></n8n-demo>
+      `;
+    }
+  }, [template]);
 
   useEffect(() => {
     if (slug) {
@@ -263,10 +303,7 @@ const TemplateDetail = () => {
                 <CardContent className="p-6">
                   <div 
                     ref={n8nDemoRef}
-                    dangerouslySetInnerHTML={{
-                      __html: `<n8n-demo workflow='${JSON.stringify(template.workflow_json)}'></n8n-demo>`
-                    }}
-                    className="min-h-[500px]"
+                    className="min-h-[500px] rounded-xl overflow-hidden bg-white"
                   />
                 </CardContent>
               </Card>
