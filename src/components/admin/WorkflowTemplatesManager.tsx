@@ -340,3 +340,5 @@ export const WorkflowTemplatesManager = () => {
     </Card>
   );
 };
+
+export default WorkflowTemplatesManager;

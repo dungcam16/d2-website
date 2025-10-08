@@ -309,3 +309,5 @@ export const BlogPostsManager = () => {
     </Card>
   );
 };
+
+export default BlogPostsManager;
