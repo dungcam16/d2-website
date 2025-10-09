@@ -16,7 +16,6 @@ import WebsiteService from "./pages/WebsiteService";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
 import AboutUs from "./pages/AboutUs";
-import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -26,6 +25,7 @@ import CaseStudyCrmAutomation from "./pages/CaseStudyCrmAutomation";
 import CaseStudyEcommerceAutomation from "./pages/CaseStudyEcommerceAutomation";
 import Templates from "./pages/Templates";
 import TemplateDetail from "./pages/TemplateDetail";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -46,7 +46,6 @@ const App = () => (
           <Route path="/services/content" element={<ContentService />} />
           <Route path="/services/seo" element={<SeoService />} />
           <Route path="/services/website" element={<WebsiteService />} />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/templates" element={<Templates />} />
           <Route path="/templates/:slug" element={<TemplateDetail />} />
@@ -58,6 +57,7 @@ const App = () => (
           <Route path="/case-study/ecommerce-automation" element={<CaseStudyEcommerceAutomation />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
