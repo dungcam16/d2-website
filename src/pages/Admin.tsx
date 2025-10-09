@@ -13,6 +13,7 @@ export default function Admin() {
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -55,21 +56,37 @@ export default function Admin() {
     }
   };
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      if (isSignUp) {
+        const { error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/admin`
+          }
+        });
 
-      if (error) throw error;
+        if (error) throw error;
+        
+        toast.success("Đăng ký thành công! Vui lòng liên hệ admin để được cấp quyền.");
+        setIsSignUp(false);
+        setLoading(false);
+      } else {
+        const { error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
 
-      await checkAdminStatus();
+        if (error) throw error;
+
+        await checkAdminStatus();
+      }
     } catch (error: any) {
-      toast.error(error.message || "Đăng nhập thất bại");
+      toast.error(error.message || (isSignUp ? "Đăng ký thất bại" : "Đăng nhập thất bại"));
       setLoading(false);
     }
   };
@@ -94,10 +111,12 @@ export default function Admin() {
         <Card className="w-full max-w-md p-8">
           <div className="mb-6 text-center">
             <h1 className="text-2xl font-bold mb-2">Admin CMS</h1>
-            <p className="text-muted-foreground">Đăng nhập để truy cập hệ thống quản trị</p>
+            <p className="text-muted-foreground">
+              {isSignUp ? "Đăng ký tài khoản mới" : "Đăng nhập để truy cập hệ thống quản trị"}
+            </p>
           </div>
           
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleAuth} className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium mb-2">
                 Email
@@ -123,12 +142,21 @@ export default function Admin() {
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-3 py-2 border rounded-md"
                 required
+                minLength={6}
               />
             </div>
             
-            <Button type="submit" className="w-full">
-              Đăng nhập
+            <Button type="submit" className="w-full" disabled={loading}>
+              {isSignUp ? "Đăng ký" : "Đăng nhập"}
             </Button>
+
+            <button
+              type="button"
+              onClick={() => setIsSignUp(!isSignUp)}
+              className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {isSignUp ? "Đã có tài khoản? Đăng nhập" : "Chưa có tài khoản? Đăng ký"}
+            </button>
           </form>
         </Card>
       </div>
