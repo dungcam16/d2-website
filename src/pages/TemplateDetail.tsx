@@ -241,104 +241,232 @@ const TemplateDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* n8n Workflow Visual Preview */}
+            {/* n8n Workflow Iframe with srcDoc */}
             {template.workflow_json && (
-              <div className="relative rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 p-4 border border-border/50">
-                <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6">
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center shadow-md">
-                        <span className="text-white font-bold text-xl">n8n</span>
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold">{template.workflow_json.name || template.title}</h3>
-                        <p className="text-sm text-muted-foreground">Workflow Preview</p>
-                      </div>
-                    </div>
-                    <a
-                      href="https://n8n.d2group.co"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline text-sm flex items-center gap-1"
-                    >
-                      Open in n8n <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
+              <div className="relative rounded-2xl bg-white/10 p-2 border border-border/50">
+                <div className="overflow-hidden rounded-xl shadow-2xl">
+                  <div className="bg-white dark:bg-gray-900">
+                    <div className="embedded_workflow">
+                      <div className="canvas-container relative w-full" style={{ paddingBottom: "75%" }}>
+                        <iframe
+                          id="int_iframe"
+                          className="embedded_workflow_iframe absolute top-0 left-0 w-full h-full border-0"
+                          allow="clipboard-write"
+                          srcDoc={`
+                            <!DOCTYPE html>
+                            <html>
+                            <head>
+                                <meta charset="UTF-8">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <style>
+                                    * { margin: 0; padding: 0; box-sizing: border-box; }
+                                    body { 
+                                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                                        background: #f8f9fa;
+                                        padding: 20px;
+                                    }
+                                    .workflow-viewer {
+                                        background: white;
+                                        border-radius: 12px;
+                                        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                                        padding: 24px;
+                                    }
+                                    .header {
+                                        margin-bottom: 20px;
+                                        padding-bottom: 16px;
+                                        border-bottom: 2px solid #e9ecef;
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 12px;
+                                    }
+                                    .logo {
+                                        width: 48px;
+                                        height: 48px;
+                                        background: linear-gradient(135deg, #ff6d5a 0%, #ff4c3b 100%);
+                                        border-radius: 12px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        color: white;
+                                        font-weight: bold;
+                                        font-size: 20px;
+                                        flex-shrink: 0;
+                                    }
+                                    .header h1 {
+                                        font-size: 22px;
+                                        color: #212529;
+                                    }
+                                    .workflow-steps {
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 12px;
+                                        margin-top: 20px;
+                                    }
+                                    .step {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 12px;
+                                        padding: 16px;
+                                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                        border-radius: 12px;
+                                        color: white;
+                                        transition: transform 0.2s;
+                                    }
+                                    .step:hover {
+                                        transform: translateX(4px);
+                                    }
+                                    .step-number {
+                                        width: 40px;
+                                        height: 40px;
+                                        background: white;
+                                        border-radius: 50%;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        font-weight: bold;
+                                        color: #667eea;
+                                        flex-shrink: 0;
+                                    }
+                                    .step-content {
+                                        flex: 1;
+                                        min-width: 0;
+                                    }
+                                    .step-name {
+                                        font-weight: 600;
+                                        font-size: 16px;
+                                        margin-bottom: 4px;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    }
+                                    .step-type {
+                                        font-size: 14px;
+                                        opacity: 0.9;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    }
+                                    .connector {
+                                        width: 4px;
+                                        height: 16px;
+                                        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+                                        margin-left: 36px;
+                                    }
+                                    .stats {
+                                        display: grid;
+                                        grid-template-columns: repeat(3, 1fr);
+                                        gap: 12px;
+                                        margin-bottom: 20px;
+                                    }
+                                    .stat {
+                                        text-align: center;
+                                        padding: 16px;
+                                        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                                        border-radius: 8px;
+                                    }
+                                    .stat-value {
+                                        font-size: 28px;
+                                        font-weight: bold;
+                                        color: #667eea;
+                                    }
+                                    .stat-label {
+                                        font-size: 12px;
+                                        color: #6c757d;
+                                        margin-top: 4px;
+                                    }
+                                    @media (max-width: 640px) {
+                                        body { padding: 12px; }
+                                        .workflow-viewer { padding: 16px; }
+                                        .header h1 { font-size: 18px; }
+                                        .step { padding: 12px; }
+                                        .stat-value { font-size: 24px; }
+                                    }
+                                </style>
+                            </head>
+                            <body>
+                                <div class="workflow-viewer">
+                                    <div class="header">
+                                        <div class="logo">n8n</div>
+                                        <h1>${template.workflow_json.name || template.title}</h1>
+                                    </div>
+                                    
+                                    <div class="stats">
+                                        <div class="stat">
+                                            <div class="stat-value">${template.workflow_json.nodes?.length || 0}</div>
+                                            <div class="stat-label">Nodes</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-value">${
+                                              template.workflow_json.connections
+                                                ? Object.keys(template.workflow_json.connections).length
+                                                : 0
+                                            }</div>
+                                            <div class="stat-label">Connections</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-value">${template.integrations?.length || 0}</div>
+                                            <div class="stat-label">Integrations</div>
+                                        </div>
+                                    </div>
 
-                  {/* Workflow Stats */}
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="text-center p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
-                      <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">
-                        {template.workflow_json.nodes?.length || 0}
-                      </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Nodes</div>
-                    </div>
-                    <div className="text-center p-4 bg-green-50 dark:bg-green-950 rounded-lg">
-                      <div className="text-3xl font-bold text-green-600 dark:text-green-400">
-                        {template.workflow_json.connections
-                          ? Object.keys(template.workflow_json.connections).length
-                          : 0}
-                      </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Connections</div>
-                    </div>
-                    <div className="text-center p-4 bg-purple-50 dark:bg-purple-950 rounded-lg">
-                      <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
-                        {template.integrations?.length || 0}
-                      </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Integrations</div>
-                    </div>
-                  </div>
-
-                  {/* Workflow Nodes Flow */}
-                  {template.workflow_json.nodes && template.workflow_json.nodes.length > 0 && (
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-foreground mb-3">Workflow Steps</h4>
-                      <div className="relative">
-                        {template.workflow_json.nodes.map((node: any, idx: number) => (
-                          <div key={idx} className="relative">
-                            <div className="flex items-center gap-3 mb-3">
-                              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center font-bold shadow-md">
-                                {idx + 1}
-                              </div>
-                              <div className="flex-1 p-4 bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-lg border border-border hover:shadow-md transition-shadow">
-                                <div className="flex items-center justify-between">
-                                  <div className="flex-1">
-                                    <div className="font-semibold text-foreground">{node.name}</div>
-                                    <div className="text-sm text-muted-foreground mt-1">{node.type}</div>
-                                  </div>
-                                  <Badge variant="outline" className="ml-2">
-                                    {node.type.split(".")[0]}
-                                  </Badge>
+                                    <div class="workflow-steps">
+                                        ${
+                                          template.workflow_json.nodes
+                                            ? template.workflow_json.nodes
+                                                .map(
+                                                  (node: any, idx: number) => `
+                                            <div class="step">
+                                                <div class="step-number">${idx + 1}</div>
+                                                <div class="step-content">
+                                                    <div class="step-name">${node.name}</div>
+                                                    <div class="step-type">${node.type}</div>
+                                                </div>
+                                            </div>
+                                            ${
+                                              idx < template.workflow_json.nodes.length - 1
+                                                ? '<div class="connector"></div>'
+                                                : ""
+                                            }
+                                        `,
+                                                )
+                                                .join("")
+                                            : ""
+                                        }
+                                    </div>
                                 </div>
-                              </div>
-                            </div>
-                            {idx < template.workflow_json.nodes.length - 1 && (
-                              <div className="ml-5 h-6 w-0.5 bg-gradient-to-b from-blue-400 to-blue-200 mb-1" />
-                            )}
-                          </div>
-                        ))}
+                            </body>
+                            </html>
+                          `}
+                          sandbox="allow-same-origin"
+                          title={`n8n workflow preview - ${template.title}`}
+                        />
                       </div>
                     </div>
-                  )}
-
-                  {/* Import to n8n Button */}
-                  <div className="mt-6 pt-6 border-t border-border">
-                    <div className="flex gap-3">
-                      <Button onClick={handleDownload} variant="outline" className="flex-1">
-                        <Download className="mr-2 h-4 w-4" />
-                        Download JSON
-                      </Button>
-                      <Button
-                        asChild
-                        className="flex-1 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600"
-                      >
-                        <a href="https://n8n.d2group.co" target="_blank" rel="noopener noreferrer">
-                          Open in n8n
-                          <ExternalLink className="ml-2 h-4 w-4" />
-                        </a>
-                      </Button>
-                    </div>
                   </div>
+                </div>
+                {/* Action Buttons */}
+                <div className="mt-4 flex justify-end gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      const iframe = document.getElementById("int_iframe");
+                      if (iframe) {
+                        if (document.fullscreenElement) {
+                          document.exitFullscreen();
+                        } else {
+                          iframe.requestFullscreen();
+                        }
+                      }
+                    }}
+                  >
+                    🔍 Fullscreen
+                  </Button>
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="https://n8n.d2group.co" target="_blank" rel="noopener noreferrer">
+                      Open in n8n <ExternalLink className="w-4 h-4 ml-1" />
+                    </a>
+                  </Button>
                 </div>
               </div>
             )}
