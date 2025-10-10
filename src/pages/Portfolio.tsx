@@ -112,6 +112,8 @@ const Portfolio = () => {
       tech: "n8n, WooCommerce API, PostgreSQL, Telegram Bot",
     },
     {
+      id: "slack-notion-bot",
+      icon: MessageSquare,
       title: "Slack & Notion Task Bot",
       client: "Startup project management team",
       image: "https://images.unsplash.com/photo-1581092334538-6a7f1f57c6f5?w=800&auto=format&fit=crop",
