@@ -30,6 +30,9 @@ import {
   DollarSign,
   Star,
   AlertTriangle,
+  FileText,
+  Calendar,
+  Bell,
 } from "lucide-react";
 
 const Portfolio = () => {
@@ -42,11 +45,7 @@ const Portfolio = () => {
     url: "https://d2group.co/portfolio",
     areaServed: "International",
     priceRange: "$$-$$$",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "50",
-    },
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "50" },
   };
 
   const featuredProjects = [
