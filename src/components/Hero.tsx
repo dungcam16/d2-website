@@ -1,18 +1,14 @@
-import React from 'react';
-import { ArrowRight, Play, Zap, Bot, Workflow } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-automation-light.jpg';
+import React from "react";
+import { ArrowRight, Play, Zap, Bot, Workflow } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/hero-automation-light.jpg";
 
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Automation Technology Background"
-          className="w-full h-full object-cover opacity-20"
-        />
+        <img src={heroImage} alt="Automation Technology Background" className="w-full h-full object-cover opacity-20" />
         <div className="absolute inset-0 bg-gradient-hero"></div>
       </div>
 
@@ -21,10 +17,10 @@ const Hero = () => {
         <div className="absolute top-20 left-10 animate-float">
           <Bot className="h-12 w-12 text-primary opacity-50" />
         </div>
-        <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '2s' }}>
+        <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: "2s" }}>
           <Workflow className="h-16 w-16 text-primary opacity-30" />
         </div>
-        <div className="absolute bottom-40 left-20 animate-float" style={{ animationDelay: '4s' }}>
+        <div className="absolute bottom-40 left-20 animate-float" style={{ animationDelay: "4s" }}>
           <Zap className="h-10 w-10 text-primary opacity-40" />
         </div>
       </div>
@@ -32,47 +28,55 @@ const Hero = () => {
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-slide-up">
-              <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 leading-tight">
-                <span className="block text-foreground">Agency Marketing B2B</span>
-                <span className="block text-primary font-bold">
-                  Hàng Đầu Việt Nam
-                </span>
-                <span className="block text-foreground">Dịch vụ Marketing Tổng thể</span>
-              </h1>
-          
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-              Công ty marketing B2B chuyên cung cấp <span className="text-primary font-semibold">giải pháp marketing cho doanh nghiệp</span>, 
-              tư vấn chiến lược marketing, và <span className="text-primary font-semibold">dịch vụ digital marketing</span> 
-              tổng thể cho thị trường B2B Việt Nam.
-            </p>
+          <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 leading-tight">
+            <span className="block text-foreground">B2B Marketing Agency</span>
+            <span className="block text-primary font-bold">Leading in Vietnam</span>
+            <span className="block text-foreground">Comprehensive Marketing Services</span>
+          </h1>
+
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
+            A B2B marketing company specializing in providing{" "}
+            <span className="text-primary font-semibold">marketing solutions for businesses</span>, marketing strategy
+            consulting, and <span className="text-primary font-semibold">comprehensive digital marketing services</span>
+            for the Vietnamese B2B market.
+          </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-              <Button size="lg" className="shadow-glow group text-lg px-8 py-4">
-                Nhận Tư vấn Marketing B2B Miễn phí
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            
-              <Button variant="outline" size="lg" className="tech-border group text-lg px-8 py-4">
-                <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                Xem Dịch vụ Marketing
-              </Button>
+            <Button size="lg" className="shadow-glow group text-lg px-8 py-4">
+              Get a Free B2B Marketing Consultation
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+
+            <Button variant="outline" size="lg" className="tech-border group text-lg px-8 py-4">
+              <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+              View Marketing Services
+            </Button>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <div className="glass-effect rounded-lg p-6 tech-border animate-scale-in" style={{ animationDelay: '0.2s' }}>
+            <div
+              className="glass-effect rounded-lg p-6 tech-border animate-scale-in"
+              style={{ animationDelay: "0.2s" }}
+            >
               <div className="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
-              <div className="text-muted-foreground">Automation thành công</div>
+              <div className="text-muted-foreground">Successful Automations</div>
             </div>
-            
-            <div className="glass-effect rounded-lg p-6 tech-border animate-scale-in" style={{ animationDelay: '0.4s' }}>
+
+            <div
+              className="glass-effect rounded-lg p-6 tech-border animate-scale-in"
+              style={{ animationDelay: "0.4s" }}
+            >
               <div className="text-3xl md:text-4xl font-bold text-primary mb-2">10x</div>
-              <div className="text-muted-foreground">Tăng trưởng ROI</div>
+              <div className="text-muted-foreground">ROI Growth</div>
             </div>
-            
-            <div className="glass-effect rounded-lg p-6 tech-border animate-scale-in" style={{ animationDelay: '0.6s' }}>
+
+            <div
+              className="glass-effect rounded-lg p-6 tech-border animate-scale-in"
+              style={{ animationDelay: "0.6s" }}
+            >
               <div className="text-3xl md:text-4xl font-bold text-primary mb-2">24/7</div>
-              <div className="text-muted-foreground">Tương tác khách hàng</div>
+              <div className="text-muted-foreground">Customer Engagement</div>
             </div>
           </div>
         </div>
