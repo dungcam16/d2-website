@@ -42,8 +42,7 @@ const Portfolio = () => {
       icon: Youtube,
       title: "YouTube Content Automation Pipeline",
       client: "Media channel with 100K+ subscribers",
-      image:
-        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop",
       challenge: [
         "Manual upload of 10+ videos daily consuming 4 hours",
         "Inconsistent metadata and branding setup",
@@ -68,8 +67,7 @@ const Portfolio = () => {
       icon: Building2,
       title: "CRM Lead Management Automation",
       client: "Real Estate company (50+ staff)",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
       challenge: [
         "Leads scattered across multiple platforms",
         "Manual lead scoring and assignment",
@@ -94,8 +92,7 @@ const Portfolio = () => {
       icon: ShoppingCart,
       title: "E-commerce Inventory Synchronization",
       client: "Online store with 1,000+ SKUs",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop",
       challenge: [
         "Manual stock updates causing frequent stockouts",
         "Slow supplier communication",
@@ -113,6 +110,97 @@ const Portfolio = () => {
         { label: "Monitoring uptime", value: "24/7" },
       ],
       tech: "n8n, WooCommerce API, PostgreSQL, Telegram Bot",
+    },
+    {
+      title: "Slack & Notion Task Bot",
+      client: "Startup project management team",
+      image: "https://images.unsplash.com/photo-1581092334538-6a7f1f57c6f5?w=800&auto=format&fit=crop",
+      challenge: ["Disjointed communication between Slack and Notion", "Manual task duplication across platforms"],
+      solution: [
+        "Developed an n8n bot syncing messages and Notion databases",
+        "Enabled bi-directional updates via Slack API and Notion API",
+      ],
+      results: [
+        { label: "Team efficiency", value: "+60%" },
+        { label: "Manual input reduced", value: "90%" },
+      ],
+      tech: "n8n, Slack API, Notion API, Node.js",
+    },
+    {
+      id: "crm-pipeline-builder",
+      icon: Building2,
+      title: "CRM Pipeline Builder (HubSpot)",
+      client: "Real estate CRM automation",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
+      challenge: ["Manual lead assignment and scoring", "Slow customer response time"],
+      solution: [
+        "Built dynamic pipeline automation using HubSpot API",
+        "Auto scoring leads and assigning via Slack alerts",
+      ],
+      results: [
+        { label: "Conversion rate", value: "+40%" },
+        { label: "Lead processing time", value: "-75%" },
+      ],
+      tech: "n8n, HubSpot API, Zapier, Slack",
+    },
+    {
+      id: "shopify-tracking-sync",
+      icon: ShoppingCart,
+      title: "Shopify Order Tracking Sync",
+      client: "E-commerce brand",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop",
+      challenge: ["Manual tracking updates to customers", "Slow Slack alerts for shipments"],
+      solution: ["Integrated Shopify API with Google Sheets and Slack", "Automated daily report and alert messages"],
+      results: [
+        { label: "Customer satisfaction", value: "+35%" },
+        { label: "Error reduction", value: "100%" },
+      ],
+      tech: "n8n, Shopify API, Google Sheets, Slack API",
+    },
+    {
+      id: "ai-content-workflow",
+      icon: Sparkles,
+      title: "AI Workflow: ChatGPT + n8n",
+      client: "Marketing agency",
+      image: "https://images.unsplash.com/photo-1554774853-b414d2a2b3b6?w=800&auto=format&fit=crop",
+      challenge: ["Manual content creation and scheduling"],
+      solution: [
+        "Integrated OpenAI API and social scheduler via n8n",
+        "Automated post generation and publishing to social media",
+      ],
+      results: [
+        { label: "Content throughput", value: "+3x" },
+        { label: "Time saved", value: "85%" },
+      ],
+      tech: "n8n, OpenAI API, Buffer API, Google Drive",
+    },
+    {
+      id: "telegram-alert-system",
+      icon: MessageSquare,
+      title: "Telegram Notification System",
+      client: "Analytics dashboard service",
+      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&auto=format&fit=crop",
+      challenge: ["Slow business metric alerts"],
+      solution: ["Created Telegram bot for real-time alerts via n8n webhooks"],
+      results: [
+        { label: "Alert delay", value: "<2 seconds" },
+        { label: "System uptime", value: "99.9%" },
+      ],
+      tech: "n8n, Telegram API, PostgreSQL, Webhooks",
+    },
+    {
+      id: "data-report-dashboard",
+      icon: BarChart3,
+      title: "Multi-platform Report Dashboard",
+      client: "Marketing analytics team",
+      image: "https://images.unsplash.com/photo-1508830524289-0adcbe822b40?w=800&auto=format&fit=crop",
+      challenge: ["Data from Ads, CRM, and Analytics scattered"],
+      solution: ["Pulled and unified data via n8n and API integrations"],
+      results: [
+        { label: "Reporting time reduced", value: "90%" },
+        { label: "Team visibility improved", value: "+70%" },
+      ],
+      tech: "n8n, Google Analytics, Meta Ads API, HubSpot API",
     },
   ];
 
@@ -194,7 +282,8 @@ const Portfolio = () => {
               Building Scalable Automation Systems for Modern Businesses
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              I help startups and enterprises streamline operations, integrate APIs, and automate repetitive workflows using n8n and cloud technologies.
+              I help startups and enterprises streamline operations, integrate APIs, and automate repetitive workflows
+              using n8n and cloud technologies.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Button size="lg" asChild>
@@ -224,7 +313,11 @@ const Portfolio = () => {
                 <Card key={index} className="overflow-hidden hover:shadow-xl transition-all">
                   <div className="grid md:grid-cols-2 gap-0">
                     <div className="relative h-64 md:h-auto overflow-hidden bg-muted">
-                      <img src={study.image} alt={study.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                      <img
+                        src={study.image}
+                        alt={study.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      />
                       <study.icon className="absolute bottom-4 left-4 w-12 h-12 text-primary" />
                     </div>
                     <div>
