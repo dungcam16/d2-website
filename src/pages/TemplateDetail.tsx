@@ -46,20 +46,6 @@ const TemplateDetail = () => {
     }
   }, [slug]);
 
-  useEffect(() => {
-    // Load n8n workflow embed script
-    if (template?.workflow_json) {
-      const script = document.createElement("script");
-      script.src = "https://unpkg.com/@n8n/embed@latest/dist/index.umd.js";
-      script.async = true;
-      document.body.appendChild(script);
-
-      return () => {
-        document.body.removeChild(script);
-      };
-    }
-  }, [template]);
-
   const fetchTemplate = async () => {
     try {
       const { data, error } = await supabase
@@ -247,36 +233,15 @@ const TemplateDetail = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
-            {/* n8n Workflow Embed giống n8n.io */}
-            {template.workflow_json && (
-              <div className="relative rounded-2xl bg-white/10 p-2 border border-border/50">
-                <div className="overflow-hidden rounded-xl shadow-2xl bg-white dark:bg-gray-900">
-                  <div
-                    className="workflow-embed-container"
-                    style={{ minHeight: "600px" }}
-                    dangerouslySetInnerHTML={{
-                      __html: `
-                        <n8n-demo 
-                          workflow='${JSON.stringify(template.workflow_json).replace(/'/g, "&apos;")}'
-                          mode="light"
-                        ></n8n-demo>
-                      `,
-                    }}
-                  />
-                </div>
-                <div className="mt-4 flex justify-end gap-2">
-                  <Button variant="outline" size="sm" asChild>
-                    <a href="https://n8n.d2group.co" target="_blank" rel="noopener noreferrer">
-                      Open in n8n <ExternalLink className="w-4 h-4 ml-1" />
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            )}
-
-            {!template.workflow_json && template.thumbnail_url && (
-              <div className="rounded-lg overflow-hidden border">
-                <img src={template.thumbnail_url} alt={template.title} className="w-full h-auto" />
+            {/* Workflow Thumbnail */}
+            {template.thumbnail_url && (
+              <div className="rounded-xl overflow-hidden border border-border/50 shadow-lg">
+                <img
+                  src={template.thumbnail_url}
+                  alt={`${template.title} - Workflow Preview`}
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
               </div>
             )}
 
