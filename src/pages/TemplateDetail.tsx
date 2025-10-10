@@ -252,7 +252,9 @@ const TemplateDetail = () => {
                           id="int_iframe"
                           className="embedded_workflow_iframe absolute top-0 left-0 w-full h-full border-0"
                           allow="clipboard-write"
-                          src="https://n8n-preview-service.internal.n8n.cloud/workflows/demo?theme=light"
+                          src={`https://n8n-preview-service.internal.n8n.cloud/workflows/demo?theme=light&workflow=${encodeURIComponent(
+                            JSON.stringify(template.workflow_json),
+                          )}`}
                           title={`n8n workflow preview - ${template.title}`}
                           loading="lazy"
                         />
@@ -263,7 +265,7 @@ const TemplateDetail = () => {
               </div>
             )}
 
-            {/* Fallback Thumbnail */}
+            {/* Fallback Thumbnail - Only show if no workflow_json */}
             {!template.workflow_json && template.thumbnail_url && (
               <div className="rounded-lg overflow-hidden border">
                 <img src={template.thumbnail_url} alt={template.title} className="w-full h-auto" />
