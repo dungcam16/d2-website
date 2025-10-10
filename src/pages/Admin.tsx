@@ -24,8 +24,10 @@ export default function Admin() {
 
   const checkAdminStatus = async () => {
     try {
-      const { data: { session } } = await supabase.auth.getSession();
-      
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
       if (!session) {
         setShowLogin(true);
         setLoading(false);
@@ -44,12 +46,12 @@ export default function Admin() {
       if (roles) {
         setIsAdmin(true);
       } else {
-        toast.error("Bạn không có quyền truy cập trang này");
+        toast.error("You do not have permission to access this page.");
         navigate("/");
       }
     } catch (error) {
       console.error("Error checking admin status:", error);
-      toast.error("Có lỗi xảy ra");
+      toast.error("An error occurred while verifying your permissions.");
       navigate("/");
     } finally {
       setLoading(false);
@@ -66,13 +68,13 @@ export default function Admin() {
           email,
           password,
           options: {
-            emailRedirectTo: `${window.location.origin}/admin`
-          }
+            emailRedirectTo: `${window.location.origin}/admin`,
+          },
         });
 
         if (error) throw error;
-        
-        toast.success("Đăng ký thành công! Vui lòng liên hệ admin để được cấp quyền.");
+
+        toast.success("Sign up successful! Please contact an administrator to grant you permissions.");
         setIsSignUp(false);
         setLoading(false);
       } else {
@@ -86,14 +88,14 @@ export default function Admin() {
         await checkAdminStatus();
       }
     } catch (error: any) {
-      toast.error(error.message || (isSignUp ? "Đăng ký thất bại" : "Đăng nhập thất bại"));
+      toast.error(error.message || (isSignUp ? "Sign up failed" : "Login failed"));
       setLoading(false);
     }
   };
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    toast.success("Đã đăng xuất");
+    toast.success("Logged out successfully.");
     navigate("/");
   };
 
@@ -112,10 +114,10 @@ export default function Admin() {
           <div className="mb-6 text-center">
             <h1 className="text-2xl font-bold mb-2">Admin CMS</h1>
             <p className="text-muted-foreground">
-              {isSignUp ? "Đăng ký tài khoản mới" : "Đăng nhập để truy cập hệ thống quản trị"}
+              {isSignUp ? "Create a new account" : "Log in to access the management system"}
             </p>
           </div>
-          
+
           <form onSubmit={handleAuth} className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium mb-2">
@@ -130,10 +132,10 @@ export default function Admin() {
                 required
               />
             </div>
-            
+
             <div>
               <label htmlFor="password" className="block text-sm font-medium mb-2">
-                Mật khẩu
+                Password
               </label>
               <input
                 id="password"
@@ -145,9 +147,9 @@ export default function Admin() {
                 minLength={6}
               />
             </div>
-            
+
             <Button type="submit" className="w-full" disabled={loading}>
-              {isSignUp ? "Đăng ký" : "Đăng nhập"}
+              {isSignUp ? "Sign Up" : "Log In"}
             </Button>
 
             <button
@@ -155,7 +157,7 @@ export default function Admin() {
               onClick={() => setIsSignUp(!isSignUp)}
               className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              {isSignUp ? "Đã có tài khoản? Đăng nhập" : "Chưa có tài khoản? Đăng ký"}
+              {isSignUp ? "Already have an account? Log In" : "Don't have an account? Sign Up"}
             </button>
           </form>
         </Card>
@@ -171,10 +173,10 @@ export default function Admin() {
     <div className="min-h-screen bg-background">
       <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">CMS - Hệ thống quản trị nội dung</h1>
+          <h1 className="text-2xl font-bold">CMS - Content Management System</h1>
           <Button onClick={handleLogout} variant="outline" size="sm">
             <LogOut className="h-4 w-4 mr-2" />
-            Đăng xuất
+            Logout
           </Button>
         </div>
       </header>
@@ -184,7 +186,7 @@ export default function Admin() {
           <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
             <TabsTrigger value="blog" className="flex items-center gap-2">
               <FileText className="h-4 w-4" />
-              Bài viết Blog
+              Blog Posts
             </TabsTrigger>
             <TabsTrigger value="templates" className="flex items-center gap-2">
               <Workflow className="h-4 w-4" />
