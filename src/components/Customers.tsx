@@ -1,56 +1,56 @@
 import React from "react";
 
-const Customers = () => {
-  const customers = [
-    {
-      name: "TechVision Corp",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-287.svg",
-    },
-    {
-      name: "CloudStack Solutions",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-289.svg",
-    },
-    {
-      name: "DataFlow Systems",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-296.svg",
-    },
-    {
-      name: "SmartLogix Pro",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-225.svg",
-    },
-    {
-      name: "NexGen Digital",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-265.svg",
-    },
-    {
-      name: "Quantum Labs",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-244.svg",
-    },
-    {
-      name: "Innovate Hub",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-217.svg",
-    },
-    {
-      name: "CodeCraft Studios",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-232.svg",
-    },
-    {
-      name: "Velocity Tech",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-239.svg",
-    },
-    {
-      name: "BrightPath Systems",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-250.svg",
-    },
-    {
-      name: "Apex Innovations",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-255.svg",
-    },
-    {
-      name: "Synergy Platforms",
-      logo: "https://cdn.jsdelivr.net/gh/untitledui/untitledui-js@latest/logos/logoipsum-261.svg",
-    },
-  ];
+const customers = [
+  { 
+    name: "TechVision Corp", 
+    logo: "https://logoipsum.com/logo/logo-1.svg"
+  },
+  { 
+    name: "CloudStack Solutions", 
+    logo: "https://logoipsum.com/logo/logo-2.svg"
+  },
+  { 
+    name: "DataFlow Systems", 
+    logo: "https://logoipsum.com/logo/logo-3.svg"
+  },
+  { 
+    name: "SmartLogix Pro", 
+    logo: "https://logoipsum.com/logo/logo-4.svg"
+  },
+  { 
+    name: "NexGen Digital", 
+    logo: "https://logoipsum.com/logo/logo-5.svg"
+  },
+  { 
+    name: "Quantum Labs", 
+    logo: "https://logoipsum.com/logo/logo-6.svg"
+  },
+  { 
+    name: "Innovate Hub", 
+    logo: "https://logoipsum.com/logo/logo-7.svg"
+  },
+  { 
+    name: "CodeCraft Studios", 
+    logo: "https://logoipsum.com/logo/logo-8.svg"
+  },
+  { 
+    name: "Velocity Tech", 
+    logo: "https://logoipsum.com/logo/logo-9.svg"
+  },
+  { 
+    name: "BrightPath Systems", 
+    logo: "https://logoipsum.com/logo/logo-10.svg"
+  },
+  { 
+    name: "Apex Innovations", 
+    logo: "https://logoipsum.com/logo/logo-11.svg"
+  },
+  { 
+    name: "Synergy Platforms", 
+    logo: "https://logoipsum.com/logo/logo-12.svg"
+  },
+];
+
 
   return (
     <section className="py-16 bg-gradient-subtle border-t">
