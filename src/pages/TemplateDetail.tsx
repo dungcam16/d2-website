@@ -243,243 +243,27 @@ const TemplateDetail = () => {
           <div className="lg:col-span-2 space-y-8">
             {/* n8n Workflow Interactive Preview */}
             {template.workflow_json && (
-              <div className="relative rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 p-3 border border-border/50 overflow-hidden">
-                <div className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl overflow-hidden">
-                  <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                    <iframe
-                      className="absolute top-0 left-0 w-full h-full border-0"
-                      srcDoc={`
-                        <!DOCTYPE html>
-                        <html>
-                          <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <style>
-                              * { margin: 0; padding: 0; box-sizing: border-box; }
-                              body {
-                                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                                padding: 20px;
-                                min-height: 100vh;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                              }
-                              .container {
-                                background: white;
-                                border-radius: 20px;
-                                padding: 40px;
-                                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-                                max-width: 1000px;
-                                width: 100%;
-                              }
-                              .header {
-                                display: flex;
-                                align-items: center;
-                                gap: 16px;
-                                margin-bottom: 32px;
-                                padding-bottom: 20px;
-                                border-bottom: 3px solid #e5e7eb;
-                              }
-                              .logo {
-                                width: 48px;
-                                height: 48px;
-                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                                border-radius: 12px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                color: white;
-                                font-weight: 800;
-                                font-size: 24px;
-                                box-shadow: 0 4px 6px -1px rgba(102, 126, 234, 0.3);
-                              }
-                              .title {
-                                font-size: 28px;
-                                font-weight: 800;
-                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                                -webkit-background-clip: text;
-                                -webkit-text-fill-color: transparent;
-                                background-clip: text;
-                              }
-                              .workflow-name {
-                                font-size: 20px;
-                                font-weight: 700;
-                                color: #1f2937;
-                                margin-bottom: 20px;
-                                display: flex;
-                                align-items: center;
-                                gap: 8px;
-                              }
-                              .stats {
-                                display: grid;
-                                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                                gap: 16px;
-                                margin: 24px 0;
-                              }
-                              .stat {
-                                background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-                                padding: 20px;
-                                border-radius: 12px;
-                                text-align: center;
-                                border: 2px solid #e5e7eb;
-                                transition: all 0.3s ease;
-                              }
-                              .stat:hover {
-                                transform: translateY(-2px);
-                                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-                                border-color: #667eea;
-                              }
-                              .stat-value {
-                                font-size: 32px;
-                                font-weight: 800;
-                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                                -webkit-background-clip: text;
-                                -webkit-text-fill-color: transparent;
-                                background-clip: text;
-                                margin-bottom: 4px;
-                              }
-                              .stat-label {
-                                font-size: 13px;
-                                color: #6b7280;
-                                font-weight: 600;
-                                text-transform: uppercase;
-                                letter-spacing: 0.5px;
-                              }
-                              .nodes-section {
-                                margin-top: 28px;
-                              }
-                              .section-title {
-                                font-size: 18px;
-                                font-weight: 700;
-                                color: #1f2937;
-                                margin-bottom: 16px;
-                                display: flex;
-                                align-items: center;
-                                gap: 8px;
-                              }
-                              .nodes-grid {
-                                display: grid;
-                                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-                                gap: 12px;
-                              }
-                              .node {
-                                background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-                                border: 2px solid #e2e8f0;
-                                border-radius: 12px;
-                                padding: 16px;
-                                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                                cursor: pointer;
-                              }
-                              .node:hover {
-                                transform: translateY(-4px) scale(1.02);
-                                box-shadow: 0 12px 24px -6px rgba(102, 126, 234, 0.2);
-                                border-color: #667eea;
-                              }
-                              .node-name {
-                                font-weight: 700;
-                                color: #2563eb;
-                                font-size: 15px;
-                                margin-bottom: 6px;
-                                display: flex;
-                                align-items: center;
-                                gap: 6px;
-                              }
-                              .node-type {
-                                font-size: 13px;
-                                color: #64748b;
-                                font-weight: 500;
-                              }
-                              .badge {
-                                display: inline-block;
-                                padding: 4px 12px;
-                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                                color: white;
-                                border-radius: 20px;
-                                font-size: 12px;
-                                font-weight: 600;
-                                margin-left: auto;
-                              }
-                              @media (max-width: 640px) {
-                                body { padding: 12px; }
-                                .container { padding: 24px; }
-                                .title { font-size: 20px; }
-                                .nodes-grid { grid-template-columns: 1fr; }
-                              }
-                            </style>
-                          </head>
-                          <body>
-                            <div class="container">
-                              <div class="header">
-                                <div class="logo">n8n</div>
-                                <div class="title">Workflow Preview</div>
-                              </div>
-                              
-                              <div class="workflow-name">
-                                <span>📊</span>
-                                <span>${template.workflow_json.name || template.title}</span>
-                              </div>
-
-                              <div class="stats">
-                                <div class="stat">
-                                  <div class="stat-value">${template.workflow_json.nodes?.length || 0}</div>
-                                  <div class="stat-label">Nodes</div>
-                                </div>
-                                <div class="stat">
-                                  <div class="stat-value">${
-                                    template.workflow_json.connections
-                                      ? Object.keys(template.workflow_json.connections).length
-                                      : 0
-                                  }</div>
-                                  <div class="stat-label">Connections</div>
-                                </div>
-                                <div class="stat">
-                                  <div class="stat-value">${template.integrations?.length || 0}</div>
-                                  <div class="stat-label">Integrations</div>
-                                </div>
-                              </div>
-
-                              ${
-                                template.workflow_json.nodes
-                                  ? `
-                                <div class="nodes-section">
-                                  <div class="section-title">
-                                    <span>⚙️</span>
-                                    <span>Workflow Nodes</span>
-                                    <span class="badge">${template.workflow_json.nodes.length}</span>
-                                  </div>
-                                  <div class="nodes-grid">
-                                    ${template.workflow_json.nodes
-                                      .map(
-                                        (node: any, idx: number) => `
-                                      <div class="node">
-                                        <div class="node-name">
-                                          <span>${idx + 1}.</span>
-                                          <span>${node.name}</span>
-                                        </div>
-                                        <div class="node-type">${node.type}</div>
-                                      </div>
-                                    `,
-                                      )
-                                      .join("")}
-                                  </div>
-                                </div>
-                              `
-                                  : ""
-                              }
-                            </div>
-                          </body>
-                        </html>
-                      `}
-                      title={`${template.title} - Interactive Workflow Preview`}
-                      sandbox="allow-same-origin"
-                    />
+              <div className="relative rounded-2xl bg-white/10 p-2 border border-border/50">
+                <div className="overflow-hidden rounded-xl shadow-2xl">
+                  <div className="bg-white">
+                    <div className="embedded_workflow">
+                      <div className="canvas-container relative w-full" style={{ paddingBottom: "60%" }}>
+                        <iframe
+                          id="int_iframe"
+                          className="embedded_workflow_iframe absolute top-0 left-0 w-full h-full border-0"
+                          allow="clipboard-write"
+                          src="https://n8n-preview-service.internal.n8n.cloud/workflows/demo?theme=light"
+                          title={`n8n workflow preview - ${template.title}`}
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Fallback Thumbnail - Only if no workflow_json */}
+            {/* Fallback Thumbnail */}
             {!template.workflow_json && template.thumbnail_url && (
               <div className="rounded-lg overflow-hidden border">
                 <img src={template.thumbnail_url} alt={template.title} className="w-full h-auto" />
