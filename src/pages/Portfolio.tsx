@@ -49,15 +49,6 @@ const Portfolio = () => {
     },
   };
 
-  const trustedBy = [
-    { name: "Fortune 500 E-commerce", logo: "🛒" },
-    { name: "SaaS Platform", logo: "💻" },
-    { name: "Real Estate Corp", logo: "🏢" },
-    { name: "Media Agency", logo: "📺" },
-    { name: "FinTech Startup", logo: "💰" },
-    { name: "Healthcare Tech", logo: "🏥" },
-  ];
-
   const featuredProjects = [
     {
       id: "youtube-automation",
