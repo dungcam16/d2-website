@@ -372,4 +372,24 @@ const Portfolio = () => {
               </div>
               <div className="flex items-center justify-center gap-3">
                 <MapPin className="w-6 h-6" />
-                <div className="text-left
+                <div className="text-left">
+                  <div className="text-sm opacity-80">Location</div>
+                  <div className="font-semibold">Ho Chi Minh City, Vietnam</div>
+                </div>
+              </div>
+            </div>
+            <Button size="lg" variant="secondary" asChild>
+              <Link to="/contact">
+                <Phone className="w-4 h-4 mr-2" /> Schedule Free Consultation
+              </Link>
+            </Button>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    </>
+  );
+};
+
+export default Portfolio;
