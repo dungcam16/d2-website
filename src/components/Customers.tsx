@@ -1,56 +1,21 @@
 import React from "react";
 
-const customers = [
-  { 
-    name: "TechVision Corp", 
-    logo: "https://logoipsum.com/logo/logo-1.svg"
-  },
-  { 
-    name: "CloudStack Solutions", 
-    logo: "https://logoipsum.com/logo/logo-2.svg"
-  },
-  { 
-    name: "DataFlow Systems", 
-    logo: "https://logoipsum.com/logo/logo-3.svg"
-  },
-  { 
-    name: "SmartLogix Pro", 
-    logo: "https://logoipsum.com/logo/logo-4.svg"
-  },
-  { 
-    name: "NexGen Digital", 
-    logo: "https://logoipsum.com/logo/logo-5.svg"
-  },
-  { 
-    name: "Quantum Labs", 
-    logo: "https://logoipsum.com/logo/logo-6.svg"
-  },
-  { 
-    name: "Innovate Hub", 
-    logo: "https://logoipsum.com/logo/logo-7.svg"
-  },
-  { 
-    name: "CodeCraft Studios", 
-    logo: "https://logoipsum.com/logo/logo-8.svg"
-  },
-  { 
-    name: "Velocity Tech", 
-    logo: "https://logoipsum.com/logo/logo-9.svg"
-  },
-  { 
-    name: "BrightPath Systems", 
-    logo: "https://logoipsum.com/logo/logo-10.svg"
-  },
-  { 
-    name: "Apex Innovations", 
-    logo: "https://logoipsum.com/logo/logo-11.svg"
-  },
-  { 
-    name: "Synergy Platforms", 
-    logo: "https://logoipsum.com/logo/logo-12.svg"
-  },
-];
-
+const Customers = () => {
+  // Logo placeholder từ Logoipsum - trông rất professional và realistic
+  const customers = [
+    { name: "TechVibe Solutions", logo: "https://logoipsum.com/logo/logo-1.svg" },
+    { name: "CloudNest Digital", logo: "https://logoipsum.com/logo/logo-2.svg" },
+    { name: "DataFlow Pro", logo: "https://logoipsum.com/logo/logo-3.svg" },
+    { name: "SmartHub Logistics", logo: "https://logoipsum.com/logo/logo-4.svg" },
+    { name: "GreenLeaf Ventures", logo: "https://logoipsum.com/logo/logo-5.svg" },
+    { name: "Quantum Retail", logo: "https://logoipsum.com/logo/logo-6.svg" },
+    { name: "Nexus Trading Co.", logo: "https://logoipsum.com/logo/logo-7.svg" },
+    { name: "BlueSky Media", logo: "https://logoipsum.com/logo/logo-8.svg" },
+    { name: "Urban Plate F&B", logo: "https://logoipsum.com/logo/logo-9.svg" },
+    { name: "Bright Path Education", logo: "https://logoipsum.com/logo/logo-10.svg" },
+    { name: "Wellness Plus Clinic", logo: "https://logoipsum.com/logo/logo-11.svg" },
+    { name: "Metro Properties", logo: "https://logoipsum.com/logo/logo-12.svg" },
+  ];
 
   return (
     <section className="py-16 bg-gradient-subtle border-t">
