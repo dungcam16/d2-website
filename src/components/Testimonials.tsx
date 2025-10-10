@@ -1,6 +1,6 @@
-import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Star, Quote } from 'lucide-react';
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Star, Quote } from "lucide-react";
 
 interface Testimonial {
   name: string;
@@ -13,47 +13,53 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Nguyễn Văn A",
+    name: "John Nguyen",
     position: "CEO",
     company: "TechCorp Vietnam",
-    content: "D2 Group đã giúp chúng tôi tự động hóa 90% quy trình thủ công, tiết kiệm hơn 40 giờ làm việc mỗi tuần. ROI đạt được chỉ sau 3 tháng triển khai.",
-    rating: 5
+    content:
+      "D2 Group helped us automate 90% of our manual processes, saving over 40 work hours per week. We achieved a positive ROI in just 3 months of implementation.",
+    rating: 5,
   },
   {
-    name: "Trần Thị B",
+    name: "Jane Tran",
     position: "Marketing Director",
     company: "E-commerce Plus",
-    content: "Chiến lược content marketing của D2 Group đã giúp chúng tôi tăng 300% lưu lượng tự nhiên và tăng 250% tỷ lệ chuyển đổi trong 6 tháng.",
-    rating: 5
+    content:
+      "D2 Group's content marketing strategy helped us increase organic traffic by 300% and boost our conversion rate by 250% within 6 months.",
+    rating: 5,
   },
   {
-    name: "Lê Minh C",
+    name: "Michael Le",
     position: "CTO",
     company: "FinTech Solutions",
-    content: "Giải pháp N8N automation của D2 Group rất chuyên nghiệp. Đội ngũ hỗ trợ tận tình, triển khai đúng tiến độ và hiệu quả vượt mong đợi.",
-    rating: 5
+    content:
+      "The N8N automation solution from D2 Group is highly professional. Their support team is dedicated, the implementation was on schedule, and the results exceeded our expectations.",
+    rating: 5,
   },
   {
-    name: "Phạm Thu D",
+    name: "Diana Pham",
     position: "Operations Manager",
     company: "Logistics Pro",
-    content: "Chatbot AI của D2 Group xử lý 85% yêu cầu khách hàng tự động, giảm thời gian phản hồi từ 2 giờ xuống còn 2 phút. Khách hàng rất hài lòng.",
-    rating: 5
+    content:
+      "D2 Group's AI Chatbot handles 85% of customer inquiries automatically, reducing our response time from 2 hours to just 2 minutes. Our customers are very satisfied.",
+    rating: 5,
   },
   {
-    name: "Hoàng Minh E",
+    name: "David Hoang",
     position: "Founder",
     company: "SaaS Startup",
-    content: "Dịch vụ SEO technical của D2 Group đã đưa website chúng tôi lên top 3 cho 15 từ khóa quan trọng. Traffic tăng 400% chỉ trong 4 tháng.",
-    rating: 5
+    content:
+      "D2 Group's technical SEO service brought our website to the top 3 for 15 important keywords. Our traffic increased by 400% in just 4 months.",
+    rating: 5,
   },
   {
-    name: "Đặng Thị F",
+    name: "Sarah Dang",
     position: "Business Development",
     company: "Manufacturing Corp",
-    content: "D2 Group không chỉ cung cấp giải pháp mà còn là đối tác chiến lược. Họ hiểu rõ ngành của chúng tôi và đưa ra các giải pháp phù hợp nhất.",
-    rating: 5
-  }
+    content:
+      "D2 Group is more than just a solution provider; they are a strategic partner. They deeply understand our industry and offer the most suitable solutions.",
+    rating: 5,
+  },
 ];
 
 const Testimonials = () => {
@@ -62,17 +68,17 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Khách Hàng Nói Gì Về <span className="text-primary">D2 Group</span>
+            What Our Clients Say About <span className="text-primary">D2 Group</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Hơn 200+ doanh nghiệp B2B tin tưởng và đồng hành cùng D2 Group
+            Over 200+ B2B businesses trust and partner with D2 Group.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="gradient-card relative animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -80,22 +86,18 @@ const Testimonials = () => {
                 <div className="absolute top-4 right-4 text-primary/20">
                   <Quote className="h-8 w-8" />
                 </div>
-                
+
                 <div className="flex items-center gap-1 mb-4">
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                   ))}
                 </div>
 
-                <p className="text-foreground mb-6 italic">
-                  "{testimonial.content}"
-                </p>
+                <p className="text-foreground mb-6 italic">"{testimonial.content}"</p>
 
                 <div className="flex items-center gap-3">
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-bold text-lg">
-                      {testimonial.name.charAt(0)}
-                    </span>
+                    <span className="text-primary font-bold text-lg">{testimonial.name.charAt(0)}</span>
                   </div>
                   <div>
                     <div className="font-semibold text-foreground">{testimonial.name}</div>
