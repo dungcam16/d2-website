@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -25,30 +24,15 @@ import {
   Phone,
   Mail,
   MapPin,
-  Zap,
   Users,
   Globe,
   Clock,
   DollarSign,
   Star,
-  ChevronDown,
-  ChevronUp,
   AlertTriangle,
 } from "lucide-react";
 
 const Portfolio = () => {
-  const [expandedCards, setExpandedCards] = useState(new Set());
-
-  const toggleCard = (index) => {
-    const newExpanded = new Set(expandedCards);
-    if (newExpanded.has(index)) {
-      newExpanded.delete(index);
-    } else {
-      newExpanded.add(index);
-    }
-    setExpandedCards(newExpanded);
-  };
-
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -65,7 +49,6 @@ const Portfolio = () => {
     },
   };
 
-  // Client logos for social proof
   const trustedBy = [
     { name: "Fortune 500 E-commerce", logo: "🛒" },
     { name: "SaaS Platform", logo: "💻" },
@@ -84,14 +67,12 @@ const Portfolio = () => {
       client: "Media channel with 100K+ subscribers",
       image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop",
       excerpt: "Automated video publishing workflow reducing manual work by 95%",
-      challenge:
-        "Manual upload of 10+ videos daily consuming 4 hours. Inconsistent metadata and branding setup with lack of monitoring and backup system.",
-      solution:
-        "Full-stack n8n automation with YouTube API, AI integration, and media processing. Designed automated workflow with audio pre-processing using FFmpeg and dynamic thumbnail generation with ImageMagick.",
+      challenge: "Manual upload of 10+ videos daily consuming 4 hours. Inconsistent metadata and branding setup.",
+      solution: "Full-stack n8n automation with YouTube API, AI integration, and FFmpeg media processing.",
       results: [
         { label: "Time saved", value: "95%" },
-        { label: "Error reduction", value: "100%" },
-        { label: "Monthly savings", value: "$2,000" },
+        { label: "Zero errors", value: "6 months" },
+        { label: "Savings", value: "$2K/mo" },
       ],
       tech: ["n8n", "YouTube API", "FFmpeg", "Google Cloud", "Docker"],
     },
@@ -103,14 +84,12 @@ const Portfolio = () => {
       client: "Real Estate company (50+ staff)",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
       excerpt: "Intelligent lead scoring and routing system increasing conversions by 40%",
-      challenge:
-        "Leads scattered across multiple platforms with manual lead scoring and assignment causing delayed customer follow-ups.",
-      solution:
-        "Centralized lead management with n8n featuring automated lead scoring based on customer behavior, smart assignment using weighted logic, and multi-channel automated follow-ups via email and chat.",
+      challenge: "Leads scattered across platforms with manual scoring and delayed follow-ups.",
+      solution: "Automated lead management with smart scoring and multi-channel follow-ups.",
       results: [
-        { label: "Conversion rate", value: "+40%" },
-        { label: "Processing time", value: "-75%" },
-        { label: "Revenue growth", value: "$15K/mo" },
+        { label: "Conversion", value: "+40%" },
+        { label: "Speed", value: "-75%" },
+        { label: "Revenue", value: "$15K/mo" },
       ],
       tech: ["n8n", "HubSpot", "Slack", "Google Analytics"],
     },
@@ -122,13 +101,11 @@ const Portfolio = () => {
       client: "Online store with 1,000+ SKUs",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop",
       excerpt: "Real-time inventory synchronization across 5 sales channels",
-      challenge:
-        "Manual stock updates causing frequent stockouts, slow supplier communication, and inefficient product monitoring across multiple sales channels.",
-      solution:
-        "Implemented real-time inventory monitoring with automated reorder notifications to suppliers and multi-store stock synchronization workflows ensuring 100% accuracy.",
+      challenge: "Manual stock updates causing frequent stockouts and inefficient monitoring.",
+      solution: "Real-time inventory monitoring with automated supplier notifications.",
       results: [
-        { label: "Stockouts reduced", value: "90%" },
-        { label: "Cost savings", value: "30%" },
+        { label: "Stockouts", value: "-90%" },
+        { label: "Cost", value: "-30%" },
         { label: "Accuracy", value: "100%" },
       ],
       tech: ["n8n", "WooCommerce", "PostgreSQL", "Telegram"],
@@ -141,14 +118,12 @@ const Portfolio = () => {
       client: "Digital marketing agency",
       image: "https://images.unsplash.com/photo-1554774853-b414d2a2b3b6?w=800&auto=format&fit=crop",
       excerpt: "Automated content creation and social publishing with AI",
-      challenge:
-        "Manual content creation bottleneck limiting content production capacity and creating inconsistent posting schedules.",
-      solution:
-        "OpenAI API integration with automated scheduling and publishing workflow. Content generated, reviewed, and distributed across multiple social platforms automatically.",
+      challenge: "Manual content creation bottleneck limiting production capacity.",
+      solution: "OpenAI integration with automated scheduling across social platforms.",
       results: [
-        { label: "Content output", value: "+3x" },
-        { label: "Time saved", value: "85%" },
-        { label: "Quality score", value: "4.5/5" },
+        { label: "Output", value: "+3x" },
+        { label: "Time", value: "-85%" },
+        { label: "Quality", value: "4.5/5" },
       ],
       tech: ["n8n", "OpenAI", "Buffer", "Google Drive"],
     },
@@ -160,14 +135,12 @@ const Portfolio = () => {
       client: "Tech startup (25 employees)",
       image: "https://images.unsplash.com/photo-1581092334538-6a7f1f57c6f5?w=800&auto=format&fit=crop",
       excerpt: "Bi-directional sync between communication and project management",
-      challenge:
-        "Disjointed communication between Slack and Notion with manual task duplication across platforms causing information silos.",
-      solution:
-        "Real-time synchronization bot with smart task creation. Messages automatically converted to tasks, database updates reflected in Slack, and seamless bi-directional sync.",
+      challenge: "Disjointed communication with manual task duplication across platforms.",
+      solution: "Real-time synchronization bot with smart task creation and updates.",
       results: [
-        { label: "Team efficiency", value: "+60%" },
-        { label: "Manual work", value: "-90%" },
-        { label: "Adoption rate", value: "98%" },
+        { label: "Efficiency", value: "+60%" },
+        { label: "Manual", value: "-90%" },
+        { label: "Adoption", value: "98%" },
       ],
       tech: ["n8n", "Slack API", "Notion API", "Node.js"],
     },
@@ -179,14 +152,12 @@ const Portfolio = () => {
       client: "Marketing analytics team",
       image: "https://images.unsplash.com/photo-1508830524289-0adcbe822b40?w=800&auto=format&fit=crop",
       excerpt: "Unified reporting dashboard aggregating data from 8 platforms",
-      challenge:
-        "Marketing data scattered across Google Analytics, Meta Ads, HubSpot, and 5 other platforms making comprehensive reporting nearly impossible.",
-      solution:
-        "Automated data collection and unified reporting system pulling data from all platforms daily, normalizing metrics, and generating comprehensive dashboards automatically.",
+      challenge: "Data scattered across multiple platforms making reporting impossible.",
+      solution: "Automated data collection and unified dashboard with normalized metrics.",
       results: [
         { label: "Report time", value: "-90%" },
-        { label: "Data accuracy", value: "99%" },
-        { label: "Insights gained", value: "+70%" },
+        { label: "Accuracy", value: "99%" },
+        { label: "Insights", value: "+70%" },
       ],
       tech: ["n8n", "Google Analytics", "Meta Ads", "HubSpot"],
     },
@@ -198,12 +169,10 @@ const Portfolio = () => {
       client: "SaaS platform",
       image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&auto=format&fit=crop",
       excerpt: "Instant business alerts via Telegram for critical events",
-      challenge:
-        "Delayed awareness of system issues, server problems, and critical business events leading to slow response times and customer impact.",
-      solution:
-        "Webhook-based real-time alerting system integrated with Telegram. Instant notifications for errors, performance issues, and business-critical events with custom priority routing.",
+      challenge: "Delayed awareness of system issues leading to slow response times.",
+      solution: "Webhook-based alerting with instant Telegram notifications.",
       results: [
-        { label: "Alert speed", value: "<2s" },
+        { label: "Alert", value: "<2s" },
         { label: "Uptime", value: "99.9%" },
         { label: "MTTR", value: "-80%" },
       ],
@@ -217,14 +186,12 @@ const Portfolio = () => {
       client: "Fashion e-commerce brand",
       image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&auto=format&fit=crop",
       excerpt: "End-to-end order processing and customer communication",
-      challenge:
-        "Manual tracking updates to customers causing delays and high support ticket volume. Inconsistent communication leading to customer dissatisfaction.",
-      solution:
-        "Automated order workflow with customer notifications at every stage. Integrated Shopify API with Google Sheets tracking and Slack alerts for team coordination.",
+      challenge: "Manual tracking updates causing delays and high support tickets.",
+      solution: "Automated order workflow with stage-based customer notifications.",
       results: [
-        { label: "Customer satisfaction", value: "+35%" },
-        { label: "Support tickets", value: "-60%" },
-        { label: "Processing time", value: "-50%" },
+        { label: "CSAT", value: "+35%" },
+        { label: "Tickets", value: "-60%" },
+        { label: "Speed", value: "-50%" },
       ],
       tech: ["n8n", "Shopify", "Google Sheets", "Slack"],
     },
@@ -236,14 +203,12 @@ const Portfolio = () => {
       client: "B2B SaaS company",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop",
       excerpt: "Dynamic lead scoring and automated pipeline management",
-      challenge:
-        "Inefficient lead qualification process with manual scoring causing slow sales cycles and inconsistent deal progression.",
-      solution:
-        "Smart scoring algorithm with automated deal progression based on engagement metrics, behavior tracking, and custom business rules. Automated notifications and task assignments.",
+      challenge: "Inefficient lead qualification with slow sales cycles.",
+      solution: "Smart scoring with automated progression based on engagement metrics.",
       results: [
-        { label: "Sales cycle", value: "-30%" },
+        { label: "Cycle", value: "-30%" },
         { label: "Win rate", value: "+25%" },
-        { label: "Lead quality", value: "+45%" },
+        { label: "Quality", value: "+45%" },
       ],
       tech: ["n8n", "HubSpot", "Zapier", "Slack"],
     },
@@ -357,7 +322,6 @@ const Portfolio = () => {
               growth for B2B companies worldwide.
             </p>
 
-            {/* Stats Bar */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
@@ -430,7 +394,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Case Studies Grid 3x3 with Expandable Details */}
+        {/* Case Studies Grid - Always Show Challenge & Solution */}
         <section id="projects" className="py-20 px-6 bg-muted/30">
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-12">
@@ -439,102 +403,87 @@ const Portfolio = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredProjects.map((project, index) => {
-                const isExpanded = expandedCards.has(index);
+              {featuredProjects.map((project, index) => (
+                <Card
+                  key={index}
+                  className="group hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
+                >
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden bg-muted">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <project.icon className="absolute bottom-4 left-4 w-8 h-8 text-white" />
+                    <Badge className="absolute top-4 right-4 bg-primary">{project.category}</Badge>
+                  </div>
 
-                return (
-                  <Card
-                    key={index}
-                    className="group hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
-                  >
-                    <div className="relative h-48 overflow-hidden bg-muted">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <project.icon className="absolute bottom-4 left-4 w-8 h-8 text-white" />
-                      <Badge className="absolute top-4 right-4 bg-primary">{project.category}</Badge>
+                  {/* Header */}
+                  <CardHeader>
+                    <CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className="text-xs">{project.client}</CardDescription>
+                  </CardHeader>
+
+                  {/* Content - Always Visible */}
+                  <CardContent className="pt-0 space-y-4 flex-grow">
+                    {/* Challenge & Solution - Always Displayed */}
+                    <div className="space-y-3">
+                      <div>
+                        <h4 className="font-semibold text-xs text-destructive mb-1 flex items-center gap-1">
+                          <AlertTriangle className="w-3 h-3" />
+                          Challenge:
+                        </h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{project.challenge}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-xs text-primary mb-1 flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3" />
+                          Solution:
+                        </h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{project.solution}</p>
+                      </div>
                     </div>
 
-                    <CardHeader className="flex-grow">
-                      <CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors">
-                        {project.title}
-                      </CardTitle>
-                      <CardDescription className="line-clamp-2">{project.excerpt}</CardDescription>
-                    </CardHeader>
+                    <Separator />
 
-                    <CardContent className="pt-0 space-y-4">
-                      {/* Expandable Details */}
-                      {isExpanded && (
-                        <div className="space-y-3 border-t pt-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                          <div>
-                            <h4 className="font-semibold text-sm text-destructive mb-1 flex items-center gap-1">
-                              <AlertTriangle className="w-4 h-4" />
-                              Challenge:
-                            </h4>
-                            <p className="text-xs text-muted-foreground">{project.challenge}</p>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-sm text-primary mb-1 flex items-center gap-1">
-                              <CheckCircle2 className="w-4 h-4" />
-                              Solution:
-                            </h4>
-                            <p className="text-xs text-muted-foreground">{project.solution}</p>
-                          </div>
-                          <Separator />
+                    {/* Results Grid */}
+                    <div className="grid grid-cols-3 gap-2">
+                      {project.results.map((result, idx) => (
+                        <div key={idx} className="text-center p-2 bg-primary/5 rounded">
+                          <div className="text-base font-bold text-primary">{result.value}</div>
+                          <div className="text-xs text-muted-foreground line-clamp-1">{result.label}</div>
                         </div>
+                      ))}
+                    </div>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-1">
+                      {project.tech.slice(0, 3).map((tech, idx) => (
+                        <Badge key={idx} variant="outline" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.tech.length > 3 && (
+                        <Badge variant="outline" className="text-xs">
+                          +{project.tech.length - 3}
+                        </Badge>
                       )}
+                    </div>
 
-                      {/* Results Grid */}
-                      <div className="grid grid-cols-3 gap-2">
-                        {project.results.map((result, idx) => (
-                          <div key={idx} className="text-center p-2 bg-primary/5 rounded">
-                            <div className="text-lg font-bold text-primary">{result.value}</div>
-                            <div className="text-xs text-muted-foreground line-clamp-1">{result.label}</div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-1">
-                        {project.tech.slice(0, 3).map((tech, idx) => (
-                          <Badge key={idx} variant="outline" className="text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
-                        {project.tech.length > 3 && (
-                          <Badge variant="outline" className="text-xs">
-                            +{project.tech.length - 3}
-                          </Badge>
-                        )}
-                      </div>
-
-                      {/* Toggle Details Button */}
-                      <Button variant="ghost" size="sm" className="w-full" onClick={() => toggleCard(index)}>
-                        {isExpanded ? (
-                          <>
-                            Hide Details <ChevronUp className="w-4 h-4 ml-2" />
-                          </>
-                        ) : (
-                          <>
-                            Show Details <ChevronDown className="w-4 h-4 ml-2" />
-                          </>
-                        )}
-                      </Button>
-
-                      {/* View Full Case Study */}
-                      <Button variant="outline" size="sm" className="w-full" asChild>
-                        <Link to={`/case-study/${project.id}`}>
-                          View Full Case Study <ArrowRight className="w-4 h-4 ml-2" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+                    {/* CTA */}
+                    <Button variant="outline" size="sm" className="w-full mt-auto" asChild>
+                      <Link to={`/case-study/${project.id}`}>
+                        View Full Case Study <ArrowRight className="w-4 h-4 ml-2" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
 
             <div className="text-center mt-12">
