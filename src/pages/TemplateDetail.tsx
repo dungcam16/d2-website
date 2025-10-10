@@ -241,24 +241,102 @@ const TemplateDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* n8n Workflow Interactive Preview */}
+            {/* n8n Workflow Visual Preview */}
             {template.workflow_json && (
-              <div className="relative rounded-2xl bg-white/10 p-2 border border-border/50">
-                <div className="overflow-hidden rounded-xl shadow-2xl">
-                  <div className="bg-white">
-                    <div className="embedded_workflow">
-                      <div className="canvas-container relative w-full" style={{ paddingBottom: "60%" }}>
-                        <iframe
-                          id="int_iframe"
-                          className="embedded_workflow_iframe absolute top-0 left-0 w-full h-full border-0"
-                          allow="clipboard-write"
-                          src={`https://n8n-preview-service.internal.n8n.cloud/workflows/demo?theme=light&workflow=${encodeURIComponent(
-                            JSON.stringify(template.workflow_json),
-                          )}`}
-                          title={`n8n workflow preview - ${template.title}`}
-                          loading="lazy"
-                        />
+              <div className="relative rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 p-4 border border-border/50">
+                <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6">
+                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center shadow-md">
+                        <span className="text-white font-bold text-xl">n8n</span>
                       </div>
+                      <div>
+                        <h3 className="text-xl font-bold">{template.workflow_json.name || template.title}</h3>
+                        <p className="text-sm text-muted-foreground">Workflow Preview</p>
+                      </div>
+                    </div>
+                    <a
+                      href="https://n8n.d2group.co"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline text-sm flex items-center gap-1"
+                    >
+                      Open in n8n <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+
+                  {/* Workflow Stats */}
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="text-center p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
+                      <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                        {template.workflow_json.nodes?.length || 0}
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Nodes</div>
+                    </div>
+                    <div className="text-center p-4 bg-green-50 dark:bg-green-950 rounded-lg">
+                      <div className="text-3xl font-bold text-green-600 dark:text-green-400">
+                        {template.workflow_json.connections
+                          ? Object.keys(template.workflow_json.connections).length
+                          : 0}
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Connections</div>
+                    </div>
+                    <div className="text-center p-4 bg-purple-50 dark:bg-purple-950 rounded-lg">
+                      <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
+                        {template.integrations?.length || 0}
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Integrations</div>
+                    </div>
+                  </div>
+
+                  {/* Workflow Nodes Flow */}
+                  {template.workflow_json.nodes && template.workflow_json.nodes.length > 0 && (
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-foreground mb-3">Workflow Steps</h4>
+                      <div className="relative">
+                        {template.workflow_json.nodes.map((node: any, idx: number) => (
+                          <div key={idx} className="relative">
+                            <div className="flex items-center gap-3 mb-3">
+                              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center font-bold shadow-md">
+                                {idx + 1}
+                              </div>
+                              <div className="flex-1 p-4 bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-lg border border-border hover:shadow-md transition-shadow">
+                                <div className="flex items-center justify-between">
+                                  <div className="flex-1">
+                                    <div className="font-semibold text-foreground">{node.name}</div>
+                                    <div className="text-sm text-muted-foreground mt-1">{node.type}</div>
+                                  </div>
+                                  <Badge variant="outline" className="ml-2">
+                                    {node.type.split(".")[0]}
+                                  </Badge>
+                                </div>
+                              </div>
+                            </div>
+                            {idx < template.workflow_json.nodes.length - 1 && (
+                              <div className="ml-5 h-6 w-0.5 bg-gradient-to-b from-blue-400 to-blue-200 mb-1" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Import to n8n Button */}
+                  <div className="mt-6 pt-6 border-t border-border">
+                    <div className="flex gap-3">
+                      <Button onClick={handleDownload} variant="outline" className="flex-1">
+                        <Download className="mr-2 h-4 w-4" />
+                        Download JSON
+                      </Button>
+                      <Button
+                        asChild
+                        className="flex-1 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600"
+                      >
+                        <a href="https://n8n.d2group.co" target="_blank" rel="noopener noreferrer">
+                          Open in n8n
+                          <ExternalLink className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
                     </div>
                   </div>
                 </div>
