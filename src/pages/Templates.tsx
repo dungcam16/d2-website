@@ -54,8 +54,8 @@ const Templates = () => {
     } catch (error) {
       console.error("Error fetching templates:", error);
       toast({
-        title: "Lỗi",
-        description: "Không thể tải danh sách workflow templates",
+        title: "Error",
+        description: "Unable to load workflow templates list",
         variant: "destructive",
       });
     } finally {
@@ -67,7 +67,7 @@ const Templates = () => {
     const matchesSearch =
       template.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (template.description && template.description.toLowerCase().includes(searchTerm.toLowerCase()));
-    
+
     const matchesCategory = !selectedCategory || template.category === selectedCategory;
     const matchesTag = !selectedTag || (template.tags && template.tags.includes(selectedTag));
 
@@ -94,26 +94,24 @@ const Templates = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="N8N Workflow Templates - D2 Group"
-        description="Khám phá thư viện workflow templates tự động hóa của D2 Group. Tải về và sử dụng ngay các mẫu workflow N8N chuyên nghiệp."
-        keywords="n8n workflow, workflow templates, automation templates, n8n examples, tự động hóa quy trình"
+        description="Explore D2 Group's automation workflow templates library. Download and use professional N8N workflow templates right away."
+        keywords="n8n workflow, workflow templates, automation templates, n8n examples, process automation"
       />
       <Header />
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto max-w-6xl text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Thư Viện Workflow Templates
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Workflow Templates Library</h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Khám phá và tải về các workflow templates N8N được thiết kế sẵn, giúp bạn tự động hóa quy trình nhanh chóng
+            Discover and download pre-designed N8N workflow templates to automate your processes quickly
           </p>
           <div className="max-w-2xl mx-auto">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
               <Input
                 type="text"
-                placeholder="Tìm kiếm workflow templates..."
+                placeholder="Search workflow templates..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10 h-12 text-lg"
@@ -130,7 +128,7 @@ const Templates = () => {
             {/* Categories */}
             <Card>
               <CardHeader>
-                <h3 className="text-lg font-semibold">Danh Mục</h3>
+                <h3 className="text-lg font-semibold">Categories</h3>
               </CardHeader>
               <CardContent className="space-y-2">
                 <button
@@ -139,7 +137,7 @@ const Templates = () => {
                     !selectedCategory ? "bg-primary text-primary-foreground" : "hover:bg-accent"
                   }`}
                 >
-                  Tất cả
+                  All
                 </button>
                 {allCategories.map((category) => (
                   <button
@@ -184,7 +182,8 @@ const Templates = () => {
           <main className="lg:col-span-3">
             <div className="mb-6 flex items-center justify-between">
               <p className="text-muted-foreground">
-                Tìm thấy <span className="font-semibold text-foreground">{filteredTemplates.length}</span> workflow templates
+                Found <span className="font-semibold text-foreground">{filteredTemplates.length}</span> workflow
+                templates
               </p>
             </div>
 
@@ -203,7 +202,7 @@ const Templates = () => {
               </div>
             ) : filteredTemplates.length === 0 ? (
               <Card className="p-12 text-center">
-                <p className="text-muted-foreground text-lg">Không tìm thấy workflow templates nào</p>
+                <p className="text-muted-foreground text-lg">No workflow templates found</p>
               </Card>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -233,10 +232,8 @@ const Templates = () => {
                         <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                           {template.title}
                         </h3>
-                        <p className="text-muted-foreground mb-4 line-clamp-2">
-                          {template.description}
-                        </p>
-                        
+                        <p className="text-muted-foreground mb-4 line-clamp-2">{template.description}</p>
+
                         {template.integrations && template.integrations.length > 0 && (
                           <div className="flex flex-wrap gap-1 mb-4">
                             {template.integrations.slice(0, 3).map((integration, idx) => (
