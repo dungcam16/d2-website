@@ -30,9 +30,6 @@ import {
   DollarSign,
   Star,
   AlertTriangle,
-  FileText,
-  Calendar,
-  Bell,
 } from "lucide-react";
 
 const Portfolio = () => {
@@ -45,7 +42,11 @@ const Portfolio = () => {
     url: "https://d2group.co/portfolio",
     areaServed: "International",
     priceRange: "$$-$$$",
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "50" },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "50",
+    },
   };
 
   const featuredProjects = [
@@ -333,22 +334,6 @@ const Portfolio = () => {
                   <Target className="w-4 h-4 mr-2" /> View Case Studies
                 </a>
               </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Social Proof */}
-        <section className="py-12 px-6 border-y bg-muted/30">
-          <div className="container mx-auto max-w-6xl">
-            <p className="text-center text-sm text-muted-foreground mb-6 uppercase tracking-wider">
-              Trusted by Leading Companies
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              {trustedBy.map((client, index) => (
-                <div key={index} className="text-4xl opacity-60 hover:opacity-100 transition-opacity">
-                  {client.logo}
-                </div>
-              ))}
             </div>
           </div>
         </section>
