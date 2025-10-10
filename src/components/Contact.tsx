@@ -1,4 +1,4 @@
-import React, { useState } from "eact";
+import React, { useState } from "react";
 import { Send, MapPin, Phone, Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -41,7 +41,7 @@ const Contact = () => {
           message: "",
         });
       } else {
-        throw new Error("Form submission failed");
+        throw new Error("Failed to submit the form");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -60,7 +60,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Our Office",
-      description: "3 Nguyen Co Thach, An Khanh Ward, Ho Chi Minh City, Vietnam",
+      description: "No. 3, Nguyen Co Thach, An Khanh Ward, Ho Chi Minh City, Vietnam",
       color: "text-muted-foreground",
     },
     {
@@ -103,7 +103,7 @@ const Contact = () => {
             <div className="mb-8">
               <h3 className="text-2xl font-bold font-heading mb-4">Get a Free Consultation</h3>
               <p className="text-muted-foreground">
-                Share your automation needs, and we'll create a custom solution for your business.
+                Share your automation needs and we'll create a custom solution for your business.
               </p>
             </div>
 
@@ -165,7 +165,7 @@ const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Share your automation needs..."
+                  placeholder="Tell us about your automation needs..."
                   className="bg-card/50 border-border focus:border-primary transition-colors min-h-[120px]"
                   required
                 />
@@ -233,9 +233,9 @@ const Contact = () => {
             >
               <h4 className="text-xl font-bold text-foreground mb-2">Ready for Automation?</h4>
               <p className="text-muted-foreground mb-4 text-sm">
-                Join 50+ Vietnamese businesses that have benefited from our automation solutions.
+                Join over 50+ Vietnamese businesses that have benefited from our automation solutions.
               </p>
-              <Button className="shadow-glow">Schedule a Demo</Button>
+              <Button className="shadow-glow">Book a Demo</Button>
             </Card>
           </div>
         </div>
