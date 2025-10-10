@@ -39,15 +39,15 @@ const Partners = () => {
         {/* Header */}
         <div className="text-center mb-12 animate-slide-up">
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
-            <span className="text-foreground">Nền Tảng </span>
-            <span className="text-primary">Công Nghệ</span>
+            <span className="text-foreground">Our </span>
+            <span className="text-primary">Technology Stack</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Chúng tôi sử dụng nền tảng công nghệ của các thương hiệu hàng đầu thế giới
+            We leverage technology platforms from the world's leading brands.
           </p>
         </div>
 
-        {/* Scrolling Customers */}
+        {/* Scrolling Partners */}
         <div className="relative overflow-hidden">
           <div className="flex animate-scroll-horizontal space-x-12">
             {[...partners, ...partners, ...partners].map((partner, index) => (
@@ -58,7 +58,7 @@ const Partners = () => {
                 <div className="text-center">
                   <img
                     src={partner.logo}
-                    alt={`Logo đối tác công nghệ ${partner.name} của D2 Group`}
+                    alt={`Logo of ${partner.name} - D2 Group's Technology Partner`}
                     className="h-12 w-auto mx-auto mb-2 object-contain"
                     loading="lazy"
                     onError={(e) => {
