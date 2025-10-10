@@ -1,444 +1,464 @@
-import React, { useState } from 'react';
-import { 
-  Code, Globe, Smartphone, Zap, ArrowRight, CheckCircle, 
-  Phone, Mail, Users, Clock, TrendingUp, Shield, Settings, BarChart3,
-  Monitor, Search, ChevronDown, Star, PlayCircle, Layers, Palette,
-  ExternalLink
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import SEO from '@/components/SEO';
+import React, { useState } from "react";
+import {
+  Code,
+  Globe,
+  Smartphone,
+  Zap,
+  ArrowRight,
+  CheckCircle,
+  Phone,
+  Mail,
+  Users,
+  Clock,
+  TrendingUp,
+  Shield,
+  Settings,
+  BarChart3,
+  Monitor,
+  Search,
+  ChevronDown,
+  Star,
+  PlayCircle,
+  Layers,
+  Palette,
+  ExternalLink,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const WebsiteService = () => {
-
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Dịch vụ Thiết kế Website",
-    "provider": {
+    name: "Professional Website Design Services",
+    provider: {
       "@type": "Organization",
-      "name": "D2 Group",
-      "url": "https://d2group.co"
+      name: "D2 Group",
+      url: "https://d2group.co",
     },
-    "description": "Công ty thiết kế website chuyên nghiệp. Dịch vụ thiết kế website trọn gói, làm website theo yêu cầu cho doanh nghiệp với giá uy tín.",
-    "offers": {
+    description:
+      "Professional website design company. Comprehensive website design services, custom website development for businesses with competitive pricing.",
+    offers: {
       "@type": "Offer",
-      "price": "20000000",
-      "priceCurrency": "VND"
-    }
+      price: "20000000",
+      priceCurrency: "VND",
+    },
   };
 
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Trang chủ",
-      "item": "https://d2group.co/"
-    },{
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Dịch vụ",
-      "item": "https://d2group.co/services"
-    },{
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Thiết kế Website"
-    }]
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://d2group.co/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: "https://d2group.co/services",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Website Design",
+      },
+    ],
   };
 
   const benefits = [
     {
       title: "Responsive Design",
-      description: "Tối ưu mọi thiết bị",
+      description: "Optimized for all devices",
       icon: Smartphone,
-      color: "text-primary"
+      color: "text-primary",
     },
     {
       title: "Load Speed 3s",
-      description: "Tối ưu hiệu suất tối đa",
+      description: "Maximum performance optimization",
       icon: Zap,
-      color: "text-primary"
+      color: "text-primary",
     },
     {
       title: "SEO Ready",
-      description: "Tích hợp SEO từ đầu",
+      description: "SEO integrated from the start",
       icon: Search,
-      color: "text-primary"
+      color: "text-primary",
     },
     {
       title: "24/7 Support",
-      description: "Hỗ trợ kỹ thuật liên tục",
+      description: "Continuous technical support",
       icon: Shield,
-      color: "text-primary"
-    }
+      color: "text-primary",
+    },
   ];
 
   const features = [
     {
-      title: "Thiết Kế UI/UX Hiện Đại",
-      description: "Thiết kế đẹp mắt, trải nghiệm tối ưu",
+      title: "Modern UI/UX Design",
+      description: "Beautiful design, optimal experience",
       icon: Palette,
-      details: ["Thiết kế tập trung người dùng", "Tối ưu mobile-first", "Tiêu chuẩn accessibility", "Thống nhất thương hiệu"]
+      details: ["User-centric design", "Mobile-first optimization", "Accessibility standards", "Brand consistency"],
     },
     {
-      title: "Framework Responsive",
-      description: "Hoạt động hoàn hảo mọi thiết bị",
+      title: "Responsive Framework",
+      description: "Perfect performance on all devices",
       icon: Monitor,
-      details: ["Tương thích đa trình duyệt", "Tối ưu mobile", "Thân thiện tablet", "Trải nghiệm desktop"]
+      details: ["Cross-browser compatibility", "Mobile optimization", "Tablet friendly", "Desktop experience"],
     },
     {
-      title: "Tối Ưu Hiệu Suất",
-      description: "Tốc độ tải nhanh, SEO friendly",
+      title: "Performance Optimization",
+      description: "Fast load speed, SEO friendly",
       icon: Zap,
-      details: ["Tối ưu hình ảnh", "Nén code", "Tích hợp CDN", "Chiến lược cache"]
+      details: ["Image optimization", "Code minification", "CDN integration", "Caching strategy"],
     },
     {
-      title: "Tích Hợp CMS",
-      description: "Quản lý nội dung dễ dàng",
+      title: "CMS Integration",
+      description: "Easy content management",
       icon: Settings,
-      details: ["Quản lý nội dung", "Admin thân thiện", "Hệ thống blog", "Thư viện media"]
+      details: ["Content management", "User-friendly admin", "Blog system", "Media library"],
     },
     {
       title: "Analytics & Tracking",
-      description: "Theo dõi hiệu suất chi tiết",
+      description: "Detailed performance monitoring",
       icon: BarChart3,
-      details: ["Google Analytics", "Tracking conversion", "Hành vi người dùng", "Metrics hiệu suất"]
+      details: ["Google Analytics", "Conversion tracking", "User behavior", "Performance metrics"],
     },
     {
-      title: "Bảo Mật & Bảo Trì",
-      description: "Bảo mật cao, cập nhật thường xuyên",
+      title: "Security & Maintenance",
+      description: "High security, regular updates",
       icon: Shield,
-      details: ["Chứng chỉ SSL", "Giám sát bảo mật", "Cập nhật định kỳ", "Hệ thống backup"]
-    }
+      details: ["SSL certificate", "Security monitoring", "Regular updates", "Backup system"],
+    },
   ];
 
   const technologies = [
-    { name: "React", description: "Framework frontend", icon: Code },
-    { name: "WordPress", description: "Nền tảng CMS", icon: Globe },
-    { name: "Next.js", description: "Framework full-stack", icon: Layers },
-    { name: "Tailwind CSS", description: "Framework styling", icon: Palette },
+    { name: "React", description: "Frontend framework", icon: Code },
+    { name: "WordPress", description: "CMS platform", icon: Globe },
+    { name: "Next.js", description: "Full-stack framework", icon: Layers },
+    { name: "Tailwind CSS", description: "Styling framework", icon: Palette },
     { name: "Node.js", description: "Backend runtime", icon: Settings },
-    { name: "MongoDB", description: "Cơ sở dữ liệu", icon: BarChart3 },
+    { name: "MongoDB", description: "Database", icon: BarChart3 },
     { name: "AWS", description: "Cloud hosting", icon: Monitor },
-    { name: "Cloudflare", description: "CDN & Bảo mật", icon: Shield }
+    { name: "Cloudflare", description: "CDN & Security", icon: Shield },
   ];
 
   const demoWebsites = [
-    // Các ngành cơ bản ở đầu
     {
       title: "Food & Restaurant",
-      industry: "Nhà hàng",
-      description: "Website nhà hàng với menu online và đặt bàn",
+      industry: "Restaurant",
+      description: "Restaurant website with online menu and booking",
       image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://hungry-raccoon.lovable.app",
-      features: ["Online menu", "Reservation system", "Location map"]
+      features: ["Online menu", "Reservation system", "Location map"],
     },
     {
       title: "Fashion E-commerce",
-      industry: "Thời trang",
-      description: "Website bán quần áo online với giỏ hàng và thanh toán",
+      industry: "Fashion",
+      description: "Online clothing store with cart and payment",
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://preview--vintage-smile-capture.lovable.app",
-      features: ["Product catalog", "Shopping cart", "Payment gateway"]
+      features: ["Product catalog", "Shopping cart", "Payment gateway"],
     },
     {
       title: "Travel & Tourism",
-      industry: "Du lịch",
-      description: "Website du lịch với booking tour và khách sạn",
+      industry: "Travel",
+      description: "Travel website with tour and hotel booking",
       image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://shipped.lovable.app",
-      features: ["Tour booking", "Hotel reservation", "Travel guide"]
+      features: ["Tour booking", "Hotel reservation", "Travel guide"],
     },
     {
       title: "E-commerce Store",
-      industry: "Thương mại điện tử",
-      description: "Website bán hàng online với hệ thống quản lý đơn hàng",
+      industry: "E-commerce",
+      description: "Online store with order management system",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://meal-muse-journal.lovable.app",
-      features: ["Product management", "Order tracking", "Customer service"]
+      features: ["Product management", "Order tracking", "Customer service"],
     },
     {
       title: "Retail Store",
-      industry: "Bán lẻ",
-      description: "Website cửa hàng bán lẻ với inventory management",
+      industry: "Retail",
+      description: "Retail store website with inventory management",
       image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://mobiledevs.lovable.app",
-      features: ["Inventory system", "POS integration", "Customer loyalty"]
+      features: ["Inventory system", "POS integration", "Customer loyalty"],
     },
-    
-    // Các ngành khác
     {
       title: "Solar Energy Solutions",
-      industry: "Năng lượng",
-      description: "Website năng lượng mặt trời với công cụ tính toán và simulation",
+      industry: "Energy",
+      description: "Solar energy website with calculator and simulation",
       image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://solar-sim-showcase.lovable.app",
-      features: ["Solar calculator", "Energy simulation", "Installation guide"]
+      features: ["Solar calculator", "Energy simulation", "Installation guide"],
     },
     {
       title: "Project Management Tool",
-      industry: "Quản lý dự án",
-      description: "Ứng dụng quản lý dự án với todo list và tracking",
+      industry: "Project Management",
+      description: "Project management app with todo list and tracking",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://preview--project-planner-sunny.lovable.app",
-      features: ["Task management", "Team collaboration", "Progress tracking"]
+      features: ["Task management", "Team collaboration", "Progress tracking"],
     },
     {
       title: "Daily Todo App",
       industry: "Productivity",
-      description: "Ứng dụng quản lý công việc hàng ngày",
+      description: "Daily task management application",
       image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://preview--easy-daily-todo.lovable.app",
-      features: ["Task scheduling", "Reminder system", "Progress tracking"]
+      features: ["Task scheduling", "Reminder system", "Progress tracking"],
     },
     {
       title: "AI Finance Automation",
-      industry: "Tài chính",
-      description: "Nền tảng tự động hóa tài chính với AI",
+      industry: "Finance",
+      description: "AI-powered financial automation platform",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://finance-ai-automations-lab.lovable.app",
-      features: ["AI automation", "Financial analysis", "Process optimization"]
+      features: ["AI automation", "Financial analysis", "Process optimization"],
     },
     {
       title: "Social Media Caption AI",
       industry: "Marketing",
-      description: "Công cụ tạo caption tự động cho social media",
+      description: "Automatic caption generation tool for social media",
       image: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://reach-boost-captions-craft.lovable.app",
-      features: ["AI caption generation", "SEO optimization", "Multi-platform support"]
+      features: ["AI caption generation", "SEO optimization", "Multi-platform support"],
     },
     {
       title: "Medical Compliance Platform",
-      industry: "Y tế",
-      description: "Nền tảng tuân thủ y tế cho thiết bị y tế",
+      industry: "Healthcare",
+      description: "Medical compliance platform for medical devices",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://vivacomply.lovable.app",
-      features: ["Compliance tracking", "Medical device management", "Regulatory reports"]
+      features: ["Compliance tracking", "Medical device management", "Regulatory reports"],
     },
     {
       title: "Chat Community Platform",
-      industry: "Cộng đồng",
-      description: "Nền tảng chat cộng đồng với water cooler chat",
+      industry: "Community",
+      description: "Community chat platform with water cooler chat",
       image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://water-cooler-chat-club.lovable.app",
-      features: ["Community chat", "Group discussions", "Member management"]
+      features: ["Community chat", "Group discussions", "Member management"],
     },
     {
       title: "Customer Experience Analytics",
-      industry: "Phân tích",
-      description: "Công cụ phân tích trải nghiệm khách hàng",
+      industry: "Analytics",
+      description: "Customer experience analytics tool",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://cx-truth-teller-app.lovable.app",
-      features: ["CX analytics", "Customer insights", "Feedback tracking"]
+      features: ["CX analytics", "Customer insights", "Feedback tracking"],
     },
     {
       title: "Manga Creation Studio",
-      industry: "Sáng tạo",
-      description: "Studio tạo webtoon và manga với AI",
+      industry: "Creative",
+      description: "AI-powered webtoon and manga creation studio",
       image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://manga-craft-boost.lovable.app",
-      features: ["AI-powered creation", "Webtoon tools", "Creative workflow"]
+      features: ["AI-powered creation", "Webtoon tools", "Creative workflow"],
     },
     {
       title: "Real Estate Platform",
-      industry: "Bất động sản",
-      description: "Website bất động sản với tìm kiếm và virtual tour",
+      industry: "Real Estate",
+      description: "Real estate website with search and virtual tours",
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://solar-sim-showcase.lovable.app",
-      features: ["Property search", "Virtual tours", "Agent profiles"]
+      features: ["Property search", "Virtual tours", "Agent profiles"],
     },
     {
       title: "Education Platform",
-      industry: "Giáo dục",
-      description: "Nền tảng học tập online với course management",
+      industry: "Education",
+      description: "Online learning platform with course management",
       image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://shipped.lovable.app",
-      features: ["Course catalog", "Online learning", "Student portal"]
+      features: ["Course catalog", "Online learning", "Student portal"],
     },
     {
       title: "Photography Portfolio",
-      industry: "Nhiếp ảnh",
-      description: "Website portfolio cho photographer và creative",
+      industry: "Photography",
+      description: "Portfolio website for photographers and creatives",
       image: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://preview--vintage-smile-capture.lovable.app",
-      features: ["Gallery showcase", "Client booking", "Portfolio management"]
+      features: ["Gallery showcase", "Client booking", "Portfolio management"],
     },
     {
       title: "Fitness & Gym",
-      industry: "Thể dục",
-      description: "Website phòng gym với class booking và membership",
+      industry: "Fitness",
+      description: "Gym website with class booking and membership",
       image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://mobiledevs.lovable.app",
-      features: ["Class schedules", "Membership plans", "Trainer profiles"]
+      features: ["Class schedules", "Membership plans", "Trainer profiles"],
     },
     {
       title: "Beauty & Spa",
-      industry: "Làm đẹp",
-      description: "Website spa và salon với appointment booking",
+      industry: "Beauty",
+      description: "Spa and salon website with appointment booking",
       image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://water-cooler-chat-club.lovable.app",
-      features: ["Service booking", "Staff profiles", "Treatment packages"]
+      features: ["Service booking", "Staff profiles", "Treatment packages"],
     },
     {
       title: "Law Firm",
-      industry: "Luật sư",
-      description: "Website văn phòng luật với consultation booking",
+      industry: "Legal",
+      description: "Law firm website with consultation booking",
       image: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400&h=300&fit=crop&crop=center",
       demoUrl: "https://cx-truth-teller-app.lovable.app",
-      features: ["Legal services", "Case studies", "Attorney profiles"]
-    }
+      features: ["Legal services", "Case studies", "Attorney profiles"],
+    },
   ];
 
   const caseStudies = [
     {
-      title: "E-commerce Platform: Tăng 300% online sales",
+      title: "E-commerce Platform: 300% Online Sales Increase",
       metrics: "300% sales growth",
-      description: "Website bán hàng online với tích hợp thanh toán, quản lý đơn hàng và CRM tự động",
-      results: ["300% tăng doanh số", "85% conversion rate", "50% giảm bounce rate"]
+      description: "Online store with payment integration, order management and automated CRM",
+      results: ["300% sales increase", "85% conversion rate", "50% bounce rate reduction"],
     },
     {
-      title: "Corporate Website: 400% traffic increase",
+      title: "Corporate Website: 400% Traffic Increase",
       metrics: "400% more traffic",
-      description: "Website doanh nghiệp với SEO optimization và content marketing integration",
-      results: ["400% tăng traffic", "Top 3 Google rankings", "90% faster load time"]
+      description: "Corporate website with SEO optimization and content marketing integration",
+      results: ["400% traffic increase", "Top 3 Google rankings", "90% faster load time"],
     },
     {
-      title: "SaaS Platform: 250% user engagement",
+      title: "SaaS Platform: 250% User Engagement",
       metrics: "250% engagement",
-      description: "Nền tảng SaaS với dashboard analytics và user management system",
-      results: ["250% user engagement", "99.9% uptime", "60% faster performance"]
-    }
+      description: "SaaS platform with analytics dashboard and user management system",
+      results: ["250% user engagement", "99.9% uptime", "60% faster performance"],
+    },
   ];
 
   const pricing = [
     {
       name: "LANDING PAGE",
-      price: "15M",
+      price: "$600",
       period: "",
-      description: "Website 1 trang, tối ưu conversion",
+      description: "Single page website, conversion optimized",
       features: [
-        "Thiết kế responsive",
-        "Tối ưu SEO",
-        "Tích hợp form liên hệ",
+        "Responsive design",
+        "SEO optimization",
+        "Contact form integration",
         "Google Analytics",
-        "Chứng chỉ SSL",
-        "3 tháng hỗ trợ"
+        "SSL certificate",
+        "3 months support",
       ],
-      popular: false
+      popular: false,
     },
     {
       name: "BUSINESS WEBSITE",
-      price: "35M",
+      price: "$1,400",
       period: "",
-      description: "Website đa trang với CMS",
+      description: "Multi-page website with CMS",
       features: [
-        "Website 5-10 trang",
-        "Tích hợp CMS",
-        "Hệ thống blog",
-        "SEO nâng cao",
-        "Tích hợp social media",
-        "6 tháng hỗ trợ",
-        "Tối ưu hiệu suất"
+        "5-10 page website",
+        "CMS integration",
+        "Blog system",
+        "Advanced SEO",
+        "Social media integration",
+        "6 months support",
+        "Performance optimization",
       ],
-      popular: true
+      popular: true,
     },
     {
       name: "E-COMMERCE",
       price: "Custom",
       period: "",
-      description: "Website bán hàng online",
+      description: "Online store website",
       features: [
-        "Danh mục sản phẩm",
-        "Giỏ hàng & thanh toán",
-        "Tích hợp payment",
-        "Quản lý đơn hàng",
-        "Dashboard khách hàng",
-        "Hệ thống inventory",
-        "12 tháng hỗ trợ"
+        "Product catalog",
+        "Shopping cart & checkout",
+        "Payment integration",
+        "Order management",
+        "Customer dashboard",
+        "Inventory system",
+        "12 months support",
       ],
-      popular: false
-    }
+      popular: false,
+    },
   ];
 
   const workflow = [
     {
       step: "1",
-      title: "Khám Phá & Lập Kế Hoạch",
-      description: "Phân tích yêu cầu và lập kế hoạch dự án",
-      duration: "2-3 ngày"
+      title: "Discovery & Planning",
+      description: "Requirements analysis and project planning",
+      duration: "2-3 days",
     },
     {
-      step: "2", 
-      title: "Thiết Kế & Prototype",
-      description: "Thiết kế UI/UX và tạo prototype",
-      duration: "5-7 ngày"
+      step: "2",
+      title: "Design & Prototype",
+      description: "UI/UX design and prototype creation",
+      duration: "5-7 days",
     },
     {
       step: "3",
-      title: "Phát Triển & Testing",
-      description: "Phát triển website và test toàn diện",
-      duration: "10-15 ngày"
+      title: "Development & Testing",
+      description: "Website development and comprehensive testing",
+      duration: "10-15 days",
     },
     {
       step: "4",
-      title: "Launch & Hỗ Trợ",
-      description: "Go-live và hỗ trợ vận hành",
-      duration: "ongoing"
-    }
+      title: "Launch & Support",
+      description: "Go-live and operational support",
+      duration: "ongoing",
+    },
   ];
 
   const faqs = [
     {
-      question: "Thời gian phát triển website mất bao lâu?",
-      answer: "Tùy thuộc độ phức tạp: Landing page 1-2 tuần, Business website 3-4 tuần, E-commerce 6-8 tuần."
+      question: "How long does website development take?",
+      answer: "Depends on complexity: Landing page 1-2 weeks, Business website 3-4 weeks, E-commerce 6-8 weeks.",
     },
     {
-      question: "Website có responsive trên mobile không?",
-      answer: "Tất cả website của chúng tôi đều responsive, tối ưu hoàn hảo trên mọi thiết bị từ mobile đến desktop."
+      question: "Is the website mobile responsive?",
+      answer: "Yes, all our websites are responsive, perfectly optimized for all devices from mobile to desktop.",
     },
     {
-      question: "Có tích hợp SEO từ đầu không?",
-      answer: "Có, chúng tôi tích hợp SEO on-page, tối ưu tốc độ tải, meta tags và cấu trúc URL thân thiện với search engine."
+      question: "Is SEO integrated from the start?",
+      answer: "Yes, we integrate on-page SEO, optimize load speed, meta tags and search engine friendly URL structure.",
     },
     {
-      question: "Có thể tự quản lý nội dung không?",
-      answer: "Có, chúng tôi tích hợp CMS để bạn có thể dễ dàng cập nhật nội dung, hình ảnh và sản phẩm."
+      question: "Can I manage the content myself?",
+      answer: "Yes, we integrate CMS so you can easily update content, images and products.",
     },
     {
-      question: "Chi phí hosting và domain như thế nào?",
-      answer: "Chi phí hosting 2-5M/năm tùy package, domain .com khoảng 500K/năm. Chúng tôi hỗ trợ setup ban đầu."
+      question: "What about hosting and domain costs?",
+      answer:
+        "Hosting costs $80-200/year depending on package, .com domain approximately $20/year. We support initial setup.",
     },
     {
-      question: "Có hỗ trợ sau khi bàn giao không?",
-      answer: "Có, chúng tôi cung cấp 3-12 tháng support tùy package, bao gồm bug fixes và hướng dẫn sử dụng."
+      question: "Is there support after handover?",
+      answer: "Yes, we provide 3-12 months support depending on package, including bug fixes and usage guidance.",
     },
     {
-      question: "Website có tích hợp thanh toán online không?",
-      answer: "Có, chúng tôi tích hợp các cổng thanh toán phổ biến như VNPay, MoMo, ZaloPay và thẻ tín dụng."
+      question: "Does the website integrate online payment?",
+      answer: "Yes, we integrate popular payment gateways like VNPay, MoMo, ZaloPay and credit cards.",
     },
     {
-      question: "Có được source code không?",
-      answer: "Có, sau khi hoàn thành dự án, bạn sẽ được bàn giao toàn bộ source code và quyền sở hữu website."
-    }
+      question: "Do I get the source code?",
+      answer: "Yes, after project completion, you'll receive full source code and website ownership.",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Dịch vụ Thiết kế Website Chuyên nghiệp - Công ty Thiết kế Web Uy tín"
-        description="Công ty thiết kế website hàng đầu Việt Nam. Dịch vụ thiết kế website trọn gói, làm website theo yêu cầu chuyên nghiệp với báo giá uy tín cho doanh nghiệp."
-        keywords="dịch vụ thiết kế website, công ty thiết kế website, thiết kế website chuyên nghiệp, thiết kế website trọn gói, làm website theo yêu cầu, báo giá thiết kế website, thiết kế web cho doanh nghiệp, thiết kế website uy tín"
+        title="Professional Website Design Services - Trusted Web Design Company"
+        description="Vietnam's leading website design company. Comprehensive website design services, professional custom website development with competitive pricing for businesses."
+        keywords="website design services, website design company, professional website design, comprehensive website design, custom website development, website design pricing, business web design, trusted website design"
         canonicalUrl="/services/website"
         structuredData={[structuredData, breadcrumbStructuredData]}
       />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -447,30 +467,22 @@ const WebsiteService = () => {
               <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
                 <span className="text-primary">Website Development</span>
                 <br />
-                <span className="text-foreground">Hiện Đại & Tối Ưu Conversion</span>
+                <span className="text-foreground">Modern & Conversion Optimized</span>
               </h1>
-              
+
               <p className="text-xl text-muted-foreground mb-8">
-                Phát triển website responsive với UI/UX đẹp mắt, tối ưu SEO, tích hợp CMS và 
-                các tính năng automation. Tăng 300% conversion rate.
+                Develop responsive websites with beautiful UI/UX, SEO optimized, CMS integrated and automation features.
+                Increase 300% conversion rate.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button 
-                  size="lg" 
-                  className="shadow-glow"
-                  onClick={() => window.location.href = '/contact'}
-                >
-                  Nhận Báo Giá Miễn Phí
+                <Button size="lg" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
+                  Get Free Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  onClick={() => window.location.href = '/contact'}
-                >
+                <Button variant="outline" size="lg" onClick={() => (window.location.href = "/contact")}>
                   <PlayCircle className="mr-2 h-5 w-5" />
-                  Xem Portfolio
+                  View Portfolio
                 </Button>
               </div>
 
@@ -496,7 +508,7 @@ const WebsiteService = () => {
                   <h3 className="text-lg font-bold mb-2">Website Performance</h3>
                   <div className="text-sm text-muted-foreground">Real-time metrics</div>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="text-center p-3 rounded-lg bg-muted/50">
                     <div className="text-lg font-bold text-primary">98</div>
@@ -515,7 +527,7 @@ const WebsiteService = () => {
                     <div className="text-xs">Optimized</div>
                   </div>
                 </div>
-                
+
                 <div className="h-32 rounded-lg bg-muted/30 flex items-center justify-center">
                   <div className="text-center text-sm text-muted-foreground">
                     🚀 High Performance Website
@@ -533,14 +545,14 @@ const WebsiteService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Tại Sao Chọn <span className="text-primary">Website Development</span> D2 GROUP?
+            Why Choose D2 GROUP <span className="text-primary">Website Development</span>?
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => {
               const IconComponent = benefit.icon;
               return (
-                <Card 
+                <Card
                   key={index}
                   className="gradient-card p-6 text-center hover:shadow-elevation transition-all duration-300 animate-scale-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
@@ -561,14 +573,14 @@ const WebsiteService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Tính Năng <span className="text-primary">Vượt Trội</span>
+            <span className="text-primary">Outstanding</span> Features
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <Card 
+                <Card
                   key={index}
                   className="gradient-card p-6 hover:shadow-elevation transition-all duration-300 animate-scale-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
@@ -580,7 +592,7 @@ const WebsiteService = () => {
                     <div className="flex-1">
                       <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
                       <p className="text-muted-foreground mb-4">{feature.description}</p>
-                      
+
                       <ul className="space-y-2">
                         {feature.details.map((detail, idx) => (
                           <li key={idx} className="flex items-center text-sm">
@@ -602,14 +614,14 @@ const WebsiteService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Công Nghệ <span className="text-primary">Hiện Đại</span>
+            <span className="text-primary">Modern</span> Technology
           </h2>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {technologies.map((tech, index) => {
               const IconComponent = tech.icon;
               return (
-                <Card 
+                <Card
                   key={index}
                   className="gradient-card p-6 text-center hover:shadow-elevation transition-all duration-300 animate-scale-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
@@ -630,31 +642,27 @@ const WebsiteService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Website <span className="text-primary">Demo</span> Theo Từng Ngành
+            <span className="text-primary">Demo</span> Websites by Industry
           </h2>
-          
+
           <Carousel className="w-full">
             <CarouselContent className="-ml-1">
               {demoWebsites.map((demo, index) => (
                 <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
                   <Card className="gradient-card h-full hover:shadow-elevation transition-all duration-300">
                     <div className="relative">
-                      <img 
-                        src={demo.image} 
-                        alt={demo.title}
-                        className="w-full h-48 object-cover rounded-t-lg"
-                      />
+                      <img src={demo.image} alt={demo.title} className="w-full h-48 object-cover rounded-t-lg" />
                       <div className="absolute top-4 left-4">
                         <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
                           {demo.industry}
                         </span>
                       </div>
                     </div>
-                    
+
                     <div className="p-6">
                       <h3 className="text-xl font-bold mb-2">{demo.title}</h3>
                       <p className="text-muted-foreground mb-4">{demo.description}</p>
-                      
+
                       <ul className="space-y-2 mb-6">
                         {demo.features.map((feature, idx) => (
                           <li key={idx} className="flex items-center text-sm">
@@ -663,13 +671,9 @@ const WebsiteService = () => {
                           </li>
                         ))}
                       </ul>
-                      
-                      <Button 
-                        variant="outline" 
-                        className="w-full"
-                        onClick={() => window.open(demo.demoUrl, '_blank')}
-                      >
-                        Xem Demo Live
+
+                      <Button variant="outline" className="w-full" onClick={() => window.open(demo.demoUrl, "_blank")}>
+                        View Live Demo
                         <ExternalLink className="ml-2 h-4 w-4" />
                       </Button>
                     </div>
@@ -680,13 +684,10 @@ const WebsiteService = () => {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-          
+
           <div className="text-center mt-8">
-            <Button 
-              size="lg"
-              onClick={() => window.location.href = '/contact'}
-            >
-              Yêu Cầu Demo Tùy Chỉnh
+            <Button size="lg" onClick={() => (window.location.href = "/contact")}>
+              Request Custom Demo
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
@@ -697,12 +698,12 @@ const WebsiteService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Kết Quả <span className="text-primary">Thực Tế</span> Từ Khách Hàng
+            <span className="text-primary">Real Results</span> From Clients
           </h2>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
-              <Card 
+              <Card
                 key={index}
                 className="gradient-card p-6 hover:shadow-elevation transition-all duration-300 animate-scale-in"
                 style={{ animationDelay: `${index * 0.2}s` }}
@@ -712,7 +713,7 @@ const WebsiteService = () => {
                   <h3 className="text-lg font-bold mb-3">{study.title}</h3>
                   <p className="text-muted-foreground mb-4">{study.description}</p>
                 </div>
-                
+
                 <div className="space-y-2">
                   {study.results.map((result, idx) => (
                     <div key={idx} className="flex items-center text-sm">
@@ -731,12 +732,12 @@ const WebsiteService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Quy Trình <span className="text-primary">Phát Triển</span>
+            <span className="text-primary">Development</span> Process
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {workflow.map((step, index) => (
-              <Card 
+              <Card
                 key={index}
                 className="gradient-card p-6 text-center hover:shadow-elevation transition-all duration-300 animate-scale-in"
                 style={{ animationDelay: `${index * 0.2}s` }}
@@ -759,26 +760,26 @@ const WebsiteService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Bảng Giá <span className="text-primary">Minh Bạch</span>
+            <span className="text-primary">Transparent</span> Pricing
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {pricing.map((plan, index) => (
-              <Card 
+              <Card
                 key={index}
                 className={`gradient-card p-6 hover:shadow-elevation transition-all duration-300 animate-scale-in ${
-                  plan.popular ? 'ring-2 ring-primary' : ''
+                  plan.popular ? "ring-2 ring-primary" : ""
                 }`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {plan.popular && (
                   <div className="text-center mb-4">
                     <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
-                      Phổ Biến Nhất
+                      Most Popular
                     </span>
                   </div>
                 )}
-                
+
                 <div className="text-center mb-6">
                   <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
                   <div className="mb-2">
@@ -787,7 +788,7 @@ const WebsiteService = () => {
                   </div>
                   <p className="text-sm text-muted-foreground">{plan.description}</p>
                 </div>
-                
+
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center text-sm">
@@ -796,13 +797,13 @@ const WebsiteService = () => {
                     </li>
                   ))}
                 </ul>
-                
-                <Button 
+
+                <Button
                   className="w-full"
                   variant={plan.popular ? "default" : "outline"}
-                  onClick={() => window.location.href = '/contact'}
+                  onClick={() => (window.location.href = "/contact")}
                 >
-                  Chọn Gói Này
+                  Choose This Plan
                 </Button>
               </Card>
             ))}
@@ -814,22 +815,16 @@ const WebsiteService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Câu Hỏi <span className="text-primary">Thường Gặp</span>
+            <span className="text-primary">Frequently Asked</span> Questions
           </h2>
-          
+
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="gradient-card px-6 border-0 rounded-lg"
-              >
+              <AccordionItem key={index} value={`item-${index}`} className="gradient-card px-6 border-0 rounded-lg">
                 <AccordionTrigger className="text-left hover:no-underline py-4">
                   <span className="font-medium">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-4">
-                  {faq.answer}
-                </AccordionContent>
+                <AccordionContent className="text-muted-foreground pb-4">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
@@ -840,29 +835,21 @@ const WebsiteService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">
-            Sẵn Sàng Xây Dựng <span className="text-primary">Website Tuyệt Vời</span>?
+            Ready to Build an <span className="text-primary">Amazing Website</span>?
           </h2>
-          
+
           <p className="text-xl text-muted-foreground mb-8">
-            Liên hệ ngay để nhận tư vấn miễn phí và báo giá chi tiết cho dự án website của bạn.
+            Contact us now to receive free consultation and detailed quote for your website project.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="shadow-glow"
-              onClick={() => window.location.href = '/contact'}
-            >
-              Nhận Tư Vấn Miễn Phí
+            <Button size="lg" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
+              Get Free Consultation
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => window.location.href = '/contact'}
-            >
+            <Button variant="outline" size="lg" onClick={() => (window.location.href = "/contact")}>
               <Phone className="mr-2 h-5 w-5" />
-              Gọi Ngay: 0977 027 634
+              Call Now: 0977 027 634
             </Button>
           </div>
         </div>

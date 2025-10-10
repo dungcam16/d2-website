@@ -1,188 +1,211 @@
-import React, { useState } from 'react';
-import { 
-  MessageCircle, Users, TrendingUp, Clock, Shield, CheckCircle, ArrowRight,
-  Smartphone, BarChart3, Settings, Zap, Star, PlayCircle, Calendar, 
-  Phone, Mail, Globe, Target, Award, Timer, Calculator
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import SEO from '@/components/SEO';
+import React, { useState } from "react";
+import {
+  MessageCircle,
+  Users,
+  TrendingUp,
+  Clock,
+  Shield,
+  CheckCircle,
+  ArrowRight,
+  Smartphone,
+  BarChart3,
+  Settings,
+  Zap,
+  Star,
+  PlayCircle,
+  Calendar,
+  Phone,
+  Mail,
+  Globe,
+  Target,
+  Award,
+  Timer,
+  Calculator,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const ZaloService = () => {
   const [roiData, setRoiData] = useState({
-    monthlyBudget: '',
-    currentConversion: '',
-    targetConversion: ''
+    monthlyBudget: "",
+    currentConversion: "",
+    targetConversion: "",
   });
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Dịch vụ Zalo OA - Setup và Quản lý Zalo Official Account",
-    "provider": {
+    name: "Zalo OA Services - Setup and Management of Zalo Official Account",
+    provider: {
       "@type": "Organization",
-      "name": "D2 Group",
-      "url": "https://d2group.co"
+      name: "D2 Group",
+      url: "https://d2group.co",
     },
-    "description": "Công ty cung cấp dịch vụ Zalo OA chuyên nghiệp. Dịch vụ setup Zalo OA trọn gói, quản lý và triển khai Zalo Official Account cho doanh nghiệp B2B.",
-    "offers": {
+    description:
+      "Professional Zalo OA service provider. Comprehensive Zalo OA setup services, management and deployment of Zalo Official Account for B2B businesses.",
+    offers: {
       "@type": "Offer",
-      "price": "8000000",
-      "priceCurrency": "VND"
+      price: "8000000",
+      priceCurrency: "VND",
     },
-    "areaServed": "Vietnam"
+    areaServed: "Vietnam",
   };
 
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Trang chủ",
-      "item": "https://d2group.co/"
-    },{
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Dịch vụ",
-      "item": "https://d2group.co/services"
-    },{
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Dịch vụ Zalo OA"
-    }]
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://d2group.co/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: "https://d2group.co/services",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Zalo OA Services",
+      },
+    ],
   };
 
   const marketStats = [
     {
       number: "50M+",
-      label: "người dùng active",
-      icon: Users
+      label: "active users",
+      icon: Users,
     },
     {
       number: "85%",
-      label: "mở rate vs 20% email",
-      icon: BarChart3
+      label: "open rate vs 20% email",
+      icon: BarChart3,
     },
     {
       number: "3x",
       label: "higher engagement vs Facebook",
-      icon: TrendingUp
+      icon: TrendingUp,
     },
     {
       number: "800-1200đ",
-      label: "giá ZNS/tin nhắn",
-      icon: MessageCircle
-    }
+      label: "ZNS cost per message",
+      icon: MessageCircle,
+    },
   ];
 
   const services = [
     {
       icon: Settings,
       title: "OA Setup & Verification",
-      description: "Từ đăng ký đến approved official, hỗ trợ toàn bộ quy trình",
-      features: ["Đăng ký OA", "Xác thực doanh nghiệp", "Profile optimization"]
+      description: "From registration to official approval, complete process support",
+      features: ["OA registration", "Business verification", "Profile optimization"],
     },
     {
       icon: Calendar,
-      title: "Content Strategy", 
-      description: "Lịch post tự động, content calendar được tối ưu engagement",
-      features: ["Content calendar", "Auto posting", "Engagement tracking"]
+      title: "Content Strategy",
+      description: "Automated posting schedule, engagement-optimized content calendar",
+      features: ["Content calendar", "Auto posting", "Engagement tracking"],
     },
     {
       icon: Zap,
       title: "ZNS Automation",
-      description: "Triggered messages, customer journey automation chuyên nghiệp",
-      features: ["Welcome series", "Cart abandonment", "Transaction updates"]
+      description: "Professional triggered messages and customer journey automation",
+      features: ["Welcome series", "Cart abandonment", "Transaction updates"],
     },
     {
       icon: BarChart3,
       title: "Mini CRM Integration",
-      description: "Quản lý lead, customer data và lifecycle marketing",
-      features: ["Lead management", "Customer segmentation", "Lifecycle tracking"]
+      description: "Lead management, customer data and lifecycle marketing",
+      features: ["Lead management", "Customer segmentation", "Lifecycle tracking"],
     },
     {
       icon: TrendingUp,
       title: "Analytics Dashboard",
-      description: "Performance tracking, ROI reports và insights chi tiết",
-      features: ["Real-time analytics", "ROI tracking", "Custom reports"]
+      description: "Performance tracking, ROI reports and detailed insights",
+      features: ["Real-time analytics", "ROI tracking", "Custom reports"],
     },
     {
       icon: Shield,
       title: "24/7 Support",
-      description: "Technical support và strategy consulting chuyên sâu",
-      features: ["Technical support", "Strategy consulting", "Performance optimization"]
-    }
+      description: "Technical support and in-depth strategy consulting",
+      features: ["Technical support", "Strategy consulting", "Performance optimization"],
+    },
   ];
 
   const automationScenarios = [
     {
       title: "Welcome Series",
-      description: "Chào mừng customer mới với chuỗi tin nhắn được cá nhân hóa",
-      trigger: "Khi user follow OA lần đầu"
+      description: "Welcome new customers with personalized message sequences",
+      trigger: "When user follows OA for first time",
     },
     {
       title: "Abandoned Cart",
-      description: "Nhắc nhở giỏ hàng bỏ quên với ưu đãi hấp dẫn",
-      trigger: "15 phút sau khi add to cart"
+      description: "Remind forgotten carts with attractive offers",
+      trigger: "15 minutes after adding to cart",
     },
     {
-      title: "Birthday/Anniversary", 
-      description: "Personalized offers vào dịp đặc biệt của khách hàng",
-      trigger: "Ngày sinh nhật hoặc anniversary"
+      title: "Birthday/Anniversary",
+      description: "Personalized offers on customer's special occasions",
+      trigger: "Birthday or anniversary date",
     },
     {
       title: "Re-engagement",
-      description: "Win-back inactive customers với campaigns chuyên biệt",
-      trigger: "30 ngày không tương tác"
+      description: "Win-back inactive customers with specialized campaigns",
+      trigger: "30 days of no interaction",
     },
     {
       title: "Transaction Updates",
-      description: "Order status, shipping updates tự động real-time",
-      trigger: "Khi trạng thái đơn hàng thay đổi"
+      description: "Automated real-time order status and shipping updates",
+      trigger: "When order status changes",
     },
     {
       title: "Survey & Feedback",
-      description: "Post-purchase experience để cải thiện service quality",
-      trigger: "48h sau khi nhận hàng"
-    }
+      description: "Post-purchase experience to improve service quality",
+      trigger: "48 hours after delivery",
+    },
   ];
 
   const industryTargets = [
     {
       industry: "E-commerce",
       solutions: "Cart recovery, product updates, reviews collection",
-      icon: "🛒"
+      icon: "🛒",
     },
     {
-      industry: "F&B", 
+      industry: "F&B",
       solutions: "Menu updates, delivery status, loyalty programs",
-      icon: "🍔"
+      icon: "🍔",
     },
     {
       industry: "Real Estate",
       solutions: "Property alerts, viewing appointments, market updates",
-      icon: "🏠"
+      icon: "🏠",
     },
     {
       industry: "Healthcare",
       solutions: "Appointment reminders, health tips, test results",
-      icon: "🏥"
+      icon: "🏥",
     },
     {
       industry: "Education",
       solutions: "Course updates, exam schedules, grade notifications",
-      icon: "🎓"
+      icon: "🎓",
     },
     {
       industry: "Financial",
       solutions: "Transaction alerts, payment reminders, investment tips",
-      icon: "💰"
-    }
+      icon: "💰",
+    },
   ];
 
   const successMetrics = [
@@ -191,85 +214,86 @@ const ZaloService = () => {
     { metric: "Click-through rate", value: "15%", trend: "+8.5%" },
     { metric: "Conversion rate", value: "8.2%", trend: "+4.1%" },
     { metric: "ROAS", value: "300%", trend: "+45%" },
-    { metric: "Customer retention", value: "+45%", trend: "+15%" }
+    { metric: "Customer retention", value: "+45%", trend: "+15%" },
   ];
 
   const implementationSteps = [
     {
       day: "Day 1-2",
       title: "OA Setup & Verification",
-      description: "Đăng ký OA, verification submit và profile setup"
+      description: "OA registration, verification submission and profile setup",
     },
     {
-      day: "Day 3-4", 
+      day: "Day 3-4",
       title: "Content Strategy Design",
-      description: "Content strategy, automation design và workflow mapping"
+      description: "Content strategy, automation design and workflow mapping",
     },
     {
       day: "Day 5-6",
-      title: "Integration & Testing", 
-      description: "Integration setup, testing và quality assurance"
+      title: "Integration & Testing",
+      description: "Integration setup, testing and quality assurance",
     },
     {
       day: "Day 7",
       title: "Go-live & Training",
-      description: "Go-live deployment, training handover và documentation"
-    }
+      description: "Go-live deployment, training handover and documentation",
+    },
   ];
 
   const caseStudies = [
     {
-      company: "Thế Giới Di Động",
+      company: "The Gioi Di Dong",
       industry: "E-commerce",
       challenge: "Low conversion rate from social traffic",
-      solution: "Automated Zalo OA funnel với personalized offers",
-      results: "350% tăng conversion, 25% tăng AOV, 2M+ leads/tháng",
-      testimonial: "Zalo OA automation đã thay đổi hoàn toàn cách chúng tôi tiếp cận khách hàng. ROI vượt kỳ vọng.",
-      author: "Nguyễn Văn A - Marketing Director"
+      solution: "Automated Zalo OA funnel with personalized offers",
+      results: "350% conversion increase, 25% AOV increase, 2M+ leads/month",
+      testimonial: "Zalo OA automation completely transformed how we approach customers. ROI exceeded expectations.",
+      author: "Nguyen Van A - Marketing Director",
     },
     {
       company: "Highlands Coffee",
       industry: "F&B Chain",
-      challenge: "Customer retention và loyalty program effectiveness",
-      solution: "ZNS automation cho loyalty rewards và personalized offers",
-      results: "40% tăng repeat purchase, 60% tăng app engagement",
-      testimonial: "Khách hàng thích việc nhận thông báo ưu đãi qua Zalo hơn email. Engagement rate cao hơn rất nhiều.",
-      author: "Trần Thị B - CRM Manager"
+      challenge: "Customer retention and loyalty program effectiveness",
+      solution: "ZNS automation for loyalty rewards and personalized offers",
+      results: "40% repeat purchase increase, 60% app engagement increase",
+      testimonial: "Customers prefer receiving offers via Zalo over email. Engagement rate is much higher.",
+      author: "Tran Thi B - CRM Manager",
     },
     {
       company: "Novaland",
       industry: "Real Estate",
-      challenge: "Lead qualification và follow-up hiệu quả",
-      solution: "Zalo OA với AI chatbot và automated nurturing sequences",
-      results: "200% tăng qualified leads, giảm 50% cost per lead",
-      testimonial: "Hệ thống lead nurturing qua Zalo giúp sales team focus vào hot leads, closing rate tăng đáng kể.",
-      author: "Lê Văn C - Sales Director"
+      challenge: "Effective lead qualification and follow-up",
+      solution: "Zalo OA with AI chatbot and automated nurturing sequences",
+      results: "200% qualified leads increase, 50% cost per lead reduction",
+      testimonial:
+        "The lead nurturing system via Zalo helps sales team focus on hot leads, closing rate significantly increased.",
+      author: "Le Van C - Sales Director",
     },
     {
       company: "VinFast",
       industry: "Automotive",
-      challenge: "Customer service và after-sales support",
-      solution: "ZNS automation cho service reminders và customer support",
-      results: "85% customer satisfaction, 30% giảm support tickets",
-      testimonial: "Automation service reminders qua Zalo giúp khách hàng không bao giờ quên lịch bảo dưỡng.",
-      author: "Phạm Thị D - Customer Success"
-    }
+      challenge: "Customer service and after-sales support",
+      solution: "ZNS automation for service reminders and customer support",
+      results: "85% customer satisfaction, 30% support tickets reduction",
+      testimonial: "Automated service reminders via Zalo ensure customers never forget maintenance schedules.",
+      author: "Pham Thi D - Customer Success",
+    },
   ];
 
   const calculateROI = () => {
     const budget = parseFloat(roiData.monthlyBudget) || 0;
     const current = parseFloat(roiData.currentConversion) || 0;
     const target = parseFloat(roiData.targetConversion) || 0;
-    
+
     if (budget && current && target) {
       const improvement = ((target - current) / current) * 100;
-      const additionalRevenue = budget * (target - current) / 100;
-      const roiPercentage = (additionalRevenue / (budget * 0.3)) * 100; // Assuming 30% of budget for Zalo
-      
+      const additionalRevenue = (budget * (target - current)) / 100;
+      const roiPercentage = (additionalRevenue / (budget * 0.3)) * 100;
+
       return {
         improvement: improvement.toFixed(1),
         additionalRevenue: additionalRevenue.toLocaleString(),
-        roi: roiPercentage.toFixed(0)
+        roi: roiPercentage.toFixed(0),
       };
     }
     return null;
@@ -278,14 +302,14 @@ const ZaloService = () => {
   return (
     <div className="min-h-screen bg-slate-50">
       <SEO
-        title="Dịch vụ Zalo OA Chuyên nghiệp - Setup và Quản lý Zalo Official Account"
-        description="Công ty cung cấp dịch vụ Zalo OA hàng đầu Việt Nam. Dịch vụ setup Zalo OA trọn gói, quản lý chuyên nghiệp, triển khai và xác thực Zalo OA cho doanh nghiệp B2B."
-        keywords="dịch vụ zalo oa, dịch vụ quản lý zalo oa, dịch vụ setup zalo oa trọn gói, công ty cung cấp dịch vụ zalo oa, giải pháp zalo oa cho doanh nghiệp, triển khai zalo oa chuyên nghiệp, dịch vụ xác thực zalo oa, dịch vụ tích vàng zalo oa, zalo oa cho doanh nghiệp b2b, tạo zalo oa cho doanh nghiệp"
+        title="Professional Zalo OA Services - Setup and Management of Zalo Official Account"
+        description="Vietnam's leading Zalo OA service provider. Comprehensive Zalo OA setup services, professional management, deployment and verification of Zalo OA for B2B businesses."
+        keywords="zalo oa services, zalo oa management services, comprehensive zalo oa setup, zalo oa service provider, zalo oa solutions for businesses, professional zalo oa deployment, zalo oa verification services, zalo oa gold badge, zalo oa for b2b businesses, create zalo oa for business"
         canonicalUrl="/services/zalo"
         structuredData={[structuredData, breadcrumbStructuredData]}
       />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 gradient-bg opacity-90"></div>
@@ -293,29 +317,25 @@ const ZaloService = () => {
           <div className="absolute top-20 left-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <div className="flex items-center gap-2 mb-6">
-                <div className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium">
-                  #1 Việt Nam
-                </div>
-                <div className="bg-green-500 px-3 py-1 rounded-full text-sm font-medium">
-                  Official Partner
-                </div>
+                <div className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium">#1 Vietnam</div>
+                <div className="bg-green-500 px-3 py-1 rounded-full text-sm font-medium">Official Partner</div>
               </div>
-              
+
               <h1 className="text-4xl lg:text-6xl font-bold font-heading mb-6 text-foreground">
-                Dịch vụ Zalo OA Chuyên nghiệp
+                Professional Zalo OA Services
                 <br />
-                <span className="text-primary">Giải Pháp Setup và Quản lý Zalo Official Account</span>
+                <span className="text-primary">Complete Setup & Management Solutions</span>
               </h1>
-              
+
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Công ty cung cấp dịch vụ Zalo OA trọn gói từ setup, xác thực đến quản lý chuyên nghiệp. 
-                Triển khai Zalo OA cho doanh nghiệp B2B với ZNS automation và tích hợp CRM. 
-                50M+ người dùng Zalo = cơ hội vàng cho business.
+                Comprehensive Zalo OA service provider from setup, verification to professional management. Deploy Zalo
+                OA for B2B businesses with ZNS automation and CRM integration. 50M+ Zalo users = golden opportunity for
+                your business.
               </p>
 
               <div className="grid grid-cols-3 gap-4 mb-8">
@@ -334,22 +354,22 @@ const ZaloService = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="shadow-glow text-lg px-8"
-                  onClick={() => window.location.href = '/contact'}
+                  onClick={() => (window.location.href = "/contact")}
                 >
-                  Nhận Setup OA Miễn Phí
+                  Get Free OA Setup
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="lg"
                   className="tech-border"
-                  onClick={() => window.location.href = '/contact'}
+                  onClick={() => (window.location.href = "/contact")}
                 >
                   <PlayCircle className="mr-2 h-5 w-5" />
-                  Xem Demo Live
+                  View Live Demo
                 </Button>
               </div>
             </div>
@@ -377,7 +397,7 @@ const ZaloService = () => {
                       <span className="font-bold text-purple-600">12.8%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-blue-600 h-2 rounded-full" style={{ width: '85%' }}></div>
+                      <div className="bg-blue-600 h-2 rounded-full" style={{ width: "85%" }}></div>
                     </div>
                   </div>
                 </div>
@@ -392,10 +412,10 @@ const ZaloService = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
-              Tại Sao Zalo OA Là Kênh Marketing #1 Tại Việt Nam?
+              Why Zalo OA is the #1 Marketing Channel in Vietnam?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Con số không nói dối - Zalo dominates Vietnamese messaging market
+              Numbers don't lie - Zalo dominates Vietnamese messaging market
             </p>
           </div>
 
@@ -403,7 +423,11 @@ const ZaloService = () => {
             {marketStats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
-                <Card key={stat.label} className="text-center hover:shadow-lg transition-all duration-300 animate-scale-in bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200" style={{ animationDelay: `${index * 0.1}s` }}>
+                <Card
+                  key={stat.label}
+                  className="text-center hover:shadow-lg transition-all duration-300 animate-scale-in bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <CardContent className="p-8">
                     <div className="inline-flex p-4 rounded-full bg-blue-100 text-blue-600 mb-6">
                       <IconComponent className="h-8 w-8" />
@@ -423,10 +447,10 @@ const ZaloService = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
-              Dịch Vụ Toàn Diện Từ A-Z
+              Comprehensive Services From A to Z
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Từ setup OA đến optimization campaigns - chúng tôi handle everything
+              From OA setup to campaign optimization - we handle everything
             </p>
           </div>
 
@@ -434,7 +458,11 @@ const ZaloService = () => {
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <Card key={service.title} className="hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <Card
+                  key={service.title}
+                  className="hover:shadow-lg transition-all duration-300 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4 mb-4">
                       <div className="flex-shrink-0 p-3 bg-blue-100 rounded-lg">
@@ -466,16 +494,20 @@ const ZaloService = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
-              ZNS Automation - Gửi Tin Nhắn Đúng Người, Đúng Lúc
+              ZNS Automation - Right Message, Right Person, Right Time
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Smart triggers và behavioral automation để maximize engagement
+              Smart triggers and behavioral automation to maximize engagement
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {automationScenarios.map((scenario, index) => (
-              <Card key={scenario.title} className="hover:shadow-lg transition-all duration-300 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card
+                key={scenario.title}
+                className="hover:shadow-lg transition-all duration-300 animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center text-white font-bold">
@@ -500,16 +532,20 @@ const ZaloService = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
-              Giải Pháp Chuyên Biệt Theo Ngành
+              Industry-Specific Solutions
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Tailored solutions cho từng industry với best practices đã được verify
+              Tailored solutions for each industry with verified best practices
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {industryTargets.map((industry, index) => (
-              <Card key={industry.industry} className="text-center hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card
+                key={industry.industry}
+                className="text-center hover:shadow-lg transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <CardContent className="p-8">
                   <div className="text-4xl mb-4">{industry.icon}</div>
                   <h3 className="text-xl font-bold font-heading mb-3 text-gray-900">{industry.industry}</h3>
@@ -525,18 +561,18 @@ const ZaloService = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
-              Kết Quả Đo Lường Được
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Metrics dashboard thực tế từ campaigns đang chạy
-            </p>
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">Measurable Results</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Real metrics dashboard from live campaigns</p>
           </div>
 
           <div className="bg-white rounded-xl shadow-lg p-8 border">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {successMetrics.map((metric, index) => (
-                <div key={metric.metric} className="text-center animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div
+                  key={metric.metric}
+                  className="text-center animate-scale-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <div className="text-3xl font-bold text-blue-600 mb-2">{metric.value}</div>
                   <div className="text-gray-700 font-medium mb-2">{metric.metric}</div>
                   <div className="flex items-center justify-center gap-1">
@@ -555,10 +591,10 @@ const ZaloService = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
-              Quy Trình Triển Khai Trong 7 Ngày
+              7-Day Implementation Process
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Từ zero đến hero - go live Zalo OA automation chỉ trong 1 tuần
+              From zero to hero - go live with Zalo OA automation in just 1 week
             </p>
           </div>
 
@@ -570,7 +606,10 @@ const ZaloService = () => {
                     {step.day}
                   </div>
                   {index < implementationSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-blue-200 z-0" style={{ transform: 'translateX(50%)' }}></div>
+                    <div
+                      className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-blue-200 z-0"
+                      style={{ transform: "translateX(50%)" }}
+                    ></div>
                   )}
                 </div>
                 <h3 className="text-lg font-bold font-heading mb-2 text-gray-900">{step.title}</h3>
@@ -586,11 +625,9 @@ const ZaloService = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
-              Bảng Giá Minh Bạch, Không Phí Ẩn
+              Transparent Pricing, No Hidden Fees
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Investment breakdown chi tiết với ROI calculator
-            </p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Detailed investment breakdown with ROI calculator</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -612,14 +649,14 @@ const ZaloService = () => {
                     <div className="font-semibold">Monthly Retainer</div>
                     <div className="text-sm text-gray-600">Management & optimization</div>
                   </div>
-                  <div className="text-lg font-bold text-blue-600">5,000,000đ/tháng</div>
+                  <div className="text-lg font-bold text-blue-600">5,000,000đ/month</div>
                 </div>
                 <div className="flex justify-between items-center border-b pb-3">
                   <div>
                     <div className="font-semibold">ZNS Credits</div>
                     <div className="text-sm text-gray-600">Pay-as-use messaging</div>
                   </div>
-                  <div className="text-lg font-bold text-blue-600">800-1200đ/tin</div>
+                  <div className="text-lg font-bold text-blue-600">800-1200đ/message</div>
                 </div>
                 <div className="flex justify-between items-center">
                   <div>
@@ -641,12 +678,12 @@ const ZaloService = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Monthly Marketing Budget (VNĐ)</label>
+                  <label className="block text-sm font-medium mb-2">Monthly Marketing Budget (VND)</label>
                   <Input
                     type="number"
                     placeholder="50,000,000"
                     value={roiData.monthlyBudget}
-                    onChange={(e) => setRoiData({...roiData, monthlyBudget: e.target.value})}
+                    onChange={(e) => setRoiData({ ...roiData, monthlyBudget: e.target.value })}
                   />
                 </div>
                 <div>
@@ -655,7 +692,7 @@ const ZaloService = () => {
                     type="number"
                     placeholder="2.5"
                     value={roiData.currentConversion}
-                    onChange={(e) => setRoiData({...roiData, currentConversion: e.target.value})}
+                    onChange={(e) => setRoiData({ ...roiData, currentConversion: e.target.value })}
                   />
                 </div>
                 <div>
@@ -664,10 +701,10 @@ const ZaloService = () => {
                     type="number"
                     placeholder="8.0"
                     value={roiData.targetConversion}
-                    onChange={(e) => setRoiData({...roiData, targetConversion: e.target.value})}
+                    onChange={(e) => setRoiData({ ...roiData, targetConversion: e.target.value })}
                   />
                 </div>
-                
+
                 {calculateROI() && (
                   <div className="bg-white rounded-lg p-4 mt-6">
                     <h4 className="font-bold mb-3">Projected Results:</h4>
@@ -698,16 +735,20 @@ const ZaloService = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-gray-900">
-              Success Stories Từ Khách Hàng
+              Success Stories From Customers
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real results từ các brands lớn đã triển khai Zalo OA automation
+              Real results from major brands implementing Zalo OA automation
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {caseStudies.map((study, index) => (
-              <Card key={study.company} className="hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+              <Card
+                key={study.company}
+                className="hover:shadow-lg transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
                 <CardContent className="p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
@@ -718,26 +759,25 @@ const ZaloService = () => {
                       <span className="text-sm text-blue-600">{study.industry}</span>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-sm text-gray-700 mb-1">Challenge:</h4>
                       <p className="text-sm text-gray-600">{study.challenge}</p>
                     </div>
-                    
+
                     <div>
                       <h4 className="font-semibold text-sm text-gray-700 mb-1">Solution:</h4>
                       <p className="text-sm text-gray-600">{study.solution}</p>
                     </div>
-                    
+
                     <div className="bg-green-50 p-4 rounded-lg">
                       <h4 className="font-semibold text-sm text-green-700 mb-1">Results:</h4>
                       <p className="text-sm font-medium text-green-800">{study.results}</p>
                     </div>
-                    
+
                     <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-700">
-                      "{study.testimonial}"
-                      <footer className="text-sm text-gray-500 mt-2">- {study.author}</footer>
+                      "{study.testimonial}"<footer className="text-sm text-gray-500 mt-2">- {study.author}</footer>
                     </blockquote>
                   </div>
                 </CardContent>
@@ -750,25 +790,21 @@ const ZaloService = () => {
       {/* Final CTA */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
         <div className="absolute inset-0 gradient-bg opacity-90"></div>
-        <div className="max-w-4xl mx-auto relative z-10">
-          <div className="text-center mb-12">
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+          <div className="mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-6 text-foreground">
-              Đừng Để Competitors Vượt Mặt Trên Zalo
+              Don't Let Competitors Overtake You on Zalo
             </h2>
             <div className="bg-red-500 inline-block px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
-              🔥 Chỉ nhận 10 khách hàng mới mỗi tháng
+              🔥 Only accepting 10 new clients per month
             </div>
             <p className="text-xl text-muted-foreground mb-8">
-              Limited slots để đảm bảo quality service. Book ngay để secure spot!
+              Limited slots to ensure quality service. Book now to secure your spot!
             </p>
           </div>
 
-          <Button 
-            size="lg" 
-            className="shadow-glow text-lg px-8"
-            onClick={() => window.location.href = '/contact'}
-          >
-            Đăng Ký Setup OA Miễn Phí
+          <Button size="lg" className="shadow-glow text-lg px-8" onClick={() => (window.location.href = "/contact")}>
+            Register for Free OA Setup
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
