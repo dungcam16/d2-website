@@ -30,9 +30,6 @@ import {
   DollarSign,
   Star,
   AlertTriangle,
-  FileText,
-  Calendar,
-  Bell,
 } from "lucide-react";
 
 const Portfolio = () => {
@@ -53,16 +50,45 @@ const Portfolio = () => {
   };
 
   const trustedBy = [
-    { name: "Fortune 500 E-commerce", logo: "🛒" },
-    { name: "SaaS Platform", logo: "💻" },
-    { name: "Real Estate Corp", logo: "🏢" },
-    { name: "Media Agency", logo: "📺" },
-    { name: "FinTech Startup", logo: "💰" },
-    { name: "Healthcare Tech", logo: "🏥" },
+    {
+      name: "TechFlow Solutions",
+      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/shopify.svg",
+      industry: "E-commerce Platform",
+      employees: "10,000+",
+    },
+    {
+      name: "DataSync Inc",
+      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/atlassian.svg",
+      industry: "SaaS Platform",
+      employees: "8,500+",
+    },
+    {
+      name: "PropTech Ventures",
+      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/salesforce.svg",
+      industry: "Real Estate Tech",
+      employees: "2,500+",
+    },
+    {
+      name: "StreamMedia Corp",
+      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg",
+      industry: "Media & Entertainment",
+      employees: "5,000+",
+    },
+    {
+      name: "PayFlow Systems",
+      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/stripe.svg",
+      industry: "FinTech",
+      employees: "3,200+",
+    },
+    {
+      name: "MedConnect Platform",
+      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/docker.svg",
+      industry: "Healthcare Technology",
+      employees: "12,000+",
+    },
   ];
 
   const featuredProjects = [
-    // === GIỮ NGUYÊN 9 CASE STUDIES CŨ ===
     {
       id: "youtube-automation",
       icon: Youtube,
@@ -216,179 +242,6 @@ const Portfolio = () => {
       ],
       tech: ["n8n", "HubSpot", "Zapier", "Slack"],
     },
-
-    // === 9 CASE STUDIES MỚI - VỪA TẦM ===
-    {
-      id: "slack-alert-hub",
-      icon: Bell,
-      title: "Slack Alert & Notification Hub",
-      category: "Team Communication",
-      client: "Growing SaaS Startup (25 employees)",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&auto=format&fit=crop",
-      excerpt: "Centralized business alerts reducing response time by 80%",
-      challenge:
-        "Important business alerts scattered across emails, causing delayed responses and missed opportunities with customer issues and system monitoring.",
-      solution:
-        "n8n-powered notification hub sending structured alerts to Slack channels for sales, support, and technical issues with smart filtering and escalation.",
-      results: [
-        { label: "Response Time", value: "-80%" },
-        { label: "Missed Alerts", value: "0" },
-        { label: "Team Efficiency", value: "+60%" },
-      ],
-      tech: ["n8n", "Slack API", "Webhooks", "Email", "Google Sheets"],
-    },
-    {
-      id: "google-sheets-automation",
-      icon: BarChart3,
-      title: "Google Sheets Report Automation",
-      category: "Data & Reporting",
-      client: "Digital Marketing Agency (15 staff)",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop",
-      excerpt: "Automated client reporting saving 18 hours weekly",
-      challenge:
-        "Manual creation of weekly client reports from multiple platforms taking 20+ hours weekly, causing delays and human errors in data compilation.",
-      solution:
-        "n8n workflows collecting data from Google Analytics, Facebook Ads, and Google Ads, automatically populating client report templates.",
-      results: [
-        { label: "Time Saved", value: "18h/week" },
-        { label: "Accuracy", value: "+95%" },
-        { label: "Client Satisfaction", value: "+40%" },
-      ],
-      tech: ["n8n", "Google Sheets", "Google Analytics", "Facebook Ads", "Google Ads"],
-    },
-    {
-      id: "email-marketing-automation",
-      icon: Mail,
-      title: "Email Marketing Workflow",
-      category: "Marketing Automation",
-      client: "Local E-commerce Store",
-      image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&auto=format&fit=crop",
-      excerpt: "Automated email sequences increasing revenue by 35%",
-      challenge:
-        "Manual follow-up emails for abandoned carts and new customers, resulting in low customer retention and missed revenue opportunities.",
-      solution:
-        "n8n email automation workflows with abandoned cart recovery, welcome sequences, and customer segmentation based on purchase behavior.",
-      results: [
-        { label: "Email Revenue", value: "+35%" },
-        { label: "Retention", value: "+25%" },
-        { label: "Automation", value: "80%" },
-      ],
-      tech: ["n8n", "Shopify", "Mailchimp", "Google Analytics"],
-    },
-    {
-      id: "invoice-automation",
-      icon: FileText,
-      title: "Automated Invoice Processing",
-      category: "Finance & Accounting",
-      client: "Professional Services Consulting Firm",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop",
-      excerpt: "Streamlined invoicing process reducing errors by 90%",
-      challenge:
-        "Manual invoice creation and tracking causing delays in billing, payment follow-ups, and frequent data entry errors affecting cash flow.",
-      solution:
-        "n8n automation connecting project management tools with accounting software for automatic invoice generation, sending, and payment tracking.",
-      results: [
-        { label: "Processing Time", value: "-75%" },
-        { label: "Errors", value: "-90%" },
-        { label: "Cash Flow", value: "+40%" },
-      ],
-      tech: ["n8n", "Monday.com", "QuickBooks", "Stripe", "Email"],
-    },
-    {
-      id: "social-media-scheduler",
-      icon: Sparkles,
-      title: "Social Media Content Scheduler",
-      category: "Social Media",
-      client: "Local Restaurant Chain (5 locations)",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop",
-      excerpt: "Automated social posting saving 13 hours weekly",
-      challenge:
-        "Manual posting to Facebook, Instagram, Twitter, and LinkedIn for 5 locations consuming 15+ hours weekly with inconsistent branding.",
-      solution:
-        "n8n social media scheduler with content templates, automatic posting, and location-specific customization across all platforms.",
-      results: [
-        { label: "Time Saved", value: "13h/week" },
-        { label: "Consistency", value: "+100%" },
-        { label: "Engagement", value: "+45%" },
-      ],
-      tech: ["n8n", "Facebook API", "Instagram", "Twitter API", "LinkedIn API"],
-    },
-    {
-      id: "customer-support-ticketing",
-      icon: MessageSquare,
-      title: "Customer Support Automation",
-      category: "Customer Service",
-      client: "SaaS Startup (10 employees)",
-      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&auto=format&fit=crop",
-      excerpt: "Automated support ticket routing reducing response time by 70%",
-      challenge:
-        "Manual customer support ticket management causing delayed responses, missed tickets, and poor customer experience with limited staff.",
-      solution:
-        "n8n support automation with smart ticket routing, auto-responses, escalation rules, and integration between email, Slack, and help desk.",
-      results: [
-        { label: "Response Time", value: "-70%" },
-        { label: "CSAT", value: "+50%" },
-        { label: "Automation", value: "60%" },
-      ],
-      tech: ["n8n", "Zendesk", "Slack", "Email", "Google Sheets"],
-    },
-    {
-      id: "lead-qualification-scoring",
-      icon: Target,
-      title: "Lead Scoring & Qualification",
-      category: "Sales & Marketing",
-      client: "B2B Software Company",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
-      excerpt: "Automated lead scoring improving conversion by 45%",
-      challenge:
-        "Manual lead qualification consuming sales team time, inconsistent scoring criteria, and poor lead-to-customer conversion rates.",
-      solution:
-        "n8n lead scoring system analyzing website behavior, email engagement, and company data to automatically qualify and route leads to sales.",
-      results: [
-        { label: "Conversion", value: "+45%" },
-        { label: "Qualification Time", value: "-80%" },
-        { label: "Productivity", value: "+60%" },
-      ],
-      tech: ["n8n", "HubSpot", "Google Analytics", "Slack", "Webhooks"],
-    },
-    {
-      id: "inventory-alerts",
-      icon: AlertTriangle,
-      title: "Inventory Alert System",
-      category: "Operations",
-      client: "Retail Store Chain (8 locations)",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop",
-      excerpt: "Real-time inventory alerts preventing stockouts",
-      challenge:
-        "No real-time inventory visibility across locations causing frequent stockouts, overordering, and manual stock checking consuming staff time.",
-      solution:
-        "n8n inventory monitoring system with low-stock alerts, automatic reorder suggestions, and daily inventory reports via Telegram and email.",
-      results: [
-        { label: "Stockouts", value: "-85%" },
-        { label: "Carrying Cost", value: "-20%" },
-        { label: "Manual Work", value: "-90%" },
-      ],
-      tech: ["n8n", "POS System", "Google Sheets", "Telegram", "Email"],
-    },
-    {
-      id: "appointment-booking",
-      icon: Calendar,
-      title: "Appointment Booking Automation",
-      category: "Scheduling",
-      client: "Medical Clinic (3 doctors)",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&auto=format&fit=crop",
-      excerpt: "Automated booking system reducing no-shows by 40%",
-      challenge:
-        "Manual appointment booking causing scheduling conflicts, high no-show rates, and administrative overhead with phone-based scheduling only.",
-      solution:
-        "n8n booking automation with online scheduling, SMS reminders, email confirmations, and automatic calendar updates with patient notifications.",
-      results: [
-        { label: "No-shows", value: "-40%" },
-        { label: "Double Bookings", value: "0" },
-        { label: "Admin Time", value: "-70%" },
-      ],
-      tech: ["n8n", "Calendly", "Google Calendar", "Twilio SMS", "Email"],
-    },
   ];
 
   const services = [
@@ -442,10 +295,10 @@ const Portfolio = () => {
   ];
 
   const stats = [
-    { icon: Award, label: "Successful Projects", value: "60+" },
-    { icon: Users, label: "Happy Clients", value: "40+" },
+    { icon: Award, label: "Successful Projects", value: "50+" },
+    { icon: Users, label: "Happy Clients", value: "30+" },
     { icon: Clock, label: "Years Experience", value: "3+" },
-    { icon: Globe, label: "Countries Served", value: "12+" },
+    { icon: Globe, label: "Countries Served", value: "10+" },
   ];
 
   const testimonials = [
@@ -475,7 +328,7 @@ const Portfolio = () => {
     <>
       <SEO
         title="n8n Automation & Integration Portfolio - D2 Group | Business Process Automation Experts"
-        description="Leading automation agency specializing in n8n workflow development, API integrations, and business process optimization for B2B companies. View our portfolio of 60+ successful automation projects."
+        description="Leading automation agency specializing in n8n workflow development, API integrations, and business process optimization for B2B companies. View our portfolio of 50+ successful automation projects."
         keywords="n8n developer portfolio, automation engineer, workflow automation, API integration, business process automation, n8n case studies, automation agency, n8n expert"
         canonicalUrl="/portfolio"
         structuredData={structuredData}
@@ -571,7 +424,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Case Studies Grid - 18 Projects */}
+        {/* Case Studies Grid - Always Show Challenge & Solution */}
         <section id="projects" className="py-20 px-6 bg-muted/30">
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-12">
@@ -666,7 +519,7 @@ const Portfolio = () => {
             <div className="text-center mt-12">
               <Button size="lg" asChild>
                 <Link to="/case-studies">
-                  View All {featuredProjects.length} Case Studies <ArrowRight className="w-4 h-4 ml-2" />
+                  View All Case Studies <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
             </div>
