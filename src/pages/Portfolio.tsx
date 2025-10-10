@@ -29,6 +29,7 @@ import {
   Globe,
   Clock,
   DollarSign,
+  Star, // ← Thêm dòng này
 } from "lucide-react";
 
 const Portfolio = () => {
@@ -307,7 +308,7 @@ const Portfolio = () => {
       <div className="min-h-screen bg-background">
         <Header />
 
-        {/* Hero Section - Enhanced for B2B */}
+        {/* Hero Section */}
         <section className="relative pt-32 pb-20 px-6 overflow-hidden bg-gradient-to-b from-primary/5 to-background">
           <div className="container mx-auto max-w-6xl text-center relative z-10">
             <Badge variant="secondary" className="text-lg px-6 py-2 mb-6">
@@ -348,7 +349,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Social Proof - Client Logos */}
+        {/* Social Proof */}
         <section className="py-12 px-6 border-y bg-muted/30">
           <div className="container mx-auto max-w-6xl">
             <p className="text-center text-sm text-muted-foreground mb-6 uppercase tracking-wider">
@@ -364,7 +365,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Services Overview */}
+        {/* Services */}
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
@@ -395,7 +396,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Featured Projects - Grid 3x3 */}
+        {/* Case Studies Grid 3x3 */}
         <section id="projects" className="py-20 px-6 bg-muted/30">
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-12">
@@ -403,7 +404,6 @@ const Portfolio = () => {
               <p className="text-xl text-muted-foreground">Real automation projects with measurable business impact</p>
             </div>
 
-            {/* Grid 3x3 Layout */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {featuredProjects.map((project, index) => (
                 <Card
@@ -472,7 +472,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Methodology/Process */}
+        {/* Methodology */}
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
@@ -533,7 +533,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <section className="py-20 px-6 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-4xl font-bold mb-6">Ready to Automate Your Business?</h2>
@@ -542,7 +542,6 @@ const Portfolio = () => {
               solutions.
             </p>
 
-            {/* Contact Info Grid */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="flex items-center justify-center gap-3">
                 <Mail className="w-6 h-6" />
