@@ -50,54 +50,12 @@ const Portfolio = () => {
   };
 
   const trustedBy = [
-    {
-      name: "TechFlow Solutions",
-      logo: "https://logo.clearbit.com/shopify.com",
-      industry: "E-commerce Platform",
-      employees: "10,000+",
-    },
-    {
-      name: "DataSync Inc",
-      logo: "https://logo.clearbit.com/atlassian.com",
-      industry: "SaaS Platform",
-      employees: "8,500+",
-    },
-    {
-      name: "PropTech Ventures",
-      logo: "https://logo.clearbit.com/salesforce.com",
-      industry: "Real Estate Tech",
-      employees: "2,500+",
-    },
-    {
-      name: "StreamMedia Corp",
-      logo: "https://logo.clearbit.com/spotify.com",
-      industry: "Media & Entertainment",
-      employees: "5,000+",
-    },
-    {
-      name: "PayFlow Systems",
-      logo: "https://logo.clearbit.com/stripe.com",
-      industry: "FinTech",
-      employees: "3,200+",
-    },
-    {
-      name: "MedConnect Platform",
-      logo: "https://logo.clearbit.com/teladoc.com",
-      industry: "Healthcare Tech",
-      employees: "12,000+",
-    },
-    {
-      name: "CloudOps Solutions",
-      logo: "https://logo.clearbit.com/mongodb.com",
-      industry: "Cloud Infrastructure",
-      employees: "4,800+",
-    },
-    {
-      name: "AutoFlow Industries",
-      logo: "https://logo.clearbit.com/hubspot.com",
-      industry: "Manufacturing Tech",
-      employees: "6,200+",
-    },
+    { name: "Fortune 500 E-commerce", logo: "🛒" },
+    { name: "SaaS Platform", logo: "💻" },
+    { name: "Real Estate Corp", logo: "🏢" },
+    { name: "Media Agency", logo: "📺" },
+    { name: "FinTech Startup", logo: "💰" },
+    { name: "Healthcare Tech", logo: "🏥" },
   ];
 
   const featuredProjects = [
