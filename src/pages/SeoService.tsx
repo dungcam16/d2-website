@@ -348,27 +348,22 @@ const SeoService = () => {
     {
       category: "Research",
       tools: ["SEMrush Enterprise", "Ahrefs", "Screaming Frog"],
-      color: "text-foreground",
     },
     {
       category: "Analytics",
       tools: ["Google Analytics 4", "Search Console", "Data Studio"],
-      color: "text-foreground",
     },
     {
       category: "Technical",
       tools: ["PageSpeed Insights", "GTmetrix", "Lighthouse"],
-      color: "text-foreground",
     },
     {
       category: "Monitoring",
       tools: ["Rank tracking", "SERP monitoring", "Alert systems"],
-      color: "text-foreground",
     },
     {
       category: "Reporting",
       tools: ["Custom dashboards", "Automated reports", "ROI tracking"],
-      color: "text-foreground",
     },
   ];
 
@@ -580,7 +575,7 @@ const SeoService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            <span style={{ color: "#2563eb" }}>#1 Vietnam Market</span> SEO Experts
+            <span className="text-primary">#1 Vietnam Market</span> SEO Experts
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -593,7 +588,7 @@ const SeoService = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start space-x-4">
-                    <div style={{ color: "#2563eb" }}>
+                    <div className="text-primary">
                       <IconComponent className="h-8 w-8" />
                     </div>
                     <div>
@@ -609,11 +604,11 @@ const SeoService = () => {
       </section>
 
       {/* Comprehensive SEO Services */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#fafafa" }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Comprehensive SEO - <span style={{ color: "#16a34a" }}>Technical</span> to{" "}
-            <span style={{ color: "#2563eb" }}>Content</span>
+            Comprehensive SEO - <span className="text-primary">Technical</span> to{" "}
+            <span className="text-primary">Content</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -626,7 +621,7 @@ const SeoService = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="text-center">
-                    <div className="mb-4" style={{ color: "#16a34a" }}>
+                    <div className="mb-4 text-primary">
                       <IconComponent className="h-10 w-10 mx-auto" />
                     </div>
                     <h3 className="text-xl font-bold mb-3">{service.title}</h3>
@@ -635,7 +630,7 @@ const SeoService = () => {
                     <ul className="space-y-2 text-left">
                       {service.details.map((detail, idx) => (
                         <li key={idx} className="flex items-center text-sm">
-                          <CheckCircle className="h-3 w-3 mr-2 flex-shrink-0" style={{ color: "#16a34a" }} />
+                          <CheckCircle className="h-3 w-3 mr-2 flex-shrink-0 text-primary" />
                           <span>{detail}</span>
                         </li>
                       ))}
@@ -652,7 +647,7 @@ const SeoService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Technical SEO - <span style={{ color: "#f59e0b" }}>Solid Foundation</span> For Rankings
+            Technical SEO - <span className="text-primary">Solid Foundation</span> For Rankings
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -665,16 +660,13 @@ const SeoService = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start space-x-4">
-                    <div style={{ color: "#f59e0b" }}>
+                    <div className="text-primary">
                       <IconComponent className="h-6 w-6" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                       <p className="text-muted-foreground text-sm mb-3">{item.description}</p>
-                      <div
-                        className="text-xs font-medium px-3 py-1 rounded"
-                        style={{ backgroundColor: "#fef3c7", color: "#f59e0b" }}
-                      >
+                      <div className="text-xs font-medium px-3 py-1 rounded bg-primary/10 text-primary">
                         {item.metric}
                       </div>
                     </div>
@@ -687,10 +679,10 @@ const SeoService = () => {
       </section>
 
       {/* Link Building Strategy */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#fafafa" }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            White-Hat Link Building - <span style={{ color: "#2563eb" }}>Real Authority</span>, No Spam
+            White-Hat Link Building - <span className="text-primary">Real Authority</span>, No Spam
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -700,14 +692,9 @@ const SeoService = () => {
                 className="p-6 text-center hover:shadow-lg transition-all duration-300 animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <h3 className="text-lg font-bold mb-3" style={{ color: "#2563eb" }}>
-                  {strategy.title}
-                </h3>
+                <h3 className="text-lg font-bold mb-3 text-primary">{strategy.title}</h3>
                 <p className="text-muted-foreground mb-4">{strategy.description}</p>
-                <div
-                  className="text-sm font-medium px-3 py-2 rounded"
-                  style={{ backgroundColor: "#dbeafe", color: "#2563eb" }}
-                >
+                <div className="text-sm font-medium px-3 py-2 rounded bg-primary/10 text-primary">
                   {strategy.metric}
                 </div>
               </Card>
@@ -720,7 +707,7 @@ const SeoService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            In-Depth SEO Audit <span style={{ color: "#16a34a" }}>150+ Checkpoints</span>
+            In-Depth SEO Audit <span className="text-primary">150+ Checkpoints</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -733,15 +720,12 @@ const SeoService = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="text-center">
-                    <div className="mb-4" style={{ color: "#16a34a" }}>
+                    <div className="mb-4 text-primary">
                       <IconComponent className="h-10 w-10 mx-auto" />
                     </div>
                     <h3 className="text-xl font-bold mb-3">{category.title}</h3>
                     <p className="text-muted-foreground mb-4">{category.description}</p>
-                    <div
-                      className="text-sm font-medium px-3 py-2 rounded"
-                      style={{ backgroundColor: "#dcfce7", color: "#16a34a" }}
-                    >
+                    <div className="text-sm font-medium px-3 py-2 rounded bg-primary/10 text-primary">
                       {category.checks}
                     </div>
                   </div>
@@ -753,10 +737,10 @@ const SeoService = () => {
       </section>
 
       {/* Industry-Specific SEO */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#fafafa" }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            SEO Strategies <span style={{ color: "#2563eb" }}>By Industry</span>
+            SEO Strategies <span className="text-primary">By Industry</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -769,7 +753,7 @@ const SeoService = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start space-x-4 mb-4">
-                    <div style={{ color: "#2563eb" }}>
+                    <div className="text-primary">
                       <IconComponent className="h-8 w-8" />
                     </div>
                     <div>
@@ -781,7 +765,7 @@ const SeoService = () => {
                   <div className="space-y-2">
                     {industry.specialties.map((specialty, idx) => (
                       <div key={idx} className="flex items-center text-sm">
-                        <CheckCircle className="h-3 w-3 mr-2 flex-shrink-0" style={{ color: "#16a34a" }} />
+                        <CheckCircle className="h-3 w-3 mr-2 flex-shrink-0 text-primary" />
                         <span>{specialty}</span>
                       </div>
                     ))}
@@ -797,7 +781,7 @@ const SeoService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Professional <span style={{ color: "#f59e0b" }}>SEO Tool Stack</span>
+            Professional <span className="text-primary">SEO Tool Stack</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -807,16 +791,10 @@ const SeoService = () => {
                 className="p-6 text-center hover:shadow-lg transition-all duration-300 animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <h3 className="text-lg font-bold mb-4" style={{ color: toolCategory.color }}>
-                  {toolCategory.category}
-                </h3>
+                <h3 className="text-lg font-bold mb-4">{toolCategory.category}</h3>
                 <div className="space-y-2">
                   {toolCategory.tools.map((tool, idx) => (
-                    <div
-                      key={idx}
-                      className="text-sm text-muted-foreground p-2 rounded"
-                      style={{ backgroundColor: "#f8fafc" }}
-                    >
+                    <div key={idx} className="text-sm text-muted-foreground p-2 rounded bg-muted/50">
                       {tool}
                     </div>
                   ))}
@@ -828,43 +806,35 @@ const SeoService = () => {
       </section>
 
       {/* Pricing & Packages */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#fafafa" }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            SEO Packages With <span style={{ color: "#16a34a" }}>Clear Guarantees</span>
+            SEO Packages With <span className="text-primary">Clear Guarantees</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {packages.map((pkg, index) => (
               <Card
                 key={index}
-                className={`p-6 relative ${pkg.popular ? "border-green-500 shadow-lg" : ""} animate-scale-in`}
+                className={`p-6 relative ${pkg.popular ? "ring-2 ring-primary" : ""} animate-scale-in`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span
-                      className="px-4 py-2 rounded-full text-sm font-medium text-white"
-                      style={{ backgroundColor: "#16a34a" }}
-                    >
+                    <span className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium">
                       Most Popular
                     </span>
                   </div>
                 )}
 
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold mb-2" style={{ color: "#2563eb" }}>
-                    {pkg.name}
-                  </h3>
+                  <h3 className="text-xl font-bold mb-2 text-primary">{pkg.name}</h3>
                   <div className="text-3xl font-bold mb-2">
                     {pkg.price}
                     <span className="text-lg font-normal text-muted-foreground">{pkg.period}</span>
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">{pkg.description}</p>
-                  <div
-                    className="text-xs font-medium px-3 py-1 rounded"
-                    style={{ backgroundColor: "#dcfce7", color: "#16a34a" }}
-                  >
+                  <div className="text-xs font-medium px-3 py-1 rounded bg-primary/10 text-primary">
                     {pkg.guarantee}
                   </div>
                 </div>
@@ -872,7 +842,7 @@ const SeoService = () => {
                 <ul className="space-y-3 mb-6">
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center text-sm">
-                      <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0" style={{ color: "#16a34a" }} />
+                      <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0 text-primary" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -881,11 +851,6 @@ const SeoService = () => {
                 <Button
                   className="w-full"
                   variant={pkg.popular ? "default" : "outline"}
-                  style={
-                    pkg.popular
-                      ? { backgroundColor: "#16a34a", color: "white" }
-                      : { borderColor: "#16a34a", color: "#16a34a" }
-                  }
                   onClick={() => (window.location.href = "/contact")}
                 >
                   {pkg.price === "Custom" ? "Contact Sales" : "Choose Package"}
@@ -900,7 +865,7 @@ const SeoService = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Real Results From <span style={{ color: "#2563eb" }}>300+ Projects</span>
+            Real Results From <span className="text-primary">300+ Projects</span>
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
