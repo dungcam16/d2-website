@@ -52,39 +52,51 @@ const Portfolio = () => {
   const trustedBy = [
     {
       name: "TechFlow Solutions",
-      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/shopify.svg",
+      logo: "https://logo.clearbit.com/shopify.com",
       industry: "E-commerce Platform",
       employees: "10,000+",
     },
     {
       name: "DataSync Inc",
-      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/atlassian.svg",
+      logo: "https://logo.clearbit.com/atlassian.com",
       industry: "SaaS Platform",
       employees: "8,500+",
     },
     {
       name: "PropTech Ventures",
-      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/salesforce.svg",
+      logo: "https://logo.clearbit.com/salesforce.com",
       industry: "Real Estate Tech",
       employees: "2,500+",
     },
     {
       name: "StreamMedia Corp",
-      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg",
+      logo: "https://logo.clearbit.com/spotify.com",
       industry: "Media & Entertainment",
       employees: "5,000+",
     },
     {
       name: "PayFlow Systems",
-      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/stripe.svg",
+      logo: "https://logo.clearbit.com/stripe.com",
       industry: "FinTech",
       employees: "3,200+",
     },
     {
       name: "MedConnect Platform",
-      logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/docker.svg",
-      industry: "Healthcare Technology",
+      logo: "https://logo.clearbit.com/teladoc.com",
+      industry: "Healthcare Tech",
       employees: "12,000+",
+    },
+    {
+      name: "CloudOps Solutions",
+      logo: "https://logo.clearbit.com/mongodb.com",
+      industry: "Cloud Infrastructure",
+      employees: "4,800+",
+    },
+    {
+      name: "AutoFlow Industries",
+      logo: "https://logo.clearbit.com/hubspot.com",
+      industry: "Manufacturing Tech",
+      employees: "6,200+",
     },
   ];
 
