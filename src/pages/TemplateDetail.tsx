@@ -67,7 +67,7 @@ const TemplateDetail = () => {
       }
     } catch (err) {
       console.error("Error fetching template:", err);
-      setError("Không tìm thấy workflow template");
+      setError("Workflow template not found");
     } finally {
       setLoading(false);
     }
@@ -95,15 +95,15 @@ const TemplateDetail = () => {
         URL.revokeObjectURL(url);
 
         toast({
-          title: "Tải xuống thành công",
-          description: "Workflow template đã được tải về máy của bạn",
+          title: "Download Successful",
+          description: "Workflow template has been downloaded to your device",
         });
       }
     } catch (error) {
       console.error("Error downloading template:", error);
       toast({
-        title: "Lỗi",
-        description: "Không thể tải xuống workflow template",
+        title: "Error",
+        description: "Unable to download workflow template",
         variant: "destructive",
       });
     }
@@ -150,12 +150,12 @@ const TemplateDetail = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <div className="container mx-auto px-4 py-20 text-center">
-          <h1 className="text-3xl font-bold mb-4">Workflow Template Không Tồn Tại</h1>
+          <h1 className="text-3xl font-bold mb-4">Workflow Template Not Found</h1>
           <p className="text-muted-foreground mb-8">{error}</p>
           <Link to="/templates">
             <Button>
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Quay lại danh sách Templates
+              Back to Templates
             </Button>
           </Link>
         </div>
@@ -167,14 +167,14 @@ const TemplateDetail = () => {
   const templateStructuredData = {
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",
-    "name": template.title,
-    "description": template.description,
-    "author": {
+    name: template.title,
+    description: template.description,
+    author: {
       "@type": "Organization",
-      "name": template.author,
+      name: template.author,
     },
-    "datePublished": template.published_at,
-    "programmingLanguage": "JSON",
+    datePublished: template.published_at,
+    programmingLanguage: "JSON",
   };
 
   return (
@@ -190,29 +190,26 @@ const TemplateDetail = () => {
 
       <article className="container mx-auto px-4 py-12 max-w-6xl">
         {/* Back Button */}
-        <Link to="/templates" className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8 transition-colors">
+        <Link
+          to="/templates"
+          className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8 transition-colors"
+        >
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Quay lại Templates
+          Back to Templates
         </Link>
 
         {/* Header */}
         <div className="mb-8">
           <div className="flex flex-wrap items-center gap-3 mb-4">
             {template.difficulty_level && (
-              <Badge className={getDifficultyColor(template.difficulty_level)}>
-                {template.difficulty_level}
-              </Badge>
+              <Badge className={getDifficultyColor(template.difficulty_level)}>{template.difficulty_level}</Badge>
             )}
-            {template.category && (
-              <Badge variant="outline">{template.category}</Badge>
-            )}
+            {template.category && <Badge variant="outline">{template.category}</Badge>}
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{template.title}</h1>
-          
-          {template.description && (
-            <p className="text-xl text-muted-foreground mb-6">{template.description}</p>
-          )}
+
+          {template.description && <p className="text-xl text-muted-foreground mb-6">{template.description}</p>}
 
           {/* Metadata */}
           <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
@@ -222,15 +219,15 @@ const TemplateDetail = () => {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
-              <span>{new Date(template.published_at).toLocaleDateString("vi-VN")}</span>
+              <span>{new Date(template.published_at).toLocaleDateString("en-US")}</span>
             </div>
             <div className="flex items-center gap-2">
               <Eye className="h-4 w-4" />
-              <span>{template.views || 0} lượt xem</span>
+              <span>{template.views || 0} views</span>
             </div>
             <div className="flex items-center gap-2">
               <Download className="h-4 w-4" />
-              <span>{template.downloads || 0} lượt tải</span>
+              <span>{template.downloads || 0} downloads</span>
             </div>
             {template.node_count && (
               <div className="flex items-center gap-2">
@@ -247,7 +244,7 @@ const TemplateDetail = () => {
             {/* Workflow Embed - Full width interactive preview */}
             {template.workflow_json?.embed_url && (
               <Card className="overflow-hidden">
-                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
                   <iframe
                     src={template.workflow_json.embed_url}
                     className="absolute top-0 left-0 w-full h-full border-0"
@@ -262,21 +259,17 @@ const TemplateDetail = () => {
             {/* Thumbnail - Only show if no embed */}
             {!template.workflow_json?.embed_url && template.thumbnail_url && (
               <div className="rounded-lg overflow-hidden border">
-                <img
-                  src={template.thumbnail_url}
-                  alt={template.title}
-                  className="w-full h-auto"
-                />
+                <img src={template.thumbnail_url} alt={template.title} className="w-full h-auto" />
               </div>
             )}
 
             {/* Content */}
             <Card>
               <CardHeader>
-                <CardTitle>Chi Tiết Workflow</CardTitle>
+                <CardTitle>Workflow Details</CardTitle>
               </CardHeader>
               <CardContent>
-                <div 
+                <div
                   className="prose prose-gray dark:prose-invert max-w-none"
                   dangerouslySetInnerHTML={{ __html: template.content }}
                 />
@@ -287,7 +280,7 @@ const TemplateDetail = () => {
             {template.integrations && template.integrations.length > 0 && (
               <Card>
                 <CardHeader>
-                  <CardTitle>Tích Hợp Sử Dụng</CardTitle>
+                  <CardTitle>Integrations Used</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
@@ -309,16 +302,16 @@ const TemplateDetail = () => {
               <CardContent className="pt-6">
                 <Button onClick={handleDownload} className="w-full mb-4" size="lg">
                   <Download className="mr-2 h-5 w-5" />
-                  Tải Workflow
+                  Download Workflow
                 </Button>
                 <Separator className="my-4" />
                 <div className="space-y-3 text-sm">
                   <p className="text-muted-foreground">
-                    Tải về file JSON và import vào N8N của bạn để sử dụng workflow này
+                    Download the JSON file and import it into your N8N instance to use this workflow
                   </p>
                   <Link to="/services/n8n-workflow" className="flex items-center gap-2 text-primary hover:underline">
                     <ExternalLink className="h-4 w-4" />
-                    Tìm hiểu về dịch vụ N8N
+                    Learn about N8N services
                   </Link>
                 </div>
               </CardContent>
@@ -348,13 +341,13 @@ const TemplateDetail = () => {
             {/* CTA */}
             <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20">
               <CardContent className="pt-6">
-                <h3 className="text-lg font-semibold mb-3">Cần hỗ trợ triển khai?</h3>
+                <h3 className="text-lg font-semibold mb-3">Need Implementation Support?</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Đội ngũ chuyên gia của D2 Group sẵn sàng hỗ trợ bạn triển khai và tùy chỉnh workflow phù hợp với nhu cầu
+                  D2 Group's expert team is ready to help you deploy and customize workflows tailored to your needs
                 </p>
                 <Link to="/contact">
                   <Button variant="default" className="w-full">
-                    Liên hệ tư vấn
+                    Contact for Consultation
                   </Button>
                 </Link>
               </CardContent>
