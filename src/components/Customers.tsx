@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Customers = () => {
   const customers = [
@@ -13,7 +13,7 @@ const Customers = () => {
     { name: "FoodTech Vietnam", logo: "https://via.placeholder.com/120x60/be185d/ffffff?text=FoodTech" },
     { name: "PropertyTech", logo: "https://via.placeholder.com/120x60/0d9488/ffffff?text=PropertyTech" },
     { name: "TravelTech Plus", logo: "https://via.placeholder.com/120x60/4338ca/ffffff?text=TravelTech" },
-    { name: "MediaTech Solutions", logo: "https://via.placeholder.com/120x60/9333ea/ffffff?text=MediaTech" }
+    { name: "MediaTech Solutions", logo: "https://via.placeholder.com/120x60/9333ea/ffffff?text=MediaTech" },
   ];
 
   return (
@@ -22,12 +22,10 @@ const Customers = () => {
         {/* Header */}
         <div className="text-center mb-12 animate-slide-up">
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
-            <span className="text-foreground">Khách Hàng </span>
-            <span className="text-primary">Tin Tưởng</span>
+            <span className="text-foreground">Our </span>
+            <span className="text-primary">Trusted Customers</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Hơn 200 doanh nghiệp đã tin tưởng và sử dụng dịch vụ của chúng tôi
-          </p>
+          <p className="text-lg text-muted-foreground">Over 200 businesses have trusted and used our services</p>
         </div>
 
         {/* Scrolling Customers */}
@@ -39,15 +37,15 @@ const Customers = () => {
                 className="flex-shrink-0 flex items-center justify-center bg-card rounded-lg border tech-border p-6 hover:shadow-glow transition-all duration-300 min-w-[200px]"
               >
                 <div className="text-center">
-                  <img 
-                    src={customer.logo} 
-                    alt={`Logo của ${customer.name} - Khách hàng tin tưởng D2 Group`}
+                  <img
+                    src={customer.logo}
+                    alt={`Logo of ${customer.name} - A trusted client of D2 Group`}
                     className="h-12 w-auto mx-auto mb-2 object-contain"
                     onError={(e) => {
                       const target = e.currentTarget as HTMLImageElement;
-                      target.style.display = 'none';
+                      target.style.display = "none";
                       const fallback = target.nextElementSibling as HTMLElement;
-                      if (fallback) fallback.style.display = 'block';
+                      if (fallback) fallback.style.display = "block";
                     }}
                   />
                   <div className="text-4xl mb-2 hidden">🏢</div>
