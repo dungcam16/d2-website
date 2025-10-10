@@ -1,76 +1,75 @@
-import React from 'react';
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import Technologies from '@/components/Technologies';
-import WhyChooseUs from '@/components/WhyChooseUs';
-import Partners from '@/components/Partners';
-import Customers from '@/components/Customers';
-import Testimonials from '@/components/Testimonials';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
-import SEO from '@/components/SEO';
+import React from "react";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import Technologies from "@/components/Technologies";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import Partners from "@/components/Partners";
+import Customers from "@/components/Customers";
+import Testimonials from "@/components/Testimonials";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "D2 Group - Agency Marketing B2B",
-    "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/GfwJGgB5PVUTbVt9ullbKBHrjTg2/social-images/social-1758965925583-514270009_692154340477059_2925918850980454621_n (1).jpg",
-    "description": "Agency marketing B2B hàng đầu Việt Nam chuyên cung cấp dịch vụ marketing tổng thể, giải pháp digital marketing và tư vấn chiến lược marketing cho doanh nghiệp",
-    "address": {
+    name: "D2 Group - B2B Marketing Agency",
+    image:
+      "https://storage.googleapis.com/gpt-engineer-file-uploads/GfwJGgB5PVUTbVt9ullbKBHrjTg2/social-images/social-1758965925583-514270009_692154340477059_2925918850980454621_n (1).jpg",
+    description:
+      "Leading B2B marketing agency in Vietnam specializing in comprehensive marketing services, digital marketing solutions and strategic marketing consulting for businesses",
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": "123 Lê Lợi",
-      "addressLocality": "Hồ Chí Minh",
-      "addressCountry": "VN"
+      streetAddress: "123 Le Loi",
+      addressLocality: "Ho Chi Minh City",
+      addressCountry: "VN",
     },
-    "telephone": "+84-123-456-789",
-    "url": "https://d2group.co",
-    "sameAs": [
-      "https://facebook.com/d2group",
-      "https://linkedin.com/company/d2group"
-    ],
-    "serviceArea": "Vietnam",
-    "priceRange": "$$",
-    "hasOfferCatalog": {
+    telephone: "+84-123-456-789",
+    url: "https://d2group.co",
+    sameAs: ["https://facebook.com/d2group", "https://linkedin.com/company/d2group"],
+    serviceArea: "Vietnam",
+    priceRange: "$$",
+    hasOfferCatalog: {
       "@type": "OfferCatalog",
-      "name": "Dịch vụ Marketing B2B",
-      "itemListElement": [
+      name: "B2B Marketing Services",
+      itemListElement: [
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Dịch vụ Chatbot",
-            "url": "https://d2group.co/services/chatbot"
-          }
+            name: "Chatbot Services",
+            url: "https://d2group.co/services/chatbot",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Dịch vụ Zalo OA",
-            "url": "https://d2group.co/services/zalo"
-          }
+            name: "Zalo OA Services",
+            url: "https://d2group.co/services/zalo",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Dịch vụ Tự động hóa N8N",
-            "url": "https://d2group.co/services/automation"
-          }
-        }
-      ]
-    }
+            name: "N8N Automation Services",
+            url: "https://d2group.co/services/automation",
+          },
+        },
+      ],
+    },
   };
 
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Dịch vụ Marketing Tổng thể cho B2B - Agency Marketing B2B Hàng Đầu"
-        description="D2 Group - Công ty marketing B2B hàng đầu Việt Nam. Chuyên cung cấp giải pháp marketing cho doanh nghiệp, tư vấn chiến lược marketing và digital marketing agency chuyên nghiệp."
-        keywords="dịch vụ marketing tổng thể cho B2B, agency marketing B2B, công ty marketing B2B, giải pháp marketing cho doanh nghiệp, tư vấn chiến lược marketing, digital marketing agency"
+        title="Comprehensive B2B Marketing Services - Leading B2B Marketing Agency"
+        description="D2 Group - Vietnam's leading B2B marketing company. Specializing in business marketing solutions, strategic marketing consulting and professional digital marketing agency services."
+        keywords="comprehensive B2B marketing services, B2B marketing agency, B2B marketing company, business marketing solutions, strategic marketing consulting, digital marketing agency"
         canonicalUrl="/"
         structuredData={structuredData}
       />
