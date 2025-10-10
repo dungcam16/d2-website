@@ -18,7 +18,6 @@ interface BlogPost {
   published_at: string;
   tags: string[];
   image_url?: string | null;
-  workflow_template_id?: string | null;
   views: number | null;
   read_time: number | null;
   slug: string;
@@ -28,7 +27,6 @@ const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const [post, setPost] = useState<BlogPost | null>(null);
-  const [workflowJson, setWorkflowJson] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -54,21 +52,7 @@ const BlogPostPage = () => {
           setError("Blog post not found.");
         } else {
           setPost(data);
-
-          // Fetch workflow template nếu có
-          if (data.workflow_template_id) {
-            const { data: workflow } = await supabase
-              .from("workflow_templates")
-              .select("workflow_json")
-              .eq("id", data.workflow_template_id)
-              .maybeSingle();
-
-            if (workflow?.workflow_json) {
-              setWorkflowJson(workflow.workflow_json);
-            }
-          }
-
-          // Increment view count
+          // Increment view count without waiting for it to finish
           supabase
             .from("blog_posts")
             .update({ views: (data.views || 0) + 1 })
@@ -131,6 +115,7 @@ const BlogPostPage = () => {
     );
   }
 
+  // Create structured data for blog post
   const articleStructuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -180,164 +165,7 @@ const BlogPostPage = () => {
         </Button>
 
         <article>
-          {/* n8n Workflow Iframe hoặc Image */}
-          {workflowJson ? (
-            <div className="mb-8 relative rounded-2xl bg-white/10 p-2">
-              <div className="overflow-hidden rounded-xl bg-white">
-                <div className="relative w-full" style={{ paddingBottom: "60%" }}>
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full border-0"
-                    srcDoc={`
-                      <!DOCTYPE html>
-                      <html>
-                        <head>
-                          <style>
-                            * { margin: 0; padding: 0; box-sizing: border-box; }
-                            body {
-                              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                              padding: 24px;
-                              min-height: 100vh;
-                              display: flex;
-                              align-items: center;
-                              justify-content: center;
-                            }
-                            .container {
-                              background: white;
-                              border-radius: 16px;
-                              padding: 32px;
-                              box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-                              max-width: 900px;
-                              width: 100%;
-                            }
-                            .header {
-                              display: flex;
-                              align-items: center;
-                              gap: 12px;
-                              margin-bottom: 24px;
-                              padding-bottom: 16px;
-                              border-bottom: 2px solid #e5e7eb;
-                            }
-                            .logo {
-                              width: 40px;
-                              height: 40px;
-                              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                              border-radius: 8px;
-                              display: flex;
-                              align-items: center;
-                              justify-content: center;
-                              color: white;
-                              font-weight: bold;
-                              font-size: 20px;
-                            }
-                            .title {
-                              font-size: 24px;
-                              font-weight: 700;
-                              color: #1f2937;
-                            }
-                            .workflow-name {
-                              font-size: 18px;
-                              font-weight: 600;
-                              color: #4b5563;
-                              margin-bottom: 16px;
-                            }
-                            .nodes-grid {
-                              display: grid;
-                              grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                              gap: 12px;
-                              margin-top: 16px;
-                            }
-                            .node {
-                              background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-                              border: 2px solid #d1d5db;
-                              border-radius: 12px;
-                              padding: 16px;
-                              transition: all 0.3s ease;
-                            }
-                            .node:hover {
-                              transform: translateY(-4px);
-                              box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-                              border-color: #667eea;
-                            }
-                            .node-name {
-                              font-weight: 600;
-                              color: #2563eb;
-                              font-size: 14px;
-                              margin-bottom: 4px;
-                            }
-                            .node-type {
-                              font-size: 12px;
-                              color: #6b7280;
-                            }
-                            .stats {
-                              display: flex;
-                              gap: 24px;
-                              margin-top: 20px;
-                              padding: 16px;
-                              background: #f9fafb;
-                              border-radius: 8px;
-                            }
-                            .stat {
-                              text-align: center;
-                            }
-                            .stat-value {
-                              font-size: 24px;
-                              font-weight: 700;
-                              color: #667eea;
-                            }
-                            .stat-label {
-                              font-size: 12px;
-                              color: #6b7280;
-                              margin-top: 4px;
-                            }
-                          </style>
-                        </head>
-                        <body>
-                          <div class="container">
-                            <div class="header">
-                              <div class="logo">n8n</div>
-                              <div class="title">Workflow Preview</div>
-                            </div>
-                            <div class="workflow-name">📊 ${workflowJson.name || "Workflow Template"}</div>
-                            <div class="stats">
-                              <div class="stat">
-                                <div class="stat-value">${workflowJson.nodes?.length || 0}</div>
-                                <div class="stat-label">Nodes</div>
-                              </div>
-                              <div class="stat">
-                                <div class="stat-value">${workflowJson.connections ? Object.keys(workflowJson.connections).length : 0}</div>
-                                <div class="stat-label">Connections</div>
-                              </div>
-                            </div>
-                            ${
-                              workflowJson.nodes
-                                ? `
-                              <div class="nodes-grid">
-                                ${workflowJson.nodes
-                                  .map(
-                                    (node: any) => `
-                                  <div class="node">
-                                    <div class="node-name">${node.name}</div>
-                                    <div class="node-type">${node.type}</div>
-                                  </div>
-                                `,
-                                  )
-                                  .join("")}
-                              </div>
-                            `
-                                : ""
-                            }
-                          </div>
-                        </body>
-                      </html>
-                    `}
-                    title="n8n Workflow Preview"
-                    sandbox="allow-same-origin"
-                  />
-                </div>
-              </div>
-            </div>
-          ) : post.image_url ? (
+          {post.image_url && (
             <div className="mb-8">
               <img
                 src={post.image_url}
@@ -346,7 +174,7 @@ const BlogPostPage = () => {
                 loading="lazy"
               />
             </div>
-          ) : null}
+          )}
 
           <header className="mb-8">
             <div className="flex flex-wrap gap-2 mb-4">
