@@ -23,12 +23,10 @@ const Customers = () => {
         {/* Header */}
         <div className="text-center mb-12 animate-slide-up">
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
-            <span className="text-foreground">Khách hàng </span>
-            <span className="text-primary">Tin Tưởng</span>
+            <span className="text-foreground">Trusted by </span>
+            <span className="text-primary">Leading Companies</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Hơn 200 doanh nghiệp đã tin tưởng và sử dụng dịch vụ của chúng tôi
-          </p>
+          <p className="text-lg text-muted-foreground">Over 200+ businesses worldwide trust our automation solutions</p>
         </div>
 
         {/* Scrolling Customers */}
