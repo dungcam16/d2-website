@@ -42,12 +42,12 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button size="lg" className="shadow-glow group text-lg px-8 py-4">
+            <Button size="lg" className="shadow-glow group text-lg px-8 py-4" onClick={() => window.location.href = '/contact'}>
               Get a Free B2B Marketing Consultation
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
 
-            <Button variant="outline" size="lg" className="tech-border group text-lg px-8 py-4">
+            <Button variant="outline" size="lg" className="tech-border group text-lg px-8 py-4" onClick={() => window.location.href = '/contact'}>
               <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
               View Marketing Services
             </Button>

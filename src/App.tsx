@@ -16,6 +16,7 @@ import WebsiteService from "./pages/WebsiteService";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
 import AboutUs from "./pages/AboutUs";
+import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/services/content" element={<ContentService />} />
           <Route path="/services/seo" element={<SeoService />} />
           <Route path="/services/website" element={<WebsiteService />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/templates" element={<Templates />} />
           <Route path="/templates/:slug" element={<TemplateDetail />} />

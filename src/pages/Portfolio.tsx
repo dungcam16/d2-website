@@ -463,8 +463,8 @@ const Portfolio = () => {
 
             <div className="text-center mt-12">
               <Button size="lg" asChild>
-                <Link to="/case-studies">
-                  View All Case Studies <ArrowRight className="w-4 h-4 ml-2" />
+                <Link to="/contact">
+                  Get Your Free Consultation <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
             </div>
@@ -572,8 +572,8 @@ const Portfolio = () => {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-                <Link to="/services">
-                  <DollarSign className="w-4 h-4 mr-2" /> View Pricing
+                <Link to="/contact">
+                  <DollarSign className="w-4 h-4 mr-2" /> Get Started
                 </Link>
               </Button>
             </div>
