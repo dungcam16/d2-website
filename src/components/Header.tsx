@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import logoD2Group from "@/assets/logo_d2_group.png";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,10 +8,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,11 +24,11 @@ const Header = () => {
   }, []);
 
   const mainNavItems = [
-    { name: "Home", href: "/" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Blog", href: "/blog" },
+    { name: t('nav.home'), href: "/" },
+    { name: t('nav.portfolio'), href: "/portfolio" },
+    { name: t('nav.blog'), href: "/blog" },
     { name: "Templates", href: "/templates" },
-    { name: "Contact", href: "/contact" },
+    { name: t('nav.contact'), href: "/contact" },
   ];
 
   const servicesByCategory = {
@@ -92,20 +94,20 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             {/* Home */}
             <a href="/" className="text-foreground hover:text-primary transition-smooth relative group">
-              Home
+              {t('nav.home')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
             {/* Portfolio */}
             <a href="/portfolio" className="text-foreground hover:text-primary transition-smooth relative group">
-              Portfolio
+              {t('nav.portfolio')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
             {/* Services Dropdown - Mega Menu */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
-                Services
+                {t('nav.services')}
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
@@ -164,7 +166,7 @@ const Header = () => {
 
             {/* Blog */}
             <a href="/blog" className="text-foreground hover:text-primary transition-smooth relative group">
-              Blog
+              {t('nav.blog')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
@@ -176,15 +178,32 @@ const Header = () => {
 
             {/* Contact */}
             <a href="/contact" className="text-foreground hover:text-primary transition-smooth relative group">
-              Contact
+              {t('nav.contact')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Language Switcher & CTA Button */}
+          <div className="hidden md:flex items-center space-x-3">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="gap-2">
+                  <Globe className="h-4 w-4" />
+                  <span className="uppercase">{language}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setLanguage('vi')} className="cursor-pointer">
+                  🇻🇳 Tiếng Việt
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('en')} className="cursor-pointer">
+                  🇬🇧 English
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
             <Button variant="default" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
-              Request a Consultation
+              {t('nav.contact')}
             </Button>
           </div>
 
@@ -260,13 +279,32 @@ const Header = () => {
                 ))}
               </div>
 
-              <Button
-                variant="default"
-                className="w-full shadow-glow mt-4"
-                onClick={() => (window.location.href = "/contact")}
-              >
-                Free Consultation
-              </Button>
+              <div className="space-y-3 pt-4 border-t border-border mt-4">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="w-full gap-2">
+                      <Globe className="h-4 w-4" />
+                      <span className="uppercase">{language}</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuItem onClick={() => { setLanguage('vi'); setIsMenuOpen(false); }} className="cursor-pointer">
+                      🇻🇳 Tiếng Việt
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => { setLanguage('en'); setIsMenuOpen(false); }} className="cursor-pointer">
+                      🇬🇧 English
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+
+                <Button
+                  variant="default"
+                  className="w-full shadow-glow"
+                  onClick={() => (window.location.href = "/contact")}
+                >
+                  {t('nav.contact')}
+                </Button>
+              </div>
             </nav>
           </div>
         )}

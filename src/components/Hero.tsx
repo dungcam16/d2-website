@@ -2,8 +2,11 @@ import React from "react";
 import { ArrowRight, Play, Zap, Bot, Workflow } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-automation-light.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -29,27 +32,27 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-slide-up">
           <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 leading-tight">
-            <span className="block text-foreground">B2B Marketing Agency</span>
-            <span className="block text-primary font-bold">Leading in Vietnam</span>
-            <span className="block text-foreground">Comprehensive Marketing Services</span>
+            <span className="block text-foreground">{t('hero.title1')}</span>
+            <span className="block text-primary font-bold">{t('hero.title2')}</span>
+            <span className="block text-foreground">{t('hero.title3')}</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-            A B2B marketing company specializing in providing{" "}
-            <span className="text-primary font-semibold">marketing solutions for businesses</span>, marketing strategy
-            consulting, and <span className="text-primary font-semibold">comprehensive digital marketing services</span>
-            for the Vietnamese B2B market.
+            {t('hero.description')}{" "}
+            <span className="text-primary font-semibold">{t('hero.description.highlight1')}</span>, {t('hero.description.text')}{" "}
+            <span className="text-primary font-semibold">{t('hero.description.highlight2')}</span>{" "}
+            {t('hero.description.end')}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Button size="lg" className="shadow-glow group text-lg px-8 py-4" onClick={() => window.location.href = '/contact'}>
-              Get a Free B2B Marketing Consultation
+              {t('hero.cta.consultation')}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
 
             <Button variant="outline" size="lg" className="tech-border group text-lg px-8 py-4" onClick={() => window.location.href = '/contact'}>
               <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-              View Marketing Services
+              {t('hero.cta.services')}
             </Button>
           </div>
 
