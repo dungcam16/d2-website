@@ -1,53 +1,3 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-
-type Language = 'vi' | 'en';
-
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
-}
-
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within LanguageProvider');
-  }
-  return context;
-};
-
-interface LanguageProviderProps {
-  children: React.ReactNode;
-}
-
-export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem('language');
-    return (saved as Language) || 'vi';
-  });
-
-  useEffect(() => {
-    localStorage.setItem('language', language);
-    document.documentElement.lang = language;
-  }, [language]);
-
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-  };
-
-  const t = (key: string): string => {
-    return translations[language]?.[key] || key;
-  };
-
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
-
 const translations: Record<Language, Record<string, string>> = {
   vi: {
     // Header
@@ -140,93 +90,93 @@ const translations: Record<Language, Record<string, string>> = {
     'common.error': 'Đã có lỗi xảy ra',
   },
   en: {
-    // Header
-    'nav.home': 'Home',
-    'nav.services': 'Services',
-    'nav.portfolio': 'Portfolio',
-    'nav.about': 'About',
-    'nav.blog': 'Blog',
-    'nav.contact': 'Contact',
+    // Header - Điều hướng
+    'nav.home': 'Trang chủ',
+    'nav.services': 'Dịch vụ',
+    'nav.portfolio': 'Danh mục đầu tư',
+    'nav.about': 'Về chúng tôi',
+    'nav.blog': 'Tin tức',
+    'nav.contact': 'Liên hệ',
     
-    // Hero
-    'hero.title1': 'B2B Marketing Agency',
-    'hero.title2': 'Leading in Vietnam',
-    'hero.title3': 'Comprehensive Marketing Services',
-    'hero.description': 'A B2B marketing company specializing in providing',
-    'hero.description.highlight1': 'marketing solutions for businesses',
-    'hero.description.text': 'marketing strategy consulting, and',
-    'hero.description.highlight2': 'comprehensive digital marketing services',
-    'hero.description.end': 'for the Vietnamese B2B market.',
-    'hero.cta.consultation': 'Get a Free B2B Marketing Consultation',
-    'hero.cta.services': 'View Marketing Services',
-    'hero.stats.automations': 'Successful Automations',
-    'hero.stats.roi': 'ROI Growth',
-    'hero.stats.engagement': 'Customer Engagement',
+    // Hero - Phần giới thiệu chính
+    'hero.title1': 'Công ty Marketing B2B',
+    'hero.title2': 'Hàng đầu tại Việt Nam',
+    'hero.title3': 'Dịch vụ Marketing toàn diện',
+    'hero.description': 'Một công ty marketing B2B chuyên cung cấp',
+    'hero.description.highlight1': 'giải pháp marketing cho doanh nghiệp',
+    'hero.description.text': 'tư vấn chiến lược marketing, và',
+    'hero.description.highlight2': 'dịch vụ marketing số toàn diện',
+    'hero.description.end': 'cho thị trường B2B Việt Nam.',
+    'hero.cta.consultation': 'Nhận tư vấn Marketing B2B miễn phí',
+    'hero.cta.services': 'Xem các dịch vụ Marketing',
+    'hero.stats.automations': 'Tự động hóa thành công',
+    'hero.stats.roi': 'Tăng trưởng ROI',
+    'hero.stats.engagement': 'Tương tác khách hàng',
     
-    // Services
-    'services.title': 'Our Services',
-    'services.subtitle': 'Comprehensive automation solutions for businesses',
-    'services.chatbot.title': 'AI Chatbot & Zalo OA',
-    'services.chatbot.desc': 'Automate customer service 24/7',
-    'services.automation.title': 'Process Automation',
-    'services.automation.desc': 'Optimize workflows and boost productivity',
-    'services.n8n.title': 'N8N Workflow',
-    'services.n8n.desc': 'Connect and automate applications',
-    'services.ai.title': 'AI Integration',
-    'services.ai.desc': 'Apply AI to business processes',
-    'services.content.title': 'Content Marketing',
-    'services.content.desc': 'Quality content strategy and production',
-    'services.seo.title': 'SEO & Digital Marketing',
-    'services.seo.desc': 'Online optimization and marketing',
-    'services.viewAll': 'View All Services',
+    // Services - Dịch vụ
+    'services.title': 'Dịch vụ của chúng tôi',
+    'services.subtitle': 'Các giải pháp tự động hóa toàn diện cho doanh nghiệp',
+    'services.chatbot.title': 'Chatbot AI & Zalo OA',
+    'services.chatbot.desc': 'Tự động hóa dịch vụ khách hàng 24/7',
+    'services.automation.title': 'Tự động hóa quy trình',
+    'services.automation.desc': 'Tối ưu hóa quy trình làm việc và tăng năng suất',
+    'services.n8n.title': 'Quy trình N8N',
+    'services.n8n.desc': 'Kết nối và tự động hóa ứng dụng',
+    'services.ai.title': 'Tích hợp AI',
+    'services.ai.desc': 'Áp dụng AI vào quy trình kinh doanh',
+    'services.content.title': 'Marketing nội dung',
+    'services.content.desc': 'Chiến lược nội dung và sản xuất chất lượng',
+    'services.seo.title': 'SEO & Marketing số',
+    'services.seo.desc': 'Tối ưu hóa trực tuyến và marketing',
+    'services.viewAll': 'Xem tất cả dịch vụ',
     
-    // About
-    'about.title': 'Why Choose D2 Group?',
-    'about.experience.title': 'Practical Experience',
-    'about.experience.desc': 'Over 3 years in automation and B2B marketing',
-    'about.expertise.title': 'Diverse Expertise',
-    'about.expertise.desc': 'Expert team in AI, automation, marketing and technology',
-    'about.results.title': 'Measurable Results',
-    'about.results.desc': 'Clear ROI commitment and transparent reporting',
-    'about.support.title': '24/7 Support',
-    'about.support.desc': 'Partnering with you throughout your digital transformation journey',
+    // About - Về chúng tôi
+    'about.title': 'Tại sao chọn D2 Group?',
+    'about.experience.title': 'Kinh nghiệm thực tế',
+    'about.experience.desc': 'Hơn 3 năm trong lĩnh vực tự động hóa và marketing B2B',
+    'about.expertise.title': 'Chuyên môn đa dạng',
+    'about.expertise.desc': 'Đội ngũ chuyên gia về AI, tự động hóa, marketing và công nghệ',
+    'about.results.title': 'Kết quả đo lường được',
+    'about.results.desc': 'Cam kết ROI rõ ràng và báo cáo minh bạch',
+    'about.support.title': 'Hỗ trợ 24/7',
+    'about.support.desc': 'Đồng hành cùng bạn trong suốt hành trình chuyển đổi số',
     
-    // Portfolio
-    'portfolio.title': 'Featured Projects',
-    'portfolio.subtitle': 'Explore the automation solutions we have implemented',
-    'portfolio.viewMore': 'View More Projects',
+    // Portfolio - Danh mục dự án
+    'portfolio.title': 'Dự án nổi bật',
+    'portfolio.subtitle': 'Khám phá các giải pháp tự động hóa chúng tôi đã triển khai',
+    'portfolio.viewMore': 'Xem thêm dự án',
     
-    // Contact
-    'contact.title': 'Contact Us',
-    'contact.subtitle': 'Ready to transform with D2 Group',
-    'contact.name': 'Full name',
+    // Contact - Liên hệ
+    'contact.title': 'Liên hệ với chúng tôi',
+    'contact.subtitle': 'Sẵn sàng chuyển đổi cùng D2 Group',
+    'contact.name': 'Họ và tên',
     'contact.email': 'Email',
-    'contact.phone': 'Phone number',
-    'contact.company': 'Company',
-    'contact.message': 'Message',
-    'contact.send': 'Send Message',
-    'contact.address': 'Address',
-    'contact.workingHours': 'Working Hours',
-    'contact.workingTime': 'Monday - Friday: 9:00 AM - 6:00 PM',
+    'contact.phone': 'Số điện thoại',
+    'contact.company': 'Công ty',
+    'contact.message': 'Tin nhắn',
+    'contact.send': 'Gửi tin nhắn',
+    'contact.address': 'Địa chỉ',
+    'contact.workingHours': 'Giờ làm việc',
+    'contact.workingTime': 'Thứ Hai - Thứ Sáu: 9:00 sáng - 6:00 chiều',
     
-    // Footer
-    'footer.about': 'About D2 Group',
-    'footer.aboutText': 'We specialize in providing automation and marketing solutions for B2B businesses in Vietnam.',
-    'footer.quickLinks': 'Quick Links',
-    'footer.services': 'Services',
-    'footer.legal': 'Legal',
-    'footer.privacy': 'Privacy Policy',
-    'footer.terms': 'Terms of Service',
-    'footer.contact': 'Contact',
-    'footer.rights': 'Copyright © D2 Group. All rights reserved.',
+    // Footer - Chân trang
+    'footer.about': 'Về D2 Group',
+    'footer.aboutText': 'Chúng tôi chuyên cung cấp giải pháp tự động hóa và marketing cho doanh nghiệp B2B tại Việt Nam.',
+    'footer.quickLinks': 'Liên kết nhanh',
+    'footer.services': 'Dịch vụ',
+    'footer.legal': 'Pháp lý',
+    'footer.privacy': 'Chính sách bảo mật',
+    'footer.terms': 'Điều khoản dịch vụ',
+    'footer.contact': 'Liên hệ',
+    'footer.rights': 'Bản quyền © D2 Group. Tất cả quyền được bảo lưu.',
     
-    // Common
-    'common.learnMore': 'Learn More',
-    'common.getStarted': 'Get Started',
-    'common.readMore': 'Read More',
-    'common.viewDetails': 'View Details',
-    'common.backToHome': 'Back to Home',
-    'common.loading': 'Loading...',
-    'common.error': 'An error occurred',
+    // Common - Chung
+    'common.learnMore': 'Tìm hiểu thêm',
+    'common.getStarted': 'Bắt đầu',
+    'common.readMore': 'Đọc thêm',
+    'common.viewDetails': 'Xem chi tiết',
+    'common.backToHome': 'Quay lại trang chủ',
+    'common.loading': 'Đang tải...',
+    'common.error': 'Đã xảy ra lỗi',
   },
 };
