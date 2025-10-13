@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,6 +7,8 @@ import { Separator } from "@/components/ui/separator";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import {
   Workflow,
   Code,
@@ -30,9 +33,65 @@ import {
   DollarSign,
   Star,
   AlertTriangle,
+  LucideIcon,
 } from "lucide-react";
 
+// Icon mapping
+const iconMap: Record<string, LucideIcon> = {
+  Workflow,
+  Youtube,
+  Building2,
+  ShoppingCart,
+  Sparkles,
+  MessageSquare,
+  BarChart3,
+};
+
+interface CaseStudy {
+  id: string;
+  slug: string;
+  title: string;
+  category: string | null;
+  client: string | null;
+  image_url: string | null;
+  excerpt: string | null;
+  challenge: string;
+  solution: string;
+  results: Array<{ label: string; value: string }>;
+  tech: string[];
+  icon_name: string;
+}
+
 const Portfolio = () => {
+  const { toast } = useToast();
+  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCaseStudies = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("case_studies")
+          .select("*")
+          .eq("is_published", true)
+          .order("order_index", { ascending: true });
+
+        if (error) throw error;
+        setCaseStudies((data as any) || []);
+      } catch (error) {
+        console.error("Error fetching case studies:", error);
+        toast({
+          title: "Error loading case studies",
+          description: "Failed to load case studies. Please try again.",
+          variant: "destructive",
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCaseStudies();
+  }, [toast]);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -49,161 +108,6 @@ const Portfolio = () => {
     },
   };
 
-  const featuredProjects = [
-    {
-      id: "youtube-automation",
-      icon: Youtube,
-      title: "YouTube Content Automation Pipeline",
-      category: "Media & Content",
-      client: "Media channel with 100K+ subscribers",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop",
-      excerpt: "Automated video publishing workflow reducing manual work by 95%",
-      challenge: "Manual upload of 10+ videos daily consuming 4 hours. Inconsistent metadata and branding setup.",
-      solution: "Full-stack n8n automation with YouTube API, AI integration, and FFmpeg media processing.",
-      results: [
-        { label: "Time saved", value: "95%" },
-        { label: "Zero errors", value: "6 months" },
-        { label: "Savings", value: "$2K/mo" },
-      ],
-      tech: ["n8n", "YouTube API", "FFmpeg", "Google Cloud", "Docker"],
-    },
-    {
-      id: "crm-automation",
-      icon: Building2,
-      title: "CRM Lead Management System",
-      category: "Sales & CRM",
-      client: "Real Estate company (50+ staff)",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
-      excerpt: "Intelligent lead scoring and routing system increasing conversions by 40%",
-      challenge: "Leads scattered across platforms with manual scoring and delayed follow-ups.",
-      solution: "Automated lead management with smart scoring and multi-channel follow-ups.",
-      results: [
-        { label: "Conversion", value: "+40%" },
-        { label: "Speed", value: "-75%" },
-        { label: "Revenue", value: "$15K/mo" },
-      ],
-      tech: ["n8n", "HubSpot", "Slack", "Google Analytics"],
-    },
-    {
-      id: "ecommerce-sync",
-      icon: ShoppingCart,
-      title: "Multi-Store Inventory Sync",
-      category: "E-commerce",
-      client: "Online store with 1,000+ SKUs",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop",
-      excerpt: "Real-time inventory synchronization across 5 sales channels",
-      challenge: "Manual stock updates causing frequent stockouts and inefficient monitoring.",
-      solution: "Real-time inventory monitoring with automated supplier notifications.",
-      results: [
-        { label: "Stockouts", value: "-90%" },
-        { label: "Cost", value: "-30%" },
-        { label: "Accuracy", value: "100%" },
-      ],
-      tech: ["n8n", "WooCommerce", "PostgreSQL", "Telegram"],
-    },
-    {
-      id: "ai-content-workflow",
-      icon: Sparkles,
-      title: "AI Content Generation Pipeline",
-      category: "Marketing Automation",
-      client: "Digital marketing agency",
-      image: "https://images.unsplash.com/photo-1554774853-b414d2a2b3b6?w=800&auto=format&fit=crop",
-      excerpt: "Automated content creation and social publishing with AI",
-      challenge: "Manual content creation bottleneck limiting production capacity.",
-      solution: "OpenAI integration with automated scheduling across social platforms.",
-      results: [
-        { label: "Output", value: "+3x" },
-        { label: "Time", value: "-85%" },
-        { label: "Quality", value: "4.5/5" },
-      ],
-      tech: ["n8n", "OpenAI", "Buffer", "Google Drive"],
-    },
-    {
-      id: "slack-notion-sync",
-      icon: MessageSquare,
-      title: "Slack & Notion Integration",
-      category: "Team Productivity",
-      client: "Tech startup (25 employees)",
-      image: "https://images.unsplash.com/photo-1581092334538-6a7f1f57c6f5?w=800&auto=format&fit=crop",
-      excerpt: "Bi-directional sync between communication and project management",
-      challenge: "Disjointed communication with manual task duplication across platforms.",
-      solution: "Real-time synchronization bot with smart task creation and updates.",
-      results: [
-        { label: "Efficiency", value: "+60%" },
-        { label: "Manual", value: "-90%" },
-        { label: "Adoption", value: "98%" },
-      ],
-      tech: ["n8n", "Slack API", "Notion API", "Node.js"],
-    },
-    {
-      id: "data-analytics-dashboard",
-      icon: BarChart3,
-      title: "Multi-Platform Analytics Hub",
-      category: "Data Analytics",
-      client: "Marketing analytics team",
-      image: "https://images.unsplash.com/photo-1508830524289-0adcbe822b40?w=800&auto=format&fit=crop",
-      excerpt: "Unified reporting dashboard aggregating data from 8 platforms",
-      challenge: "Data scattered across multiple platforms making reporting impossible.",
-      solution: "Automated data collection and unified dashboard with normalized metrics.",
-      results: [
-        { label: "Report time", value: "-90%" },
-        { label: "Accuracy", value: "99%" },
-        { label: "Insights", value: "+70%" },
-      ],
-      tech: ["n8n", "Google Analytics", "Meta Ads", "HubSpot"],
-    },
-    {
-      id: "telegram-monitoring",
-      icon: MessageSquare,
-      title: "Real-Time Alert System",
-      category: "DevOps & Monitoring",
-      client: "SaaS platform",
-      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&auto=format&fit=crop",
-      excerpt: "Instant business alerts via Telegram for critical events",
-      challenge: "Delayed awareness of system issues leading to slow response times.",
-      solution: "Webhook-based alerting with instant Telegram notifications.",
-      results: [
-        { label: "Alert", value: "<2s" },
-        { label: "Uptime", value: "99.9%" },
-        { label: "MTTR", value: "-80%" },
-      ],
-      tech: ["n8n", "Telegram", "PostgreSQL", "Webhooks"],
-    },
-    {
-      id: "shopify-automation",
-      icon: ShoppingCart,
-      title: "Shopify Order Automation",
-      category: "E-commerce",
-      client: "Fashion e-commerce brand",
-      image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&auto=format&fit=crop",
-      excerpt: "End-to-end order processing and customer communication",
-      challenge: "Manual tracking updates causing delays and high support tickets.",
-      solution: "Automated order workflow with stage-based customer notifications.",
-      results: [
-        { label: "CSAT", value: "+35%" },
-        { label: "Tickets", value: "-60%" },
-        { label: "Speed", value: "-50%" },
-      ],
-      tech: ["n8n", "Shopify", "Google Sheets", "Slack"],
-    },
-    {
-      id: "hubspot-pipeline",
-      icon: Building2,
-      title: "HubSpot Sales Pipeline",
-      category: "Sales Automation",
-      client: "B2B SaaS company",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop",
-      excerpt: "Dynamic lead scoring and automated pipeline management",
-      challenge: "Inefficient lead qualification with slow sales cycles.",
-      solution: "Smart scoring with automated progression based on engagement metrics.",
-      results: [
-        { label: "Cycle", value: "-30%" },
-        { label: "Win rate", value: "+25%" },
-        { label: "Quality", value: "+45%" },
-      ],
-      tech: ["n8n", "HubSpot", "Zapier", "Slack"],
-    },
-  ];
 
   const services = [
     {
@@ -377,89 +281,103 @@ const Portfolio = () => {
               <p className="text-xl text-muted-foreground">Real automation projects with measurable business impact</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredProjects.map((project, index) => (
-                <Card
-                  key={index}
-                  className="group hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
-                >
-                  {/* Image */}
-                  <div className="relative h-48 overflow-hidden bg-muted">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <project.icon className="absolute bottom-4 left-4 w-8 h-8 text-white" />
-                    <Badge className="absolute top-4 right-4 bg-primary">{project.category}</Badge>
-                  </div>
-
-                  {/* Header */}
-                  <CardHeader>
-                    <CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </CardTitle>
-                    <CardDescription className="text-xs">{project.client}</CardDescription>
-                  </CardHeader>
-
-                  {/* Content - Always Visible */}
-                  <CardContent className="pt-0 space-y-4 flex-grow">
-                    {/* Challenge & Solution - Always Displayed */}
-                    <div className="space-y-3">
-                      <div>
-                        <h4 className="font-semibold text-xs text-destructive mb-1 flex items-center gap-1">
-                          <AlertTriangle className="w-3 h-3" />
-                          Challenge:
-                        </h4>
-                        <p className="text-xs text-muted-foreground leading-relaxed">{project.challenge}</p>
+            {loading ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-muted-foreground">Loading case studies...</p>
+              </div>
+            ) : caseStudies.length === 0 ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-muted-foreground">No case studies available yet.</p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {caseStudies.map((project) => {
+                  const IconComponent = iconMap[project.icon_name] || Workflow;
+                  
+                  return (
+                    <Card
+                      key={project.id}
+                      className="group hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
+                    >
+                      {/* Image */}
+                      <div className="relative h-48 overflow-hidden bg-muted">
+                        <img
+                          src={project.image_url || "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop"}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <IconComponent className="absolute bottom-4 left-4 w-8 h-8 text-white" />
+                        <Badge className="absolute top-4 right-4 bg-primary">{project.category}</Badge>
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-xs text-primary mb-1 flex items-center gap-1">
-                          <CheckCircle2 className="w-3 h-3" />
-                          Solution:
-                        </h4>
-                        <p className="text-xs text-muted-foreground leading-relaxed">{project.solution}</p>
-                      </div>
-                    </div>
 
-                    <Separator />
+                      {/* Header */}
+                      <CardHeader>
+                        <CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors">
+                          {project.title}
+                        </CardTitle>
+                        <CardDescription className="text-xs">{project.client}</CardDescription>
+                      </CardHeader>
 
-                    {/* Results Grid */}
-                    <div className="grid grid-cols-3 gap-2">
-                      {project.results.map((result, idx) => (
-                        <div key={idx} className="text-center p-2 bg-primary/5 rounded">
-                          <div className="text-base font-bold text-primary">{result.value}</div>
-                          <div className="text-xs text-muted-foreground line-clamp-1">{result.label}</div>
+                      {/* Content - Always Visible */}
+                      <CardContent className="pt-0 space-y-4 flex-grow">
+                        {/* Challenge & Solution - Always Displayed */}
+                        <div className="space-y-3">
+                          <div>
+                            <h4 className="font-semibold text-xs text-destructive mb-1 flex items-center gap-1">
+                              <AlertTriangle className="w-3 h-3" />
+                              Challenge:
+                            </h4>
+                            <p className="text-xs text-muted-foreground leading-relaxed">{project.challenge}</p>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-xs text-primary mb-1 flex items-center gap-1">
+                              <CheckCircle2 className="w-3 h-3" />
+                              Solution:
+                            </h4>
+                            <p className="text-xs text-muted-foreground leading-relaxed">{project.solution}</p>
+                          </div>
                         </div>
-                      ))}
-                    </div>
 
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-1">
-                      {project.tech.slice(0, 3).map((tech, idx) => (
-                        <Badge key={idx} variant="outline" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                      {project.tech.length > 3 && (
-                        <Badge variant="outline" className="text-xs">
-                          +{project.tech.length - 3}
-                        </Badge>
-                      )}
-                    </div>
+                        <Separator />
 
-                    {/* CTA */}
-                    <Button variant="outline" size="sm" className="w-full mt-auto" asChild>
-                      <Link to={`/case-study/${project.id}`}>
-                        View Full Case Study <ArrowRight className="w-4 h-4 ml-2" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                        {/* Results Grid */}
+                        <div className="grid grid-cols-3 gap-2">
+                          {project.results.map((result, idx) => (
+                            <div key={idx} className="text-center p-2 bg-primary/5 rounded">
+                              <div className="text-base font-bold text-primary">{result.value}</div>
+                              <div className="text-xs text-muted-foreground line-clamp-1">{result.label}</div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Tech Stack */}
+                        <div className="flex flex-wrap gap-1">
+                          {project.tech.slice(0, 3).map((tech, idx) => (
+                            <Badge key={idx} variant="outline" className="text-xs">
+                              {tech}
+                            </Badge>
+                          ))}
+                          {project.tech.length > 3 && (
+                            <Badge variant="outline" className="text-xs">
+                              +{project.tech.length - 3}
+                            </Badge>
+                          )}
+                        </div>
+
+                        {/* CTA */}
+                        <Button variant="outline" size="sm" className="w-full mt-auto" asChild>
+                          <Link to={`/case-study/${project.slug}`}>
+                            View Full Case Study <ArrowRight className="w-4 h-4 ml-2" />
+                          </Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            )}
 
             <div className="text-center mt-12">
               <Button size="lg" asChild>
