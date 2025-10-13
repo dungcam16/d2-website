@@ -21,15 +21,7 @@ import BlogPost from "./pages/BlogPost";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
-import CaseStudyYoutubeAutomation from "./pages/CaseStudyYoutubeAutomation";
-import CaseStudyCrmAutomation from "./pages/CaseStudyCrmAutomation";
-import CaseStudyEcommerceAutomation from "./pages/CaseStudyEcommerceAutomation";
-import CaseStudySlackNotion from "./pages/CaseStudySlackNotion";
-import CaseStudyCrmPipeline from "./pages/CaseStudyCrmPipeline";
-import CaseStudyShopifyTracking from "./pages/CaseStudyShopifyTracking";
-import CaseStudyAiContent from "./pages/CaseStudyAiContent";
-import CaseStudyTelegramAlert from "./pages/CaseStudyTelegramAlert";
-import CaseStudyDataDashboard from "./pages/CaseStudyDataDashboard";
+import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Templates from "./pages/Templates";
 import TemplateDetail from "./pages/TemplateDetail";
 import Admin from "./pages/Admin";
@@ -60,15 +52,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/case-study/youtube-automation" element={<CaseStudyYoutubeAutomation />} />
-          <Route path="/case-study/crm-automation" element={<CaseStudyCrmAutomation />} />
-          <Route path="/case-study/ecommerce-automation" element={<CaseStudyEcommerceAutomation />} />
-          <Route path="/case-study/slack-notion-bot" element={<CaseStudySlackNotion />} />
-          <Route path="/case-study/crm-pipeline-builder" element={<CaseStudyCrmPipeline />} />
-          <Route path="/case-study/shopify-tracking-sync" element={<CaseStudyShopifyTracking />} />
-          <Route path="/case-study/ai-content-workflow" element={<CaseStudyAiContent />} />
-          <Route path="/case-study/telegram-alert-system" element={<CaseStudyTelegramAlert />} />
-          <Route path="/case-study/data-report-dashboard" element={<CaseStudyDataDashboard />} />
+          <Route path="/case-study/:slug" element={<CaseStudyDetail />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/admin" element={<Admin />} />
