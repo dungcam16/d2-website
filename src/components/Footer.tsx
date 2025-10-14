@@ -21,13 +21,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="relative">
-                <Zap className="h-8 w-8 text-primary animate-pulse-glow" />
-              </div>
-              <span className="text-2xl font-bold font-heading text-foreground">
-                D2 <span className="text-primary">GROUP</span>
-              </span>
+            <div className="flex items-center space-x-3">
+              <img src="/src/assets/logo_d2_group.png" alt="D2 Group Logo" className="h-10 w-10" />
+              <span className="text-2xl font-bold font-heading text-foreground">D2 GROUP MARKETING</span>
             </div>
 
             <p className="text-muted-foreground leading-relaxed">

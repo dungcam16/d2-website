@@ -27,8 +27,6 @@ const Header = () => {
     { name: t('nav.home'), href: "/" },
     { name: t('nav.portfolio'), href: "/portfolio" },
     { name: t('nav.blog'), href: "/blog" },
-    { name: "Templates", href: "/templates" },
-    { name: t('nav.contact'), href: "/contact" },
   ];
 
   const servicesByCategory = {
@@ -167,18 +165,6 @@ const Header = () => {
             {/* Blog */}
             <a href="/blog" className="text-foreground hover:text-primary transition-smooth relative group">
               {t('nav.blog')}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-
-            {/* Templates */}
-            <a href="/templates" className="text-foreground hover:text-primary transition-smooth relative group">
-              Templates
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-
-            {/* Contact */}
-            <a href="/contact" className="text-foreground hover:text-primary transition-smooth relative group">
-              {t('nav.contact')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
           </nav>
