@@ -63,7 +63,7 @@ const Hero = () => {
               style={{ animationDelay: "0.2s" }}
             >
               <div className="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
-              <div className="text-muted-foreground">Successful Automations</div>
+              <div className="text-muted-foreground">{t('hero.stats.automations')}</div>
             </div>
 
             <div
@@ -71,7 +71,7 @@ const Hero = () => {
               style={{ animationDelay: "0.4s" }}
             >
               <div className="text-3xl md:text-4xl font-bold text-primary mb-2">10x</div>
-              <div className="text-muted-foreground">ROI Growth</div>
+              <div className="text-muted-foreground">{t('hero.stats.roi')}</div>
             </div>
 
             <div
@@ -79,7 +79,7 @@ const Hero = () => {
               style={{ animationDelay: "0.6s" }}
             >
               <div className="text-3xl md:text-4xl font-bold text-primary mb-2">24/7</div>
-              <div className="text-muted-foreground">Customer Engagement</div>
+              <div className="text-muted-foreground">{t('hero.stats.engagement')}</div>
             </div>
           </div>
         </div>

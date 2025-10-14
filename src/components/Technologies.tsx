@@ -1,48 +1,51 @@
 import React from "react";
 import { Bot, Workflow, Zap, MessageSquare, Brain, Database, Settings, Cpu } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Technologies = () => {
+  const { t } = useLanguage();
+  
   const technologies = [
     {
       icon: <Workflow className="h-8 w-8 text-primary" />,
       name: "N8N",
-      description: "Workflow automation platform",
+      descKey: "tech.n8n",
     },
     {
       icon: <Settings className="h-8 w-8 text-primary" />,
       name: "Make (Integromat)",
-      description: "Visual automation builder",
+      descKey: "tech.make",
     },
     {
       icon: <Zap className="h-8 w-8 text-primary" />,
       name: "Zapier",
-      description: "App integration platform",
+      descKey: "tech.zapier",
     },
     {
       icon: <MessageSquare className="h-8 w-8 text-primary" />,
       name: "AI Chatbots",
-      description: "Intelligent conversation systems",
+      descKey: "tech.chatbots",
     },
     {
       icon: <Brain className="h-8 w-8 text-primary" />,
       name: "Large Language Models",
-      description: "GPT-4, Claude, Gemini",
+      descKey: "tech.llm",
     },
     {
       icon: <Bot className="h-8 w-8 text-primary" />,
       name: "Machine Learning",
-      description: "Predictive analytics & AI",
+      descKey: "tech.ml",
     },
     {
       icon: <Database className="h-8 w-8 text-primary" />,
       name: "Vector Databases",
-      description: "AI-powered data retrieval",
+      descKey: "tech.vector",
     },
     {
       icon: <Cpu className="h-8 w-8 text-primary" />,
       name: "Edge Computing",
-      description: "Real-time AI processing",
+      descKey: "tech.edge",
     },
   ];
 
@@ -52,11 +55,11 @@ const Technologies = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">
-            <span className="text-foreground">Powered By </span>
-            <span className="text-primary">Cutting-Edge Technology</span>
+            <span className="text-foreground">{t('tech.title')} </span>
+            <span className="text-primary">{t('tech.subtitle')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            We utilize the latest AI and Automation technologies to deliver optimal efficiency for your business.
+            {t('tech.description')}
           </p>
         </div>
 
@@ -73,7 +76,7 @@ const Technologies = () => {
                   {tech.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">{tech.name}</h3>
-                <p className="text-sm text-muted-foreground">{tech.description}</p>
+                <p className="text-sm text-muted-foreground">{t(tech.descKey)}</p>
               </CardContent>
             </Card>
           ))}

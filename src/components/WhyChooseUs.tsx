@@ -1,38 +1,41 @@
 import React from "react";
 import { Shield, Clock, Trophy, HeadphonesIcon, Rocket, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WhyChooseUs = () => {
+  const { t } = useLanguage();
+  
   const reasons = [
     {
       icon: <Trophy className="h-8 w-8 text-primary" />,
-      title: "Leading Experts",
-      description: "Our engineering team has 5+ years of experience in automation and digital marketing.",
+      titleKey: "why.experts.title",
+      descKey: "why.experts.desc",
     },
     {
       icon: <Shield className="h-8 w-8 text-primary" />,
-      title: "Robust Security",
-      description: "We comply with international security standards to ensure your customer data is always safe.",
+      titleKey: "why.security.title",
+      descKey: "why.security.desc",
     },
     {
       icon: <Clock className="h-8 w-8 text-primary" />,
-      title: "Rapid Deployment",
-      description: "The fastest setup and go-live time on the market - from just 1-2 weeks.",
+      titleKey: "why.deployment.title",
+      descKey: "why.deployment.desc",
     },
     {
       icon: <HeadphonesIcon className="h-8 w-8 text-primary" />,
-      title: "24/7 Support",
-      description: "Our professional support team is ready to assist you anytime, anywhere.",
+      titleKey: "why.support.fullTitle",
+      descKey: "why.support.fullDesc",
     },
     {
       icon: <Rocket className="h-8 w-8 text-primary" />,
-      title: "Cutting-Edge Technology",
-      description: "Utilizing the latest technologies: N8N, AI, and Machine Learning.",
+      titleKey: "why.technology.title",
+      descKey: "why.technology.desc",
     },
     {
       icon: <CheckCircle className="h-8 w-8 text-primary" />,
-      title: "Guaranteed ROI",
-      description: "We guarantee a minimum 300% ROI increase after 6 months of implementation.",
+      titleKey: "why.roi.title",
+      descKey: "why.roi.desc",
     },
   ];
 
@@ -42,12 +45,11 @@ const WhyChooseUs = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">
-            <span className="text-foreground">Why Choose </span>
+            <span className="text-foreground">{t('why.title').split('D2 Group')[0]}</span>
             <span className="text-primary">D2 Group?</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            We don't just provide solutions; we are a dedicated partner on your business's digital transformation
-            journey.
+            {t('why.subtitle')}
           </p>
         </div>
 
@@ -63,8 +65,8 @@ const WhyChooseUs = () => {
                 <div className="flex justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   {reason.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-4">{reason.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{reason.description}</p>
+                <h3 className="text-xl font-semibold text-foreground mb-4">{t(reason.titleKey)}</h3>
+                <p className="text-muted-foreground leading-relaxed">{t(reason.descKey)}</p>
               </CardContent>
             </Card>
           ))}

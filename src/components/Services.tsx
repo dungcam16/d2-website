@@ -14,19 +14,21 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Services = () => {
+  const { t } = useLanguage();
+  
   const automationServices = [
     {
       icon: Workflow,
-      title: "N8N Workflow Development",
-      description:
-        "Design & implement automation workflows on the n8n platform with JavaScript/TypeScript scripting, error handling, and monitoring.",
-      features: [
-        "Build triggers, nodes & sub-workflows",
-        "JavaScript/TypeScript scripting",
-        "Error handling & retry logic",
-        "Monitoring & logging system",
+      titleKey: "services.n8n.fullTitle",
+      descKey: "services.n8n.fullDesc",
+      featureKeys: [
+        "services.n8n.feature1",
+        "services.n8n.feature2",
+        "services.n8n.feature3",
+        "services.n8n.feature4",
       ],
       color: "text-blue-400",
       delay: "0s",
@@ -34,14 +36,13 @@ const Services = () => {
     },
     {
       icon: Settings,
-      title: "Business Process Automation",
-      description:
-        "Consult & optimize operational processes, analyze AS-IS/TO-BE, and design a comprehensive blueprint to ensure effective automation.",
-      features: [
-        "Current state process analysis",
-        "AS-IS/TO-BE flowchart design",
-        "KPI & SLA definition",
-        "Comprehensive automation blueprint",
+      titleKey: "services.process.title",
+      descKey: "services.process.desc",
+      featureKeys: [
+        "services.process.feature1",
+        "services.process.feature2",
+        "services.process.feature3",
+        "services.process.feature4",
       ],
       color: "text-green-400",
       delay: "0.2s",
@@ -49,14 +50,13 @@ const Services = () => {
     },
     {
       icon: Bot,
-      title: "AI Integration & Optimization",
-      description:
-        "Integrate AI (GPT-4, Claude) into workflows for auto-classification, sentiment analysis, document parsing, and predictive analytics.",
-      features: [
-        "LLM Integration (GPT-4, Claude)",
-        "Auto-classification & sentiment analysis",
-        "Document parsing & extraction",
-        "Predictive analytics with ML",
+      titleKey: "services.ai.fullTitle",
+      descKey: "services.ai.fullDesc",
+      featureKeys: [
+        "services.ai.feature1",
+        "services.ai.feature2",
+        "services.ai.feature3",
+        "services.ai.feature4",
       ],
       color: "text-purple-400",
       delay: "0.4s",
@@ -67,14 +67,13 @@ const Services = () => {
   const digitalServices = [
     {
       icon: MessageCircle,
-      title: "Chatbot & Conversational AI",
-      description:
-        "Intelligent conversational AI on Facebook Messenger, Instagram, WhatsApp, Telegram, Zalo, and Website integration.",
-      features: [
-        "Multi-platform messaging",
-        "Intelligent AI responses",
-        "Seamless agent handover",
-        "Analytics & reporting",
+      titleKey: "services.chatbot.fullTitle",
+      descKey: "services.chatbot.fullDesc",
+      featureKeys: [
+        "services.chatbot.feature1",
+        "services.chatbot.feature2",
+        "services.chatbot.feature3",
+        "services.chatbot.feature4",
       ],
       color: "text-cyan-400",
       delay: "0.6s",
@@ -82,14 +81,13 @@ const Services = () => {
     },
     {
       icon: Zap,
-      title: "Zalo OA Management",
-      description:
-        "Complete Zalo Official Account management with ZNS messaging and integrated chatbot packages for the Vietnamese market.",
-      features: [
-        "Zalo OA setup & management",
-        "ZNS message campaigns",
-        "Integrated chatbot flows",
-        "Optimized for the Vietnam market",
+      titleKey: "services.zalo.fullTitle",
+      descKey: "services.zalo.fullDesc",
+      featureKeys: [
+        "services.zalo.feature1",
+        "services.zalo.feature2",
+        "services.zalo.feature3",
+        "services.zalo.feature4",
       ],
       color: "text-yellow-400",
       delay: "0.8s",
@@ -97,14 +95,13 @@ const Services = () => {
     },
     {
       icon: TrendingUp,
-      title: "Content Performance Marketing",
-      description:
-        "Comprehensive content marketing strategy with SEO optimization, analytics, and performance tracking for sustainable growth.",
-      features: [
-        "Content strategy & planning",
-        "SEO content optimization",
-        "Performance analytics",
-        "Multi-channel distribution",
+      titleKey: "services.content.fullTitle",
+      descKey: "services.content.fullDesc",
+      featureKeys: [
+        "services.content.feature1",
+        "services.content.feature2",
+        "services.content.feature3",
+        "services.content.feature4",
       ],
       color: "text-orange-400",
       delay: "1.0s",
@@ -112,14 +109,13 @@ const Services = () => {
     },
     {
       icon: Search,
-      title: "Technical SEO Optimization",
-      description:
-        "Professional SEO services with a top 3 Google ranking commitment, a 400% increase in organic traffic, and sustainable ROI.",
-      features: [
-        "Technical SEO audit",
-        "Keyword strategy & optimization",
-        "Content & link building",
-        "Top 3 ranking guarantee",
+      titleKey: "services.seo.fullTitle",
+      descKey: "services.seo.fullDesc",
+      featureKeys: [
+        "services.seo.feature1",
+        "services.seo.feature2",
+        "services.seo.feature3",
+        "services.seo.feature4",
       ],
       color: "text-pink-400",
       delay: "1.2s",
@@ -127,14 +123,13 @@ const Services = () => {
     },
     {
       icon: Code,
-      title: "Automation-Ready Website Development",
-      description:
-        "Develop modern, responsive websites with optimal UI/UX, built to be automation-ready and SEO-optimized from the ground up.",
-      features: [
-        "Responsive design & mobile-first",
-        "Modern UI/UX experience",
-        "Built-in SEO optimization",
-        "CMS & automation integration",
+      titleKey: "services.website.title",
+      descKey: "services.website.desc",
+      featureKeys: [
+        "services.website.feature1",
+        "services.website.feature2",
+        "services.website.feature3",
+        "services.website.feature4",
       ],
       color: "text-indigo-400",
       delay: "1.4s",
@@ -148,11 +143,10 @@ const Services = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 text-foreground">
-            Our <span className="text-primary">Core Services</span>
+            {t('services.core.title').split(' ')[0]} <span className="text-primary">{t('services.core.title').split(' ').slice(1).join(' ')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive automation solutions designed to transform Vietnamese businesses through intelligent
-            technology and proven methodologies.
+            {t('services.core.subtitle')}
           </p>
         </div>
 
@@ -160,16 +154,16 @@ const Services = () => {
         <div className="mb-12">
           <h3 className="text-2xl md:text-3xl font-bold font-heading mb-2 text-foreground flex items-center gap-2">
             <Target className="w-6 h-6 text-primary" />
-            🎯 AUTOMATION SERVICES
+            🎯 {t('services.automation.sectionTitle')}
           </h3>
-          <p className="text-muted-foreground mb-8">Our primary automation offerings</p>
+          <p className="text-muted-foreground mb-8">{t('services.automation.sectionDesc')}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {automationServices.map((service) => {
+            {automationServices.map((service, index) => {
               const IconComponent = service.icon;
 
               return (
                 <Card
-                  key={service.title}
+                  key={index}
                   className="gradient-card border-border tech-border group hover:shadow-glow transition-all duration-500 hover:-translate-y-2 animate-scale-in relative overflow-hidden"
                   style={{ animationDelay: service.delay }}
                 >
@@ -187,17 +181,17 @@ const Services = () => {
 
                       {/* Content */}
                       <h3 className="text-2xl font-bold font-heading mb-4 text-foreground group-hover:text-primary transition-colors">
-                        {service.title}
+                        {t(service.titleKey)}
                       </h3>
 
-                      <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
+                      <p className="text-muted-foreground mb-6 leading-relaxed">{t(service.descKey)}</p>
 
                       {/* Features */}
                       <ul className="space-y-3 mb-8">
-                        {service.features.map((feature, featureIndex) => (
+                        {service.featureKeys.map((featureKey, featureIndex) => (
                           <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
                             <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 group-hover:shadow-glow transition-all"></div>
-                            {feature}
+                            {t(featureKey)}
                           </li>
                         ))}
                       </ul>
@@ -208,7 +202,7 @@ const Services = () => {
                         className="w-full tech-border group-hover:bg-primary group-hover:text-primary-foreground transition-all"
                         onClick={() => (window.location.href = service.href)}
                       >
-                        Learn More
+                        {t('common.learnMore')}
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </div>
@@ -223,16 +217,16 @@ const Services = () => {
         <div>
           <h3 className="text-2xl md:text-3xl font-bold font-heading mb-2 text-foreground flex items-center gap-2">
             <Globe className="w-6 h-6 text-primary" />
-            💼 DIGITAL SERVICES
+            💼 {t('services.digital.sectionTitle')}
           </h3>
-          <p className="text-muted-foreground mb-8">Additional services to fuel your growth</p>
+          <p className="text-muted-foreground mb-8">{t('services.digital.sectionDesc')}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {digitalServices.map((service) => {
+            {digitalServices.map((service, index) => {
               const IconComponent = service.icon;
 
               return (
                 <Card
-                  key={service.title}
+                  key={index}
                   className="gradient-card border-border tech-border group hover:shadow-glow transition-all duration-500 hover:-translate-y-2 animate-scale-in relative overflow-hidden"
                   style={{ animationDelay: service.delay }}
                 >
@@ -250,17 +244,17 @@ const Services = () => {
 
                       {/* Content */}
                       <h3 className="text-2xl font-bold font-heading mb-4 text-foreground group-hover:text-primary transition-colors">
-                        {service.title}
+                        {t(service.titleKey)}
                       </h3>
 
-                      <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
+                      <p className="text-muted-foreground mb-6 leading-relaxed">{t(service.descKey)}</p>
 
                       {/* Features */}
                       <ul className="space-y-3 mb-8">
-                        {service.features.map((feature, featureIndex) => (
+                        {service.featureKeys.map((featureKey, featureIndex) => (
                           <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
                             <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 group-hover:shadow-glow transition-all"></div>
-                            {feature}
+                            {t(featureKey)}
                           </li>
                         ))}
                       </ul>
@@ -271,7 +265,7 @@ const Services = () => {
                         className="w-full tech-border group-hover:bg-primary group-hover:text-primary-foreground transition-all"
                         onClick={() => (window.location.href = service.href)}
                       >
-                        Learn More
+                        {t('common.learnMore')}
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import n8nLogo from "@/assets/n8n-logo.png";
 import makeLogo from "@/assets/make-logo.png";
 import zapierLogo from "@/assets/zapier-logo.png";
@@ -15,6 +16,8 @@ import viteLogo from "@/assets/vite-logo.svg";
 import reactLogo from "@/assets/react-logo.svg";
 
 const Partners = () => {
+  const { t } = useLanguage();
+  
   const partners = [
     { name: "N8N", logo: n8nLogo },
     { name: "Make", logo: makeLogo },
@@ -39,11 +42,11 @@ const Partners = () => {
         {/* Header */}
         <div className="text-center mb-12 animate-slide-up">
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
-            <span className="text-foreground">Our </span>
-            <span className="text-primary">Technology Stack</span>
+            <span className="text-foreground">{t('partners.title')} </span>
+            <span className="text-primary">{t('partners.subtitle')}</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            We leverage technology platforms from the world's leading brands.
+            {t('partners.description')}
           </p>
         </div>
 

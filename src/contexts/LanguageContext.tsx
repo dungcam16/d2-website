@@ -138,6 +138,116 @@ const translations: Record<Language, Record<string, string>> = {
     'common.backToHome': 'Quay Lại Trang Chủ',
     'common.loading': 'Đang tải...',
     'common.error': 'Đã có lỗi xảy ra',
+    
+    // Services Page
+    'services.core.title': 'Dịch Vụ Cốt Lõi',
+    'services.core.subtitle': 'Giải pháp tự động hóa toàn diện được thiết kế để chuyển đổi doanh nghiệp Việt Nam thông qua công nghệ thông minh và phương pháp đã được chứng minh.',
+    'services.automation.sectionTitle': 'DỊCH VỤ TỰ ĐỘNG HÓA',
+    'services.automation.sectionDesc': 'Các dịch vụ tự động hóa chính của chúng tôi',
+    'services.digital.sectionTitle': 'DỊCH VỤ SỐ',
+    'services.digital.sectionDesc': 'Các dịch vụ bổ sung để thúc đẩy tăng trưởng của bạn',
+    
+    // N8N Workflow
+    'services.n8n.fullTitle': 'Phát Triển N8N Workflow',
+    'services.n8n.fullDesc': 'Thiết kế và triển khai quy trình tự động hóa trên nền tảng n8n với JavaScript/TypeScript scripting, xử lý lỗi và giám sát.',
+    'services.n8n.feature1': 'Xây dựng triggers, nodes và sub-workflows',
+    'services.n8n.feature2': 'JavaScript/TypeScript scripting',
+    'services.n8n.feature3': 'Xử lý lỗi và retry logic',
+    'services.n8n.feature4': 'Hệ thống giám sát và logging',
+    
+    // Business Process
+    'services.process.title': 'Tự Động Hóa Quy Trình Kinh Doanh',
+    'services.process.desc': 'Tư vấn và tối ưu hóa quy trình vận hành, phân tích AS-IS/TO-BE, và thiết kế blueprint toàn diện để đảm bảo tự động hóa hiệu quả.',
+    'services.process.feature1': 'Phân tích quy trình hiện tại',
+    'services.process.feature2': 'Thiết kế flowchart AS-IS/TO-BE',
+    'services.process.feature3': 'Định nghĩa KPI và SLA',
+    'services.process.feature4': 'Blueprint tự động hóa toàn diện',
+    
+    // AI Integration
+    'services.ai.fullTitle': 'Tích Hợp AI & Tối Ưu Hóa',
+    'services.ai.fullDesc': 'Tích hợp AI (GPT-4, Claude) vào workflows để tự động phân loại, phân tích cảm xúc, phân tích tài liệu và phân tích dự đoán.',
+    'services.ai.feature1': 'Tích hợp LLM (GPT-4, Claude)',
+    'services.ai.feature2': 'Tự động phân loại và phân tích cảm xúc',
+    'services.ai.feature3': 'Phân tích và trích xuất tài liệu',
+    'services.ai.feature4': 'Phân tích dự đoán với ML',
+    
+    // Chatbot
+    'services.chatbot.fullTitle': 'Chatbot & AI Đàm Thoại',
+    'services.chatbot.fullDesc': 'AI đàm thoại thông minh trên Facebook Messenger, Instagram, WhatsApp, Telegram, Zalo và tích hợp Website.',
+    'services.chatbot.feature1': 'Nhắn tin đa nền tảng',
+    'services.chatbot.feature2': 'Phản hồi AI thông minh',
+    'services.chatbot.feature3': 'Chuyển đổi agent liền mạch',
+    'services.chatbot.feature4': 'Phân tích và báo cáo',
+    
+    // Zalo
+    'services.zalo.fullTitle': 'Quản Lý Zalo OA',
+    'services.zalo.fullDesc': 'Quản lý Zalo Official Account toàn diện với tin nhắn ZNS và gói chatbot tích hợp cho thị trường Việt Nam.',
+    'services.zalo.feature1': 'Thiết lập và quản lý Zalo OA',
+    'services.zalo.feature2': 'Chiến dịch tin nhắn ZNS',
+    'services.zalo.feature3': 'Luồng chatbot tích hợp',
+    'services.zalo.feature4': 'Tối ưu cho thị trường Việt Nam',
+    
+    // Content Marketing
+    'services.content.fullTitle': 'Marketing Nội Dung Hiệu Suất',
+    'services.content.fullDesc': 'Chiến lược marketing nội dung toàn diện với tối ưu hóa SEO, phân tích và theo dõi hiệu suất cho tăng trưởng bền vững.',
+    'services.content.feature1': 'Chiến lược và lập kế hoạch nội dung',
+    'services.content.feature2': 'Tối ưu hóa nội dung SEO',
+    'services.content.feature3': 'Phân tích hiệu suất',
+    'services.content.feature4': 'Phân phối đa kênh',
+    
+    // SEO
+    'services.seo.fullTitle': 'Tối Ưu Hóa SEO Kỹ Thuật',
+    'services.seo.fullDesc': 'Dịch vụ SEO chuyên nghiệp với cam kết top 3 Google, tăng 400% lưu lượng tự nhiên và ROI bền vững.',
+    'services.seo.feature1': 'Kiểm tra SEO kỹ thuật',
+    'services.seo.feature2': 'Chiến lược từ khóa và tối ưu hóa',
+    'services.seo.feature3': 'Xây dựng nội dung và liên kết',
+    'services.seo.feature4': 'Đảm bảo top 3 ranking',
+    
+    // Website
+    'services.website.title': 'Phát Triển Website Tự Động Hóa',
+    'services.website.desc': 'Phát triển website hiện đại, responsive với UI/UX tối ưu, được xây dựng sẵn sàng cho tự động hóa và tối ưu SEO từ đầu.',
+    'services.website.feature1': 'Thiết kế responsive và mobile-first',
+    'services.website.feature2': 'Trải nghiệm UI/UX hiện đại',
+    'services.website.feature3': 'Tối ưu hóa SEO tích hợp',
+    'services.website.feature4': 'Tích hợp CMS và tự động hóa',
+    
+    // Why Choose Us
+    'why.title': 'Tại Sao Chọn D2 Group?',
+    'why.subtitle': 'Chúng tôi không chỉ cung cấp giải pháp; chúng tôi là đối tác tận tâm trong hành trình chuyển đổi số của doanh nghiệp bạn.',
+    'why.experts.title': 'Chuyên Gia Hàng Đầu',
+    'why.experts.desc': 'Đội ngũ kỹ sư của chúng tôi có hơn 5 năm kinh nghiệm trong tự động hóa và marketing số.',
+    'why.security.title': 'Bảo Mật Vững Chắc',
+    'why.security.desc': 'Chúng tôi tuân thủ các tiêu chuẩn bảo mật quốc tế để đảm bảo dữ liệu khách hàng của bạn luôn an toàn.',
+    'why.deployment.title': 'Triển Khai Nhanh Chóng',
+    'why.deployment.desc': 'Thời gian thiết lập và đưa vào hoạt động nhanh nhất trên thị trường - chỉ từ 1-2 tuần.',
+    'why.support.fullTitle': 'Hỗ Trợ 24/7',
+    'why.support.fullDesc': 'Đội ngũ hỗ trợ chuyên nghiệp của chúng tôi sẵn sàng hỗ trợ bạn mọi lúc, mọi nơi.',
+    'why.technology.title': 'Công Nghệ Tiên Tiến',
+    'why.technology.desc': 'Sử dụng các công nghệ mới nhất: N8N, AI và Machine Learning.',
+    'why.roi.title': 'Đảm Bảo ROI',
+    'why.roi.desc': 'Chúng tôi đảm bảo tăng ROI tối thiểu 300% sau 6 tháng triển khai.',
+    
+    // Testimonials
+    'testimonials.title': 'Khách Hàng Nói Gì Về',
+    'testimonials.subtitle': 'Hơn 200+ doanh nghiệp B2B tin tưởng và hợp tác cùng D2 Group.',
+    
+    // Technologies
+    'tech.title': 'Được Hỗ Trợ Bởi',
+    'tech.subtitle': 'Công Nghệ Tiên Tiến',
+    'tech.description': 'Chúng tôi sử dụng các công nghệ AI và Tự động hóa mới nhất để mang lại hiệu quả tối ưu cho doanh nghiệp của bạn.',
+    'tech.n8n': 'Nền tảng tự động hóa workflow',
+    'tech.make': 'Công cụ xây dựng tự động hóa trực quan',
+    'tech.zapier': 'Nền tảng tích hợp ứng dụng',
+    'tech.chatbots': 'Hệ thống đàm thoại thông minh',
+    'tech.llm': 'GPT-4, Claude, Gemini',
+    'tech.ml': 'Phân tích dự đoán và AI',
+    'tech.vector': 'Truy xuất dữ liệu được hỗ trợ AI',
+    'tech.edge': 'Xử lý AI thời gian thực',
+    
+    // Partners
+    'partners.title': 'Công Nghệ',
+    'partners.subtitle': 'Của Chúng Tôi',
+    'partners.description': 'Chúng tôi tận dụng các nền tảng công nghệ từ các thương hiệu hàng đầu thế giới.',
   },
   en: {
     // Header
@@ -228,5 +338,115 @@ const translations: Record<Language, Record<string, string>> = {
     'common.backToHome': 'Back to Home',
     'common.loading': 'Loading...',
     'common.error': 'An error occurred',
+    
+    // Services Page
+    'services.core.title': 'Core Services',
+    'services.core.subtitle': 'Comprehensive automation solutions designed to transform Vietnamese businesses through intelligent technology and proven methodologies.',
+    'services.automation.sectionTitle': 'AUTOMATION SERVICES',
+    'services.automation.sectionDesc': 'Our primary automation offerings',
+    'services.digital.sectionTitle': 'DIGITAL SERVICES',
+    'services.digital.sectionDesc': 'Additional services to fuel your growth',
+    
+    // N8N Workflow
+    'services.n8n.fullTitle': 'N8N Workflow Development',
+    'services.n8n.fullDesc': 'Design & implement automation workflows on the n8n platform with JavaScript/TypeScript scripting, error handling, and monitoring.',
+    'services.n8n.feature1': 'Build triggers, nodes & sub-workflows',
+    'services.n8n.feature2': 'JavaScript/TypeScript scripting',
+    'services.n8n.feature3': 'Error handling & retry logic',
+    'services.n8n.feature4': 'Monitoring & logging system',
+    
+    // Business Process
+    'services.process.title': 'Business Process Automation',
+    'services.process.desc': 'Consult & optimize operational processes, analyze AS-IS/TO-BE, and design a comprehensive blueprint to ensure effective automation.',
+    'services.process.feature1': 'Current state process analysis',
+    'services.process.feature2': 'AS-IS/TO-BE flowchart design',
+    'services.process.feature3': 'KPI & SLA definition',
+    'services.process.feature4': 'Comprehensive automation blueprint',
+    
+    // AI Integration
+    'services.ai.fullTitle': 'AI Integration & Optimization',
+    'services.ai.fullDesc': 'Integrate AI (GPT-4, Claude) into workflows for auto-classification, sentiment analysis, document parsing, and predictive analytics.',
+    'services.ai.feature1': 'LLM Integration (GPT-4, Claude)',
+    'services.ai.feature2': 'Auto-classification & sentiment analysis',
+    'services.ai.feature3': 'Document parsing & extraction',
+    'services.ai.feature4': 'Predictive analytics with ML',
+    
+    // Chatbot
+    'services.chatbot.fullTitle': 'Chatbot & Conversational AI',
+    'services.chatbot.fullDesc': 'Intelligent conversational AI on Facebook Messenger, Instagram, WhatsApp, Telegram, Zalo, and Website integration.',
+    'services.chatbot.feature1': 'Multi-platform messaging',
+    'services.chatbot.feature2': 'Intelligent AI responses',
+    'services.chatbot.feature3': 'Seamless agent handover',
+    'services.chatbot.feature4': 'Analytics & reporting',
+    
+    // Zalo
+    'services.zalo.fullTitle': 'Zalo OA Management',
+    'services.zalo.fullDesc': 'Complete Zalo Official Account management with ZNS messaging and integrated chatbot packages for the Vietnamese market.',
+    'services.zalo.feature1': 'Zalo OA setup & management',
+    'services.zalo.feature2': 'ZNS message campaigns',
+    'services.zalo.feature3': 'Integrated chatbot flows',
+    'services.zalo.feature4': 'Optimized for the Vietnam market',
+    
+    // Content Marketing
+    'services.content.fullTitle': 'Content Performance Marketing',
+    'services.content.fullDesc': 'Comprehensive content marketing strategy with SEO optimization, analytics, and performance tracking for sustainable growth.',
+    'services.content.feature1': 'Content strategy & planning',
+    'services.content.feature2': 'SEO content optimization',
+    'services.content.feature3': 'Performance analytics',
+    'services.content.feature4': 'Multi-channel distribution',
+    
+    // SEO
+    'services.seo.fullTitle': 'Technical SEO Optimization',
+    'services.seo.fullDesc': 'Professional SEO services with a top 3 Google ranking commitment, a 400% increase in organic traffic, and sustainable ROI.',
+    'services.seo.feature1': 'Technical SEO audit',
+    'services.seo.feature2': 'Keyword strategy & optimization',
+    'services.seo.feature3': 'Content & link building',
+    'services.seo.feature4': 'Top 3 ranking guarantee',
+    
+    // Website
+    'services.website.title': 'Automation-Ready Website Development',
+    'services.website.desc': 'Develop modern, responsive websites with optimal UI/UX, built to be automation-ready and SEO-optimized from the ground up.',
+    'services.website.feature1': 'Responsive design & mobile-first',
+    'services.website.feature2': 'Modern UI/UX experience',
+    'services.website.feature3': 'Built-in SEO optimization',
+    'services.website.feature4': 'CMS & automation integration',
+    
+    // Why Choose Us
+    'why.title': 'Why Choose D2 Group?',
+    'why.subtitle': 'We don\'t just provide solutions; we are a dedicated partner on your business\'s digital transformation journey.',
+    'why.experts.title': 'Leading Experts',
+    'why.experts.desc': 'Our engineering team has 5+ years of experience in automation and digital marketing.',
+    'why.security.title': 'Robust Security',
+    'why.security.desc': 'We comply with international security standards to ensure your customer data is always safe.',
+    'why.deployment.title': 'Rapid Deployment',
+    'why.deployment.desc': 'The fastest setup and go-live time on the market - from just 1-2 weeks.',
+    'why.support.fullTitle': '24/7 Support',
+    'why.support.fullDesc': 'Our professional support team is ready to assist you anytime, anywhere.',
+    'why.technology.title': 'Cutting-Edge Technology',
+    'why.technology.desc': 'Utilizing the latest technologies: N8N, AI, and Machine Learning.',
+    'why.roi.title': 'Guaranteed ROI',
+    'why.roi.desc': 'We guarantee a minimum 300% ROI increase after 6 months of implementation.',
+    
+    // Testimonials
+    'testimonials.title': 'What Our Clients Say About',
+    'testimonials.subtitle': 'Over 200+ B2B businesses trust and partner with D2 Group.',
+    
+    // Technologies
+    'tech.title': 'Powered By',
+    'tech.subtitle': 'Cutting-Edge Technology',
+    'tech.description': 'We utilize the latest AI and Automation technologies to deliver optimal efficiency for your business.',
+    'tech.n8n': 'Workflow automation platform',
+    'tech.make': 'Visual automation builder',
+    'tech.zapier': 'App integration platform',
+    'tech.chatbots': 'Intelligent conversation systems',
+    'tech.llm': 'GPT-4, Claude, Gemini',
+    'tech.ml': 'Predictive analytics & AI',
+    'tech.vector': 'AI-powered data retrieval',
+    'tech.edge': 'Real-time AI processing',
+    
+    // Partners
+    'partners.title': 'Our',
+    'partners.subtitle': 'Technology Stack',
+    'partners.description': 'We leverage technology platforms from the world\'s leading brands.',
   },
 };
