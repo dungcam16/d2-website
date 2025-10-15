@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { contactFormSchema } from "@/lib/validations/contact";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,8 +28,34 @@ const Contact = () => {
     "Zalo Service - Zalo Marketing",
   ];
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (isSubmitting) return;
+
+    // Validate form data
+    const result = contactFormSchema.safeParse({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      service: formData.service,
+      message: formData.message,
+    });
+
+    if (!result.success) {
+      const errors = result.error.errors;
+      toast({
+        title: "Validation Error",
+        description: errors[0]?.message || "Please check your input and try again.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch("https://n8n.d2group.co/webhook/website_d2group", {
@@ -37,12 +64,12 @@ const Contact = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          service: formData.service,
-          note: formData.message,
+          name: result.data.name,
+          email: result.data.email,
+          phone: result.data.phone,
+          company: result.data.company,
+          service: result.data.service,
+          note: result.data.message,
         }),
       });
 
@@ -63,12 +90,13 @@ const Contact = () => {
         throw new Error("Form submission failed");
       }
     } catch (error) {
-      console.error("Error:", error);
       toast({
         title: "An Error Occurred",
         description: "Please try again later or contact us directly via hotline.",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -222,8 +250,8 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full shadow-glow group">
-                    Send Message
+                  <Button type="submit" className="w-full shadow-glow group" disabled={isSubmitting}>
+                    {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </form>

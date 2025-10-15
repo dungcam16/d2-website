@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
+import { contactFormSchema } from "@/lib/validations/contact";
 
 interface ContactFormProps {
   service?: string;
@@ -25,8 +26,34 @@ const ContactForm: React.FC<ContactFormProps> = ({
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (isSubmitting) return;
+
+    // Validate form data
+    const result = contactFormSchema.safeParse({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      service: service,
+      message: formData.message,
+    });
+
+    if (!result.success) {
+      const errors = result.error.errors;
+      toast({
+        title: "Validation Error",
+        description: errors[0]?.message || "Please check your input and try again.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch("https://n8n.d2group.co/webhook/website_d2group", {
@@ -35,11 +62,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          service: service,
-          note: formData.message,
+          name: result.data.name,
+          email: result.data.email,
+          phone: result.data.phone,
+          service: result.data.service || service,
+          note: result.data.message,
         }),
       });
 
@@ -59,12 +86,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
         throw new Error("Form submission failed");
       }
     } catch (error) {
-      console.error("Error:", error);
       toast({
         title: "An Error Occurred",
         description: "Please try again later or contact us directly via our hotline.",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -146,9 +174,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
           />
         </div>
 
-        <Button type="submit" className="w-full shadow-glow group">
+        <Button type="submit" className="w-full shadow-glow group" disabled={isSubmitting}>
           <Send className="h-4 w-4 mr-2 transition-transform group-hover:translate-x-1" />
-          Send Inquiry
+          {isSubmitting ? "Sending..." : "Send Inquiry"}
         </Button>
       </form>
     </Card>
