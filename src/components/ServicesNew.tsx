@@ -6,26 +6,26 @@ const ServicesNew = () => {
   const services = [
     {
       icon: Workflow,
-      title: "Workflow Automation (n8n, Make)",
-      description: "Streamline any process across apps and teams.",
+      title: "n8n Workflow Automation",
+      description: "Complex multi-step workflows with error handling, scheduling, and API integrations.",
       color: "primary",
     },
     {
       icon: Brain,
-      title: "AI Integration (GPT, RAG, LangChain)",
-      description: "Add intelligence to your automations with LLMs.",
+      title: "AI & RAG Systems",
+      description: "Custom LLM integrations with GPT-4, Claude, vector databases, and retrieval systems.",
       color: "accent",
     },
     {
       icon: BarChart3,
-      title: "Data & Reporting Automation",
-      description: "Generate daily dashboards and performance summaries.",
+      title: "SaaS Product Development",
+      description: "Full-stack SaaS applications with React, Node.js, Supabase, and AI capabilities.",
       color: "primary",
     },
     {
       icon: Network,
-      title: "No-code System Architecture",
-      description: "Design scalable, maintainable systems with expert oversight.",
+      title: "API Development & Integration",
+      description: "RESTful APIs, webhooks, OAuth flows, and third-party service integrations.",
       color: "accent",
     },
   ];
@@ -35,8 +35,11 @@ const ServicesNew = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            What We Build
+            Our Expertise
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Specialized technical skills for remote collaboration with international teams
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">

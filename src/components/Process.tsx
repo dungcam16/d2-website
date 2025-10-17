@@ -4,20 +4,20 @@ const Process = () => {
   const steps = [
     {
       icon: Search,
-      title: "Discovery (30 min)",
-      description: "Identify high-ROI automation opportunities.",
+      title: "Discovery Call",
+      description: "30-min consultation to understand your technical requirements and automation needs.",
       number: "01",
     },
     {
       icon: Lightbulb,
-      title: "Prototype (1 week)",
-      description: "Build a working demo in n8n.",
+      title: "Development Sprint",
+      description: "1-2 weeks to build, test, and iterate on the solution with regular updates.",
       number: "02",
     },
     {
       icon: Rocket,
-      title: "Ship & Maintain",
-      description: "Deliver production workflow with docs & 30-day support.",
+      title: "Deploy & Support",
+      description: "Production deployment with documentation, testing, and ongoing maintenance support.",
       number: "03",
     },
   ];

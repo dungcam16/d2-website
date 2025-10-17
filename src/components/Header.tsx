@@ -31,45 +31,41 @@ const Header = () => {
 
   const servicesByCategory = {
     automation: {
-      title: "Business Automation",
-      description: "Solutions to optimize processes and boost productivity",
+      title: "AI & Automation",
+      description: "Intelligent automation powered by AI",
       services: [
         {
-          name: "N8N Workflow Automation",
+          name: "n8n Workflow Automation",
           href: "/services/automation",
-          description: "Automate business processes with N8N",
+          description: "Custom workflows that scale",
+        },
+        {
+          name: "AI Integration & RAG",
+          href: "/services/ai-integration",
+          description: "GPT, Claude, RAG systems",
         },
         {
           name: "Business Process Automation",
           href: "/services/business-process",
-          description: "Comprehensive process optimization",
+          description: "End-to-end process optimization",
         },
-        {
-          name: "AI Integration",
-          href: "/services/ai-integration",
-          description: "Integrate AI into your business workflows",
-        },
+      ],
+    },
+    products: {
+      title: "SaaS Development",
+      description: "Build scalable SaaS products",
+      services: [
+        { name: "Full-Stack SaaS", href: "/services/website", description: "React, Node.js, Supabase" },
+        { name: "AI-Powered Apps", href: "/services/chatbot", description: "Chatbots & AI assistants" },
+        { name: "API Development", href: "/services/n8n-workflow", description: "RESTful & GraphQL APIs" },
       ],
     },
     growth: {
-      title: "Customer Growth",
-      description: "Marketing and customer conversion strategies",
+      title: "Growth & Marketing",
+      description: "Data-driven growth strategies",
       services: [
-        { name: "Content Marketing", href: "/services/content", description: "Quality content to increase traffic" },
-        { name: "Technical SEO", href: "/services/seo", description: "In-depth SEO optimization" },
-        { name: "Chatbot & Conversational AI", href: "/services/chatbot", description: "24/7 intelligent chatbot" },
-        { name: "Zalo OA Marketing", href: "/services/zalo", description: "Marketing via Zalo OA" },
-      ],
-    },
-    platform: {
-      title: "Website Platform",
-      description: "Modern websites ready for automation",
-      services: [
-        {
-          name: "Automation-Ready Website",
-          href: "/services/website",
-          description: "Website with automation integration",
-        },
+        { name: "Technical SEO", href: "/services/seo", description: "SEO automation & optimization" },
+        { name: "Content Strategy", href: "/services/content", description: "AI-assisted content creation" },
       ],
     },
   };
@@ -85,7 +81,8 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img src={logoD2Group} alt="D2 Group Logo" className="h-10 w-10" />
-            <span className="text-2xl font-bold font-heading text-foreground">D2 GROUP MARKETING</span>
+            <span className="text-xl font-bold font-heading text-foreground">D2 Group</span>
+            <span className="text-xs text-muted-foreground font-normal">AI Automation Agency</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -143,12 +140,12 @@ const Header = () => {
                     </div>
                   </div>
 
-                  {/* Platform Column */}
+                  {/* Products Column */}
                   <div>
-                    <div className="text-sm font-semibold text-primary mb-2">{servicesByCategory.platform.title}</div>
-                    <p className="text-xs text-muted-foreground mb-3">{servicesByCategory.platform.description}</p>
+                    <div className="text-sm font-semibold text-primary mb-2">{servicesByCategory.products.title}</div>
+                    <p className="text-xs text-muted-foreground mb-3">{servicesByCategory.products.description}</p>
                     <div className="space-y-1">
-                      {servicesByCategory.platform.services.map((service) => (
+                      {servicesByCategory.products.services.map((service) => (
                         <DropdownMenuItem key={service.href} asChild>
                           <a href={service.href} className="cursor-pointer block py-2 px-2 rounded hover:bg-muted">
                             <div className="font-medium text-sm">{service.name}</div>
@@ -250,9 +247,9 @@ const Header = () => {
                 ))}
 
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mt-4 mb-2">
-                  🌐 {servicesByCategory.platform.title}
+                  💎 {servicesByCategory.products.title}
                 </div>
-                {servicesByCategory.platform.services.map((service) => (
+                {servicesByCategory.products.services.map((service) => (
                   <a
                     key={service.name}
                     href={service.href}

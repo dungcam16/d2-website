@@ -19,27 +19,29 @@ const HeroNew = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Automate the Boring.
+                AI Automation Agency
                 <br />
-                <span className="text-primary">Scale What Matters.</span>
+                <span className="text-primary">for Remote Teams</span>
               </h1>
               
               <p className="text-xl md:text-2xl text-muted-foreground font-light">
-                We build AI-powered n8n workflows that eliminate repetitive tasks, accelerate growth, and keep your operations lean.
+                We build AI-powered workflows, RAG systems, and SaaS products for companies in the US, Australia, and Europe.
               </p>
               
               <p className="text-lg text-muted-foreground">
-                From lead qualification to reporting — we create systems that work while you sleep.
+                Specializing in n8n automation, LLM integration (GPT-4, Claude), and full-stack development with React & Node.js.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white group">
-                Book 30-min Demo
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white group" asChild>
+                <a href="/portfolio">
+                  View Portfolio
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
-                Explore Templates
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+                <a href="/contact">Schedule a Call</a>
               </Button>
             </div>
           </div>
@@ -52,9 +54,9 @@ const HeroNew = () => {
                 <div className="text-center space-y-4">
                   <Play className="h-16 w-16 mx-auto text-primary" />
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-foreground">n8n Workflow Demo</p>
+                    <p className="text-sm font-medium text-foreground">AI-Powered Workflow</p>
                     <p className="text-xs text-muted-foreground">
-                      Form → GPT → CRM → Slack
+                      Webhook → RAG Query → GPT-4 → Response API
                     </p>
                   </div>
                 </div>
@@ -65,7 +67,7 @@ const HeroNew = () => {
             </div>
             
             <p className="text-center text-sm text-muted-foreground mt-4">
-              Live Demo: Lead Capture → AI Qualification → CRM Update
+              Example: Document Processing → AI Analysis → Structured Output
             </p>
           </div>
         </div>

@@ -2,22 +2,22 @@ import { AlertCircle, CheckCircle2 } from "lucide-react";
 
 const ProblemSolution = () => {
   const painPoints = [
-    "Endless copy-paste and manual data entry",
-    "Missed leads and inconsistent follow-ups",
-    "Disconnected tools and scattered data",
+    "Manual processes slowing down your team's productivity",
+    "Disconnected tools requiring constant context switching",
+    "Repetitive tasks consuming valuable engineering time",
   ];
 
   const solutions = [
-    "Faster response, higher conversion",
-    "Reliable workflows with full audit trail",
-    "One unified data layer across all tools",
+    "Automated workflows that run 24/7 without intervention",
+    "Unified systems with seamless data flow across platforms",
+    "AI-powered solutions that handle complex decision-making",
   ];
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Manual processes slow you down.
+          Scale Your Operations with AI & Automation
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12">

@@ -95,11 +95,11 @@ const Portfolio = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "D2 Group - n8n Automation & Integration Specialists",
+    name: "D2 Group - AI Automation Agency",
     description:
-      "Leading automation agency specializing in n8n workflow development, API integrations, and business process optimization for international B2B companies.",
+      "Professional AI automation agency specializing in n8n workflows, RAG systems, and SaaS development for remote teams in the US, Australia, and Europe.",
     url: "https://d2group.co/portfolio",
-    areaServed: "International",
+    areaServed: ["United States", "Australia", "Europe", "Global"],
     priceRange: "$$-$$$",
     aggregateRating: {
       "@type": "AggregateRating",
@@ -112,27 +112,27 @@ const Portfolio = () => {
   const services = [
     {
       icon: Workflow,
-      title: "n8n Workflow Development",
-      description: "Custom automation workflows tailored to your business needs",
-      features: ["Trigger design", "Error handling", "Sub-workflows", "Performance optimization"],
+      title: "n8n Workflow Automation",
+      description: "Complex automation workflows with error handling and monitoring",
+      features: ["Custom triggers & actions", "API integrations", "Error handling & retry logic", "Performance optimization"],
     },
     {
       icon: Code,
-      title: "API Integration",
-      description: "Seamless connection between your business tools",
-      features: ["REST APIs", "Webhooks", "OAuth", "GraphQL"],
+      title: "AI & RAG Systems",
+      description: "LLM integration with vector databases and retrieval systems",
+      features: ["GPT-4 & Claude integration", "Vector databases (Pinecone, Weaviate)", "Custom RAG pipelines", "Prompt engineering"],
     },
     {
       icon: Cloud,
-      title: "Cloud Infrastructure",
-      description: "Scalable deployment and hosting solutions",
-      features: ["Docker", "AWS/GCP", "CI/CD", "Monitoring"],
+      title: "SaaS Development",
+      description: "Full-stack applications with modern tech stack",
+      features: ["React & Next.js", "Node.js & Express", "Supabase & PostgreSQL", "AWS/GCP deployment"],
     },
     {
       icon: BarChart3,
-      title: "Process Optimization",
-      description: "Analyze and improve existing workflows",
-      features: ["Workflow audit", "Bottleneck analysis", "KPI tracking", "ROI measurement"],
+      title: "API Development",
+      description: "RESTful APIs and third-party integrations",
+      features: ["REST & GraphQL APIs", "Webhook handling", "OAuth & authentication", "API documentation"],
     },
   ];
 
@@ -140,51 +140,51 @@ const Portfolio = () => {
     {
       phase: "Discovery",
       duration: "Week 1",
-      activities: ["Requirements gathering", "Process mapping", "Feasibility analysis", "Solution design"],
+      activities: ["Technical requirements gathering", "System architecture planning", "Technology stack selection", "Project timeline & milestones"],
     },
     {
       phase: "Development",
       duration: "Week 2-3",
-      activities: ["Workflow building", "API integration", "Testing & QA", "Documentation"],
+      activities: ["Agile development sprints", "Regular progress updates", "Code reviews & testing", "Documentation & comments"],
     },
     {
       phase: "Deployment",
       duration: "Week 4",
-      activities: ["Production setup", "User training", "Monitoring setup", "Handover"],
+      activities: ["Production environment setup", "Performance testing", "Security audit", "Knowledge transfer"],
     },
     {
       phase: "Support",
       duration: "Ongoing",
-      activities: ["24/7 monitoring", "Bug fixes", "Optimization", "Feature updates"],
+      activities: ["24/7 monitoring", "Bug fixes & patches", "Performance optimization", "Feature enhancements"],
     },
   ];
 
   const stats = [
-    { icon: Award, label: "Successful Projects", value: "50+" },
-    { icon: Users, label: "Happy Clients", value: "30+" },
-    { icon: Clock, label: "Years Experience", value: "3+" },
-    { icon: Globe, label: "Countries Served", value: "10+" },
+    { icon: Award, label: "Successful Projects", value: "100+" },
+    { icon: Users, label: "Happy Clients", value: "50+" },
+    { icon: Clock, label: "Years Experience", value: "5+" },
+    { icon: Globe, label: "Countries Served", value: "15+" },
   ];
 
   const testimonials = [
     {
       quote:
-        "D2 Group transformed our operations. The automation saved us 20 hours per week and reduced errors to zero.",
-      author: "John Smith",
-      role: "CTO, TechCorp",
+        "D2 Group delivered a complex RAG system that processes thousands of documents daily. Their expertise in AI and automation is exceptional. Highly recommended for enterprise projects.",
+      author: "Sarah Chen",
+      role: "CTO, TechVentures (San Francisco, USA)",
       rating: 5,
     },
     {
       quote:
-        "Professional, responsive, and delivered exactly what we needed. Best automation partner we've worked with.",
-      author: "Sarah Johnson",
-      role: "Operations Director, E-com Inc",
+        "Outstanding technical skills and professional communication. They built our entire SaaS platform from scratch using React and Node.js. Perfect for remote collaboration.",
+      author: "Michael Roberts",
+      role: "CEO, DataFlow Solutions (Sydney, Australia)",
       rating: 5,
     },
     {
-      quote: "ROI was clear within the first month. Highly recommend for any business looking to scale.",
-      author: "Michael Chen",
-      role: "CEO, Growth Startup",
+      quote: "Their n8n automation workflows saved us 40+ hours per week. The ROI was immediate and the code quality is production-ready. Best development partner we've had.",
+      author: "Emma Schmidt",
+      role: "Operations Director, GrowthLabs (Berlin, Germany)",
       rating: 5,
     },
   ];
@@ -192,9 +192,9 @@ const Portfolio = () => {
   return (
     <>
       <SEO
-        title="n8n Automation & Integration Portfolio - D2 Group | Business Process Automation Experts"
-        description="Leading automation agency specializing in n8n workflow development, API integrations, and business process optimization for B2B companies. View our portfolio of 50+ successful automation projects."
-        keywords="n8n developer portfolio, automation engineer, workflow automation, API integration, business process automation, n8n case studies, automation agency, n8n expert"
+        title="Portfolio - D2 Group | AI Automation Agency for Remote Teams"
+        description="View our portfolio of AI automation projects for US, Australian, and European companies. Expert in n8n workflows, RAG systems, GPT-4/Claude integration, and full-stack SaaS development."
+        keywords="AI automation portfolio, n8n case studies, RAG system examples, remote developer portfolio, SaaS development portfolio, automation agency work, AI integration projects"
         canonicalUrl="/portfolio"
         structuredData={structuredData}
       />
@@ -206,15 +206,14 @@ const Portfolio = () => {
         <section className="relative pt-32 pb-20 px-6 overflow-hidden bg-gradient-to-b from-primary/5 to-background">
           <div className="container mx-auto max-w-6xl text-center relative z-10">
             <Badge variant="secondary" className="text-lg px-6 py-2 mb-6">
-              <Award className="w-4 h-4 mr-2 inline" /> Trusted by International B2B Companies
+              <Award className="w-4 h-4 mr-2 inline" /> Trusted by Remote Teams Worldwide
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Automation Solutions That Drive
-              <span className="text-primary"> Measurable Business Results</span>
+              AI Automation Agency
+              <span className="text-primary"> for Remote Teams</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              We build scalable n8n workflows and API integrations that reduce costs, eliminate errors, and accelerate
-              growth for B2B companies worldwide.
+              We build AI-powered workflows, RAG systems, and SaaS products for companies in the US, Australia, and Europe. Specializing in n8n automation, LLM integration, and full-stack development.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
@@ -235,7 +234,7 @@ const Portfolio = () => {
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <a href="#projects">
-                  <Target className="w-4 h-4 mr-2" /> View Case Studies
+                  <Target className="w-4 h-4 mr-2" /> View Our Work
                 </a>
               </Button>
             </div>
@@ -246,8 +245,8 @@ const Portfolio = () => {
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Our Services</h2>
-              <p className="text-xl text-muted-foreground">Comprehensive automation solutions for modern businesses</p>
+              <h2 className="text-4xl font-bold mb-4">Our Expertise</h2>
+              <p className="text-xl text-muted-foreground">Technical capabilities for complex automation and AI projects</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {services.map((service, index) => (
@@ -277,8 +276,8 @@ const Portfolio = () => {
         <section id="projects" className="py-20 px-6 bg-muted/30">
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Case Studies</h2>
-              <p className="text-xl text-muted-foreground">Real automation projects with measurable business impact</p>
+              <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
+              <p className="text-xl text-muted-foreground">Real automation and AI projects with measurable business impact</p>
             </div>
 
             {loading ? (
@@ -393,8 +392,8 @@ const Portfolio = () => {
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Our Process</h2>
-              <p className="text-xl text-muted-foreground">Proven methodology for successful automation projects</p>
+              <h2 className="text-4xl font-bold mb-4">Development Process</h2>
+              <p className="text-xl text-muted-foreground">Proven agile methodology for successful project delivery</p>
             </div>
             <div className="grid md:grid-cols-4 gap-6">
               {methodology.map((phase, index) => (
@@ -453,10 +452,9 @@ const Portfolio = () => {
         {/* CTA */}
         <section className="py-20 px-6 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-4xl font-bold mb-6">Ready to Automate Your Business?</h2>
+            <h2 className="text-4xl font-bold mb-6">Ready to Work Together?</h2>
             <p className="text-xl mb-8 opacity-90">
-              Let's discuss how we can help you save time, reduce costs, and scale efficiently with custom automation
-              solutions.
+              Let's discuss your automation and AI project. We specialize in working with remote teams across different time zones.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -486,13 +484,13 @@ const Portfolio = () => {
             <div className="flex gap-4 justify-center flex-wrap">
               <Button size="lg" variant="secondary" asChild>
                 <Link to="/contact">
-                  <Phone className="w-4 h-4 mr-2" /> Schedule Free Consultation
+                  <Phone className="w-4 h-4 mr-2" /> Schedule a Call
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-                <Link to="/contact">
-                  <DollarSign className="w-4 h-4 mr-2" /> Get Started
-                </Link>
+                <a href="mailto:info@d2group.co">
+                  <Mail className="w-4 h-4 mr-2" /> Email Us
+                </a>
               </Button>
             </div>
           </div>
