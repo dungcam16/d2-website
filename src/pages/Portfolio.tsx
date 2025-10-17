@@ -55,11 +55,10 @@ interface CaseStudy {
   client: string | null;
   image_url: string | null;
   excerpt: string | null;
-  challenge: string;
-  solution: string;
-  results: Array<{ label: string; value: string }>;
-  tech: string[];
+  content: string | null;
   icon_name: string;
+  created_at: string;
+  views: number;
 }
 
 const Portfolio = () => {
@@ -321,47 +320,29 @@ const Portfolio = () => {
 
                       {/* Content - Always Visible */}
                       <CardContent className="pt-0 space-y-4 flex-grow">
-                        {/* Challenge & Solution - Always Displayed */}
-                        <div className="space-y-3">
-                          <div>
-                            <h4 className="font-semibold text-xs text-destructive mb-1 flex items-center gap-1">
-                              <AlertTriangle className="w-3 h-3" />
-                              Challenge:
-                            </h4>
-                            <p className="text-xs text-muted-foreground leading-relaxed">{project.challenge}</p>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-xs text-primary mb-1 flex items-center gap-1">
-                              <CheckCircle2 className="w-3 h-3" />
-                              Solution:
-                            </h4>
-                            <p className="text-xs text-muted-foreground leading-relaxed">{project.solution}</p>
-                          </div>
-                        </div>
+                        {/* Excerpt */}
+                        {project.excerpt && (
+                          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                            {project.excerpt}
+                          </p>
+                        )}
 
                         <Separator />
 
-                        {/* Results Grid */}
-                        <div className="grid grid-cols-3 gap-2">
-                          {project.results.map((result, idx) => (
-                            <div key={idx} className="text-center p-2 bg-primary/5 rounded">
-                              <div className="text-base font-bold text-primary">{result.value}</div>
-                              <div className="text-xs text-muted-foreground line-clamp-1">{result.label}</div>
+                        {/* Meta Info */}
+                        <div className="flex items-center justify-between text-xs text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            {new Date(project.created_at).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'short' 
+                            })}
+                          </div>
+                          {project.views > 0 && (
+                            <div className="flex items-center gap-1">
+                              <Star className="w-3 h-3" />
+                              {project.views} views
                             </div>
-                          ))}
-                        </div>
-
-                        {/* Tech Stack */}
-                        <div className="flex flex-wrap gap-1">
-                          {project.tech.slice(0, 3).map((tech, idx) => (
-                            <Badge key={idx} variant="outline" className="text-xs">
-                              {tech}
-                            </Badge>
-                          ))}
-                          {project.tech.length > 3 && (
-                            <Badge variant="outline" className="text-xs">
-                              +{project.tech.length - 3}
-                            </Badge>
                           )}
                         </div>
 
