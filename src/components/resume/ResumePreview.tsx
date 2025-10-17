@@ -36,15 +36,36 @@ const ResumePreview = ({ htmlContent, onCreateAnother }: ResumePreviewProps) => 
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `resume_${Date.now()}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
+      // Check if response is PDF or HTML
+      const contentType = response.headers.get('content-type');
+      
+      if (contentType?.includes('application/pdf')) {
+        // Handle PDF download
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `resume_${Date.now()}.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      } else {
+        // Handle HTML or other response
+        const text = await response.text();
+        console.log("Download response:", text);
+        
+        // Create a simple download by converting HTML to blob
+        const blob = new Blob([htmlContent], { type: 'text/html' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `resume_${Date.now()}.html`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      }
 
       toast({
         title: "Success!",

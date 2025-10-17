@@ -24,6 +24,7 @@ const ResumeBuilder = () => {
   const handleResumeGenerated = (html: string) => {
     setGeneratedHtml(html);
     setShowPreview(true);
+    setShowForm(false);
     setTimeout(() => {
       document.getElementById("resume-preview")?.scrollIntoView({ behavior: "smooth" });
     }, 100);

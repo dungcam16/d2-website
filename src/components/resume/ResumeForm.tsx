@@ -123,13 +123,26 @@ const ResumeForm = ({ onResumeGenerated }: ResumeFormProps) => {
         description: "Failed to generate resume. Please try again.",
         variant: "destructive",
       });
-    } finally {
       setIsGenerating(false);
     }
   };
 
   return (
-    <Card className="p-8 space-y-8 animate-fade-in">
+    <Card className="p-8 space-y-8 animate-fade-in relative">
+      {isGenerating && (
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center rounded-lg">
+          <div className="text-center space-y-4">
+            <Loader2 className="w-16 h-16 animate-spin text-primary mx-auto" />
+            <div className="space-y-2">
+              <h3 className="text-xl font-semibold">Generating Your Resume...</h3>
+              <p className="text-sm text-muted-foreground">
+                Our AI is crafting your professional resume. This may take a few moments.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">
