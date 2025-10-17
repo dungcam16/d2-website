@@ -25,6 +25,7 @@ import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Templates from "./pages/Templates";
 import TemplateDetail from "./pages/TemplateDetail";
 import Admin from "./pages/Admin";
+import ResumeBuilder from "./pages/ResumeBuilder";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,8 @@ const App = () => (
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/resume-builder" element={<ResumeBuilder />} />
+          <Route path="/portfolio/proxatest" element={<ResumeBuilder />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
