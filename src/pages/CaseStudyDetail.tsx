@@ -18,10 +18,7 @@ interface CaseStudy {
   client: string | null;
   image_url: string | null;
   excerpt: string | null;
-  challenge: string;
-  solution: string;
-  results: Array<{ label: string; value: string }>;
-  tech: string[];
+  content: string | null;
   icon_name: string;
   is_published: boolean;
   views: number;
@@ -118,7 +115,7 @@ const CaseStudyDetail = () => {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: caseStudy.title,
-    description: caseStudy.excerpt || caseStudy.challenge,
+    description: caseStudy.excerpt || caseStudy.title,
     image: caseStudy.image_url,
     datePublished: caseStudy.created_at,
     dateModified: caseStudy.updated_at,
@@ -131,11 +128,11 @@ const CaseStudyDetail = () => {
   return (
     <>
       <SEO
-        title={`${caseStudy.title} - Case Study | D2 Group`}
-        description={caseStudy.excerpt || caseStudy.challenge.substring(0, 160)}
-        keywords={`case study, ${caseStudy.category}, ${caseStudy.tech.join(", ")}`}
+        title={`${caseStudy.title} - Portfolio | D2 Group`}
+        description={caseStudy.excerpt || caseStudy.title}
+        keywords={`portfolio, case study, ${caseStudy.category || 'AI Automation'}`}
         ogImage={caseStudy.image_url || undefined}
-        canonicalUrl={`https://d2group.co/case-study/${caseStudy.slug}`}
+        canonicalUrl={`https://d2group.co/portfolio/${caseStudy.slug}`}
         structuredData={caseStudyStructuredData}
       />
       <Header />
@@ -191,54 +188,13 @@ const CaseStudyDetail = () => {
 
           <Separator className="my-8" />
 
-          {caseStudy.results && caseStudy.results.length > 0 && (
-            <Card className="p-6 mb-8">
-              <h2 className="text-2xl font-bold mb-4">Key Results</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {caseStudy.results.map((result, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">
-                      {result.value}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {result.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Card>
-          )}
-
-          <div className="prose prose-lg max-w-none mb-8">
-            <h2 className="text-2xl font-bold mb-4">Challenge</h2>
-            <p className="text-muted-foreground whitespace-pre-wrap">
-              {caseStudy.challenge}
-            </p>
-          </div>
-
-          <Separator className="my-8" />
-
-          <div className="prose prose-lg max-w-none mb-8">
-            <h2 className="text-2xl font-bold mb-4">Solution</h2>
-            <p className="text-muted-foreground whitespace-pre-wrap">
-              {caseStudy.solution}
-            </p>
-          </div>
-
-          {caseStudy.tech && caseStudy.tech.length > 0 && (
-            <>
-              <Separator className="my-8" />
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold mb-4">Technologies Used</h2>
-                <div className="flex flex-wrap gap-2">
-                  {caseStudy.tech.map((tech, index) => (
-                    <Badge key={index} variant="secondary">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </>
+          {caseStudy.content && (
+            <div className="prose dark:prose-invert prose-lg max-w-none">
+              <div 
+                className="text-foreground leading-relaxed" 
+                dangerouslySetInnerHTML={{ __html: caseStudy.content }} 
+              />
+            </div>
           )}
 
           <Separator className="my-12" />

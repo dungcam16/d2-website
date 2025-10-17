@@ -74,8 +74,8 @@ export type Database = {
       case_studies: {
         Row: {
           category: string | null
-          challenge: string
           client: string | null
+          content: string | null
           created_at: string
           excerpt: string | null
           icon_name: string | null
@@ -83,18 +83,15 @@ export type Database = {
           image_url: string | null
           is_published: boolean | null
           order_index: number | null
-          results: Json | null
           slug: string
-          solution: string
-          tech: string[] | null
           title: string
           updated_at: string
           views: number | null
         }
         Insert: {
           category?: string | null
-          challenge: string
           client?: string | null
+          content?: string | null
           created_at?: string
           excerpt?: string | null
           icon_name?: string | null
@@ -102,18 +99,15 @@ export type Database = {
           image_url?: string | null
           is_published?: boolean | null
           order_index?: number | null
-          results?: Json | null
           slug: string
-          solution: string
-          tech?: string[] | null
           title: string
           updated_at?: string
           views?: number | null
         }
         Update: {
           category?: string | null
-          challenge?: string
           client?: string | null
+          content?: string | null
           created_at?: string
           excerpt?: string | null
           icon_name?: string | null
@@ -121,10 +115,7 @@ export type Database = {
           image_url?: string | null
           is_published?: boolean | null
           order_index?: number | null
-          results?: Json | null
           slug?: string
-          solution?: string
-          tech?: string[] | null
           title?: string
           updated_at?: string
           views?: number | null

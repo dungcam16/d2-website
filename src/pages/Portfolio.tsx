@@ -367,7 +367,7 @@ const Portfolio = () => {
 
                         {/* CTA */}
                         <Button variant="outline" size="sm" className="w-full mt-auto" asChild>
-                          <Link to={`/case-study/${project.slug}`}>
+                          <Link to={`/portfolio/${project.slug}`}>
                             View Full Case Study <ArrowRight className="w-4 h-4 ml-2" />
                           </Link>
                         </Button>
