@@ -34,7 +34,17 @@ import {
   Star,
   AlertTriangle,
   LucideIcon,
+  Download,
+  Eye,
+  Grid3x3,
 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 // Icon mapping
 const iconMap: Record<string, LucideIcon> = {
@@ -61,27 +71,52 @@ interface CaseStudy {
   views: number;
 }
 
+interface WorkflowTemplate {
+  id: string;
+  title: string;
+  slug: string;
+  description: string | null;
+  thumbnail_url: string | null;
+  category: string | null;
+  tags: string[] | null;
+  views: number | null;
+  downloads: number | null;
+}
+
 const Portfolio = () => {
   const { toast } = useToast();
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
+  const [workflows, setWorkflows] = useState<WorkflowTemplate[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchCaseStudies = async () => {
+    const fetchData = async () => {
       try {
-        const { data, error } = await supabase
-          .from("case_studies")
-          .select("*")
-          .eq("is_published", true)
-          .order("order_index", { ascending: true });
+        const [caseStudiesResponse, workflowsResponse] = await Promise.all([
+          supabase
+            .from("case_studies")
+            .select("*")
+            .eq("is_published", true)
+            .order("order_index", { ascending: true })
+            .limit(6),
+          supabase
+            .from("workflow_templates")
+            .select("id, title, slug, description, thumbnail_url, category, tags, views, downloads")
+            .eq("is_published", true)
+            .order("published_at", { ascending: false })
+            .limit(6),
+        ]);
 
-        if (error) throw error;
-        setCaseStudies((data as any) || []);
+        if (caseStudiesResponse.error) throw caseStudiesResponse.error;
+        if (workflowsResponse.error) throw workflowsResponse.error;
+
+        setCaseStudies((caseStudiesResponse.data as any) || []);
+        setWorkflows((workflowsResponse.data as any) || []);
       } catch (error) {
-        console.error("Error fetching case studies:", error);
+        console.error("Error fetching data:", error);
         toast({
-          title: "Error loading case studies",
-          description: "Failed to load case studies. Please try again.",
+          title: "Error loading portfolio",
+          description: "Failed to load portfolio data. Please try again.",
           variant: "destructive",
         });
       } finally {
@@ -89,7 +124,7 @@ const Portfolio = () => {
       }
     };
 
-    fetchCaseStudies();
+    fetchData();
   }, [toast]);
   const structuredData = {
     "@context": "https://schema.org",
@@ -360,9 +395,115 @@ const Portfolio = () => {
             )}
 
             <div className="text-center mt-12">
+              <Button size="lg" variant="outline" asChild>
+                <Link to="/portfolio">
+                  Browse All Case Studies <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Workflow Templates */}
+        <section className="py-20 px-6">
+          <div className="container mx-auto max-w-7xl">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-4">Featured Workflow Templates</h2>
+              <p className="text-xl text-muted-foreground">Ready-to-use automation workflows to accelerate your projects</p>
+            </div>
+
+            {loading ? (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">Loading workflow templates...</p>
+              </div>
+            ) : workflows.length === 0 ? (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">No workflow templates available yet.</p>
+              </div>
+            ) : (
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {workflows.map((workflow) => (
+                    <CarouselItem key={workflow.id} className="md:basis-1/2 lg:basis-1/3">
+                      <Link to={`/templates/${workflow.slug}`}>
+                        <Card className="h-full hover:shadow-xl transition-all duration-300 group">
+                          <div className="relative overflow-hidden">
+                            {workflow.thumbnail_url ? (
+                              <img
+                                src={workflow.thumbnail_url}
+                                alt={workflow.title}
+                                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                              />
+                            ) : (
+                              <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                                <Grid3x3 className="h-16 w-16 text-muted-foreground" />
+                              </div>
+                            )}
+                            {workflow.category && (
+                              <Badge className="absolute top-4 right-4 bg-primary">{workflow.category}</Badge>
+                            )}
+                          </div>
+
+                          <CardHeader>
+                            <CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors">
+                              {workflow.title}
+                            </CardTitle>
+                          </CardHeader>
+
+                          <CardContent className="space-y-4">
+                            {workflow.description && (
+                              <p className="text-sm text-muted-foreground line-clamp-3">
+                                {workflow.description}
+                              </p>
+                            )}
+
+                            {workflow.tags && workflow.tags.length > 0 && (
+                              <div className="flex flex-wrap gap-1">
+                                {workflow.tags.slice(0, 3).map((tag, idx) => (
+                                  <Badge key={idx} variant="secondary" className="text-xs">
+                                    {tag}
+                                  </Badge>
+                                ))}
+                              </div>
+                            )}
+
+                            <Separator />
+
+                            <div className="flex items-center justify-between text-xs text-muted-foreground">
+                              <div className="flex items-center gap-3">
+                                <span className="flex items-center gap-1">
+                                  <Eye className="w-3 h-3" />
+                                  {workflow.views || 0}
+                                </span>
+                                <span className="flex items-center gap-1">
+                                  <Download className="w-3 h-3" />
+                                  {workflow.downloads || 0}
+                                </span>
+                              </div>
+                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </Link>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="-left-4" />
+                <CarouselNext className="-right-4" />
+              </Carousel>
+            )}
+
+            <div className="text-center mt-12">
               <Button size="lg" asChild>
-                <Link to="/contact">
-                  Get Your Free Consultation <ArrowRight className="w-4 h-4 ml-2" />
+                <Link to="/templates">
+                  Browse Full Workflow Library <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
             </div>

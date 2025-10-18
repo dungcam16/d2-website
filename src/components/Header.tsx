@@ -25,7 +25,8 @@ const Header = () => {
 
   const mainNavItems = [
     { name: t('nav.home'), href: "/" },
-    { name: t('nav.portfolio'), href: "/portfolio" },
+    { name: "Case Studies", href: "/portfolio" },
+    { name: "Workflow", href: "/templates" },
     { name: t('nav.blog'), href: "/blog" },
   ];
 
@@ -108,9 +109,15 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            {/* Portfolio */}
+            {/* Case Studies */}
             <a href="/portfolio" className="text-foreground hover:text-primary transition-smooth relative group">
-              {t('nav.portfolio')}
+              Case Studies
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            {/* Workflow */}
+            <a href="/templates" className="text-foreground hover:text-primary transition-smooth relative group">
+              Workflow
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
