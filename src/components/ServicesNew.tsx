@@ -33,6 +33,13 @@ const ServicesNew = () => {
       color: "accent",
       href: "/services/api-integration",
     },
+    {
+      icon: Network,
+      title: "Business Process Automation",
+      description: "AS-IS/TO-BE analysis, KPI/SLA definition, and automation blueprint design.",
+      color: "primary",
+      href: "/services/business-process",
+    },
   ];
 
   return (

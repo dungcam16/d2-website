@@ -50,6 +50,11 @@ const Header = () => {
       href: "/services/api-integration",
       description: "RESTful APIs, webhooks, OAuth flows",
     },
+    {
+      name: "Business Process Automation",
+      href: "/services/business-process",
+      description: "AS-IS/TO-BE analysis, KPI/SLA definition",
+    },
   ];
 
   return (
