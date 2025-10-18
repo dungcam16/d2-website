@@ -1,6 +1,7 @@
 import { Workflow, Brain, BarChart3, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const ServicesNew = () => {
   const services = [
@@ -9,24 +10,28 @@ const ServicesNew = () => {
       title: "n8n Workflow Automation",
       description: "Complex multi-step workflows with error handling, scheduling, and API integrations.",
       color: "primary",
+      href: "/services/workflow-automation",
     },
     {
       icon: Brain,
       title: "AI & RAG Systems",
       description: "Custom LLM integrations with GPT-4, Claude, vector databases, and retrieval systems.",
       color: "accent",
+      href: "/services/ai-rag",
     },
     {
       icon: BarChart3,
       title: "SaaS Product Development",
       description: "Full-stack SaaS applications with React, Node.js, Supabase, and AI capabilities.",
       color: "primary",
+      href: "/services/saas-product",
     },
     {
       icon: Network,
       title: "API Development & Integration",
       description: "RESTful APIs, webhooks, OAuth flows, and third-party service integrations.",
       color: "accent",
+      href: "/services/api-integration",
     },
   ];
 
@@ -56,9 +61,11 @@ const ServicesNew = () => {
                 <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
                 <p className="text-muted-foreground mb-6">{service.description}</p>
                 
-                <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0">
-                  Learn more →
-                </Button>
+                <Link to={service.href}>
+                  <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0">
+                    Learn more →
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}

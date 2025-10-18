@@ -25,6 +25,10 @@ import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Templates from "./pages/Templates";
 import TemplateDetail from "./pages/TemplateDetail";
 import Admin from "./pages/Admin";
+import WorkflowAutomationService from "./pages/WorkflowAutomationService";
+import AiRagService from "./pages/AiRagService";
+import SaasProductService from "./pages/SaasProductService";
+import ApiIntegrationService from "./pages/ApiIntegrationService";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +40,14 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          
+          {/* Our Expertise Services */}
+          <Route path="/services/workflow-automation" element={<WorkflowAutomationService />} />
+          <Route path="/services/ai-rag" element={<AiRagService />} />
+          <Route path="/services/saas-product" element={<SaasProductService />} />
+          <Route path="/services/api-integration" element={<ApiIntegrationService />} />
+          
+          {/* Old Services Routes (kept for backward compatibility) */}
           <Route path="/services/chatbot" element={<ChatbotService />} />
           <Route path="/services/zalo" element={<ZaloService />} />
           <Route path="/services/automation" element={<AutomationService />} />
@@ -45,6 +57,7 @@ const App = () => (
           <Route path="/services/content" element={<ContentService />} />
           <Route path="/services/seo" element={<SeoService />} />
           <Route path="/services/website" element={<WebsiteService />} />
+          
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/templates" element={<Templates />} />

@@ -29,46 +29,28 @@ const Header = () => {
     { name: t('nav.blog'), href: "/blog" },
   ];
 
-  const servicesByCategory = {
-    automation: {
-      title: "AI & Automation",
-      description: "Intelligent automation powered by AI",
-      services: [
-        {
-          name: "n8n Workflow Automation",
-          href: "/services/automation",
-          description: "Custom workflows that scale",
-        },
-        {
-          name: "AI Integration & RAG",
-          href: "/services/ai-integration",
-          description: "GPT, Claude, RAG systems",
-        },
-        {
-          name: "Business Process Automation",
-          href: "/services/business-process",
-          description: "End-to-end process optimization",
-        },
-      ],
+  const ourExpertiseServices = [
+    {
+      name: "n8n Workflow Automation",
+      href: "/services/workflow-automation",
+      description: "Complex multi-step workflows with error handling",
     },
-    products: {
-      title: "SaaS Development",
-      description: "Build scalable SaaS products",
-      services: [
-        { name: "Full-Stack SaaS", href: "/services/website", description: "React, Node.js, Supabase" },
-        { name: "AI-Powered Apps", href: "/services/chatbot", description: "Chatbots & AI assistants" },
-        { name: "API Development", href: "/services/n8n-workflow", description: "RESTful & GraphQL APIs" },
-      ],
+    {
+      name: "AI & RAG Systems",
+      href: "/services/ai-rag",
+      description: "Custom LLM integrations with GPT-4, Claude",
     },
-    growth: {
-      title: "Growth & Marketing",
-      description: "Data-driven growth strategies",
-      services: [
-        { name: "Technical SEO", href: "/services/seo", description: "SEO automation & optimization" },
-        { name: "Content Strategy", href: "/services/content", description: "AI-assisted content creation" },
-      ],
+    {
+      name: "SaaS Product Development",
+      href: "/services/saas-product",
+      description: "Full-stack SaaS with React, Node.js, Supabase",
     },
-  };
+    {
+      name: "API Development & Integration",
+      href: "/services/api-integration",
+      description: "RESTful APIs, webhooks, OAuth flows",
+    },
+  ];
 
   return (
     <header
@@ -99,62 +81,24 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            {/* Services Dropdown - Mega Menu */}
+            {/* Services Dropdown - Our Expertise */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
                 {t('nav.services')}
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[700px] bg-card border-border p-6 z-50">
-                <div className="grid grid-cols-3 gap-6">
-                  {/* Automation Column */}
-                  <div>
-                    <div className="text-sm font-semibold text-primary mb-2">{servicesByCategory.automation.title}</div>
-                    <p className="text-xs text-muted-foreground mb-3">{servicesByCategory.automation.description}</p>
-                    <div className="space-y-1">
-                      {servicesByCategory.automation.services.map((service) => (
-                        <DropdownMenuItem key={service.href} asChild>
-                          <a href={service.href} className="cursor-pointer block py-2 px-2 rounded hover:bg-muted">
-                            <div className="font-medium text-sm">{service.name}</div>
-                            <div className="text-xs text-muted-foreground">{service.description}</div>
-                          </a>
-                        </DropdownMenuItem>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Growth Column */}
-                  <div>
-                    <div className="text-sm font-semibold text-primary mb-2">{servicesByCategory.growth.title}</div>
-                    <p className="text-xs text-muted-foreground mb-3">{servicesByCategory.growth.description}</p>
-                    <div className="space-y-1">
-                      {servicesByCategory.growth.services.map((service) => (
-                        <DropdownMenuItem key={service.href} asChild>
-                          <a href={service.href} className="cursor-pointer block py-2 px-2 rounded hover:bg-muted">
-                            <div className="font-medium text-sm">{service.name}</div>
-                            <div className="text-xs text-muted-foreground">{service.description}</div>
-                          </a>
-                        </DropdownMenuItem>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Products Column */}
-                  <div>
-                    <div className="text-sm font-semibold text-primary mb-2">{servicesByCategory.products.title}</div>
-                    <p className="text-xs text-muted-foreground mb-3">{servicesByCategory.products.description}</p>
-                    <div className="space-y-1">
-                      {servicesByCategory.products.services.map((service) => (
-                        <DropdownMenuItem key={service.href} asChild>
-                          <a href={service.href} className="cursor-pointer block py-2 px-2 rounded hover:bg-muted">
-                            <div className="font-medium text-sm">{service.name}</div>
-                            <div className="text-xs text-muted-foreground">{service.description}</div>
-                          </a>
-                        </DropdownMenuItem>
-                      ))}
-                    </div>
-                  </div>
+              <DropdownMenuContent className="w-[500px] bg-card border-border p-6 z-50">
+                <div className="text-sm font-semibold text-primary mb-4">Our Expertise</div>
+                <div className="grid grid-cols-2 gap-3">
+                  {ourExpertiseServices.map((service) => (
+                    <DropdownMenuItem key={service.href} asChild>
+                      <a href={service.href} className="cursor-pointer block py-3 px-3 rounded hover:bg-muted">
+                        <div className="font-medium text-sm mb-1">{service.name}</div>
+                        <div className="text-xs text-muted-foreground">{service.description}</div>
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -217,39 +161,9 @@ const Header = () => {
               {/* Mobile Services Menu */}
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
-                  🎯 {servicesByCategory.automation.title}
+                  Our Expertise
                 </div>
-                {servicesByCategory.automation.services.map((service) => (
-                  <a
-                    key={service.name}
-                    href={service.href}
-                    className="block text-foreground hover:text-primary transition-smooth py-2 pl-4"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <div className="font-medium">{service.name}</div>
-                    <div className="text-xs text-muted-foreground">{service.description}</div>
-                  </a>
-                ))}
-
-                <div className="text-xs font-semibold text-primary uppercase tracking-wider mt-4 mb-2">
-                  💼 {servicesByCategory.growth.title}
-                </div>
-                {servicesByCategory.growth.services.map((service) => (
-                  <a
-                    key={service.name}
-                    href={service.href}
-                    className="block text-foreground hover:text-primary transition-smooth py-2 pl-4"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <div className="font-medium">{service.name}</div>
-                    <div className="text-xs text-muted-foreground">{service.description}</div>
-                  </a>
-                ))}
-
-                <div className="text-xs font-semibold text-primary uppercase tracking-wider mt-4 mb-2">
-                  💎 {servicesByCategory.products.title}
-                </div>
-                {servicesByCategory.products.services.map((service) => (
+                {ourExpertiseServices.map((service) => (
                   <a
                     key={service.name}
                     href={service.href}
