@@ -29,31 +29,59 @@ const Header = () => {
     { name: t('nav.blog'), href: "/blog" },
   ];
 
-  const ourExpertiseServices = [
+  const techAutomationServices = [
     {
       name: "n8n Workflow Automation",
       href: "/services/workflow-automation",
-      description: "Complex multi-step workflows with error handling",
+      description: "Complex multi-step workflows",
     },
     {
       name: "AI & RAG Systems",
       href: "/services/ai-rag",
-      description: "Custom LLM integrations with GPT-4, Claude",
+      description: "Custom LLM integrations",
     },
     {
       name: "SaaS Product Development",
       href: "/services/saas-product",
-      description: "Full-stack SaaS with React, Node.js, Supabase",
+      description: "Full-stack applications",
     },
     {
-      name: "API Development & Integration",
+      name: "API Development",
       href: "/services/api-integration",
-      description: "RESTful APIs, webhooks, OAuth flows",
+      description: "RESTful APIs & webhooks",
     },
     {
       name: "Business Process Automation",
       href: "/services/business-process",
-      description: "AS-IS/TO-BE analysis, KPI/SLA definition",
+      description: "AS-IS/TO-BE process analysis",
+    },
+  ];
+
+  const digitalMarketingServices = [
+    {
+      name: "AI Chatbot",
+      href: "/services/chatbot",
+      description: "Intelligent chatbots",
+    },
+    {
+      name: "Zalo OA Marketing",
+      href: "/services/zalo",
+      description: "Zalo business solutions",
+    },
+    {
+      name: "SEO Services",
+      href: "/services/seo",
+      description: "Search engine optimization",
+    },
+    {
+      name: "Content Marketing",
+      href: "/services/content",
+      description: "Content creation & strategy",
+    },
+    {
+      name: "Website Development",
+      href: "/services/website",
+      description: "Professional websites",
     },
   ];
 
@@ -86,24 +114,44 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            {/* Services Dropdown - Our Expertise */}
+            {/* Services Dropdown - 2 Columns */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
                 {t('nav.services')}
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[500px] bg-card border-border p-6 z-50">
-                <div className="text-sm font-semibold text-primary mb-4">Our Expertise</div>
-                <div className="grid grid-cols-2 gap-3">
-                  {ourExpertiseServices.map((service) => (
-                    <DropdownMenuItem key={service.href} asChild>
-                      <a href={service.href} className="cursor-pointer block py-3 px-3 rounded hover:bg-muted">
-                        <div className="font-medium text-sm mb-1">{service.name}</div>
-                        <div className="text-xs text-muted-foreground">{service.description}</div>
-                      </a>
-                    </DropdownMenuItem>
-                  ))}
+              <DropdownMenuContent className="w-[700px] bg-card border-border p-6 z-50">
+                <div className="grid grid-cols-2 gap-6">
+                  {/* Column 1: Tech & Automation */}
+                  <div>
+                    <div className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">Tech & Automation</div>
+                    <div className="space-y-2">
+                      {techAutomationServices.map((service) => (
+                        <DropdownMenuItem key={service.href} asChild>
+                          <a href={service.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
+                            <div className="font-medium text-sm mb-0.5">{service.name}</div>
+                            <div className="text-xs text-muted-foreground">{service.description}</div>
+                          </a>
+                        </DropdownMenuItem>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Column 2: Digital Marketing */}
+                  <div>
+                    <div className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">Digital Marketing</div>
+                    <div className="space-y-2">
+                      {digitalMarketingServices.map((service) => (
+                        <DropdownMenuItem key={service.href} asChild>
+                          <a href={service.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
+                            <div className="font-medium text-sm mb-0.5">{service.name}</div>
+                            <div className="text-xs text-muted-foreground">{service.description}</div>
+                          </a>
+                        </DropdownMenuItem>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -163,19 +211,34 @@ const Header = () => {
                 </a>
               ))}
 
-              {/* Mobile Services Menu */}
+              {/* Mobile Services Menu - 2 Columns */}
               <div className="border-t border-border pt-4 mt-4">
-                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
-                  Our Expertise
+                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
+                  Tech & Automation
                 </div>
-                {ourExpertiseServices.map((service) => (
+                {techAutomationServices.map((service) => (
                   <a
                     key={service.name}
                     href={service.href}
                     className="block text-foreground hover:text-primary transition-smooth py-2 pl-4"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    <div className="font-medium">{service.name}</div>
+                    <div className="font-medium text-sm">{service.name}</div>
+                    <div className="text-xs text-muted-foreground">{service.description}</div>
+                  </a>
+                ))}
+
+                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3 mt-4">
+                  Digital Marketing
+                </div>
+                {digitalMarketingServices.map((service) => (
+                  <a
+                    key={service.name}
+                    href={service.href}
+                    className="block text-foreground hover:text-primary transition-smooth py-2 pl-4"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <div className="font-medium text-sm">{service.name}</div>
                     <div className="text-xs text-muted-foreground">{service.description}</div>
                   </a>
                 ))}
