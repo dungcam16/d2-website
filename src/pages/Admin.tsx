@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { BlogPostsManager } from "@/components/admin/BlogPostsManager";
 import { WorkflowTemplatesManager } from "@/components/admin/WorkflowTemplatesManager";
-import { Loader2, FileText, Workflow, LogOut } from "lucide-react";
+import { CaseStudiesManager } from "@/components/admin/CaseStudiesManager";
+import { UsersManager } from "@/components/admin/UsersManager";
+import { SettingsManager } from "@/components/admin/SettingsManager";
+import { MediaManager } from "@/components/admin/MediaManager";
+import { AnalyticsManager } from "@/components/admin/AnalyticsManager";
+import { Dashboard } from "@/components/admin/Dashboard";
+import { AdminLayout } from "@/components/admin/AdminLayout";
+import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -17,6 +23,8 @@ export default function Admin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const currentSection = location.hash.replace("#", "") || "dashboard";
 
   useEffect(() => {
     checkAdminStatus();
@@ -170,39 +178,15 @@ export default function Admin() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b bg-card">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">CMS - Content Management System</h1>
-          <Button onClick={handleLogout} variant="outline" size="sm">
-            <LogOut className="h-4 w-4 mr-2" />
-            Logout
-          </Button>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="blog" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
-            <TabsTrigger value="blog" className="flex items-center gap-2">
-              <FileText className="h-4 w-4" />
-              Blog Posts
-            </TabsTrigger>
-            <TabsTrigger value="templates" className="flex items-center gap-2">
-              <Workflow className="h-4 w-4" />
-              Workflow Templates
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="blog">
-            <BlogPostsManager />
-          </TabsContent>
-
-          <TabsContent value="templates">
-            <WorkflowTemplatesManager />
-          </TabsContent>
-        </Tabs>
-      </main>
-    </div>
+    <AdminLayout onLogout={handleLogout}>
+      {currentSection === "dashboard" && <Dashboard />}
+      {currentSection === "blog" && <BlogPostsManager />}
+      {currentSection === "templates" && <WorkflowTemplatesManager />}
+      {currentSection === "case-studies" && <CaseStudiesManager />}
+      {currentSection === "users" && <UsersManager />}
+      {currentSection === "media" && <MediaManager />}
+      {currentSection === "analytics" && <AnalyticsManager />}
+      {currentSection === "settings" && <SettingsManager />}
+    </AdminLayout>
   );
 }

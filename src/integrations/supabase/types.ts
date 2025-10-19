@@ -78,7 +78,6 @@ export type Database = {
           content: string | null
           created_at: string
           excerpt: string | null
-          icon_name: string | null
           id: string
           image_url: string | null
           is_published: boolean | null
@@ -94,7 +93,6 @@ export type Database = {
           content?: string | null
           created_at?: string
           excerpt?: string | null
-          icon_name?: string | null
           id?: string
           image_url?: string | null
           is_published?: boolean | null
@@ -110,7 +108,6 @@ export type Database = {
           content?: string | null
           created_at?: string
           excerpt?: string | null
-          icon_name?: string | null
           id?: string
           image_url?: string | null
           is_published?: boolean | null
@@ -119,6 +116,33 @@ export type Database = {
           title?: string
           updated_at?: string
           views?: number | null
+        }
+        Relationships: []
+      }
+      site_settings: {
+        Row: {
+          description: string | null
+          id: string
+          setting_key: string
+          setting_value: Json
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          description?: string | null
+          id?: string
+          setting_key: string
+          setting_value?: Json
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          description?: string | null
+          id?: string
+          setting_key?: string
+          setting_value?: Json
+          updated_at?: string
+          updated_by?: string | null
         }
         Relationships: []
       }
