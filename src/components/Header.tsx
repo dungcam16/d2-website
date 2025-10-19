@@ -25,8 +25,7 @@ const Header = () => {
 
   const mainNavItems = [
     { name: t('nav.home'), href: "/" },
-    { name: "Case Studies", href: "/portfolio" },
-    { name: "Workflow", href: "/templates" },
+    { name: t('nav.portfolio'), href: "/portfolio" },
     { name: t('nav.blog'), href: "/blog" },
   ];
 
