@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Loader2, Plus, Pencil, Trash2 } from "lucide-react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 type BlogPost = {
   id: string;
@@ -152,12 +154,26 @@ export function BlogPostsManager() {
 
           <div>
             <label className="block text-sm font-medium mb-2">Nội dung</label>
-            <Textarea
-              value={editingPost?.content || ""}
-              onChange={(e) => setEditingPost({ ...editingPost, content: e.target.value })}
-              placeholder="Nhập nội dung bài viết"
-              rows={10}
-            />
+            <div className="bg-background rounded-md border border-input">
+              <ReactQuill
+                value={editingPost?.content || ""}
+                onChange={(value) => setEditingPost({ ...editingPost, content: value })}
+                placeholder="Nhập nội dung bài viết"
+                modules={{
+                  toolbar: [
+                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'align': [] }],
+                    ['link', 'image', 'video'],
+                    ['blockquote', 'code-block'],
+                    ['clean']
+                  ]
+                }}
+                style={{ minHeight: "300px" }}
+              />
+            </div>
           </div>
 
           <div>
