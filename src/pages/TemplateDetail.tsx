@@ -11,6 +11,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Separator } from "@/components/ui/separator";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import DOMPurify from "dompurify";
 
 interface WorkflowTemplate {
   id: string;
@@ -252,7 +253,7 @@ const TemplateDetail = () => {
               <CardContent>
                 <div
                   className="prose prose-gray dark:prose-invert max-w-none"
-                  dangerouslySetInnerHTML={{ __html: template.content }}
+                  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(template.content) }}
                 />
               </CardContent>
             </Card>

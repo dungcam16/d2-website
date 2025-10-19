@@ -9,6 +9,7 @@ import { ArrowLeft, Calendar, Eye, User } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import DOMPurify from "dompurify";
 
 interface CaseStudy {
   id: string;
@@ -192,7 +193,7 @@ const CaseStudyDetail = () => {
             <div className="prose dark:prose-invert prose-lg max-w-none">
               <div 
                 className="text-foreground leading-relaxed" 
-                dangerouslySetInnerHTML={{ __html: caseStudy.content }} 
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(caseStudy.content) }} 
               />
             </div>
           )}
