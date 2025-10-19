@@ -180,6 +180,18 @@ export function SettingsManager() {
                 placeholder="G-XXXXXXXXXX"
               />
             </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Google Site Verification</label>
+              <Input
+                value={settings.google_site_verification || ""}
+                onChange={(e) => updateSetting("google_site_verification", e.target.value)}
+                placeholder="google-site-verification=xxx"
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                Xác thực quyền sở hữu website để sử dụng Google Search Console
+              </p>
+            </div>
           </Card>
         </TabsContent>
 
