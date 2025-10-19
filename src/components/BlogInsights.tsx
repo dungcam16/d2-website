@@ -1,23 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, FileText } from "lucide-react";
+import blogGptN8nImg from "@/assets/blog-gpt-n8n-workflows.jpg";
+import blogAutomationImg from "@/assets/blog-automation-ideas.jpg";
+import blogRagImg from "@/assets/blog-rag-systems.jpg";
 
 const BlogInsights = () => {
   const posts = [
     {
       title: "How to Combine GPT + n8n for Smarter Client Workflows",
       excerpt: "Learn how to integrate AI into your automation workflows for intelligent decision-making.",
-      image: "blog-1",
+      image: blogGptN8nImg,
     },
     {
       title: "5 Automation Ideas for Digital Agencies",
       excerpt: "Practical workflows that can save your agency 20+ hours per week.",
-      image: "blog-2",
+      image: blogAutomationImg,
     },
     {
       title: "RAG Systems Explained (for Non-engineers)",
       excerpt: "Understand how Retrieval-Augmented Generation works and when to use it.",
-      image: "blog-3",
+      image: blogRagImg,
     },
   ];
 
@@ -36,9 +39,12 @@ const BlogInsights = () => {
               key={index}
               className="group hover:border-primary/50 transition-all duration-300 bg-card/50 backdrop-blur-sm overflow-hidden"
             >
-              {/* Image placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                <FileText className="h-12 w-12 text-muted-foreground" />
+              <div className="aspect-video overflow-hidden">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
               
               <CardContent className="p-6">

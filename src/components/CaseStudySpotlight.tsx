@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Play, ArrowRight } from "lucide-react";
+import caseStudyImg from "@/assets/case-study-document-processing.jpg";
 
 const CaseStudySpotlight = () => {
   return (
@@ -38,14 +39,17 @@ const CaseStudySpotlight = () => {
                 </Button>
               </div>
 
-              {/* Right: Video placeholder */}
-              <div className="relative aspect-video rounded-lg bg-secondary/50 border border-border overflow-hidden flex items-center justify-center group cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20" />
-                <div className="relative z-10 flex flex-col items-center gap-4">
+              {/* Right: Case Study Image */}
+              <div className="relative aspect-video rounded-lg overflow-hidden border border-border group cursor-pointer">
+                <img 
+                  src={caseStudyImg} 
+                  alt="AI-Powered Legal Document Processing System" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center transition-transform group-hover:scale-110">
                     <Play className="h-8 w-8 text-white ml-1" fill="white" />
                   </div>
-                  <p className="text-sm font-medium">Watch Demo Video</p>
                 </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import heroAiImage from "@/assets/hero-ai-automation.jpg";
 
 const HeroNew = () => {
   const { t } = useLanguage();
@@ -48,19 +49,12 @@ const HeroNew = () => {
 
           {/* Right: Visual */}
           <div className="relative animate-scale-in" style={{ animationDelay: "0.2s" }}>
-            <div className="relative aspect-square max-w-lg mx-auto">
-              {/* Placeholder for Lottie animation */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/30 p-8 flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <Play className="h-16 w-16 mx-auto text-primary" />
-                  <div className="space-y-2">
-                    <p className="text-sm font-medium text-foreground">AI-Powered Workflow</p>
-                    <p className="text-xs text-muted-foreground">
-                      Webhook → RAG Query → GPT-4 → Response API
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="relative aspect-video max-w-2xl mx-auto">
+              <img 
+                src={heroAiImage} 
+                alt="AI Automation Workspace with Neural Networks and Workflows" 
+                className="rounded-2xl border border-primary/30 shadow-2xl"
+              />
               
               {/* Glow effect */}
               <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-3xl -z-10" />

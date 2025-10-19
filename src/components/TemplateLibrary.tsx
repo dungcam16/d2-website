@@ -3,6 +3,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Bot, Users, FileText, MessageSquare, AlertCircle, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
+import leadNurtureImg from "@/assets/workflow-ai-lead-nurture.jpg";
+import clientOnboardingImg from "@/assets/workflow-client-onboarding.jpg";
+import contentRepurposingImg from "@/assets/workflow-content-repurposing.jpg";
+import slackAssistantImg from "@/assets/workflow-slack-ai-assistant.jpg";
+import ticketTriageImg from "@/assets/workflow-ticket-triage.jpg";
+import invoicePaymentImg from "@/assets/workflow-invoice-payment.jpg";
 
 const TemplateLibrary = () => {
   const templates = [
@@ -12,6 +18,7 @@ const TemplateLibrary = () => {
       tags: ["Marketing", "Sales", "GPT"],
       description: "Qualify leads with GPT, update CRM, and alert your sales team in real-time.",
       slug: "ai-lead-nurture",
+      image: leadNurtureImg,
     },
     {
       icon: Users,
@@ -19,6 +26,7 @@ const TemplateLibrary = () => {
       tags: ["Operations", "Service"],
       description: "Automatically create tasks, folders, and welcome emails upon new client signup.",
       slug: "client-onboarding",
+      image: clientOnboardingImg,
     },
     {
       icon: FileText,
@@ -26,6 +34,7 @@ const TemplateLibrary = () => {
       tags: ["Marketing", "Content", "AI"],
       description: "Transform blog posts into ready-to-publish social content automatically.",
       slug: "ai-content-repurposing",
+      image: contentRepurposingImg,
     },
     {
       icon: MessageSquare,
@@ -33,6 +42,7 @@ const TemplateLibrary = () => {
       tags: ["Analytics", "AI"],
       description: "Summarize daily KPIs and updates using GPT, posted directly to Slack.",
       slug: "slack-ai-assistant",
+      image: slackAssistantImg,
     },
     {
       icon: AlertCircle,
@@ -40,6 +50,7 @@ const TemplateLibrary = () => {
       tags: ["Customer Support", "AI"],
       description: "Auto-classify and prioritize support tickets based on urgency and sentiment.",
       slug: "ai-ticket-triage",
+      image: ticketTriageImg,
     },
     {
       icon: CreditCard,
@@ -47,6 +58,7 @@ const TemplateLibrary = () => {
       tags: ["Finance", "Billing"],
       description: "Auto-generate, email, and archive invoices when payments are made.",
       slug: "invoice-payment-sync",
+      image: invoicePaymentImg,
     },
   ];
 
@@ -66,8 +78,15 @@ const TemplateLibrary = () => {
           {templates.map((template, index) => (
             <Card
               key={index}
-              className="group hover:border-primary/50 transition-all duration-300 bg-card/50 backdrop-blur-sm"
+              className="group hover:border-primary/50 transition-all duration-300 bg-card/50 backdrop-blur-sm overflow-hidden"
             >
+              <div className="aspect-video overflow-hidden">
+                <img 
+                  src={template.image} 
+                  alt={template.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
               <CardContent className="p-6">
                 <div className="inline-flex p-3 rounded-lg bg-primary/10 mb-4">
                   <template.icon className="h-6 w-6 text-primary" />
