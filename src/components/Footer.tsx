@@ -1,5 +1,6 @@
 import React from "react";
 import { Zap, Facebook, MessageCircle, Instagram, AtSign, Phone, Send, Mail, MapPin, Shield } from "lucide-react";
+import logoD2Group from "@/assets/logo_d2_group_optimized.png";
 
 const Footer = () => {
   const services = [
@@ -22,7 +23,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src="/src/assets/logo_d2_group.png" alt="D2 Group Logo" width="40" height="40" className="h-10 w-10" />
+              <img src={logoD2Group} alt="D2 Group Logo" width="40" height="40" className="h-10 w-10" />
               <span className="text-2xl font-bold font-heading text-foreground">D2 GROUP MARKETING</span>
             </div>
 
