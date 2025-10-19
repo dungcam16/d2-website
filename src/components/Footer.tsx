@@ -1,6 +1,6 @@
 import React from "react";
 import { Zap, Facebook, MessageCircle, Instagram, AtSign, Phone, Send, Mail, MapPin, Shield } from "lucide-react";
-import logoD2Group from "@/assets/logo_d2_group_optimized.png";
+import logoD2Group from "@/assets/logo_d2_group_optimized.webp";
 
 const Footer = () => {
   const services = [
