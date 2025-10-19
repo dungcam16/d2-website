@@ -108,15 +108,9 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            {/* Case Studies */}
+            {/* Portfolio */}
             <a href="/portfolio" className="text-foreground hover:text-primary transition-smooth relative group">
-              Case Studies
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-
-            {/* Workflow */}
-            <a href="/templates" className="text-foreground hover:text-primary transition-smooth relative group">
-              Workflow
+              {t('nav.portfolio')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
