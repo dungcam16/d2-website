@@ -9,6 +9,16 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+
+// Import case study images
+import workflowInvoicePayment from "@/assets/workflow-invoice-payment.jpg";
+import workflowTicketTriage from "@/assets/workflow-ticket-triage.jpg";
+import workflowContentRepurposing from "@/assets/workflow-content-repurposing.jpg";
+import workflowAiLeadNurture from "@/assets/workflow-ai-lead-nurture.jpg";
+import workflowClientOnboarding from "@/assets/workflow-client-onboarding.jpg";
+import blogRagSystems from "@/assets/blog-rag-systems.jpg";
+import caseStudyDocumentProcessing from "@/assets/case-study-document-processing.jpg";
+import workflowSlackAiAssistant from "@/assets/workflow-slack-ai-assistant.jpg";
 import {
   Workflow,
   Code,
@@ -55,6 +65,18 @@ const iconMap: Record<string, LucideIcon> = {
   Sparkles,
   MessageSquare,
   BarChart3,
+};
+
+// Image mapping for case studies
+const imageMap: Record<string, string> = {
+  "/src/assets/workflow-invoice-payment.jpg": workflowInvoicePayment,
+  "/src/assets/workflow-ticket-triage.jpg": workflowTicketTriage,
+  "/src/assets/workflow-content-repurposing.jpg": workflowContentRepurposing,
+  "/src/assets/workflow-ai-lead-nurture.jpg": workflowAiLeadNurture,
+  "/src/assets/workflow-client-onboarding.jpg": workflowClientOnboarding,
+  "/src/assets/blog-rag-systems.jpg": blogRagSystems,
+  "/src/assets/case-study-document-processing.jpg": caseStudyDocumentProcessing,
+  "/src/assets/workflow-slack-ai-assistant.jpg": workflowSlackAiAssistant,
 };
 
 interface CaseStudy {
@@ -335,7 +357,11 @@ const Portfolio = () => {
                       {/* Image */}
                       <div className="relative h-48 overflow-hidden bg-muted">
                         <img
-                          src={project.image_url || "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop"}
+                          src={
+                            project.image_url && imageMap[project.image_url]
+                              ? imageMap[project.image_url]
+                              : "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop"
+                          }
                           alt={project.title}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           loading="lazy"
