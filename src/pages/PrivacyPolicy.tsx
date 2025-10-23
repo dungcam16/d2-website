@@ -116,7 +116,7 @@ const PrivacyPolicy = () => {
               </p>
               <div className="space-y-2 text-muted-foreground">
                 <p>Email: info@d2group.co</p>
-                <p>Phone: +84 977 027 634</p>
+                <p>Phone: +84909099421</p>
                 <p>Address: No. 3, Nguyen Co Thach Street, An Khanh Ward, HCMC</p>
               </div>
             </section>

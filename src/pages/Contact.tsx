@@ -124,7 +124,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      description: "+84 977 027 634",
+      description: "+84909099421",
       color: "text-muted-foreground",
     },
     {

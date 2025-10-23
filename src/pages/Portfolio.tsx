@@ -607,7 +607,7 @@ const Portfolio = () => {
                 <Phone className="w-6 h-6" />
                 <div className="text-left">
                   <div className="text-sm opacity-80">Phone</div>
-                  <div className="font-semibold">+84 977 027 634</div>
+                  <div className="font-semibold">+84909099421</div>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-3">
