@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ArrowRight,
   CheckCircle,
@@ -8,30 +8,46 @@ import {
   FileText,
   PlayCircle,
   Download,
-  Workflow,
   BarChart3,
   TrendingUp,
   Settings,
   MessageCircle,
+  AlertTriangle,
+  Target,
+  Clock,
+  DollarSign,
+  Users,
+  Shield,
+  Wrench,
+  Layers,
+  Database,
+  GitBranch,
+  Activity,
+  ChevronDown,
+  ChevronUp,
+  Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 
 const DataAiDevelopmentService = () => {
+  const [showTechnicalDeepDive, setShowTechnicalDeepDive] = useState(false);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "AI Integration & Optimization - Integrating AI into Workflows",
+    name: "Data & AI Development - Predictive Models, ML, NLP, Computer Vision",
     provider: {
       "@type": "Organization",
       name: "D2 Group",
       url: "https://d2group.co",
     },
     description:
-      "AI integration service for N8N workflows. Large Language Models (GPT-4, Claude), AI automation for chatbots, email, document parsing, sentiment analysis, and predictive analytics.",
+      "Build machine learning models, predictive analytics, and intelligent data pipelines that unlock hidden patterns in your business data—turning information overload into actionable intelligence.",
     areaServed: "Vietnam",
   };
 
@@ -54,289 +70,89 @@ const DataAiDevelopmentService = () => {
       {
         "@type": "ListItem",
         position: 3,
-        name: "AI Integration",
+        name: "Data & AI Development",
       },
     ],
   };
 
-  const features = [
-    {
-      icon: Brain,
-      title: "LLM Integration",
-      description: "Integrate GPT-4, Claude, and Gemini into workflows for advanced natural language processing.",
-    },
-    {
-      icon: MessageCircle,
-      title: "AI Chatbot Automation",
-      description: "Build intelligent chatbots with context awareness and multi-turn conversation capabilities.",
-    },
-    {
-      icon: FileText,
-      title: "Document Intelligence",
-      description: "Automatically parse, analyze, and extract information from complex documents.",
-    },
-    {
-      icon: BarChart3,
-      title: "Sentiment Analysis",
-      description: "Analyze customer sentiment from feedback, reviews, and social media.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Predictive Analytics",
-      description: "Forecast trends and behaviors using advanced machine learning models.",
-    },
-    {
-      icon: Zap,
-      title: "Performance Optimization",
-      description: "Optimize workflows using AI for decision nodes and intelligent routing logic.",
-    },
-  ];
-
-  const aiUseCases = [
-    {
-      category: "Customer Service",
-      use_cases: [
-        {
-          name: "AI Email Response",
-          description: "Automatically reply to customer emails with context-aware responses.",
-          models: "GPT-4, Claude",
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "How long does implementation actually take?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Typical 12-16 weeks depending on complexity. Simple forecasting models can go live in 8 weeks; complex multi-model systems take 16-20 weeks.",
         },
-        {
-          name: "Ticket Classification",
-          description: "Automatically classify and route support tickets to the right department.",
-          models: "Custom ML",
+      },
+      {
+        "@type": "Question",
+        name: "How accurate will our model be?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Depends on your data & problem. Retail forecasting: 80-90%. Financial time-series: 70-80%. Healthcare outcomes: 75-85%.",
         },
-      ],
-    },
-    {
-      category: "Content & Marketing",
-      use_cases: [
-        {
-          name: "Content Generation",
-          description: "Create marketing copy, blog posts, and social media content.",
-          models: "GPT-4, Claude",
-        },
-        {
-          name: "SEO Optimization",
-          description: "Optimize content for search engines with AI-powered suggestions.",
-          models: "Custom NLP",
-        },
-      ],
-    },
-    {
-      category: "Sales & CRM",
-      use_cases: [
-        {
-          name: "Lead Scoring",
-          description: "Automatically score leads based on predictive models to prioritize efforts.",
-          models: "ML Classification",
-        },
-        {
-          name: "Proposal Generation",
-          description: "Create customized sales proposals based on customer data.",
-          models: "GPT-4",
-        },
-      ],
-    },
-    {
-      category: "Finance & Operations",
-      use_cases: [
-        {
-          name: "Invoice Processing",
-          description: "Automatically extract and validate information from invoices.",
-          models: "Document AI",
-        },
-        {
-          name: "Fraud Detection",
-          description: "Identify unusual transactions with anomaly detection models.",
-          models: "ML Anomaly",
-        },
-      ],
-    },
-  ];
-
-  const aiModels = [
-    {
-      provider: "OpenAI",
-      models: ["GPT-5", "GPT-4", "GPT-4o"],
-      use_for: "Text generation, conversation, coding",
-    },
-    {
-      provider: "Anthropic",
-      models: ["Claude 3 Opus", "Claude 3 Sonnet"],
-      use_for: "Long context, analysis, safety-focused",
-    },
-    {
-      provider: "Google",
-      models: ["Gemini Pro", "Gemini Ultra"],
-      use_for: "Multimodal, reasoning, search integration",
-    },
-    {
-      provider: "Custom ML",
-      models: ["Scikit-learn", "TensorFlow", "PyTorch"],
-      use_for: "Classification, prediction, clustering",
-    },
-  ];
-
-  const implementationSteps = [
-    {
-      step: "AI Strategy Workshop",
-      duration: "1 Week",
-      activities: ["Use case identification", "Model selection", "Data requirements", "Success metrics"],
-    },
-    {
-      step: "Proof of Concept (PoC)",
-      duration: "2 Weeks",
-      activities: ["Prototype development", "Model testing", "Accuracy evaluation", "Cost analysis"],
-    },
-    {
-      step: "Production Integration",
-      duration: "2-3 Weeks",
-      activities: ["Workflow integration", "Error handling", "Performance optimization", "Monitoring setup"],
-    },
-    {
-      step: "Optimization & Training",
-      duration: "1 Week",
-      activities: ["Fine-tuning models", "A/B testing", "Team training", "Documentation handover"],
-    },
-  ];
-
-  const optimizationTechniques = [
-    { technique: "Prompt Engineering", impact: "50% better output quality" },
-    { technique: "Context Optimization", impact: "40% cost reduction" },
-    { technique: "Caching Strategy", impact: "70% faster response" },
-    { technique: "Model Selection", impact: "60% cost savings" },
-    { technique: "Batch Processing", impact: "80% throughput increase" },
-    { technique: "Fallback Logic", impact: "99.9% reliability" },
-  ];
-
-  const pricingOptions = [
-    {
-      name: "AI Pilot",
-      price: "30,000,000đ",
-      description: "For 1-2 AI use cases",
-      features: ["Basic LLM integration", "Simple AI workflows", "Usage optimization", "3-4 weeks deployment"],
-    },
-    {
-      name: "AI Production",
-      price: "70,000,000đ",
-      description: "For 3-5 AI use cases",
-      features: ["Advanced AI workflows", "Custom ML models", "Performance tuning", "6-8 weeks deployment"],
-    },
-    {
-      name: "AI Enterprise",
-      price: "Contact Us",
-      description: "Organization-wide AI",
-      features: ["End-to-end AI platform", "Custom model training", "Dedicated support", "Flexible timeline"],
-    },
-  ];
+      },
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="AI Integration & Optimization - Integrate AI into N8N Workflows"
-        description="Professional AI integration services. Large Language Models (GPT-4, Claude), AI chatbot automation, document parsing, sentiment analysis, and predictive analytics for your workflows."
-        keywords="AI workflow integration, AI automation, GPT-4 integration, Claude AI, AI chatbot, AI document parsing, sentiment analysis, predictive analytics, machine learning workflow"
+        title="Data & AI Development - Predictive ML Models & Analytics | D2 Group"
+        description="Build machine learning models, predictive analytics, and intelligent data pipelines that unlock hidden patterns in your business data—turning information overload into actionable intelligence."
+        keywords="machine learning model development, predictive analytics platform, data pipeline automation, custom ML solutions, ensemble machine learning, real-time forecasting, data science outsourcing, AI development services"
         canonicalUrl="/services/data-ai-development"
-        structuredData={[structuredData, breadcrumbStructuredData]}
+        structuredData={[structuredData, breadcrumbStructuredData, faqStructuredData]}
       />
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-primary/5 to-background">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-up">
-              <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
-                <span className="text-primary">AI Integration & Optimization</span>
-                <br />
-                <span className="text-foreground">Enhance Workflows With Artificial Intelligence</span>
-              </h1>
+          <div className="text-center mb-12 animate-fade-in">
+            <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
+              Turn Raw Data Into Competitive Intelligence.{" "}
+              <span className="text-primary">3x Faster Insights</span> With Predictive AI
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
+              Build machine learning models, predictive analytics, and intelligent data pipelines that unlock hidden
+              patterns in your business data—turning information overload into actionable intelligence.
+            </p>
 
-              <p className="text-xl text-muted-foreground mb-8">
-                Integrate Large Language Models (GPT-4, Claude) into your N8N workflows. Automate with AI for chatbots,
-                email automation, document parsing, sentiment analysis, and predictive analytics. Optimize performance
-                with machine learning.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
-                  Book AI Strategy Session
-                  <PlayCircle className="ml-2 h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="lg" onClick={() => (window.location.href = "/contact")}>
-                  Download AI Playbook
-                  <Download className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">10+</div>
-                  <div className="text-sm text-muted-foreground">AI Models</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">85%</div>
-                  <div className="text-sm text-muted-foreground">Avg. Accuracy</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">3x</div>
-                  <div className="text-sm text-muted-foreground">Process Speed</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="animate-scale-in">
-              <Card className="gradient-card p-8 shadow-2xl">
-                <h3 className="text-2xl font-bold mb-6 text-center">AI Capabilities</h3>
-                <div className="space-y-4">
-                  {[
-                    { name: "Natural Language Processing", progress: 95 },
-                    { name: "Document Analysis", progress: 90 },
-                    { name: "Sentiment Detection", progress: 85 },
-                    { name: "Predictive Models", progress: 88 },
-                  ].map((item, index) => (
-                    <div key={index}>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span>{item.name}</span>
-                        <span className="text-primary font-bold">{item.progress}%</span>
-                      </div>
-                      <div className="h-2 bg-muted rounded-full">
-                        <div
-                          className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full transition-all duration-1000"
-                          style={{ width: `${item.progress}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Card>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button size="lg" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
+                Schedule AI Strategy Session
+                <PlayCircle className="ml-2 h-5 w-5" />
+              </Button>
+              <Button variant="outline" size="lg" onClick={() => (window.location.href = "/contact")}>
+                Download: ML Use Case Guide
+                <Download className="ml-2 h-5 w-5" />
+              </Button>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Core Features */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Our <span className="text-primary">AI Integration</span> Capabilities
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => {
-              const IconComponent = feature.icon;
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: BarChart3, value: "3x", label: "Faster Analytics", desc: "Raw data → Instant insights" },
+              { icon: Target, value: "85%", label: "Prediction Accuracy", desc: "vs. 45% manual methods" },
+              { icon: DollarSign, value: "$2M+", label: "Revenue Unlocked", desc: "New AI-driven products" },
+              { icon: Clock, value: "24 hrs", label: "Model to Production", desc: "From development to live" },
+            ].map((stat, index) => {
+              const IconComponent = stat.icon;
               return (
                 <Card
                   key={index}
-                  className="gradient-card p-6 hover:shadow-elevation transition-all duration-300 animate-scale-in"
+                  className="gradient-card p-6 text-center animate-scale-in hover:shadow-elevation transition-all"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="mb-4">
-                    <IconComponent className="h-10 w-10 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <IconComponent className="h-10 w-10 text-primary mx-auto mb-3" />
+                  <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
+                  <div className="font-semibold mb-1">{stat.label}</div>
+                  <div className="text-sm text-muted-foreground">{stat.desc}</div>
                 </Card>
               );
             })}
@@ -344,164 +160,382 @@ const DataAiDevelopmentService = () => {
         </div>
       </section>
 
-      {/* AI Use Cases */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            AI Use Cases By <span className="text-primary">Industry</span>
-          </h2>
+      {/* Trust Bar */}
+      <section className="py-12 bg-gray-50 border-y">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-around flex-wrap gap-4">
+            {[
+              "/images/logos/trust/logo-aws.svg",
+              "/images/logos/trust/logo-google.svg",
+              "/images/logos/trust/logo-microsoft.svg",
+              "/images/logos/trust/logo-nvidia.svg",
+              "/images/logos/trust/logo-snowflake.svg",
+            ].map((logo, index) => (
+              <img
+                key={index}
+                src={logo}
+                alt={`Partner ${index + 1}`}
+                className="max-h-12 object-contain grayscale opacity-75 hover:opacity-100 transition-opacity duration-200"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
+      {/* Client Overview */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-8 animate-fade-in">
+            AI Solutions That Scale: From Startup to Enterprise
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12 animate-fade-in">
+            We partner with ambitious companies to build and deploy AI solutions that drive measurable business impact.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {[
+              { name: "E-Commerce", icon: Sparkles, description: "Personalized recommendations that boost sales." },
+              { name: "Finance", icon: TrendingUp, description: "Risk models that cut losses by 40%." },
+              { name: "Healthcare", icon: Shield, description: "Diagnostic tools for faster, more accurate results." },
+              { name: "Manufacturing", icon: Wrench, description: "Predictive maintenance that eliminates downtime." },
+            ].map((client, index) => {
+              const IconComponent = client.icon;
+              return (
+                <Card
+                  key={index}
+                  className="p-6 animate-scale-in hover:shadow-elevation transition-all"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <IconComponent className="h-8 w-8 text-primary mb-3" />
+                  <h3 className="font-semibold text-lg mb-2">{client.name}</h3>
+                  <p className="text-sm text-muted-foreground">{client.description}</p>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* The Challenge */}
+      <section className="py-16 bg-secondary/10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="animate-fade-in">
+              <h2 className="text-3xl font-bold font-heading mb-4">The Challenge: Data Overload, Insight Drought</h2>
+              <p className="text-xl text-muted-foreground mb-6">
+                Most companies are drowning in data but starving for insights. Legacy systems and manual processes
+                can’t keep up with the volume, velocity, and variety of modern data.
+              </p>
+              <ul className="list-disc pl-5 text-muted-foreground">
+                <li>Siloed data sources prevent a unified view</li>
+                <li>Lack of skilled data scientists and AI engineers</li>
+                <li>Difficulty deploying models into production</li>
+                <li>Inability to adapt to changing market conditions</li>
+              </ul>
+            </div>
+            <div className="animate-fade-in">
+              <img
+                src="/images/illustrations/challenge.svg"
+                alt="Data Challenge"
+                className="rounded-lg shadow-md"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Solution */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="animate-fade-in">
+              <img
+                src="/images/illustrations/solution.svg"
+                alt="AI Solution"
+                className="rounded-lg shadow-md"
+              />
+            </div>
+            <div className="animate-fade-in">
+              <h2 className="text-3xl font-bold font-heading mb-4">The Solution: AI-Powered Insights at Scale</h2>
+              <p className="text-xl text-muted-foreground mb-6">
+                We build custom AI solutions that transform your data into actionable intelligence. Our team of experts
+                works with you to identify the right use cases, build and deploy models, and integrate them into your
+                existing workflows.
+              </p>
+              <ul className="list-disc pl-5 text-muted-foreground">
+                <li>End-to-end data pipeline automation</li>
+                <li>Custom machine learning model development</li>
+                <li>Real-time predictive analytics dashboards</li>
+                <li>Seamless integration with your existing systems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Implementation Process */}
+      <section className="py-16 bg-secondary/10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold font-heading text-center mb-12 animate-fade-in">
+            Our Proven Implementation Process
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                step: "1. Discovery",
+                description: "We work with you to understand your business goals and identify the right AI use cases.",
+                icon: MessageCircle,
+              },
+              {
+                step: "2. Development",
+                description: "Our team of experts builds custom machine learning models tailored to your specific needs.",
+                icon: Settings,
+              },
+              {
+                step: "3. Deployment",
+                description: "We seamlessly integrate our solutions into your existing workflows and provide ongoing support.",
+                icon: Zap,
+              },
+            ].map((process, index) => {
+              const IconComponent = process.icon;
+              return (
+                <Card
+                  key={index}
+                  className="p-6 text-center animate-scale-in hover:shadow-elevation transition-all"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <IconComponent className="h-10 w-10 text-primary mx-auto mb-4" />
+                  <h3 className="font-semibold text-lg mb-2">{process.step}</h3>
+                  <p className="text-sm text-muted-foreground">{process.description}</p>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Results */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold font-heading text-center mb-12 animate-fade-in">
+            Tangible Results, Real-World Impact
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "30% Increase in Sales",
+                description: "Personalized recommendations drive higher conversion rates and average order values.",
+                icon: TrendingUp,
+              },
+              {
+                title: "40% Reduction in Costs",
+                description: "Predictive maintenance eliminates downtime and optimizes resource allocation.",
+                icon: DollarSign,
+              },
+              {
+                title: "90% Customer Satisfaction",
+                description: "AI-powered chatbots provide instant support and resolve issues faster.",
+                icon: Users,
+              },
+            ].map((result, index) => {
+              const IconComponent = result.icon;
+              return (
+                <Card
+                  key={index}
+                  className="p-6 animate-scale-in hover:shadow-elevation transition-all"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <IconComponent className="h-10 w-10 text-primary mx-auto mb-4" />
+                  <h3 className="font-semibold text-lg mb-2">{result.title}</h3>
+                  <p className="text-sm text-muted-foreground">{result.description}</p>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Deep Dive */}
+      <section className="py-16 bg-secondary/10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold font-heading mb-4 animate-fade-in">Technical Deep Dive</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in">
+              Explore the technical details of our AI solutions and how they can be applied to your business.
+            </p>
+            <Button
+              variant="secondary"
+              className="mt-4"
+              onClick={() => setShowTechnicalDeepDive(!showTechnicalDeepDive)}
+            >
+              {showTechnicalDeepDive ? (
+                <>
+                  Hide Details <ChevronUp className="ml-2 h-4 w-4" />
+                </>
+              ) : (
+                <>
+                  Show Details <ChevronDown className="ml-2 h-4 w-4" />
+                </>
+              )}
+            </Button>
+          </div>
+
+          {showTechnicalDeepDive && (
+            <div className="mt-8 animate-fade-in">
+              <Accordion type="single" collapsible>
+                <AccordionItem value="data-pipeline">
+                  <AccordionTrigger>Data Pipeline Automation</AccordionTrigger>
+                  <AccordionContent>
+                    We automate the entire data pipeline, from ingestion to transformation to storage. Our solutions
+                    support a wide range of data sources, including databases, cloud storage, and streaming platforms.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="model-development">
+                  <AccordionTrigger>Custom Model Development</AccordionTrigger>
+                  <AccordionContent>
+                    Our team of experts builds custom machine learning models tailored to your specific needs. We
+                    specialize in a variety of techniques, including supervised learning, unsupervised learning, and
+                    reinforcement learning.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="deployment">
+                  <AccordionTrigger>Seamless Deployment</AccordionTrigger>
+                  <AccordionContent>
+                    We seamlessly integrate our solutions into your existing workflows and provide ongoing support. Our
+                    deployment options include cloud-based deployment, on-premise deployment, and hybrid deployment.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold font-heading text-center mb-12 animate-fade-in">
+            What Our Clients Are Saying
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {aiUseCases.map((category, index) => (
+            {[
+              {
+                quote:
+                  "D2 Group helped us transform our data into actionable intelligence. Their AI solutions have had a significant impact on our bottom line.",
+                author: "John Smith, CEO of Acme Corp",
+              },
+              {
+                quote:
+                  "We were drowning in data before we partnered with D2 Group. Their team of experts helped us build custom machine learning models that have revolutionized our business.",
+                author: "Jane Doe, CTO of Beta Inc",
+              },
+            ].map((testimonial, index) => (
               <Card
                 key={index}
-                className="gradient-card p-6 animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="p-6 animate-scale-in hover:shadow-elevation transition-all"
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <h3 className="text-2xl font-bold mb-4 text-primary">{category.category}</h3>
-                <div className="space-y-4">
-                  {category.use_cases.map((useCase, ucIndex) => (
-                    <div key={ucIndex} className="border-l-2 border-primary pl-4">
-                      <h4 className="font-bold mb-1">{useCase.name}</h4>
-                      <p className="text-sm text-muted-foreground mb-2">{useCase.description}</p>
-                      <div className="text-xs text-primary font-medium">Models: {useCase.models}</div>
-                    </div>
-                  ))}
-                </div>
+                <blockquote className="text-lg text-muted-foreground italic mb-4">{testimonial.quote}</blockquote>
+                <cite className="font-semibold">{testimonial.author}</cite>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* AI Models */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            AI Models <span className="text-primary">We Integrate</span>
+      {/* Related Use Cases */}
+      <section className="py-16 bg-secondary/10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold font-heading text-center mb-12 animate-fade-in">
+            Explore Related Use Cases
           </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {aiModels.map((provider, index) => (
-              <Card key={index} className="gradient-card p-6">
-                <h3 className="text-lg font-bold mb-3 text-primary">{provider.provider}</h3>
-                <div className="space-y-2 mb-4">
-                  {provider.models.map((model, mIndex) => (
-                    <div key={mIndex} className="text-sm font-medium">
-                      {model}
-                    </div>
-                  ))}
-                </div>
-                <div className="pt-4 border-t border-border">
-                  <p className="text-xs text-muted-foreground">{provider.use_for}</p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Implementation Steps */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Our AI <span className="text-primary">Implementation Process</span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {implementationSteps.map((step, index) => (
-              <Card key={index} className="gradient-card p-6">
-                <div className="text-center mb-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary font-bold text-xl mb-2">
-                    {index + 1}
-                  </div>
-                  <h3 className="text-lg font-bold">{step.step}</h3>
-                  <div className="text-sm text-muted-foreground">{step.duration}</div>
-                </div>
-                <ul className="space-y-2">
-                  {step.activities.map((activity, actIndex) => (
-                    <li key={actIndex} className="flex items-start text-sm">
-                      <Sparkles className="h-4 w-4 mr-2 flex-shrink-0 text-primary mt-0.5" />
-                      <span>{activity}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Optimization Techniques */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            AI <span className="text-primary">Optimization Techniques</span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {optimizationTechniques.map((item, index) => (
-              <Card key={index} className="gradient-card p-6">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold">{item.technique}</h3>
-                  <div className="text-primary font-bold">{item.impact}</div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            AI Integration <span className="text-primary">Packages</span>
-          </h2>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pricingOptions.map((option, index) => (
-              <Card key={index} className={`gradient-card p-8 ${index === 1 ? "border-primary border-2" : ""}`}>
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold mb-2">{option.name}</h3>
-                  <div className="text-3xl font-bold text-primary mb-2">{option.price}</div>
-                  <p className="text-sm text-muted-foreground mb-6">{option.description}</p>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  {option.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-center text-sm">
-                      <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0 text-primary" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  className="w-full"
-                  variant={index === 1 ? "default" : "outline"}
-                  onClick={() => (window.location.href = "/contact")}
+            {[
+              {
+                title: "Predictive Maintenance",
+                description: "Eliminate downtime and optimize resource allocation with predictive maintenance.",
+                icon: Wrench,
+                link: "/services/predictive-maintenance",
+              },
+              {
+                title: "Fraud Detection",
+                description: "Detect and prevent fraudulent transactions in real-time with AI-powered fraud detection.",
+                icon: AlertTriangle,
+                link: "/services/fraud-detection",
+              },
+              {
+                title: "Personalized Recommendations",
+                description: "Drive higher conversion rates and average order values with personalized recommendations.",
+                icon: Sparkles,
+                link: "/services/personalized-recommendations",
+              },
+            ].map((useCase, index) => {
+              const IconComponent = useCase.icon;
+              return (
+                <Card
+                  key={index}
+                  className="p-6 animate-scale-in hover:shadow-elevation transition-all"
+                  style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Card>
-            ))}
+                  <IconComponent className="h-10 w-10 text-primary mx-auto mb-4" />
+                  <h3 className="font-semibold text-lg mb-2">{useCase.title}</h3>
+                  <p className="text-sm text-muted-foreground">{useCase.description}</p>
+                  <Button variant="link" className="mt-2" onClick={() => (window.location.href = useCase.link)}>
+                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Workflows with <span className="text-primary">AI</span>?
+      {/* Call to Action */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary to-secondary text-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl font-bold font-heading mb-8 animate-pulse">
+            Ready to Transform Your Data into Actionable Intelligence?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Let's build intelligent automation that drives real business results.
+          <p className="text-xl mb-12 animate-fade-in">
+            Schedule a free consultation with our AI experts to discuss your specific needs and how we can help you
+            achieve your business goals.
           </p>
           <Button size="lg" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
-            Book Your Free AI Strategy Session
-            <ArrowRight className="ml-2 h-5 w-5" />
+            Schedule AI Strategy Session
+            <PlayCircle className="ml-2 h-5 w-5" />
           </Button>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold font-heading text-center mb-12 animate-fade-in">
+            Frequently Asked Questions
+          </h2>
+          <Accordion type="single" collapsible>
+            <AccordionItem value="implementation-time">
+              <AccordionTrigger>How long does implementation actually take?</AccordionTrigger>
+              <AccordionContent>
+                Typical 12-16 weeks depending on complexity. Simple forecasting models can go live in 8 weeks; complex
+                multi-model systems take 16-20 weeks.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="model-accuracy">
+              <AccordionTrigger>How accurate will our model be?</AccordionTrigger>
+              <AccordionContent>
+                Depends on your data & problem. Retail forecasting: 80-90%. Financial time-series: 70-80%. Healthcare
+                outcomes: 75-85%.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="data-security">
+              <AccordionTrigger>How secure is our data?</AccordionTrigger>
+              <AccordionContent>
+                We use state-of-the-art security measures to protect your data. Our solutions are compliant with all
+                major industry regulations.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 
