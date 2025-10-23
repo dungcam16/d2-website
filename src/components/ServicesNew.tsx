@@ -1,4 +1,4 @@
-import { Workflow, Brain, BarChart3, Network } from "lucide-react";
+import { Workflow, Brain, BarChart3, Network, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -43,11 +43,23 @@ const ServicesNew = () => {
   ];
 
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Our Expertise
+    <section id="services" className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
+      <div className="absolute top-20 right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      
+      <div className="relative max-w-7xl mx-auto">
+        <div className="text-center mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-4">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium text-primary">Core Services</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold">
+            <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+              Our Expertise
+            </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Specialized technical skills for remote collaboration with international teams
@@ -56,25 +68,49 @@ const ServicesNew = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {services.map((service, index) => (
-            <Card
+            <div
               key={index}
-              className="group hover:border-primary/50 transition-all duration-300 bg-card/50 backdrop-blur-sm"
+              className="workflow-node animate-node-appear group"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="p-8">
-                <div className={`inline-flex p-3 rounded-lg bg-${service.color}/10 mb-6`}>
-                  <service.icon className={`h-8 w-8 text-${service.color}`} />
+              {/* Icon with pulse effect */}
+              <div className="flex items-start gap-4 mb-6">
+                <div className={`relative p-4 rounded-xl bg-gradient-to-br ${
+                  service.color === 'primary' 
+                    ? 'from-primary/20 to-primary/5' 
+                    : 'from-accent/20 to-accent/5'
+                } animate-node-pulse`}>
+                  <service.icon className={`h-8 w-8 ${
+                    service.color === 'primary' ? 'text-primary' : 'text-accent'
+                  }`} />
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-card animate-pulse" />
                 </div>
                 
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground mb-6">{service.description}</p>
-                
-                <Link to={service.href}>
-                  <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0">
-                    Learn more →
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+              
+              {/* CTA */}
+              <Link to={service.href} className="block">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="text-primary hover:text-primary hover:bg-primary/10 gap-2 group/btn"
+                >
+                  Learn more
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                </Button>
+              </Link>
+
+              {/* Data flow indicator */}
+              <div className="absolute top-1/2 -right-3 w-6 h-6 bg-primary/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
           ))}
         </div>
       </div>
