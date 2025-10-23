@@ -54,6 +54,12 @@ import {
   Star,
   LucideIcon,
   ShoppingCart,
+  Database,
+  Network,
+  Settings,
+  GraduationCap,
+  Bot,
+  Server,
 } from "lucide-react";
 
 // Icon mapping
@@ -154,28 +160,52 @@ const Portfolio = () => {
 
   const services = [
     {
+      icon: Database,
+      title: "Data & AI Development",
+      description: "Predictive models, ML, NLP, CV, data pipelines",
+      features: ["Machine Learning models", "Natural Language Processing", "Computer Vision", "Data engineering pipelines"],
+    },
+    {
       icon: Workflow,
-      title: "n8n Workflow Automation",
-      description: "Complex automation workflows with error handling and monitoring",
-      features: ["Custom triggers & actions", "API integrations", "Error handling & retry logic", "Performance optimization"],
+      title: "Workflow & Automation",
+      description: "n8n workflows, process automation, sync, optimization",
+      features: ["n8n workflows", "Process automation", "System synchronization", "Performance optimization"],
     },
     {
-      icon: Code,
-      title: "AI & RAG Systems",
-      description: "LLM integration with vector databases and retrieval systems",
-      features: ["GPT-4 & Claude integration", "Vector databases (Pinecone, Weaviate)", "Custom RAG pipelines", "Prompt engineering"],
+      icon: Network,
+      title: "Integration & API",
+      description: "Custom APIs, legacy systems, webhooks, tool integration",
+      features: ["REST & GraphQL APIs", "Legacy system integration", "Webhook handling", "Third-party integrations"],
     },
     {
-      icon: Cloud,
-      title: "SaaS Development",
-      description: "Full-stack applications with modern tech stack",
-      features: ["React & Next.js", "Node.js & Express", "Supabase & PostgreSQL", "AWS/GCP deployment"],
+      icon: Target,
+      title: "Consulting & Strategy",
+      description: "AI strategy, tech stack, process audit, ROI analysis",
+      features: ["AI strategy planning", "Tech stack selection", "Process auditing", "ROI analysis"],
     },
     {
-      icon: BarChart3,
-      title: "API Development",
-      description: "RESTful APIs and third-party integrations",
-      features: ["REST & GraphQL APIs", "Webhook handling", "OAuth & authentication", "API documentation"],
+      icon: Settings,
+      title: "Support & Optimization",
+      description: "24/7 monitoring, tuning, bug fixes, security updates",
+      features: ["24/7 system monitoring", "Performance tuning", "Bug fixes & patches", "Security updates"],
+    },
+    {
+      icon: GraduationCap,
+      title: "Training & Knowledge",
+      description: "Training programs, documentation, workshops, handoff",
+      features: ["Custom training programs", "Technical documentation", "Team workshops", "Knowledge handoff"],
+    },
+    {
+      icon: Bot,
+      title: "Custom AI Solutions",
+      description: "Chatbots, recommendation engines, anomaly detection",
+      features: ["AI chatbots", "Recommendation systems", "Anomaly detection", "Intelligent automation"],
+    },
+    {
+      icon: Server,
+      title: "Enterprise Infrastructure",
+      description: "Scalability, optimization, compliance, disaster recovery",
+      features: ["Scalability planning", "Infrastructure optimization", "Compliance management", "Disaster recovery"],
     },
   ];
 

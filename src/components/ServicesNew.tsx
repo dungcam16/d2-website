@@ -1,4 +1,4 @@
-import { Workflow, Brain, BarChart3, Network, ArrowRight, Sparkles } from "lucide-react";
+import { Workflow, Brain, Database, Network, Target, Settings, GraduationCap, Bot, Server, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -6,39 +6,60 @@ import { Link } from "react-router-dom";
 const ServicesNew = () => {
   const services = [
     {
+      icon: Database,
+      title: "Data & AI Development",
+      description: "Predictive models, ML, NLP, CV, data pipelines",
+      color: "primary",
+      href: "/services/ai-rag",
+    },
+    {
       icon: Workflow,
-      title: "n8n Workflow Automation",
-      description: "Complex multi-step workflows with error handling, scheduling, and API integrations.",
+      title: "Workflow & Automation",
+      description: "n8n workflows, process automation, sync, optimization",
+      color: "accent",
+      href: "/services/workflow-automation",
+    },
+    {
+      icon: Network,
+      title: "Integration & API",
+      description: "Custom APIs, legacy systems, webhooks, tool integration",
+      color: "primary",
+      href: "/services/api-integration",
+    },
+    {
+      icon: Target,
+      title: "Consulting & Strategy",
+      description: "AI strategy, tech stack, process audit, ROI analysis",
+      color: "accent",
+      href: "/services/business-process",
+    },
+    {
+      icon: Settings,
+      title: "Support & Optimization",
+      description: "24/7 monitoring, tuning, bug fixes, security updates",
       color: "primary",
       href: "/services/workflow-automation",
     },
     {
-      icon: Brain,
-      title: "AI & RAG Systems",
-      description: "Custom LLM integrations with GPT-4, Claude, vector databases, and retrieval systems.",
+      icon: GraduationCap,
+      title: "Training & Knowledge",
+      description: "Training programs, documentation, workshops, handoff",
       color: "accent",
-      href: "/services/ai-rag",
-    },
-    {
-      icon: BarChart3,
-      title: "SaaS Product Development",
-      description: "Full-stack SaaS applications with React, Node.js, Supabase, and AI capabilities.",
-      color: "primary",
-      href: "/services/saas-product",
-    },
-    {
-      icon: Network,
-      title: "API Development & Integration",
-      description: "RESTful APIs, webhooks, OAuth flows, and third-party service integrations.",
-      color: "accent",
-      href: "/services/api-integration",
-    },
-    {
-      icon: Network,
-      title: "Business Process Automation",
-      description: "AS-IS/TO-BE analysis, KPI/SLA definition, and automation blueprint design.",
-      color: "primary",
       href: "/services/business-process",
+    },
+    {
+      icon: Bot,
+      title: "Custom AI Solutions",
+      description: "Chatbots, recommendation engines, anomaly detection",
+      color: "primary",
+      href: "/services/chatbot",
+    },
+    {
+      icon: Server,
+      title: "Enterprise Infrastructure",
+      description: "Scalability, optimization, compliance, disaster recovery",
+      color: "accent",
+      href: "/services/saas-product",
     },
   ];
 
@@ -66,7 +87,7 @@ const ServicesNew = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
