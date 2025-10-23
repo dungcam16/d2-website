@@ -24,7 +24,7 @@ import TemplateDetail from "./pages/TemplateDetail";
 import Admin from "./pages/Admin";
 import WorkflowAutomationService from "./pages/WorkflowAutomationService";
 import DataAiDevelopmentService from "./pages/DataAiDevelopmentService";
-import AiSolutionService from "./pages/AISolutionService";
+import AiSolutionService from "./pages/AiSolutionService";
 import ApiIntegrationService from "./pages/ApiIntegrationService";
 import ConsultingStrategyService from "./pages/ConsultingStrategyService";
 import SupportOptimizationService from "./pages/SupportOptimizationService";
