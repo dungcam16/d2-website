@@ -26,7 +26,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
-const BusinessProcessService = () => {
+const ConsultingStrategyService = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -222,7 +222,7 @@ const BusinessProcessService = () => {
         title="Business Process Automation - Consulting & Business Process Optimization"
         description="Professional business process consulting services. AS-IS/TO-BE analysis, flowchart design, KPI/SLA definition, data flow mapping, and automation blueprint construction."
         keywords="business process consulting, business process automation, AS-IS TO-BE analysis, flowchart design, KPI SLA definition, data flow mapping, automation blueprint"
-        canonicalUrl="/services/business-process"
+        canonicalUrl="/services/consulting-strategy"
         structuredData={[structuredData, breadcrumbStructuredData]}
       />
       <Header />
@@ -489,4 +489,4 @@ const BusinessProcessService = () => {
   );
 };
 
-export default BusinessProcessService;
+export default ConsultingStrategyService;

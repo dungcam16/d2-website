@@ -46,7 +46,7 @@ const Services = () => {
       ],
       color: "text-green-400",
       delay: "0.2s",
-      href: "/services/business-process",
+      href: "/services/consulting-strategy",
     },
     {
       icon: Bot,

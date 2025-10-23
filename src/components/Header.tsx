@@ -33,7 +33,7 @@ const Header = () => {
   const techAutomationServices = [
     {
       name: "Data & AI Development",
-      href: "/services/ai-rag",
+      href: "/services/data-ai-development",
       description: "ML, NLP, CV, data pipelines",
     },
     {
@@ -48,7 +48,7 @@ const Header = () => {
     },
     {
       name: "Consulting & Strategy",
-      href: "/services/business-process",
+      href: "/services/consulting-strategy",
       description: "AI strategy, process audit",
     },
     {

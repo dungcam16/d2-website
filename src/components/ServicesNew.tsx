@@ -10,7 +10,7 @@ const ServicesNew = () => {
       title: "Data & AI Development",
       description: "Predictive models, ML, NLP, CV, data pipelines",
       color: "primary",
-      href: "/services/ai-rag",
+      href: "/services/data-ai-development",
       features: ["Machine Learning models", "Natural Language Processing", "Computer Vision", "Data engineering pipelines"],
     },
     {
@@ -34,7 +34,7 @@ const ServicesNew = () => {
       title: "Consulting & Strategy",
       description: "AI strategy, tech stack, process audit, ROI analysis",
       color: "accent",
-      href: "/services/business-process",
+      href: "/services/consulting-strategy",
       features: ["AI strategy planning", "Tech stack selection", "Process auditing", "ROI analysis"],
     },
     {

@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ChatbotService from "./pages/ChatbotService";
 import ZaloService from "./pages/ZaloService";
-import BusinessProcessService from "./pages/BusinessProcessService";
 import ContentService from "./pages/ContentService";
 import SeoService from "./pages/SeoService";
 import WebsiteService from "./pages/WebsiteService";
@@ -24,9 +23,10 @@ import Templates from "./pages/Templates";
 import TemplateDetail from "./pages/TemplateDetail";
 import Admin from "./pages/Admin";
 import WorkflowAutomationService from "./pages/WorkflowAutomationService";
-import AiRagService from "./pages/AiRagService";
+import DataAiDevelopmentService from "./pages/DataAiDevelopmentService";
 import SaasProductService from "./pages/SaasProductService";
 import ApiIntegrationService from "./pages/ApiIntegrationService";
+import ConsultingStrategyService from "./pages/ConsultingStrategyService";
 import SupportOptimizationService from "./pages/SupportOptimizationService";
 import TrainingKnowledgeService from "./pages/TrainingKnowledgeService";
 import EnterpriseInfrastructureService from "./pages/EnterpriseInfrastructureService";
@@ -47,10 +47,10 @@ const App = () => (
           
           {/* Service Routes */}
           <Route path="/services/workflow-automation" element={<WorkflowAutomationService />} />
-          <Route path="/services/ai-rag" element={<AiRagService />} />
+          <Route path="/services/data-ai-development" element={<DataAiDevelopmentService />} />
           <Route path="/services/saas-product" element={<SaasProductService />} />
           <Route path="/services/api-integration" element={<ApiIntegrationService />} />
-          <Route path="/services/business-process" element={<BusinessProcessService />} />
+          <Route path="/services/consulting-strategy" element={<ConsultingStrategyService />} />
           <Route path="/services/support-optimization" element={<SupportOptimizationService />} />
           <Route path="/services/training-knowledge" element={<TrainingKnowledgeService />} />
           <Route path="/services/enterprise-infrastructure" element={<EnterpriseInfrastructureService />} />

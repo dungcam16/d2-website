@@ -20,7 +20,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 
-const AiRagService = () => {
+const DataAiDevelopmentService = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -237,7 +237,7 @@ const AiRagService = () => {
         title="AI Integration & Optimization - Integrate AI into N8N Workflows"
         description="Professional AI integration services. Large Language Models (GPT-4, Claude), AI chatbot automation, document parsing, sentiment analysis, and predictive analytics for your workflows."
         keywords="AI workflow integration, AI automation, GPT-4 integration, Claude AI, AI chatbot, AI document parsing, sentiment analysis, predictive analytics, machine learning workflow"
-        canonicalUrl="/services/ai-rag"
+        canonicalUrl="/services/data-ai-development"
         structuredData={[structuredData, breadcrumbStructuredData]}
       />
       <Header />
@@ -510,4 +510,4 @@ const AiRagService = () => {
   );
 };
 
-export default AiRagService;
+export default DataAiDevelopmentService;
