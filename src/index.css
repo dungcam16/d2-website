@@ -91,7 +91,7 @@
     scroll-behavior: smooth;
   }
 
-  /* Tech animations */
+  /* n8n-inspired automation animations */
   @keyframes float {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     50% { transform: translateY(-20px) rotate(5deg); }
@@ -142,6 +142,72 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-33.33%); }
   }
+
+  /* n8n Node Connection Animations */
+  @keyframes node-pulse {
+    0%, 100% { 
+      transform: scale(1);
+      box-shadow: 0 0 0 0 hsl(210 100% 45% / 0.4);
+    }
+    50% { 
+      transform: scale(1.05);
+      box-shadow: 0 0 0 10px hsl(210 100% 45% / 0);
+    }
+  }
+
+  @keyframes data-flow {
+    0% { 
+      transform: translateX(-100%) translateY(0);
+      opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+      transform: translateX(200%) translateY(0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes connection-draw {
+    0% { 
+      stroke-dashoffset: 1000;
+      opacity: 0;
+    }
+    20% { opacity: 1; }
+    100% { 
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes node-appear {
+    0% { 
+      opacity: 0;
+      transform: scale(0.3) translateY(20px);
+    }
+    60% {
+      transform: scale(1.1) translateY(-5px);
+    }
+    100% { 
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes drag-hover {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes workflow-active {
+    0%, 100% { 
+      border-color: hsl(210 100% 45% / 0.5);
+    }
+    50% { 
+      border-color: hsl(210 100% 45% / 1);
+      box-shadow: 0 0 20px hsl(210 100% 45% / 0.4);
+    }
+  }
 }
 
 @layer utilities {
@@ -167,6 +233,27 @@
 
   .animate-scroll-horizontal {
     animation: scroll-horizontal 30s linear infinite;
+  }
+
+  /* n8n-style automation animations */
+  .animate-node-pulse {
+    animation: node-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-data-flow {
+    animation: data-flow 3s ease-in-out infinite;
+  }
+
+  .animate-node-appear {
+    animation: node-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .animate-drag-hover {
+    animation: drag-hover 2s ease-in-out infinite;
+  }
+
+  .animate-workflow-active {
+    animation: workflow-active 2s ease-in-out infinite;
   }
 
   .gradient-primary {
@@ -227,5 +314,61 @@
     background: linear-gradient(90deg, transparent, hsl(210 100% 45% / 0.1), transparent);
     transform: translateX(-100%);
     animation: shimmer 2s infinite;
+  }
+
+  /* n8n-style workflow nodes */
+  .workflow-node {
+    @apply relative bg-card border-2 border-primary/30 rounded-xl p-4 transition-all duration-300;
+    @apply hover:border-primary hover:shadow-glow hover:-translate-y-1;
+    @apply backdrop-blur-sm;
+  }
+
+  .workflow-node::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 0.75rem;
+    padding: 2px;
+    background: linear-gradient(135deg, hsl(210 100% 45%), hsl(200 100% 55%));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .workflow-node:hover::before {
+    opacity: 1;
+  }
+
+  .workflow-connection {
+    @apply absolute h-0.5 bg-gradient-to-r from-primary to-accent;
+    @apply opacity-50 transition-opacity duration-300;
+  }
+
+  .workflow-connection:hover {
+    @apply opacity-100;
+  }
+
+  /* Professional B2B Card */
+  .b2b-card {
+    @apply relative bg-card/50 backdrop-blur-xl border border-border/50 rounded-2xl;
+    @apply transition-all duration-300 hover:border-primary/50 hover:shadow-elevation;
+    @apply group overflow-hidden;
+  }
+
+  .b2b-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(210 100% 45% / 0.05), transparent);
+    transition: left 0.5s;
+  }
+
+  .b2b-card:hover::after {
+    left: 100%;
   }
 }
