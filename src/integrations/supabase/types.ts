@@ -83,6 +83,7 @@ export type Database = {
           is_published: boolean | null
           order_index: number | null
           slug: string
+          sort: number | null
           title: string
           updated_at: string
           views: number | null
@@ -98,6 +99,7 @@ export type Database = {
           is_published?: boolean | null
           order_index?: number | null
           slug: string
+          sort?: number | null
           title: string
           updated_at?: string
           views?: number | null
@@ -113,6 +115,7 @@ export type Database = {
           is_published?: boolean | null
           order_index?: number | null
           slug?: string
+          sort?: number | null
           title?: string
           updated_at?: string
           views?: number | null

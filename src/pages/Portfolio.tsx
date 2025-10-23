@@ -11,14 +11,26 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
 // Import case study images
-import workflowInvoicePayment from "@/assets/workflow-invoice-payment.jpg";
-import workflowTicketTriage from "@/assets/workflow-ticket-triage.jpg";
-import workflowContentRepurposing from "@/assets/workflow-content-repurposing.jpg";
-import workflowAiLeadNurture from "@/assets/workflow-ai-lead-nurture.jpg";
-import workflowClientOnboarding from "@/assets/workflow-client-onboarding.jpg";
-import blogRagSystems from "@/assets/blog-rag-systems.jpg";
-import caseStudyDocumentProcessing from "@/assets/case-study-document-processing.jpg";
-import workflowSlackAiAssistant from "@/assets/workflow-slack-ai-assistant.jpg";
+import caseAiSupportTicketRouting from "@/assets/case-ai-support-ticket-routing.jpg";
+import caseMultiPlatformDataIntegration from "@/assets/case-multi-platform-data-integration.jpg";
+import caseRagChatbotPipelines from "@/assets/case-rag-chatbot-pipelines.jpg";
+import caseFinancialReportingAutomation from "@/assets/case-financial-reporting-automation.jpg";
+import caseSalesLeadManagement from "@/assets/case-sales-lead-management.jpg";
+import caseSalesPipelineAutomation from "@/assets/case-sales-pipeline-automation.jpg";
+import caseAiDataExtraction from "@/assets/case-ai-data-extraction.jpg";
+import caseDataMigrationScripts from "@/assets/case-data-migration-scripts.jpg";
+import caseAiResumeBuilder from "@/assets/case-ai-resume-builder.jpg";
+import caseMarketingCampaignAutomation from "@/assets/case-marketing-campaign-automation.jpg";
+import caseEcommerceOrderAutomation from "@/assets/case-ecommerce-order-automation.jpg";
+import caseContentSeoPipeline from "@/assets/case-content-seo-pipeline.jpg";
+import caseDocumentProcessingAutomation from "@/assets/case-document-processing-automation.jpg";
+import caseEcommerceInventorySync from "@/assets/case-ecommerce-inventory-sync.jpg";
+import caseSocialMediaAutomation from "@/assets/case-social-media-automation.jpg";
+import caseDynamicPricingAgent from "@/assets/case-dynamic-pricing-agent.jpg";
+import caseErrorHandlingMonitoring from "@/assets/case-error-handling-monitoring.jpg";
+import caseNotificationSystem from "@/assets/case-notification-system.jpg";
+import caseWebhookApiWrapper from "@/assets/case-webhook-api-wrapper.jpg";
+import caseHrOnboardingAutomation from "@/assets/case-hr-onboarding-automation.jpg";
 import {
   Workflow,
   Code,
@@ -56,14 +68,26 @@ const iconMap: Record<string, LucideIcon> = {
 
 // Image mapping for case studies
 const imageMap: Record<string, string> = {
-  "/src/assets/workflow-invoice-payment.jpg": workflowInvoicePayment,
-  "/src/assets/workflow-ticket-triage.jpg": workflowTicketTriage,
-  "/src/assets/workflow-content-repurposing.jpg": workflowContentRepurposing,
-  "/src/assets/workflow-ai-lead-nurture.jpg": workflowAiLeadNurture,
-  "/src/assets/workflow-client-onboarding.jpg": workflowClientOnboarding,
-  "/src/assets/blog-rag-systems.jpg": blogRagSystems,
-  "/src/assets/case-study-document-processing.jpg": caseStudyDocumentProcessing,
-  "/src/assets/workflow-slack-ai-assistant.jpg": workflowSlackAiAssistant,
+  "/src/assets/case-ai-support-ticket-routing.jpg": caseAiSupportTicketRouting,
+  "/src/assets/case-multi-platform-data-integration.jpg": caseMultiPlatformDataIntegration,
+  "/src/assets/case-rag-chatbot-pipelines.jpg": caseRagChatbotPipelines,
+  "/src/assets/case-financial-reporting-automation.jpg": caseFinancialReportingAutomation,
+  "/src/assets/case-sales-lead-management.jpg": caseSalesLeadManagement,
+  "/src/assets/case-sales-pipeline-automation.jpg": caseSalesPipelineAutomation,
+  "/src/assets/case-ai-data-extraction.jpg": caseAiDataExtraction,
+  "/src/assets/case-data-migration-scripts.jpg": caseDataMigrationScripts,
+  "/src/assets/case-ai-resume-builder.jpg": caseAiResumeBuilder,
+  "/src/assets/case-marketing-campaign-automation.jpg": caseMarketingCampaignAutomation,
+  "/src/assets/case-ecommerce-order-automation.jpg": caseEcommerceOrderAutomation,
+  "/src/assets/case-content-seo-pipeline.jpg": caseContentSeoPipeline,
+  "/src/assets/case-document-processing-automation.jpg": caseDocumentProcessingAutomation,
+  "/src/assets/case-ecommerce-inventory-sync.jpg": caseEcommerceInventorySync,
+  "/src/assets/case-social-media-automation.jpg": caseSocialMediaAutomation,
+  "/src/assets/case-dynamic-pricing-agent.jpg": caseDynamicPricingAgent,
+  "/src/assets/case-error-handling-monitoring.jpg": caseErrorHandlingMonitoring,
+  "/src/assets/case-notification-system.jpg": caseNotificationSystem,
+  "/src/assets/case-webhook-api-wrapper.jpg": caseWebhookApiWrapper,
+  "/src/assets/case-hr-onboarding-automation.jpg": caseHrOnboardingAutomation,
 };
 
 interface CaseStudy {
