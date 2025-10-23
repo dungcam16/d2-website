@@ -7,12 +7,6 @@
     <meta name="description" content="Transform your Vietnamese business with intelligent automation. Multi-platform chatbots, Zalo OA solutions, and N8N enterprise automation by D2 Group.">
     <meta name="author" content="D2 Group" />
     
-    <!-- Preconnect to external domains for faster loading -->
-    <link rel="preconnect" href="https://app.ahachat.com" crossorigin />
-    <link rel="dns-prefetch" href="https://app.ahachat.com" />
-
-    
-    
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/GfwJGgB5PVUTbVt9ullbKBHrjTg2/social-images/social-1758965925583-514270009_692154340477059_2925918850980454621_n (1).jpg">
 
@@ -33,30 +27,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      // Load AhaChat widget only on production domains to avoid sandbox proxy errors
-      window.addEventListener('load', function () {
-        try {
-          const host = location.hostname || '';
-          const isSandbox = host.endsWith('.lovableproject.com') || host.endsWith('.lovable.app') || host === 'localhost' || host === '127.0.0.1';
-          if (isSandbox) {
-            console.info('AhaChat widget disabled in sandbox/preview environment');
-            return;
-          }
-          var script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.async = true;
-          script.defer = true;
-          script.crossOrigin = 'anonymous';
-          script.src = 'https://ahachat.com//customer-chats/customer_chat_nx0uXVi8wd68da975859c03.js';
-          script.onerror = function () {
-            console.warn('AhaChat widget failed to load (ignored).');
-          };
-          document.body.appendChild(script);
-        } catch (e) {
-          console.warn('AhaChat widget skipped due to error:', e);
-        }
-      });
-    </script>
   </body>
 </html>
