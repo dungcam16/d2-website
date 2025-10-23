@@ -24,7 +24,7 @@ import TemplateDetail from "./pages/TemplateDetail";
 import Admin from "./pages/Admin";
 import WorkflowAutomationService from "./pages/WorkflowAutomationService";
 import DataAiDevelopmentService from "./pages/DataAiDevelopmentService";
-import SaasProductService from "./pages/SaasProductService";
+import AiSolutionService from "./pages/AiSolutionService";
 import ApiIntegrationService from "./pages/ApiIntegrationService";
 import ConsultingStrategyService from "./pages/ConsultingStrategyService";
 import SupportOptimizationService from "./pages/SupportOptimizationService";
@@ -44,11 +44,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          
+
           {/* Service Routes */}
           <Route path="/services/workflow-automation" element={<WorkflowAutomationService />} />
           <Route path="/services/data-ai-development" element={<DataAiDevelopmentService />} />
-          <Route path="/services/saas-product" element={<SaasProductService />} />
+          <Route path="/services/ai-solution" element={<AiSolutionService />} />
           <Route path="/services/api-integration" element={<ApiIntegrationService />} />
           <Route path="/services/consulting-strategy" element={<ConsultingStrategyService />} />
           <Route path="/services/support-optimization" element={<SupportOptimizationService />} />
@@ -59,7 +59,7 @@ const App = () => (
           <Route path="/services/content" element={<ContentService />} />
           <Route path="/services/seo" element={<SeoService />} />
           <Route path="/services/website" element={<WebsiteService />} />
-          
+
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/templates" element={<Templates />} />
