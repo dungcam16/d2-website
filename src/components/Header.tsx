@@ -32,29 +32,44 @@ const Header = () => {
 
   const techAutomationServices = [
     {
-      name: "n8n Workflow Automation",
-      href: "/services/workflow-automation",
-      description: "Complex multi-step workflows",
-    },
-    {
-      name: "AI & RAG Systems",
+      name: "Data & AI Development",
       href: "/services/ai-rag",
-      description: "Custom LLM integrations",
+      description: "ML, NLP, CV, data pipelines",
     },
     {
-      name: "SaaS Product Development",
-      href: "/services/saas-product",
-      description: "Full-stack applications",
+      name: "Workflow & Automation",
+      href: "/services/workflow-automation",
+      description: "n8n workflows, process automation",
     },
     {
-      name: "API Development",
+      name: "Integration & API",
       href: "/services/api-integration",
-      description: "RESTful APIs & webhooks",
+      description: "Custom APIs & webhooks",
     },
     {
-      name: "Business Process Automation",
+      name: "Consulting & Strategy",
       href: "/services/business-process",
-      description: "AS-IS/TO-BE process analysis",
+      description: "AI strategy, process audit",
+    },
+    {
+      name: "Support & Optimization",
+      href: "/services/support-optimization",
+      description: "24/7 monitoring & tuning",
+    },
+    {
+      name: "Training & Knowledge",
+      href: "/services/training-knowledge",
+      description: "Training & documentation",
+    },
+    {
+      name: "Custom AI Solutions",
+      href: "/services/chatbot",
+      description: "Chatbots & AI systems",
+    },
+    {
+      name: "Enterprise Infrastructure",
+      href: "/services/enterprise-infrastructure",
+      description: "Scalability & compliance",
     },
   ];
 

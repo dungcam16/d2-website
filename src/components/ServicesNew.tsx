@@ -1,6 +1,6 @@
-import { Workflow, Brain, Database, Network, Target, Settings, GraduationCap, Bot, Server, ArrowRight, Sparkles } from "lucide-react";
+import { Workflow, Brain, Database, Network, Target, Settings, GraduationCap, Bot, Server, ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
 const ServicesNew = () => {
@@ -11,6 +11,7 @@ const ServicesNew = () => {
       description: "Predictive models, ML, NLP, CV, data pipelines",
       color: "primary",
       href: "/services/ai-rag",
+      features: ["Machine Learning models", "Natural Language Processing", "Computer Vision", "Data engineering pipelines"],
     },
     {
       icon: Workflow,
@@ -18,6 +19,7 @@ const ServicesNew = () => {
       description: "n8n workflows, process automation, sync, optimization",
       color: "accent",
       href: "/services/workflow-automation",
+      features: ["n8n workflows", "Process automation", "System synchronization", "Performance optimization"],
     },
     {
       icon: Network,
@@ -25,6 +27,7 @@ const ServicesNew = () => {
       description: "Custom APIs, legacy systems, webhooks, tool integration",
       color: "primary",
       href: "/services/api-integration",
+      features: ["REST & GraphQL APIs", "Legacy system integration", "Webhook handling", "Third-party integrations"],
     },
     {
       icon: Target,
@@ -32,20 +35,23 @@ const ServicesNew = () => {
       description: "AI strategy, tech stack, process audit, ROI analysis",
       color: "accent",
       href: "/services/business-process",
+      features: ["AI strategy planning", "Tech stack selection", "Process auditing", "ROI analysis"],
     },
     {
       icon: Settings,
       title: "Support & Optimization",
       description: "24/7 monitoring, tuning, bug fixes, security updates",
       color: "primary",
-      href: "/services/workflow-automation",
+      href: "/services/support-optimization",
+      features: ["24/7 system monitoring", "Performance tuning", "Bug fixes & patches", "Security updates"],
     },
     {
       icon: GraduationCap,
       title: "Training & Knowledge",
       description: "Training programs, documentation, workshops, handoff",
       color: "accent",
-      href: "/services/business-process",
+      href: "/services/training-knowledge",
+      features: ["Custom training programs", "Technical documentation", "Team workshops", "Knowledge handoff"],
     },
     {
       icon: Bot,
@@ -53,13 +59,15 @@ const ServicesNew = () => {
       description: "Chatbots, recommendation engines, anomaly detection",
       color: "primary",
       href: "/services/chatbot",
+      features: ["AI chatbots", "Recommendation systems", "Anomaly detection", "Intelligent automation"],
     },
     {
       icon: Server,
       title: "Enterprise Infrastructure",
       description: "Scalability, optimization, compliance, disaster recovery",
       color: "accent",
-      href: "/services/saas-product",
+      href: "/services/enterprise-infrastructure",
+      features: ["Scalability planning", "Infrastructure optimization", "Compliance management", "Disaster recovery"],
     },
   ];
 
@@ -89,49 +97,27 @@ const ServicesNew = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <div
+            <Card
               key={index}
-              className="workflow-node animate-node-appear group"
+              className="workflow-node animate-node-appear group hover:shadow-lg transition-all"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Icon with pulse effect */}
-              <div className="flex items-start gap-4 mb-6">
-                <div className={`relative p-4 rounded-xl bg-gradient-to-br ${
-                  service.color === 'primary' 
-                    ? 'from-primary/20 to-primary/5' 
-                    : 'from-accent/20 to-accent/5'
-                } animate-node-pulse`}>
-                  <service.icon className={`h-8 w-8 ${
-                    service.color === 'primary' ? 'text-primary' : 'text-accent'
-                  }`} />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-card animate-pulse" />
-                </div>
-                
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              </div>
-              
-              {/* CTA */}
-              <Link to={service.href} className="block">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="text-primary hover:text-primary hover:bg-primary/10 gap-2 group/btn"
-                >
-                  Learn more
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                </Button>
-              </Link>
-
-              {/* Data flow indicator */}
-              <div className="absolute top-1/2 -right-3 w-6 h-6 bg-primary/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
+              <CardHeader>
+                <service.icon className="w-10 h-10 mb-3 text-primary" />
+                <CardTitle className="text-xl">{service.title}</CardTitle>
+                <CardDescription>{service.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

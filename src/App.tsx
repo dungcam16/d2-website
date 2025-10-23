@@ -27,6 +27,9 @@ import WorkflowAutomationService from "./pages/WorkflowAutomationService";
 import AiRagService from "./pages/AiRagService";
 import SaasProductService from "./pages/SaasProductService";
 import ApiIntegrationService from "./pages/ApiIntegrationService";
+import SupportOptimizationService from "./pages/SupportOptimizationService";
+import TrainingKnowledgeService from "./pages/TrainingKnowledgeService";
+import EnterpriseInfrastructureService from "./pages/EnterpriseInfrastructureService";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +48,9 @@ const App = () => (
           <Route path="/services/saas-product" element={<SaasProductService />} />
           <Route path="/services/api-integration" element={<ApiIntegrationService />} />
           <Route path="/services/business-process" element={<BusinessProcessService />} />
+          <Route path="/services/support-optimization" element={<SupportOptimizationService />} />
+          <Route path="/services/training-knowledge" element={<TrainingKnowledgeService />} />
+          <Route path="/services/enterprise-infrastructure" element={<EnterpriseInfrastructureService />} />
           <Route path="/services/chatbot" element={<ChatbotService />} />
           <Route path="/services/zalo" element={<ZaloService />} />
           <Route path="/services/content" element={<ContentService />} />
