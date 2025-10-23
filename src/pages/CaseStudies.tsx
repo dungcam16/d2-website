@@ -19,6 +19,28 @@ import {
   Sparkles
 } from "lucide-react";
 
+// Import case study images
+import caseAiSupportTicketRouting from "@/assets/case-ai-support-ticket-routing.jpg";
+import caseMultiPlatformDataIntegration from "@/assets/case-multi-platform-data-integration.jpg";
+import caseRagChatbotPipelines from "@/assets/case-rag-chatbot-pipelines.jpg";
+import caseFinancialReportingAutomation from "@/assets/case-financial-reporting-automation.jpg";
+import caseSalesLeadManagement from "@/assets/case-sales-lead-management.jpg";
+import caseSalesPipelineAutomation from "@/assets/case-sales-pipeline-automation.jpg";
+import caseAiDataExtraction from "@/assets/case-ai-data-extraction.jpg";
+import caseDataMigrationScripts from "@/assets/case-data-migration-scripts.jpg";
+import caseAiResumeBuilder from "@/assets/case-ai-resume-builder.jpg";
+import caseMarketingCampaignAutomation from "@/assets/case-marketing-campaign-automation.jpg";
+import caseEcommerceOrderAutomation from "@/assets/case-ecommerce-order-automation.jpg";
+import caseContentSeoPipeline from "@/assets/case-content-seo-pipeline.jpg";
+import caseDocumentProcessingAutomation from "@/assets/case-document-processing-automation.jpg";
+import caseEcommerceInventorySync from "@/assets/case-ecommerce-inventory-sync.jpg";
+import caseSocialMediaAutomation from "@/assets/case-social-media-automation.jpg";
+import caseDynamicPricingAgent from "@/assets/case-dynamic-pricing-agent.jpg";
+import caseErrorHandlingMonitoring from "@/assets/case-error-handling-monitoring.jpg";
+import caseNotificationSystem from "@/assets/case-notification-system.jpg";
+import caseWebhookApiWrapper from "@/assets/case-webhook-api-wrapper.jpg";
+import caseHrOnboardingAutomation from "@/assets/case-hr-onboarding-automation.jpg";
+
 // Icon mapping for dynamic rendering
 const iconMap: { [key: string]: React.ElementType } = {
   Zap,
@@ -27,6 +49,30 @@ const iconMap: { [key: string]: React.ElementType } = {
   Bot,
   Code,
   FileText,
+};
+
+// Image mapping for case studies - maps database paths to imported images
+const imageMap: Record<string, string> = {
+  "/src/assets/case-ai-support-ticket-routing.jpg": caseAiSupportTicketRouting,
+  "/src/assets/case-multi-platform-data-integration.jpg": caseMultiPlatformDataIntegration,
+  "/src/assets/case-rag-chatbot-pipelines.jpg": caseRagChatbotPipelines,
+  "/src/assets/case-financial-reporting-automation.jpg": caseFinancialReportingAutomation,
+  "/src/assets/case-sales-lead-management.jpg": caseSalesLeadManagement,
+  "/src/assets/case-sales-pipeline-automation.jpg": caseSalesPipelineAutomation,
+  "/src/assets/case-ai-data-extraction.jpg": caseAiDataExtraction,
+  "/src/assets/case-data-migration-scripts.jpg": caseDataMigrationScripts,
+  "/src/assets/case-ai-resume-builder.jpg": caseAiResumeBuilder,
+  "/src/assets/case-marketing-campaign-automation.jpg": caseMarketingCampaignAutomation,
+  "/src/assets/case-ecommerce-order-automation.jpg": caseEcommerceOrderAutomation,
+  "/src/assets/case-content-seo-pipeline.jpg": caseContentSeoPipeline,
+  "/src/assets/case-document-processing-automation.jpg": caseDocumentProcessingAutomation,
+  "/src/assets/case-ecommerce-inventory-sync.jpg": caseEcommerceInventorySync,
+  "/src/assets/case-social-media-automation.jpg": caseSocialMediaAutomation,
+  "/src/assets/case-dynamic-pricing-agent.jpg": caseDynamicPricingAgent,
+  "/src/assets/case-error-handling-monitoring.jpg": caseErrorHandlingMonitoring,
+  "/src/assets/case-notification-system.jpg": caseNotificationSystem,
+  "/src/assets/case-webhook-api-wrapper.jpg": caseWebhookApiWrapper,
+  "/src/assets/case-hr-onboarding-automation.jpg": caseHrOnboardingAutomation,
 };
 
 interface CaseStudy {
@@ -195,9 +241,14 @@ const CaseStudies = () => {
                     {/* Image */}
                     <div className="relative aspect-video mb-4 overflow-hidden rounded-lg">
                       <img
-                        src={caseStudy.image_url}
+                        src={
+                          caseStudy.image_url && imageMap[caseStudy.image_url]
+                            ? imageMap[caseStudy.image_url]
+                            : "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop"
+                        }
                         alt={caseStudy.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       
