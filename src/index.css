@@ -354,7 +354,7 @@
   .b2b-card {
     @apply relative bg-card/50 backdrop-blur-xl border border-border/50 rounded-2xl;
     @apply transition-all duration-300 hover:border-primary/50 hover:shadow-elevation;
-    @apply group overflow-hidden;
+    @apply overflow-hidden;
   }
 
   .b2b-card::after {
