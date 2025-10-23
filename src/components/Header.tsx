@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
-import logoD2Group from "@/assets/logo-d2-group-transparent.png";
+import logoD2Group from "@/assets/logo_d2_group_optimized.webp";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
