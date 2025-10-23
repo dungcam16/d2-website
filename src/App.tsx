@@ -30,6 +30,7 @@ import ApiIntegrationService from "./pages/ApiIntegrationService";
 import SupportOptimizationService from "./pages/SupportOptimizationService";
 import TrainingKnowledgeService from "./pages/TrainingKnowledgeService";
 import EnterpriseInfrastructureService from "./pages/EnterpriseInfrastructureService";
+import AiSupportCaseStudy from "./pages/AiSupportCaseStudy";
 
 const queryClient = new QueryClient();
 
@@ -63,9 +64,10 @@ const App = () => (
           <Route path="/templates/:slug" element={<TemplateDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio/ai-support-ticket-routing-n8n" element={<AiSupportCaseStudy />} />
+          <Route path="/portfolio/:slug" element={<CaseStudyDetail />} />
           <Route path="/casestudies" element={<CaseStudies />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/portfolio/:slug" element={<CaseStudyDetail />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/admin" element={<Admin />} />
