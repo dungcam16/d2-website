@@ -24,10 +24,10 @@ const Header = () => {
   }, []);
 
   const mainNavItems = [
-    { name: t("nav.home"), href: "/" },
-    { name: t("nav.portfolio"), href: "/portfolio" },
+    { name: t('nav.home'), href: "/" },
+    { name: t('nav.portfolio'), href: "/portfolio" },
     { name: "Case Studies", href: "/casestudies" },
-    { name: t("nav.blog"), href: "/blog" },
+    { name: t('nav.blog'), href: "/blog" },
   ];
 
   const techAutomationServices = [
@@ -63,7 +63,7 @@ const Header = () => {
     },
     {
       name: "Custom AI Solutions",
-      href: "/services/saas-product",
+      href: "/services/chatbot",
       description: "Chatbots & AI systems",
     },
     {
@@ -120,20 +120,20 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             {/* Home */}
             <a href="/" className="text-foreground hover:text-primary transition-smooth relative group">
-              {t("nav.home")}
+              {t('nav.home')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
             {/* Portfolio */}
             <a href="/portfolio" className="text-foreground hover:text-primary transition-smooth relative group">
-              {t("nav.portfolio")}
+              {t('nav.portfolio')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
             {/* Services Dropdown - 2 Columns */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
-                {t("nav.services")}
+                {t('nav.services')}
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
@@ -141,9 +141,7 @@ const Header = () => {
                 <div className="grid grid-cols-2 gap-6">
                   {/* Column 1: Tech & Automation */}
                   <div>
-                    <div className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">
-                      Tech & Automation
-                    </div>
+                    <div className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">Tech & Automation</div>
                     <div className="space-y-2">
                       {techAutomationServices.map((service) => (
                         <DropdownMenuItem key={service.href} asChild>
@@ -155,12 +153,10 @@ const Header = () => {
                       ))}
                     </div>
                   </div>
-
+                  
                   {/* Column 2: Digital Marketing */}
                   <div>
-                    <div className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">
-                      Digital Marketing
-                    </div>
+                    <div className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">Digital Marketing</div>
                     <div className="space-y-2">
                       {digitalMarketingServices.map((service) => (
                         <DropdownMenuItem key={service.href} asChild>
@@ -184,7 +180,7 @@ const Header = () => {
 
             {/* Blog */}
             <a href="/blog" className="text-foreground hover:text-primary transition-smooth relative group">
-              {t("nav.blog")}
+              {t('nav.blog')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
           </nav>
@@ -199,17 +195,17 @@ const Header = () => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage("vi")} className="cursor-pointer">
+                <DropdownMenuItem onClick={() => setLanguage('vi')} className="cursor-pointer">
                   🇻🇳 Tiếng Việt
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage("en")} className="cursor-pointer">
+                <DropdownMenuItem onClick={() => setLanguage('en')} className="cursor-pointer">
                   🇬🇧 English
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
+            
             <Button variant="default" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
-              {t("nav.contact")}
+              {t('nav.contact')}
             </Button>
           </div>
 
@@ -279,22 +275,10 @@ const Header = () => {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-48">
-                    <DropdownMenuItem
-                      onClick={() => {
-                        setLanguage("vi");
-                        setIsMenuOpen(false);
-                      }}
-                      className="cursor-pointer"
-                    >
+                    <DropdownMenuItem onClick={() => { setLanguage('vi'); setIsMenuOpen(false); }} className="cursor-pointer">
                       🇻🇳 Tiếng Việt
                     </DropdownMenuItem>
-                    <DropdownMenuItem
-                      onClick={() => {
-                        setLanguage("en");
-                        setIsMenuOpen(false);
-                      }}
-                      className="cursor-pointer"
-                    >
+                    <DropdownMenuItem onClick={() => { setLanguage('en'); setIsMenuOpen(false); }} className="cursor-pointer">
                       🇬🇧 English
                     </DropdownMenuItem>
                   </DropdownMenuContent>
@@ -305,7 +289,7 @@ const Header = () => {
                   className="w-full shadow-glow"
                   onClick={() => (window.location.href = "/contact")}
                 >
-                  {t("nav.contact")}
+                  {t('nav.contact')}
                 </Button>
               </div>
             </nav>
