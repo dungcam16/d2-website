@@ -92,7 +92,8 @@ const Portfolio = () => {
           .from("case_studies")
           .select("*")
           .eq("is_published", true)
-          .order("order_index", { ascending: true });
+          .order("order_index", { ascending: true })
+          .limit(9); // Limit to 9 case studies for 3x3 grid
 
         if (error) throw error;
         setCaseStudies((data as any) || []);
@@ -290,12 +291,12 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Case Studies Grid - Always Show Challenge & Solution */}
+        {/* Case Studies Grid - 3x3 Grid */}
         <section id="projects" className="py-20 px-6 bg-muted/30">
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
-              <p className="text-xl text-muted-foreground">Real automation and AI projects with measurable business impact</p>
+              <h2 className="text-4xl font-bold mb-4">Latest Case Studies</h2>
+              <p className="text-xl text-muted-foreground">Featured automation projects showcasing our expertise. View all case studies for our complete portfolio.</p>
             </div>
 
             {loading ? (
@@ -383,8 +384,8 @@ const Portfolio = () => {
             )}
 
             <div className="text-center mt-12">
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/portfolio">
+              <Button size="lg" className="shadow-lg hover:shadow-xl transition-all" asChild>
+                <Link to="/casestudies">
                   Browse All Case Studies <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>

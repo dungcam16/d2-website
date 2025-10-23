@@ -12,6 +12,7 @@ import SeoService from "./pages/SeoService";
 import WebsiteService from "./pages/WebsiteService";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
+import CaseStudies from "./pages/CaseStudies";
 import AboutUs from "./pages/AboutUs";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -56,6 +57,7 @@ const App = () => (
           <Route path="/templates/:slug" element={<TemplateDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/casestudies" element={<CaseStudies />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/portfolio/:slug" element={<CaseStudyDetail />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
