@@ -54,7 +54,7 @@ const CaseStudies = () => {
           .from("case_studies")
           .select("*")
           .eq("is_published", true)
-          .order("order_index", { ascending: true });
+          .order("sort", { ascending: true });
 
         if (error) throw error;
 

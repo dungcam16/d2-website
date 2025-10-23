@@ -92,7 +92,7 @@ const Portfolio = () => {
           .from("case_studies")
           .select("*")
           .eq("is_published", true)
-          .order("order_index", { ascending: true })
+          .order("sort", { ascending: true })
           .limit(9); // Limit to 9 case studies for 3x3 grid
 
         if (error) throw error;
