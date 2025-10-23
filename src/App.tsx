@@ -31,6 +31,7 @@ import SupportOptimizationService from "./pages/SupportOptimizationService";
 import TrainingKnowledgeService from "./pages/TrainingKnowledgeService";
 import EnterpriseInfrastructureService from "./pages/EnterpriseInfrastructureService";
 import AiSupportCaseStudy from "./pages/AiSupportCaseStudy";
+import MultiPlatformDataIntegrationCaseStudy from "./pages/MultiPlatformDataIntegrationCaseStudy";
 
 const queryClient = new QueryClient();
 
@@ -65,6 +66,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/ai-support-ticket-routing-n8n" element={<AiSupportCaseStudy />} />
+          <Route path="/portfolio/multi-system-data-sync-n8n" element={<MultiPlatformDataIntegrationCaseStudy />} />
           <Route path="/portfolio/:slug" element={<CaseStudyDetail />} />
           <Route path="/casestudies" element={<CaseStudies />} />
           <Route path="/about" element={<AboutUs />} />
