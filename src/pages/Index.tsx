@@ -1,18 +1,23 @@
+"use client";
 import React from "react";
 import Header from "@/components/Header";
-import HeroNew from "@/components/HeroNew";
-import TrustBar from "@/components/TrustBar";
-import ProblemSolution from "@/components/ProblemSolution";
-import ServicesNew from "@/components/ServicesNew";
-import TemplateLibrary from "@/components/TemplateLibrary";
-import CaseStudySpotlight from "@/components/CaseStudySpotlight";
-import Process from "@/components/Process";
-import TestimonialsNew from "@/components/TestimonialsNew";
-import Pricing from "@/components/Pricing";
-import BlogInsights from "@/components/BlogInsights";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+
+// New components for the homepage structure
+import HeroSection from "@/components/HeroSection";
+import ProblemPoints from "@/components/ProblemPoints";
+import FeaturedServices from "@/components/FeaturedServices";
+import FeaturedCaseStudies from "@/components/FeaturedCaseStudies";
+import SocialProof from "@/components/SocialProof";
+import HowWeWork from "@/components/HowWeWork";
+import IntegrationShowcase from "@/components/IntegrationShowcase";
+import RoiCalculatorSection from "@/components/RoiCalculatorSection";
+import IndustrySolutions from "@/components/IndustrySolutions";
+import BlogPreview from "@/components/BlogPreview";
+import FaqSection from "@/components/FaqSection";
+import BottomCta from "@/components/BottomCta";
+
 
 const Index = () => {
   const structuredData = {
@@ -68,17 +73,18 @@ const Index = () => {
         structuredData={structuredData}
       />
       <Header />
-      <HeroNew />
-      <TrustBar />
-      <ProblemSolution />
-      <ServicesNew />
-      <TemplateLibrary />
-      <CaseStudySpotlight />
-      <Process />
-      <TestimonialsNew />
-      <Pricing />
-      <BlogInsights />
-      <Contact />
+      <HeroSection />
+      <ProblemPoints />
+      <FeaturedServices />
+      <FeaturedCaseStudies />
+      <SocialProof />
+      <HowWeWork />
+      <IntegrationShowcase />
+      <RoiCalculatorSection />
+      <IndustrySolutions />
+      <BlogPreview />
+      <FaqSection />
+      <BottomCta />
       <Footer />
     </div>
   );
