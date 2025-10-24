@@ -111,7 +111,7 @@ const Footer: React.FC = () => {
                     id="email-newsletter"
                     type="email" 
                     placeholder="Subscribe to our newsletter" 
-                    className="bg-gray-800 border border--700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                    className="bg-gray-800 border border-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
                 />
                 <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition-colors flex items-center justify-center w-full sm:w-auto shrink-0">
                     Subscribe
