@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+"use client";
+import React, { useEffect } from "react";
 import {
   ArrowRight,
   CheckCircle,
@@ -27,10 +28,10 @@ import {
   Activity,
   RefreshCw,
   Lightbulb,
-  Building,    // ✅ ADDED
-  Trophy,      // ✅ ADDED
-  Award,       // ✅ ADDED
-  Globe,       // ✅ ADDED
+  Building,    // ADDED
+  Trophy,       // ADDED
+  Award,        // ADDED
+  Globe,        // ADDED
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -40,6 +41,12 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
 const ConsultingStrategyService = () => {
+  useEffect(() => {
+    if (window.location.pathname === "/solutions/automation/consulting-strategy") {
+      window.location.replace("/company/about");
+    }
+  }, []);
+
   const [showTechnicalDeepDive, setShowTechnicalDeepDive] = useState(false);
 
   const structuredData = {
@@ -125,7 +132,7 @@ const ConsultingStrategyService = () => {
             </h1>
 
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
-              Forget vendor pitches and guessing. Our strategic consulting translates business goals into an executable 
+              Forget vendor pitches and guessing. Our strategic consulting translates business goals into an executable
               AI roadmap—backed by data, derisked, and designed for your reality.
             </p>
 
@@ -204,9 +211,9 @@ const ConsultingStrategyService = () => {
             </p>
             <div className="bg-secondary/10 p-6 rounded-lg">
               <p className="text-lg leading-relaxed">
-                CloudVenture was at a critical inflection point. Their product was winning market share, but back-office 
-                operations were becoming a bottleneck. The CTO and CFO couldn't agree: hire 40 people or invest $2M in 
-                automation? Without clear data, the decision felt reckless either way. They needed strategic clarity 
+                CloudVenture was at a critical inflection point. Their product was winning market share, but back-office
+                operations were becoming a bottleneck. The CTO and CFO couldn't agree: hire 40 people or invest $2M in
+                automation? Without clear data, the decision felt reckless either way. They needed strategic clarity
                 before committing resources.
               </p>
             </div>
@@ -222,7 +229,7 @@ const ConsultingStrategyService = () => {
               The Challenge: Decision Paralysis
             </h2>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
-              Corporate decision paralysis around AI/automation investments, hidden costs of poor choices, and 
+              Corporate decision paralysis around AI/automation investments, hidden costs of poor choices, and
               opportunity cost of delay were threatening CloudVenture's competitive position.
             </p>
           </div>
@@ -239,7 +246,7 @@ const ConsultingStrategyService = () => {
                 icon: DollarSign,
                 title: "Hidden Costs",
                 description: "Internal tools doing 70% of job; new platform would duplicate existing capability; nobody mapped the true cost",
-                impact: "30-40% budget waste on redundant functionality"
+                impact: "30-40% budget wasted on redundant functionality"
               },
               {
                 icon: LineChart,
@@ -280,8 +287,9 @@ const ConsultingStrategyService = () => {
 
           <div className="mt-12 bg-white p-8 rounded-lg shadow-md animate-fade-in">
             <blockquote className="text-lg italic text-muted-foreground border-l-4 border-primary pl-6">
-              "We knew we needed to automate. We just didn't know what to automate, when, or how much to invest. 
-              Three vendors, three different pitches, zero clarity on which was right. We needed someone to cut through the noise."
+              "We knew we needed to automate. We just didn't know what to automate, when, or how much to invest.
+              Three vendors, three different pitches, zero clarity on which was right. We needed someone to cut
+              through the noise."
             </blockquote>
             <cite className="block mt-4 font-semibold">— Sarah Chen, VP Operations, CloudVenture</cite>
           </div>
@@ -299,14 +307,14 @@ const ConsultingStrategyService = () => {
 
           <div className="mb-12 animate-fade-in">
             <p className="text-lg leading-relaxed mb-6">
-              D2 Group's consulting approach is simple: Combine data, domain expertise, and pragmatism to answer three 
-              questions: (1) What problems can automation solve? (2) What's the right technology for YOUR situation? 
-              (3) What's the realistic ROI and implementation timeline? We do this through a structured, 4-week engagement 
+              D2 Group's consulting approach is simple: Combine data, domain expertise, and pragmatism to answer three
+              questions: (1) What problems can automation solve? (2) What's the right technology for YOUR situation?
+              (3) What's the realistic ROI and implementation timeline? We do this through a structured, 4-week engagement
               that produces a board-ready roadmap with clear phases, budget, timeline, and risk mitigation.
             </p>
             <p className="text-lg leading-relaxed mb-6">
-              Unlike traditional consulting firms, we start with YOUR current state and recommend evolutionary improvement—
-              sometimes that means no new tech, sometimes targeted automation, sometimes rip-and-replace. Our goal: 
+              Unlike traditional consulting firms, we start with YOUR current state and recommend evolutionary improvements—
+              sometimes that means no new tech, sometimes targeted automation, sometimes rip-and-replace. Our goal:
               maximum ROI for your specific context.
             </p>
           </div>
@@ -520,7 +528,7 @@ const ConsultingStrategyService = () => {
             Results & Impact: From Paralysis to Confidence
           </h2>
           <p className="text-xl text-center text-muted-foreground mb-12 animate-fade-in">
-            CloudVenture went from confused decision paralysis to confident strategic clarity—and avoided a $2M mistake 
+            CloudVenture went from confused decision paralysis to confident strategic clarity—and avoided a $2M mistake
             in the process.
           </p>
 
@@ -557,7 +565,7 @@ const ConsultingStrategyService = () => {
 
           {/* ROI Calculation */}
           <Card className="p-8 bg-gradient-to-r from-primary/10 to-secondary/10 animate-fade-in mb-12">
-            <h3 className="text-2xl font-bold font-heading mb-6 text-center">💰 Consulting Engagement ROI</h3>
+            <h3 className="text-2xl font-bold font-heading mb-6 text-center">💡 Consulting Engagement ROI</h3>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
               <div>
                 <p className="text-sm text-muted-foreground mb-2">Consulting Cost</p>
@@ -609,7 +617,7 @@ const ConsultingStrategyService = () => {
                   "Build vs. Buy guidance: Know which solutions to develop vs. buy",
                   "Risk reduction: Implementation plan de-risks execution"
                 ]
-              }
+              },
             ].map((category, index) => {
               const IconComponent = category.icon;
               return (
@@ -684,27 +692,27 @@ const ConsultingStrategyService = () => {
           <p className="text-xl mb-8 animate-fade-in">
             Avoid expensive technology mistakes. Build confidence with rigorous ROI models. Get board approval faster.
           </p>
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg mb-8 max-w-3xl mx-auto">
-            <p className="text-lg mb-4">What You Get:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left text-sm">
-              <div className="flex items-start">
-                <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
-                <span>Objective evaluation through objective evaluation</span>
-              </div>
-              <div className="flex items-start">
-                <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
-                <span>Rigorous ROI models and financial justification</span>
-              </div>
-              <div className="flex items-start">
-                <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
-                <span>Board-ready strategy presentation</span>
-              </div>
-              <div className="flex items-start">
-                <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
-                <span>De-risked implementation with mitigation planning</span>
-              </div>
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg mb-8 max-w-3xl mx-auto">
+                <p className="text-lg mb-4">What You Get:</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left text-sm">
+                    <div className="flex items-start">
+                        <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Objective evaluation through objective evaluation</span>
+                    </div>
+                    <div className="flex items-start">
+                        <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Rigorous ROI models and financial justification</span>
+                    </div>
+                    <div className="flex items-start">
+                        <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Board-ready strategy presentation</span>
+                    </div>
+                    <div className="flex items-start">
+                        <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>De-risked implementation with mitigation planning</span>
+                    </div>
+                </div>
             </div>
-          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button size="lg" variant="secondary" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
               Schedule Your Free Strategy Session
@@ -742,15 +750,15 @@ const ConsultingStrategyService = () => {
             <AccordionItem value="timeline">
               <AccordionTrigger>How long does a consulting engagement take?</AccordionTrigger>
               <AccordionContent>
-                Typical engagement is 4 weeks (part-time engagement, 10-15 hours/week client time). Fast-track option 
+                Typical engagement is 4 weeks (part-time engagement, 10-15 hours/week client time). Fast-track option
                 available: 2 weeks if you're ready for daily engagement. Timeline depends on complexity and data availability.
               </AccordionContent>
             </AccordionItem>
-            
+
             <AccordionItem value="commitment">
               <AccordionTrigger>How much time do we need to commit?</AccordionTrigger>
               <AccordionContent>
-                Approximately 10-15 hours per week across 4 people (CTO, CFO, COO, Ops Lead). We handle analysis; 
+                Approximately 10-15 hours per week across 4 people (CTO, CFO, COO, Ops Lead). We handle analysis;
                 you provide context and access.
               </AccordionContent>
             </AccordionItem>
@@ -758,8 +766,8 @@ const ConsultingStrategyService = () => {
             <AccordionItem value="deliverables">
               <AccordionTrigger>What exactly do we get at the end?</AccordionTrigger>
               <AccordionContent>
-                (1) Detailed strategy report with 3 recommended automation opportunities, (2) 3-year implementation roadmap 
-                with phases and timelines, (3) Financial models showing ROI by phase, (4) Risk assessment and mitigation 
+                (1) Detailed strategy report with 3 recommended automation opportunities, (2) 3-year implementation roadmap
+                with phases and timelines, (3) Financial models showing ROI by phase, (4) Risk assessment and mitigation
                 plan, (5) Team capability and hiring plan, (6) Executive presentation deck ready for board presentation.
               </AccordionContent>
             </AccordionItem>
@@ -767,7 +775,7 @@ const ConsultingStrategyService = () => {
             <AccordionItem value="cost">
               <AccordionTrigger>What does a consulting engagement cost?</AccordionTrigger>
               <AccordionContent>
-                Typical engagement: $35K-$65K depending on complexity. Includes full strategy, roadmap, financial models, 
+                Typical engagement: $35K-$65K depending on complexity. Includes full strategy, roadmap, financial models,
                 and executive presentation. ROI is typically 50-100x investment (average $2.5M benefit identified).
               </AccordionContent>
             </AccordionItem>
@@ -775,8 +783,8 @@ const ConsultingStrategyService = () => {
             <AccordionItem value="recommend-own">
               <AccordionTrigger>Will you recommend your own services?</AccordionTrigger>
               <AccordionContent>
-                Transparency first: If our services fit your roadmap, we'll recommend them. If a competitor's service is 
-                better, we'll recommend that. We're objective. If you choose us for implementation, we'll execute the 
+                Transparency first: If our services fit your roadmap, we'll recommend them. If a competitor's service is
+                better, we'll recommend that. We're objective. If you choose us for implementation, we'll execute the
                 roadmap we designed.
               </AccordionContent>
             </AccordionItem>
@@ -784,7 +792,7 @@ const ConsultingStrategyService = () => {
             <AccordionItem value="after">
               <AccordionTrigger>What happens after the 4-week engagement?</AccordionTrigger>
               <AccordionContent>
-                Strategy is complete; you own it. Optional: We can stay engaged during implementation (30-50% our hourly rate) 
+                Strategy is complete; you own it. Optional: We can stay engaged during implementation (30-50% our hourly rate)
                 to course-correct and ensure roadmap execution. Many clients do this for Phases 1-2.
               </AccordionContent>
             </AccordionItem>
