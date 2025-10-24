@@ -24,12 +24,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const mainNavItems = [
-    { name: t("nav.home"), href: "/" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Pricing", href: "/pricing" },
-  ];
-
   const services = [
     {
       name: "n8n Automation",
@@ -138,7 +132,7 @@ const Header = () => {
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
-            
+
             {/* Solutions Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
@@ -164,7 +158,7 @@ const Header = () => {
               Portfolio
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-            
+
             {/* Resources Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
@@ -187,7 +181,7 @@ const Header = () => {
               Pricing
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-            
+
             {/* Company Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
@@ -225,7 +219,7 @@ const Header = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            
+
             <Button variant="default" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
               Book Free Audit
             </Button>
@@ -241,12 +235,13 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && ( 
+        {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 glass-effect border-t border-border animate-slide-up z-50">
             <nav className="px-4 py-6 space-y-4">
               <a href="/" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
                 {t("nav.home")}
               </a>
+
               {/* Mobile Services */}
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Services</div>
@@ -257,6 +252,7 @@ const Header = () => {
                   </a>
                 ))}
               </div>
+
               {/* Mobile Solutions */}
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Solutions</div>
@@ -267,9 +263,11 @@ const Header = () => {
                   </a>
                 ))}
               </div>
+
               <a href="/portfolio" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
                 Portfolio
               </a>
+
               {/* Mobile Resources */}
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Resources</div>
@@ -279,9 +277,11 @@ const Header = () => {
                   </a>
                 ))}
               </div>
+
               <a href="/pricing" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
                 Pricing
               </a>
+
               {/* Mobile Company */}
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Company</div>
@@ -291,7 +291,7 @@ const Header = () => {
                   </a>
                 ))}
               </div>
-              
+
               <div className="space-y-3 pt-4 border-t border-border mt-4">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
