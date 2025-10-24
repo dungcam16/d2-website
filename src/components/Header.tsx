@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
@@ -242,7 +241,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
+        {isMenuOpen && ( 
           <div className="md:hidden absolute top-full left-0 right-0 glass-effect border-t border-border animate-slide-up z-50">
             <nav className="px-4 py-6 space-y-4">
               <a href="/" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
@@ -271,9 +270,6 @@ const Header = () => {
               <a href="/portfolio" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
                 Portfolio
               </a>
-              <a href="/pricing" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
-                Pricing
-              </a>
               {/* Mobile Resources */}
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Resources</div>
@@ -283,6 +279,9 @@ const Header = () => {
                   </a>
                 ))}
               </div>
+              <a href="/pricing" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
+                Pricing
+              </a>
               {/* Mobile Company */}
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Company</div>
