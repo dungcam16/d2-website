@@ -284,8 +284,7 @@ export default function Portfolio() {
               <Award className="w-4 h-4 mr-2 inline" /> Trusted by Remote Teams Worldwide
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-              AI Automation Agency
-              <span className="text-primary"> for Remote Teams</span>
+              AI Automation Agency <span className="text-primary">for Remote Teams</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               We build AI-powered workflows, RAG systems, and SaaS products for companies in the US, Australia, and Europe. Specializing in n8n automation, LLM integration, and full-stack development.
@@ -332,14 +331,14 @@ export default function Portfolio() {
                     <CardDescription>{service.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                      <ul className="space-y-2">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                              <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
                   </CardContent>
                 </Card>
               ))}
@@ -413,9 +412,9 @@ export default function Portfolio() {
                         <div className="flex items-center justify-between text-xs text-muted-foreground">
                           <div className="flex items-center gap-1">
                             <Clock className="w-3 h-3" />
-                             {new Date(project.created_at).toLocaleDateString('en-US', { 
-                               year: 'numeric', 
-                               month: 'short' 
+                            {new Date(project.created_at).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'short' 
                              })}
                           </div>
                           {project.views > 0 && (
@@ -549,8 +548,8 @@ export default function Portfolio() {
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       {phase.activities.map((activity, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-left">{activity}</span>
+                            <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-left">{activity}</span>
                         </li>
                       ))}
                     </ul>
@@ -594,7 +593,7 @@ export default function Portfolio() {
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-4xl font-bold mb-6">Ready to Work Together?</h2>
             <p className="text-xl mb-8 opacity-90">
-              Let's discuss your automation and AI project. We specialize in working with remote teams across different time zones.
+              Let\'s discuss your automation and AI project. We specialize in working with remote teams across different time zones.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
