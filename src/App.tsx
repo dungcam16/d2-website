@@ -18,7 +18,6 @@ import BlogPost from "./pages/BlogPost";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
-import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Templates from "./pages/Templates";
 import TemplateDetail from "./pages/TemplateDetail";
 import Admin from "./pages/Admin";
@@ -33,6 +32,12 @@ import EnterpriseInfrastructureService from "./pages/EnterpriseInfrastructureSer
 import AiSupportCaseStudy from "./pages/AiSupportCaseStudy";
 import MultiPlatformDataIntegrationCaseStudy from "./pages/MultiPlatformDataIntegrationCaseStudy";
 import RagChatbotCaseStudy from "./pages/RagChatbotCaseStudy";
+import AiDataExtractionCaseStudy from "./pages/AiDataExtractionCaseStudy";
+import AiResumeBuilderCaseStudy from "./pages/AiResumeBuilderCaseStudy";
+import ContentSeoPipelineCaseStudy from "./pages/ContentSeoPipelineCaseStudy";
+import DocumentProcessingCaseStudy from "./pages/DocumentProcessingCaseStudy";
+import EcommerceOrderAutomationCaseStudy from "./pages/EcommerceOrderAutomationCaseStudy";
+import SalesPipelineAutomationCaseStudy from "./pages/SalesPipelineAutomationCaseStudy";
 
 const queryClient = new QueryClient();
 
@@ -69,7 +74,12 @@ const App = () => (
           <Route path="/portfolio/ai-support-ticket-routing-n8n" element={<AiSupportCaseStudy />} />
           <Route path="/portfolio/multi-system-data-sync-n8n" element={<MultiPlatformDataIntegrationCaseStudy />} />
           <Route path="/portfolio/rag-powered-chatbot-pipelines" element={<RagChatbotCaseStudy />} />
-          <Route path="/portfolio/:slug" element={<CaseStudyDetail />} />
+          <Route path="/portfolio/ai-data-extraction" element={<AiDataExtractionCaseStudy />} />
+          <Route path="/portfolio/ai-resume-builder" element={<AiResumeBuilderCaseStudy />} />
+          <Route path="/portfolio/content-seo-pipeline" element={<ContentSeoPipelineCaseStudy />} />
+          <Route path="/portfolio/document-processing-automation" element={<DocumentProcessingCaseStudy />} />
+          <Route path="/portfolio/ecommerce-order-automation" element={<EcommerceOrderAutomationCaseStudy />} />
+          <Route path="/portfolio/sales-pipeline-automation" element={<SalesPipelineAutomationCaseStudy />} />
           <Route path="/casestudies" element={<CaseStudies />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
