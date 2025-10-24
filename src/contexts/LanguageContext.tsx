@@ -52,7 +52,7 @@ const translations: Record<Language, Record<string, string>> = {
   vi: {
     // Header
     'nav.home': 'Trang chủ',
-    'nav.services': 'Dịch vụ',
+    'nav.services': 'Giải pháp',
     'nav.portfolio': 'Portfolio',
     'nav.about': 'Về chúng tôi',
     'nav.blog': 'Blog',
@@ -164,7 +164,7 @@ const translations: Record<Language, Record<string, string>> = {
     'services.process.feature4': 'Blueprint tự động hóa toàn diện',
     
     // AI Integration
-    'services.ai.fullTitle': 'Tích Hợp AI & Tối Ưu Hóa',
+    'services.ai.fullTitle': 'Tích Hợp AI & Tối ưu Hóa',
     'services.ai.fullDesc': 'Tích hợp AI (GPT-4, Claude) vào workflows để tự động phân loại, phân tích cảm xúc, phân tích tài liệu và phân tích dự đoán.',
     'services.ai.feature1': 'Tích hợp LLM (GPT-4, Claude)',
     'services.ai.feature2': 'Tự động phân loại và phân tích cảm xúc',
@@ -174,7 +174,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Chatbot
     'services.chatbot.fullTitle': 'Chatbot & AI Đàm Thoại',
     'services.chatbot.fullDesc': 'AI đàm thoại thông minh trên Facebook Messenger, Instagram, WhatsApp, Telegram, Zalo và tích hợp Website.',
-    'services.chatbot.feature1': 'Nhắn tin đa nền tảng',
+    'services.chatbot.feature1': 'Nhận tin đa nền tảng',
     'services.chatbot.feature2': 'Phản hồi AI thông minh',
     'services.chatbot.feature3': 'Chuyển đổi agent liền mạch',
     'services.chatbot.feature4': 'Phân tích và báo cáo',
@@ -196,7 +196,7 @@ const translations: Record<Language, Record<string, string>> = {
     'services.content.feature4': 'Phân phối đa kênh',
     
     // SEO
-    'services.seo.fullTitle': 'Tối Ưu Hóa SEO Kỹ Thuật',
+    'services.seo.fullTitle': 'Tối ưu Hóa SEO Kỹ Thuật',
     'services.seo.fullDesc': 'Dịch vụ SEO chuyên nghiệp với cam kết top 3 Google, tăng 400% lưu lượng tự nhiên và ROI bền vững.',
     'services.seo.feature1': 'Kiểm tra SEO kỹ thuật',
     'services.seo.feature2': 'Chiến lược từ khóa và tối ưu hóa',
@@ -252,7 +252,7 @@ const translations: Record<Language, Record<string, string>> = {
   en: {
     // Header
     'nav.home': 'Home',
-    'nav.services': 'Services',
+    'nav.services': 'Solutions',
     'nav.portfolio': 'Portfolio',
     'nav.about': 'About',
     'nav.blog': 'Blog',
