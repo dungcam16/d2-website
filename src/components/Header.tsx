@@ -141,7 +141,7 @@ const Header = () => {
                   {/* Column 1: Tech & Automation */}
                   <div>
                     <div className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">
-                      Tech & Automation
+                      Automation Solutions
                     </div>
                     <div className="space-y-2">
                       {techAutomationServices.map((service) => (
@@ -158,7 +158,7 @@ const Header = () => {
                   {/* Column 2: Digital Marketing */}
                   <div>
                     <div className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">
-                      Digital Marketing
+                      Marketing Solutions
                     </div>
                     <div className="space-y-2">
                       {digitalMarketingServices.map((service) => (
@@ -233,7 +233,7 @@ const Header = () => {
               {/* Mobile Services Menu - 2 Columns */}
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                  Tech & Automation
+                  Automation Solutions
                 </div>
                 {techAutomationServices.map((service) => (
                   <a
@@ -248,7 +248,7 @@ const Header = () => {
                 ))}
 
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3 mt-4">
-                  Digital Marketing
+                  Marketing Solutions
                 </div>
                 {digitalMarketingServices.map((service) => (
                   <a
