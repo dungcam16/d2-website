@@ -27,7 +27,6 @@ const Header = () => {
     { name: t("nav.home"), href: "/" },
     { name: t("nav.portfolio"), href: "/portfolio" },
     { name: "Case Studies", href: "/casestudies" },
-    { name: t("nav.blog"), href: "/blog" },
   ];
 
   const techAutomationServices = [
@@ -179,12 +178,6 @@ const Header = () => {
             {/* Case Studies */}
             <a href="/casestudies" className="text-foreground hover:text-primary transition-smooth relative group">
               Case Studies
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-
-            {/* Blog */}
-            <a href="/blog" className="text-foreground hover:text-primary transition-smooth relative group">
-              {t("nav.blog")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
           </nav>
