@@ -325,7 +325,10 @@ const Header = () => {
                 <Button
                   variant="default"
                   className="w-full shadow-glow"
-                  onClick={() => (window.location.href = "/contact")}
+                  onClick={() => {
+                    window.location.href = "/contact";
+                    setIsMenuOpen(false);
+                  }}
                 >
                   Book Free Audit
                 </Button>
