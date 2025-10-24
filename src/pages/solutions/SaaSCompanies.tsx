@@ -35,19 +35,19 @@ export default function SaaSCompanies() {
           <Title className="text-center mb-12">Common Pain Points for SaaS</Title>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Block id="pain-point-1">
-              <Icon name="ProblemIcon1" className="text-primary-500 text-4xl mb-4" />
-              <Title level="h3">Problem 1 Title</Title>
-              <TextBlock>Description of problem 1.</TextBlock>
+              <Icon name="ProblemIcon1" className="text-primary-500 text-4xl mb-4" /> {/* Placeholder icon */}
+              <Title level="h3">Inefficient Lead Qualification</Title>
+              <TextBlock>Manually qualifying leads consumes valuable sales time and can lead to missed opportunities.</TextBlock>
             </Block>
             <Block id="pain-point-2">
-              <Icon name="ProblemIcon2" className="text-primary-500 text-4xl mb-4" />
-              <Title level="h3">Problem 2 Title</Title>
-              <TextBlock>Description of problem 2.</TextBlock>
+              <Icon name="ProblemIcon2" className="text-primary-500 text-4xl mb-4" /> {/* Placeholder icon */}
+              <Title level="h3">High Customer Onboarding Friction</Title>
+              <TextBlock>Complex and manual onboarding processes result in poor user experience and increased time-to-value.</TextBlock>
             </Block>
             <Block id="pain-point-3">
-              <Icon name="ProblemIcon3" className="text-primary-500 text-4xl mb-4" />
-              <Title level="h3">Problem 3 Title</Title>
-              <TextBlock>Description of problem 3.</TextBlock>
+              <Icon name="ProblemIcon3" className="text-primary-500 text-4xl mb-4" /> {/* Placeholder icon */}
+              <Title level="h3">Customer Churn Risk</Title>
+              <TextBlock>Difficulty identifying at-risk customers and implementing proactive retention strategies.</TextBlock>
             </Block>
           </div>
         </Container>
@@ -59,28 +59,28 @@ export default function SaaSCompanies() {
           <Title className="text-center mb-12">Our Automation Solutions for SaaS</Title>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Block id="solution-1-workflow">
-              <Icon name="WorkflowIcon1" className="text-primary-500 text-4xl mb-4" />
-              <Title level="h3">Solution 1 Title</Title>
-              <TextBlock>Description of solution 1.</TextBlock>
-              <TextBlock className="font-bold mt-2">Expected Result: [Outcome Metric]</TextBlock>
+              <Icon name="WorkflowIcon1" className="text-primary-500 text-4xl mb-4" /> {/* Placeholder icon */}
+              <Title level="h3">Automated Lead Scoring & Nurturing</Title>
+              <TextBlock>Qualify leads faster and nurture them through the sales funnel with personalized communication.</TextBlock>
+              <TextBlock className="font-bold mt-2">Expected Result: [30% Increase in Qualified Leads]</TextBlock>
             </Block>
             <Block id="solution-2-workflow">
-              <Icon name="WorkflowIcon2" className="text-primary-500 text-4xl mb-4" />
-              <Title level="h3">Solution 2 Title</Title>
-              <TextBlock>Description of solution 2.</TextBlock>
-              <TextBlock className="font-bold mt-2">Expected Result: [Outcome Metric]</TextBlock>
+              <Icon name="WorkflowIcon2" className="text-primary-500 text-4xl mb-4" /> {/* Placeholder icon */}
+              <Title level="h3">Seamless Customer Onboarding</Title>
+              <TextBlock>Automate welcome sequences, product tours, and data synchronization to your CRM.</TextBlock>
+              <TextBlock className="font-bold mt-2">Expected Result: [40% Faster Customer Activation]</TextBlock>
             </Block>
             <Block id="solution-3-workflow">
-              <Icon name="WorkflowIcon3" className="text-primary-500 text-4xl mb-4" />
-              <Title level="h3">Solution 3 Title</Title>
-              <TextBlock>Description of solution 3.</TextBlock>
-              <TextBlock className="font-bold mt-2">Expected Result: [Outcome Metric]</TextBlock>
+              <Icon name="WorkflowIcon3" className="text-primary-500 text-4xl mb-4" /> {/* Placeholder icon */}
+              <Title level="h3">Proactive Churn Prevention</Title>
+              <TextBlock>Monitor usage patterns, identify at-risk customers, and trigger re-engagement campaigns.</TextBlock>
+              <TextBlock className="font-bold mt-2">Expected Result: [15% Reduction in Voluntary Churn]</TextBlock>
             </Block>
             <Block id="solution-4-workflow">
-              <Icon name="WorkflowIcon4" className="text-primary-500 text-4xl mb-4" />
-              <Title level="h3">Solution 4 Title</Title>
-              <TextBlock>Description of solution 4.</TextBlock>
-              <TextBlock className="font-bold mt-2">Expected Result: [Outcome Metric]</TextBlock>
+              <Icon name="WorkflowIcon4" className="text-primary-500 text-4xl mb-4" /> {/* Placeholder icon */}
+              <Title level="h3">Automated Reporting & Analytics</Title>
+              <TextBlock>Generate daily/weekly reports on key SaaS metrics (MRR, Churn, LTV) and visualize data.</TextBlock>
+              <TextBlock className="font-bold mt-2">Expected Result: [80% Time Savings on Reporting]</TextBlock>
             </Block>
           </div>
         </Container>
@@ -91,7 +91,7 @@ export default function SaaSCompanies() {
         <Container>
           <Title className="text-center mb-12">SaaS Automation Roadmap</Title>
           <ImageBlock src="/roadmap-placeholder.png" alt="Automation Roadmap" className="w-full" />
-          <TextBlock className="text-center mt-4">Timeline showing Month 1-4 progression, what gets automated each month, and expected ROI.</TextBlock>
+          <TextBlock className="text-center mt-4">Timeline showing Month 1-4 progression, what gets automated each month, and expected ROI for SaaS.</TextBlock>
         </Container>
       </Section>
 
@@ -128,12 +128,12 @@ export default function SaaSCompanies() {
             <Card id="case-study-1">
               <Title level="h3">SaaS Client A: [Case Study Title]</Title>
               <TextBlock>Brief overview of case study 1.</TextBlock>
-              <CtaButton href="/portfolio/case-study-1" variant="link">Read Full Case Study →</CtaButton>
+              <CtaButton href="/portfolio/saas-case-study-1" variant="link">Read Full Case Study &rarr;</CtaButton>
             </Card>
             <Card id="case-study-2">
               <Title level="h3">SaaS Client B: [Case Study Title]</Title>
               <TextBlock>Brief overview of case study 2.</TextBlock>
-              <CtaButton href="/portfolio/case-study-2" variant="link">Read Full Case Study →</CtaButton>
+              <CtaButton href="/portfolio/saas-case-study-2" variant="link">Read Full Case Study &rarr;</CtaButton>
             </Card>
           </div>
           <TextBlock className="text-center mt-8">
@@ -146,7 +146,7 @@ export default function SaaSCompanies() {
       <Section id="pricing-section" className="bg-gray-100">
         <Container>
           <Title className="text-center mb-12">SaaS-Specific Automation Pricing</Title>
-          <TextBlock className="text-center">Industry-specific pricing tiers or link to main pricing with industry context.</TextBlock>
+          <TextBlock className="text-center">Industry-specific pricing tiers or link to main pricing with industry context for SaaS.</TextBlock>
           <CtaButton href="/pricing" variant="primary" className="mx-auto mt-8">View Pricing Plans</CtaButton>
         </Container>
       </Section>
@@ -157,12 +157,12 @@ export default function SaaSCompanies() {
           <Title className="text-center mb-12">Frequently Asked Questions for SaaS</Title>
           <div className="space-y-4">
             <Block id="faq-1">
-              <Title level="h3">FAQ Question 1?</Title>
-              <TextBlock>Answer to FAQ question 1.</TextBlock>
+              <Title level="h3">FAQ Question 1 for SaaS?</Title>
+              <TextBlock>Answer to FAQ question 1 for SaaS.</TextBlock>
             </Block>
             <Block id="faq-2">
-              <Title level="h3">FAQ Question 2?</Title>
-              <TextBlock>Answer to FAQ question 2.</TextBlock>
+              <Title level="h3">FAQ Question 2 for SaaS?</Title>
+              <TextBlock>Answer to FAQ question 2 for SaaS.</TextBlock>
             </Block>
           </div>
         </Container>
