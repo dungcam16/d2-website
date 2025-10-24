@@ -1,3 +1,5 @@
+
+"use client";
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import logoD2Group from "@/assets/logo_d2_group_new.png";
@@ -25,78 +27,74 @@ const Header = () => {
 
   const mainNavItems = [
     { name: t("nav.home"), href: "/" },
-    { name: t("nav.portfolio"), href: "/portfolio" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Pricing", href: "/pricing" },
   ];
 
-  const techAutomationServices = [
+  const services = [
     {
-      name: "Data & AI Development",
-      href: "/services/data-ai-development",
-      description: "ML, NLP, CV, data pipelines",
+      name: "n8n Automation",
+      href: "/services/n8n-automation",
+      description: "Enterprise workflows with unlimited executions",
     },
     {
-      name: "Workflow & Automation",
-      href: "/services/workflow-automation",
-      description: "n8n workflows, process automation",
+      name: "AI Agents & Chatbots",
+      href: "/services/ai-agents-chatbots",
+      description: "GPT-4 powered automation for support & sales",
     },
     {
-      name: "Integration & API",
-      href: "/services/api-integration",
-      description: "Custom APIs & webhooks",
+      name: "Zapier Migration",
+      href: "/services/zapier-migration",
+      description: "Switch from Zapier and save 90% on costs",
     },
     {
-      name: "Consulting & Strategy",
-      href: "/services/consulting-strategy",
-      description: "AI strategy, process audit",
+      name: "No-Code/Low-Code Development",
+      href: "/services/nocode-lowcode-development",
+      description: "Build apps with Webflow, Bubble, Retool",
     },
     {
-      name: "Support & Optimization",
-      href: "/services/support-optimization",
-      description: "24/7 monitoring & tuning",
-    },
-    {
-      name: "Training & Knowledge",
-      href: "/services/training-knowledge",
-      description: "Training & documentation",
-    },
-    {
-      name: "Custom AI Solutions",
-      href: "/services/ai-solution",
-      description: "Chatbots & AI systems",
-    },
-    {
-      name: "Enterprise Infrastructure",
-      href: "/services/enterprise-infrastructure",
-      description: "Scalability & compliance",
+      name: "Digital Marketing Automation",
+      href: "/services/digital-marketing-automation",
+      description: "Connect your entire marketing tech stack",
     },
   ];
 
-  const digitalMarketingServices = [
+  const solutions = [
     {
-      name: "AI Chatbot",
-      href: "/services/chatbot",
-      description: "Intelligent chatbots",
+      name: "For SaaS Companies",
+      href: "/solutions/saas",
+      description: "Scale without scaling headcount",
     },
     {
-      name: "Zalo OA Marketing",
-      href: "/services/zalo",
-      description: "Zalo business solutions",
+      name: "For E-commerce Brands",
+      href: "/solutions/ecommerce",
+      description: "Automate orders, support & marketing",
     },
     {
-      name: "SEO Services",
-      href: "/services/seo",
-      description: "Search engine optimization",
+      name: "For Digital Agencies",
+      href: "/solutions/agencies",
+      description: "Multi-client workflows & reporting",
     },
     {
-      name: "Content Marketing",
-      href: "/services/content",
-      description: "Content creation & strategy",
+      name: "For FinTech Companies",
+      href: "/solutions/fintech",
+      description: "Secure, compliant financial automation",
     },
-    {
-      name: "Website Development",
-      href: "/services/website",
-      description: "Professional websites",
-    },
+  ];
+
+  const resources = [
+    { name: "Blog & Insights", href: "/blog" },
+    { name: "n8n Templates (Free)", href: "/templates" },
+    { name: "Migration Guides", href: "/guides" },
+    { name: "ROI Calculator", href: "/calculator" },
+    { name: "Webinars", href: "/webinars" },
+  ];
+
+  const company = [
+    { name: "About Us", href: "/about" },
+    { name: "Team", href: "/team" },
+    { name: "Contact", href: "/contact" },
+    { name: "Partners", href: "/partners" },
   ];
 
   return (
@@ -116,61 +114,96 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {/* Home */}
             <a href="/" className="text-foreground hover:text-primary transition-smooth relative group">
               {t("nav.home")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            {/* Portfolio */}
-            <a href="/portfolio" className="text-foreground hover:text-primary transition-smooth relative group">
-              {t("nav.portfolio")}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-
-            {/* Services Dropdown - 2 Columns */}
+            {/* Services Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
-                {t("nav.services")}
+                Services
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[700px] bg-card border-border p-6 z-50">
-                <div className="grid grid-cols-2 gap-6">
-                  {/* Column 1: Tech & Automation */}
-                  <div>
-                    <div className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">
-                      Automation Solutions
-                    </div>
-                    <div className="space-y-2">
-                      {techAutomationServices.map((service) => (
-                        <DropdownMenuItem key={service.href} asChild>
-                          <a href={service.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
-                            <div className="font-medium text-sm mb-0.5">{service.name}</div>
-                            <div className="text-xs text-muted-foreground">{service.description}</div>
-                          </a>
-                        </DropdownMenuItem>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Column 2: Digital Marketing */}
-                  <div>
-                    <div className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">
-                      Marketing Solutions
-                    </div>
-                    <div className="space-y-2">
-                      {digitalMarketingServices.map((service) => (
-                        <DropdownMenuItem key={service.href} asChild>
-                          <a href={service.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
-                            <div className="font-medium text-sm mb-0.5">{service.name}</div>
-                            <div className="text-xs text-muted-foreground">{service.description}</div>
-                          </a>
-                        </DropdownMenuItem>
-                      ))}
-                    </div>
-                  </div>
+              <DropdownMenuContent className="w-[300px] bg-card border-border p-4 z-50">
+                <div className="space-y-2">
+                  {services.map((service) => (
+                    <DropdownMenuItem key={service.href} asChild>
+                      <a href={service.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
+                        <div className="font-medium text-sm mb-0.5">{service.name}</div>
+                        <div className="text-xs text-muted-foreground">{service.description}</div>
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
                 </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
+            {/* Solutions Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
+                Solutions
+                <ChevronDown className="ml-1 h-4 w-4" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[300px] bg-card border-border p-4 z-50">
+                <div className="space-y-2">
+                  {solutions.map((item) => (
+                    <DropdownMenuItem key={item.href} asChild>
+                      <a href={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
+                        <div className="font-medium text-sm mb-0.5">{item.name}</div>
+                        <div className="text-xs text-muted-foreground">{item.description}</div>
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <a href="/portfolio" className="text-foreground hover:text-primary transition-smooth relative group">
+              Portfolio
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            
+            {/* Resources Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
+                Resources
+                <ChevronDown className="ml-1 h-4 w-4" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[200px] bg-card border-border p-2 z-50">
+                {resources.map((item) => (
+                  <DropdownMenuItem key={item.href} asChild>
+                    <a href={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
+                      {item.name}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <a href="/pricing" className="text-foreground hover:text-primary transition-smooth relative group">
+              Pricing
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            
+            {/* Company Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
+                Company
+                <ChevronDown className="ml-1 h-4 w-4" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[200px] bg-card border-border p-2 z-50">
+                {company.map((item) => (
+                  <DropdownMenuItem key={item.href} asChild>
+                    <a href={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
+                      {item.name}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
           </nav>
@@ -193,9 +226,9 @@ const Header = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
+            
             <Button variant="default" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
-              {t("nav.contact")}
+              Book Free Audit
             </Button>
           </div>
 
@@ -212,50 +245,54 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 glass-effect border-t border-border animate-slide-up z-50">
             <nav className="px-4 py-6 space-y-4">
-              {mainNavItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block text-foreground hover:text-primary transition-smooth py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-
-              {/* Mobile Services Menu - 2 Columns */}
+              <a href="/" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
+                {t("nav.home")}
+              </a>
+              {/* Mobile Services */}
               <div className="border-t border-border pt-4 mt-4">
-                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                  Automation Solutions
-                </div>
-                {techAutomationServices.map((service) => (
-                  <a
-                    key={service.name}
-                    href={service.href}
-                    className="block text-foreground hover:text-primary transition-smooth py-2 pl-4"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <div className="font-medium text-sm">{service.name}</div>
-                    <div className="text-xs text-muted-foreground">{service.description}</div>
-                  </a>
-                ))}
-
-                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3 mt-4">
-                  Marketing Solutions
-                </div>
-                {digitalMarketingServices.map((service) => (
-                  <a
-                    key={service.name}
-                    href={service.href}
-                    className="block text-foreground hover:text-primary transition-smooth py-2 pl-4"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
+                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Services</div>
+                {services.map((service) => (
+                  <a key={service.name} href={service.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
                     <div className="font-medium text-sm">{service.name}</div>
                     <div className="text-xs text-muted-foreground">{service.description}</div>
                   </a>
                 ))}
               </div>
-
+              {/* Mobile Solutions */}
+              <div className="border-t border-border pt-4 mt-4">
+                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Solutions</div>
+                {solutions.map((item) => (
+                  <a key={item.name} href={item.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
+                    <div className="font-medium text-sm">{item.name}</div>
+                    <div className="text-xs text-muted-foreground">{item.description}</div>
+                  </a>
+                ))}
+              </div>
+              <a href="/portfolio" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
+                Portfolio
+              </a>
+              <a href="/pricing" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
+                Pricing
+              </a>
+              {/* Mobile Resources */}
+              <div className="border-t border-border pt-4 mt-4">
+                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Resources</div>
+                {resources.map((item) => (
+                  <a key={item.name} href={item.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+              {/* Mobile Company */}
+              <div className="border-t border-border pt-4 mt-4">
+                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Company</div>
+                {company.map((item) => (
+                  <a key={item.name} href={item.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+              
               <div className="space-y-3 pt-4 border-t border-border mt-4">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -291,7 +328,7 @@ const Header = () => {
                   className="w-full shadow-glow"
                   onClick={() => (window.location.href = "/contact")}
                 >
-                  {t("nav.contact")}
+                  Book Free Audit
                 </Button>
               </div>
             </nav>
