@@ -110,7 +110,7 @@ interface CaseStudy {
   views: number;
 }
 
-const Portfolio = () => {
+export default function Portfolio() {
   const { toast } = useToast();
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
   const [loading, setLoading] = useState(true);
@@ -149,7 +149,7 @@ const Portfolio = () => {
       "Professional AI automation agency specializing in n8n workflows, RAG systems, and SaaS development for remote teams in the US, Australia, and Europe.",
     url: "https://d2group.co/portfolio",
     areaServed: ["United States", "Australia", "Europe", "Global"],
-    priceRange: "$$-$$$",
+    priceRange: "$$-$$$$",
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
@@ -411,10 +411,10 @@ const Portfolio = () => {
                         <div className="flex items-center justify-between text-xs text-muted-foreground">
                           <div className="flex items-center gap-1">
                             <Clock className="w-3 h-3" />
-                            {new Date(project.created_at).toLocaleDateString('en-US', { 
-                              year: 'numeric', 
-                              month: 'short' 
-                            })}
+                             {new Date(project.created_at).toLocaleDateString('en-US', { 
+                               year: 'numeric', 
+                               month: 'short' 
+                             })}
                           </div>
                           {project.views > 0 && (
                             <div className="flex items-center gap-1">
@@ -638,6 +638,4 @@ const Portfolio = () => {
       </div>
     </>
   );
-};
-
-export default Portfolio;
+}
