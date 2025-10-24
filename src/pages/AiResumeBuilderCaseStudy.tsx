@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, FileUser, Sparkles, Users, CheckCircle, Clock, TrendingUp, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -27,17 +27,17 @@ const AiResumeBuilderCaseStudy = () => {
 
   return (
     <>
-      <SEO 
+      <SEO
         title="AI Resume Builder Case Study | 3x Faster Applications"
         description="Discover how our AI resume builder helped 50,000+ users create professional resumes 3x faster with personalized recommendations"
         canonicalUrl="/portfolio/ai-resume-builder"
         ogImage={caseImage}
         structuredData={structuredData}
       />
-      
+
       <div className="min-h-screen bg-background">
         <Header />
-        
+
         {/* Hero Section */}
         <section className="pt-24 pb-12 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
           <div className="container mx-auto px-4">
@@ -45,7 +45,7 @@ const AiResumeBuilderCaseStudy = () => {
               <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
               Back to Portfolio
             </Link>
-            
+
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="animate-fade-in">
                 <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
@@ -57,7 +57,7 @@ const AiResumeBuilderCaseStudy = () => {
                 <p className="text-xl text-muted-foreground mb-8">
                   Empowering 50,000+ job seekers with AI-powered resume creation and optimization
                 </p>
-                
+
                 <div className="grid grid-cols-3 gap-4 mb-8">
                   <Card className="hover-scale">
                     <CardContent className="p-4 text-center">
@@ -79,20 +79,20 @@ const AiResumeBuilderCaseStudy = () => {
                   </Card>
                 </div>
 
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 justify-center">
                   <Button size="lg" asChild className="animate-scale-in">
                     <Link to="/contact">Start Your AI Project</Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild className="animate-scale-in">
-                    <Link to="/services/ai-solution">AI Solutions</Link>
+                    <Link to="/services/ai-chatbots">AI Solutions</Link>
                   </Button>
                 </div>
               </div>
-              
+
               <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-2xl blur-3xl"></div>
-                <img 
-                  src={caseImage} 
+                <img
+                  src={caseImage}
                   alt="AI Resume Builder Interface"
                   className="relative rounded-2xl shadow-2xl w-full h-auto"
                 />
@@ -140,7 +140,7 @@ const AiResumeBuilderCaseStudy = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8">Our AI-Powered Solution</h2>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
                 <Card className="hover-scale">
                   <CardContent className="p-6">
                     <Sparkles className="h-10 w-10 text-primary mb-4" />
@@ -205,7 +205,7 @@ const AiResumeBuilderCaseStudy = () => {
                 <Card className="text-center hover-scale">
                   <CardContent className="p-8">
                     <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <div className="text-4xl font-bold text-primary mb-2">92%</div>
+                    <div classNameName="text-4xl font-bold text-primary mb-2">92%</div>
                     <div className="text-muted-foreground">User Satisfaction</div>
                   </CardContent>
                 </Card>
