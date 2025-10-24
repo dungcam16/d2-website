@@ -63,7 +63,7 @@ const Header = () => {
     },
     {
       name: "Custom AI Solutions",
-      href: "/services/saas-product",
+      href: "/services/ai-solution",
       description: "Chatbots & AI systems",
     },
     {
