@@ -24,7 +24,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const services = [
+    const services = [
     {
       name: "n8n Automation",
       href: "/services/n8n-automation",
@@ -32,7 +32,7 @@ const Header = () => {
     },
     {
       name: "AI Agents & Chatbots",
-      href: "/services/ai-agents-chatbots",
+      href: "/services/ai-chatbots",
       description: "GPT-4 powered automation for support & sales",
     },
     {
@@ -42,12 +42,12 @@ const Header = () => {
     },
     {
       name: "No-Code/Low-Code Development",
-      href: "/services/nocode-lowcode-development",
+      href: "/services/nocode-lowcode",
       description: "Build apps with Webflow, Bubble, Retool",
     },
     {
       name: "Digital Marketing Automation",
-      href: "/services/digital-marketing-automation",
+      href: "/services/marketing-automation",
       description: "Connect your entire marketing tech stack",
     },
   ];
@@ -55,40 +55,41 @@ const Header = () => {
   const solutions = [
     {
       name: "For SaaS Companies",
-      href: "/solutions/saas",
+      href: "/solutions/saas-companies",
       description: "Scale without scaling headcount",
     },
     {
       name: "For E-commerce Brands",
-      href: "/solutions/ecommerce",
+      href: "/solutions/ecommerce-brands",
       description: "Automate orders, support & marketing",
     },
     {
       name: "For Digital Agencies",
-      href: "/solutions/agencies",
+      href: "/solutions/digital-agencies",
       description: "Multi-client workflows & reporting",
     },
     {
       name: "For FinTech Companies",
-      href: "/solutions/fintech",
+      href: "/solutions/fintech-companies",
       description: "Secure, compliant financial automation",
     },
   ];
 
   const resources = [
-    { name: "Blog & Insights", href: "/blog" },
-    { name: "n8n Templates (Free)", href: "/templates" },
-    { name: "Migration Guides", href: "/guides" },
-    { name: "ROI Calculator", href: "/calculator" },
-    { name: "Webinars", href: "/webinars" },
+    { name: "Blog & Insights", href: "/resources/blog" },
+    { name: "n8n Templates (Free)", href: "/resources/n8n-templates" },
+    { name: "Migration Guides", href: "/resources/migration-guides" },
+    { name: "ROI Calculator", href: "/resources/roi-calculator" },
+    { name: "Webinars", href: "/resources/webinars" },
   ];
 
   const company = [
-    { name: "About Us", href: "/about" },
-    { name: "Team", href: "/team" },
-    { name: "Contact", href: "/contact" },
-    { name: "Partners", href: "/partners" },
+    { name: "About Us", href: "/company/about" },
+    { name: "Team", href: "/company/team" },
+    { name: "Contact", href: "/company/contact" },
+    { name: "Partners", href: "/company/partners" },
   ];
+
 
   return (
     <header
@@ -107,17 +108,13 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-foreground hover:text-primary transition-smooth relative group">
-              {t("nav.home")}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
 
             {/* Services Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
                 Services
                 <ChevronDown className="ml-1 h-4 w-4" />
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[300px] bg-card border-border p-4 z-50">
                 <div className="space-y-2">
@@ -238,10 +235,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 glass-effect border-t border-border animate-slide-up z-50">
             <nav className="px-4 py-6 space-y-4">
-              <a href="/" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
-                {t("nav.home")}
-              </a>
-
+              
               {/* Mobile Services */}
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Services</div>
