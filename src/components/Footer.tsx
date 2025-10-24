@@ -1,186 +1,129 @@
+"use client";
 import React from "react";
-import { Zap, Facebook, MessageCircle, Instagram, AtSign, Phone, Send, Mail, MapPin, Shield } from "lucide-react";
-import logoD2Group from "@/assets/logo_d2_group_new.png";
+import { Linkedin, Twitter, Github, Youtube } from "lucide-react";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const services = [
-    "Multi-Platform Chatbot",
-    "Zalo OA Solutions",
-    "N8N Automation",
-    "SEO Optimization",
-    "Content Marketing",
-    "Website Development",
+    "n8n Automation",
+    "AI Agents & Chatbots",
+    "Zapier Migration",
+    "No-Code/Low-Code Dev",
+    "Marketing Automation",
   ];
 
-  const company = ["About Us", "Our Team", "Case Studies", "Careers", "Partners"];
+  const solutions = [
+    "For SaaS Companies",
+    "For E-commerce Brands",
+    "For Digital Agencies",
+    "For FinTech Companies",
+  ];
 
-  const resources = ["Blog", "Documentation", "Support", "Privacy Policy", "Terms of Service"];
+  const resources = [
+    "Blog & Insights",
+    "n8n Templates",
+    "Migration Guides",
+    "ROI Calculator",
+    "Webinars",
+  ];
+
+  const company = ["About Us", "Our Team", "Partners", "Contact"];
+
+  const legal = [
+    "Privacy Policy",
+    "Terms of Service",
+    "GDPR Compliance",
+    "Cookie Policy",
+  ];
+  
+  const socialLinks = [
+    { icon: Linkedin, href: "#", name: "LinkedIn" },
+    { icon: Twitter, href: "#", name: "Twitter" },
+    { icon: Github, href: "#", name: "GitHub" },
+    { icon: Youtube, href: "#", name: "YouTube" },
+  ];
+
+  const renderLinks = (links: string[]) => (
+    <ul className="space-y-3">
+      {links.map((link) => (
+        <li key={link}>
+          <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm font-light">
+            {link}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
 
   return (
-    <footer className="relative bg-card border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <img src={logoD2Group} alt="D2 Group Logo" width="40" height="40" className="h-10 w-10" />
-              <span className="text-2xl font-bold font-heading text-foreground">D2 GROUP MARKETING</span>
-            </div>
-
-            <p className="text-muted-foreground leading-relaxed">
-              Vietnam's leading marketing automation agency, transforming businesses through intelligent process
-              automation and multi-platform customer interaction solutions.
-            </p>
-
-            <div className="space-y-2">
-              <div className="flex items-center text-sm text-muted-foreground">
-                <MapPin className="h-5 w-5 mr-2 text-primary" strokeWidth={2} />
-                No. 3, Nguyen Co Thach, An Khanh Ward, Ho Chi Minh City, Vietnam
-              </div>
-              <div className="flex items-center text-sm text-muted-foreground">
-                <Phone className="h-5 w-5 mr-2 text-primary" />
-                +84909099421
-              </div>
-              <div className="flex items-center text-sm text-muted-foreground">
-                <Mail className="h-5 w-5 mr-2 text-primary" />
-                info@d2group.co
-              </div>
-              <div className="flex items-center text-sm text-muted-foreground">
-                <Shield className="h-5 w-5 mr-2 text-primary" />
-                Tax ID: 3603788837
-              </div>
-            </div>
-          </div>
-
-          {/* Services */}
+    <footer className="bg-gray-900 text-gray-300">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Services</h3>
-            <ul className="space-y-2">
-              {services.map((service) => (
-                <li key={service}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <h3 className="font-semibold text-white mb-4 uppercase tracking-wider text-sm">Services</h3>
+            {renderLinks(services)}
           </div>
-
-          {/* Company */}
+          
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Company</h3>
-            <ul className="space-y-2">
-              {company.map((item) => (
-                <li key={item}>
-                  <span className="text-muted-foreground text-sm">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <h3 className="font-semibold text-white mb-4 uppercase tracking-wider text-sm">Solutions</h3>
+            {renderLinks(solutions)}
           </div>
-
-          {/* Resources */}
+          
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Resources</h3>
-            <ul className="space-y-2">
-              {resources.map((resource) => {
-                let href = "#";
-                if (resource === "Blog") href = "/blog";
-                if (resource === "Documentation" || resource === "Support") href = "/contact";
-                if (resource === "Privacy Policy") href = "/privacy-policy";
-                if (resource === "Terms of Service") href = "/terms-of-service";
-
-                return (
-                  <li key={resource}>
-                    <a href={href} className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                      {resource}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+            <h3 className="font-semibold text-white mb-4 uppercase tracking-wider text-sm">Resources</h3>
+            {renderLinks(resources)}
           </div>
+          
+          <div>
+            <h3 className="font-semibold text-white mb-4 uppercase tracking-wider text-sm">Company</h3>
+            {renderLinks(company)}
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-white mb-4 uppercase tracking-wider text-sm">Legal</h3>
+            {renderLinks(legal)}
+          </div>
+
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sm text-muted-foreground text-center md:text-left">
-              © {new Date().getFullYear()} D2 Group. All rights reserved. Revolutionizing Vietnamese businesses through
-              intelligent Automation.
+        <div className="mt-12 pt-8 border-t border-gray-800">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+            
+            <div className="flex items-center gap-6 order-2 lg:order-1">
+                <div className="flex space-x-4">
+                    {socialLinks.map(social => (
+                        <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+                            <span className="sr-only">{social.name}</span>
+                            <social.icon className="h-5 w-5" />
+                        </a>
+                    ))}
+                </div>
+                <div className="flex items-center text-sm">
+                    <button className="text-white font-semibold">EN</button>
+                    <span className="text-gray-600 mx-1">|</span>
+                    <button className="text-gray-400 hover:text-white">VN</button>
+                </div>
             </div>
-
-            {/* Social Links */}
-            <div className="flex items-center flex-wrap gap-2 justify-center">
-              <a
-                href="https://facebook.com/d2groupmarketing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
-                title="Facebook"
-              >
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a
-                href="https://m.me/d2groupmarketing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
-                title="Messenger"
-              >
-                <MessageCircle className="h-4 w-4" />
-              </a>
-              <a
-                href="https://www.instagram.com/d2group.co"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
-                title="Instagram"
-              >
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a
-                href="https://www.threads.com/@d2group.co"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
-                title="Threads"
-              >
-                <AtSign className="h-4 w-4" />
-              </a>
-              <a
-                href="https://wa.me/84909099421"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
-                title="WhatsApp"
-              >
-                <Phone className="h-4 w-4" />
-              </a>
-              <a
-                href="https://t.me/d2group"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
-                title="Telegram"
-              >
-                <Send className="h-4 w-4" />
-              </a>
-              <a
-                href="https://zalo.me/d2group"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-card/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
-                title="Zalo"
-              >
-                <MessageCircle className="h-4 w-4" />
-              </a>
-            </div>
+            
+            <form className="flex flex-col sm:flex-row items-center gap-2 w-full max-w-md order-1 lg:order-2">
+                <label htmlFor="email-newsletter" className="sr-only">Email for newsletter</label>
+                <input 
+                    id="email-newsletter"
+                    type="email" 
+                    placeholder="Subscribe to our newsletter" 
+                    className="bg-gray-800 border border--700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                />
+                <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition-colors flex items-center justify-center w-full sm:w-auto shrink-0">
+                    Subscribe
+                </button>
+            </form>
+          </div>
+            
+          <div className="mt-8 text-center text-sm text-gray-500">
+              <p>&copy; 2025 D2 Group. All rights reserved.</p>
           </div>
         </div>
       </div>
-
-      {/* Background Effects */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-48 bg-blue-primary/5 rounded-full blur-3xl"></div>
     </footer>
   );
 };
