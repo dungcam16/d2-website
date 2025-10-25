@@ -151,7 +151,7 @@ export default function Portfolio() {
       "Professional AI automation agency specializing in n8n workflows, RAG systems, and SaaS development for remote teams in the US, Australia, and Europe.",
     url: "https://d2group.co/portfolio",
     areaServed: ["United States", "Australia", "Europe", "Global"],
-    priceRange: "$$-$",
+    priceRange: "$$-$$$$",
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
@@ -246,7 +246,7 @@ export default function Portfolio() {
       quote:
         "D2 Group delivered a complex RAG system that processes thousands of documents daily. Their expertise in AI and automation is exceptional. Highly recommended for enterprise projects.",
       author: "Sarah Chen",
-      role: "CTO, TechVentures (San Francisco, US)",
+      role: "CTO, TechVentures (San Francisco, USA)",
       rating: 5,
     },
     {
@@ -331,14 +331,14 @@ export default function Portfolio() {
                     <CardDescription>{service.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                      <ul className="space-y-2">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                              <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
                   </CardContent>
                 </Card>
               ))}
@@ -366,7 +366,7 @@ export default function Portfolio() {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {caseStudies.map((project) => {
                   const IconComponent = iconMap[project.icon_name] || Workflow;
-
+                  
                   return (
                     <Card
                       key={project.id}
@@ -412,10 +412,10 @@ export default function Portfolio() {
                         <div className="flex items-center justify-between text-xs text-muted-foreground">
                           <div className="flex items-center gap-1">
                             <Clock className="w-3 h-3" />
-                            {new Date(project.created_at).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'short'
-                            })}
+                            {new Date(project.created_at).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'short' 
+                             })}
                           </div>
                           {project.views > 0 && (
                             <div className="flex items-center gap-1">
@@ -440,7 +440,7 @@ export default function Portfolio() {
 
             <div className="text-center mt-12">
               <Button size="lg" className="shadow-lg hover:shadow-xl transition-all" asChild>
-                <Link to="/portfolio">
+                <Link to="/casestudies">
                   Browse All Case Studies <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
@@ -548,8 +548,8 @@ export default function Portfolio() {
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       {phase.activities.map((activity, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-left">{activity}</span>
+                            <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-left">{activity}</span>
                         </li>
                       ))}
                     </ul>
@@ -593,7 +593,7 @@ export default function Portfolio() {
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-4xl font-bold mb-6">Ready to Work Together?</h2>
             <p className="text-xl mb-8 opacity-90">
-              Let's discuss your automation and AI project. We specialize in working with remote teams across different time zones.
+              Let\'s discuss your automation and AI project. We specialize in working with remote teams across different time zones.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">

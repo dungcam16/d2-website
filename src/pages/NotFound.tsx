@@ -1,8 +1,7 @@
-"use client";
 import { useLocation } from "react-router-dom";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
-export default function NotFound() {
+const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
@@ -20,4 +19,6 @@ export default function NotFound() {
       </div>
     </div>
   );
-}
+};
+
+export default NotFound;
