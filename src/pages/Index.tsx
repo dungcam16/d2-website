@@ -9,7 +9,6 @@ import Technologies from "@/components/Technologies";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 
-
 export default function Index() {
   const structuredData = {
     "@context": "https://schema.org",
