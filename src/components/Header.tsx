@@ -77,7 +77,7 @@ const Header = () => {
 
   const resources = [
     { name: "Blog & Insights", href: "/resources/blog" },
-    { name: "n8n Templates (Free)", href: "/resources/n8n-templates" },
+    { name: "n8n Templates (Free)", href: "/resources/templates" },
     { name: "Migration Guides", href: "/resources/migration-guides" },
     { name: "ROI Calculator", href: "/resources/roi-calculator" },
     { name: "Webinars", href: "/resources/webinars" },
@@ -89,7 +89,6 @@ const Header = () => {
     { name: "Contact", href: "/company/contact" },
     { name: "Partners", href: "/company/partners" },
   ];
-
 
   return (
     <header
@@ -114,7 +113,7 @@ const Header = () => {
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
                 Services
                 <ChevronDown className="ml-1 h-4 w-4" />
-                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[300px] bg-card border-border p-4 z-50">
                 <div className="space-y-2">
@@ -196,31 +195,31 @@ const Header = () => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-          </nav>
 
-          {/* Language Switcher & CTA Button */}
-          <div className="hidden md:flex items-center space-x-3">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="gap-2">
-                  <Globe className="h-4 w-4" />
-                  <span className="uppercase">{language}</span>
+            {/* Language Switcher & CTA Button */}
+            <div className="hidden md:flex items-center space-x-3">
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" size="sm" className="gap-2">
+                            <Globe className="h-4 w-4" />
+                            <span className="uppercase">{language}</span>
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                        <DropdownMenuItem onClick={() => setLanguage("vi")} className="cursor-pointer">
+                            🇻🇳 Tiếng Việt
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setLanguage("en")} className="cursor-pointer">
+                            🇬🇧 English
+                        </DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+
+                <Button variant="default" className="shadow-glow" onClick={() => (window.location.href = "/company/contact")}>
+                    Book Free Audit
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage("vi")} className="cursor-pointer">
-                  🇻🇳 Tiếng Việt
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage("en")} className="cursor-pointer">
-                  🇬🇧 English
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <Button variant="default" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
-              Book Free Audit
-            </Button>
-          </div>
+            </div>
+          </nav>
 
           {/* Mobile Menu Button */}
           <button
@@ -259,7 +258,7 @@ const Header = () => {
               </div>
 
               <a href="/portfolio" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
-                Portfolio
+                  Portfolio
               </a>
 
               {/* Mobile Resources */}
@@ -273,7 +272,7 @@ const Header = () => {
               </div>
 
               <a href="/pricing" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
-                Pricing
+                  Pricing
               </a>
 
               {/* Mobile Company */}
@@ -288,43 +287,43 @@ const Header = () => {
 
               <div className="space-y-3 pt-4 border-t border-border mt-4">
                 <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="outline" className="w-full gap-2">
-                      <Globe className="h-4 w-4" />
-                      <span className="uppercase">{language}</span>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-48">
-                    <DropdownMenuItem
-                      onClick={() => {
-                        setLanguage("vi");
-                        setIsMenuOpen(false);
-                      }}
-                      className="cursor-pointer"
-                    >
-                      🇻🇳 Tiếng Việt
-                    </DropdownMenuItem>
-                    <DropdownMenuItem
-                      onClick={() => {
-                        setLanguage("en");
-                        setIsMenuOpen(false);
-                      }}
-                      className="cursor-pointer"
-                    >
-                      🇬🇧 English
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
+                    <DropdownMenuTrigger asChild>
+                        <Button variant="outline" className="w-full gap-2">
+                            <Globe className="h-4 w-4" />
+                            <span className="uppercase">{language}</span>
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-48">
+                        <DropdownMenuItem
+                            onClick={() => {
+                                setLanguage("vi");
+                                setIsMenuOpen(false);
+                            }}
+                            className="cursor-pointer"
+                        >
+                            🇻🇳 Tiếng Việt
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                            onClick={() => {
+                                setLanguage("en");
+                                setIsMenuOpen(false);
+                            }}
+                            className="cursor-pointer"
+                        >
+                            🇬🇧 English
+                        </DropdownMenuItem>
+                    </DropdownMenuContent>
                 </DropdownMenu>
 
                 <Button
-                  variant="default"
-                  className="w-full shadow-glow"
-                  onClick={() => {
-                    window.location.href = "/contact";
-                    setIsMenuOpen(false);
-                  }}
+                    variant="default"
+                    className="w-full shadow-glow"
+                    onClick={() => {
+                        window.location.href = "/company/contact";
+                        setIsMenuOpen(false);
+                    }}
                 >
-                  Book Free Audit
+                    Book Free Audit
                 </Button>
               </div>
             </nav>
