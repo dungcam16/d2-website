@@ -112,7 +112,7 @@ interface CaseStudy {
   views: number;
 }
 
-export default function Index() {
+export default function Portfolio() {
   const { toast } = useToast();
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
   const [loading, setLoading] = useState(true);
@@ -151,7 +151,7 @@ export default function Index() {
       "Professional AI automation agency specializing in n8n workflows, RAG systems, and SaaS development for remote teams in the US, Australia, and Europe.",
     url: "https://d2group.co/portfolio",
     areaServed: ["United States", "Australia", "Europe", "Global"],
-    priceRange: "$$-$$$$$",
+    priceRange: "$$-$$$$",
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
@@ -246,7 +246,7 @@ export default function Index() {
       quote:
         "D2 Group delivered a complex RAG system that processes thousands of documents daily. Their expertise in AI and automation is exceptional. Highly recommended for enterprise projects.",
       author: "Sarah Chen",
-      role: "CTO, TechVentures (San Francisco, US)",
+      role: "CTO, TechVentures (San Francisco, USA)",
       rating: 5,
     },
     {
@@ -332,12 +332,12 @@ export default function Index() {
                   </CardHeader>
                   <CardContent>
                       <ul className="space-y-2">
-                          {service.features.map((feature, idx) => (
-                              <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                                  <span>{feature}</span>
-                              </li>
-                          ))}
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                              <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span>{feature}</span>
+                          </li>
+                        ))}
                       </ul>
                   </CardContent>
                 </Card>
@@ -366,7 +366,7 @@ export default function Index() {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {caseStudies.map((project) => {
                   const IconComponent = iconMap[project.icon_name] || Workflow;
-
+                  
                   return (
                     <Card
                       key={project.id}
@@ -412,10 +412,10 @@ export default function Index() {
                         <div className="flex items-center justify-between text-xs text-muted-foreground">
                           <div className="flex items-center gap-1">
                             <Clock className="w-3 h-3" />
-                            {new Date(project.created_at).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'short'
-                            })}
+                            {new Date(project.created_at).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'short' 
+                             })}
                           </div>
                           {project.views > 0 && (
                             <div className="flex items-center gap-1">
@@ -548,8 +548,8 @@ export default function Index() {
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       {phase.activities.map((activity, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-left">{activity}</span>
+                            <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-left">{activity}</span>
                         </li>
                       ))}
                     </ul>
