@@ -10,7 +10,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { contactFormSchema } from "@/lib/validations/contact";
 
-const Contact = () => {
+export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -124,7 +124,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      description: "+84909099421",
+      description: "(+84)909099421",
       color: "text-muted-foreground",
     },
     {
@@ -174,52 +174,52 @@ const Contact = () => {
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-foreground">Full Name</label>
                       <Input
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Your full name"
-                        className="bg-card/50 border-border focus:border-primary transition-colors"
-                        required
-                      />
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Your full name"
+                          className="bg-card/50 border-border focus:border-primary transition-colors"
+                           required
+                         />
                     </div>
 
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-foreground">Email</label>
                       <Input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="your@email.com"
-                        className="bg-card/50 border-border focus:border-primary transition-colors"
-                        required
-                      />
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="your@email.com"
+                          className="bg-card/50 border-border focus:border-primary transition-colors"
+                           required
+                         />
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-foreground">Phone Number</label>
                     <Input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+84 xxx xxx xxx"
-                      className="bg-card/50 border-border focus:border-primary transition-colors"
-                      required
-                    />
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="(+84) xxx xxx xxx"
+                        className="bg-card/50 border-border focus:border-primary transition-colors"
+                        required
+                       />
                   </div>
 
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-foreground">Company</label>
                     <Input
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      placeholder="Your company name"
-                      className="bg-card/50 border-border focus:border-primary transition-colors"
-                      required
-                    />
+                         name="company"
+                         value={formData.company}
+                         onChange={handleChange}
+                         placeholder="Your company name"
+                         className="bg-card/50 border-border focus:border-primary transition-colors"
+                         required
+                        />
                   </div>
 
                   <div className="space-y-2">
@@ -231,8 +231,8 @@ const Contact = () => {
                       <SelectContent>
                         {services.map((service) => (
                           <SelectItem key={service} value={service}>
-                            {service}
-                          </SelectItem>
+                              {service}
+                            </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
@@ -241,19 +241,19 @@ const Contact = () => {
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-foreground">Message</label>
                     <Textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Share your automation needs..."
-                      className="bg-card/50 border-border focus:border-primary transition-colors min-h-[120px]"
-                      required
-                    />
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Share your automation needs..."
+                        className="bg-card/50 border-border focus:border-primary transition-colors min-h-[120px]"
+                        required
+                       />
                   </div>
 
                   <Button type="submit" className="w-full shadow-glow group" disabled={isSubmitting}>
                     {isSubmitting ? "Sending..." : "Send Message"}
-                    <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                     <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                   </Button>
                 </form>
               </Card>
 
@@ -270,15 +270,15 @@ const Contact = () => {
                         <Card
                           key={info.title}
                           className="gradient-card border-border tech-border p-6 group hover:shadow-glow transition-all duration-300 animate-scale-in"
-                          style={{ animationDelay: `${index * 0.1}s` }}
+                           style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                          <div
-                            className={`inline-flex p-3 rounded-lg bg-card/50 ${info.color} mb-4 group-hover:scale-110 transition-transform`}
-                          >
+                            <div
+                              className={`inline-flex p-3 rounded-lg bg-card/50 ${info.color} mb-4 group-hover:scale-110 transition-transform`}
+                            >
                             <IconComponent className="h-6 w-6" />
-                          </div>
-                          <h4 className="font-semibold text-foreground mb-2">{info.title}</h4>
-                          <p className="text-muted-foreground text-sm">{info.description}</p>
+                            </div>
+                            <h4 className="font-semibold text-foreground mb-2">{info.title}</h4>
+                            <p className="text-muted-foreground text-sm">{info.description}</p>
                         </Card>
                       );
                     })}
@@ -291,29 +291,29 @@ const Contact = () => {
 
                   <Button variant="outline" className="w-full justify-start tech-border group" asChild>
                     <a href="https://wa.me/84909099421" target="_blank" rel="noopener noreferrer">
-                      <MessageSquare className="mr-3 h-5 w-5 text-green-500" />
-                      Message on WhatsApp
+                       <MessageSquare className="mr-3 h-5 w-5 text-green-500" />
+                       Message on WhatsApp
                     </a>
                   </Button>
 
                   <Button variant="outline" className="w-full justify-start tech-border group" asChild>
                     <a href="https://zalo.me/d2group" target="_blank" rel="noopener noreferrer">
-                      <MessageSquare className="mr-3 h-5 w-5 text-blue-500" />
-                      Message on Zalo
+                       <MessageSquare className="mr-3 h-5 w-5 text-blue-500" />
+                       Message on Zalo
                     </a>
                   </Button>
 
                   <Button variant="outline" className="w-full justify-start tech-border group" asChild>
                     <a href="https://m.me/d2groupmarketing" target="_blank" rel="noopener noreferrer">
-                      <MessageSquare className="mr-3 h-5 w-5 text-blue-600" />
-                      Message on Messenger
+                       <MessageSquare className="mr-3 h-5 w-5 text-blue-600" />
+                       Message on Messenger
                     </a>
                   </Button>
 
                   <Button variant="outline" className="w-full justify-start tech-border group" asChild>
                     <a href="https://t.me/d2group" target="_blank" rel="noopener noreferrer">
-                      <MessageSquare className="mr-3 h-5 w-5 text-sky-500" />
-                      Message on Telegram
+                       <MessageSquare className="mr-3 h-5 w-5 text-sky-500" />
+                       Message on Telegram
                     </a>
                   </Button>
                 </div>
@@ -321,7 +321,7 @@ const Contact = () => {
                 {/* Support Information */}
                 <Card
                   className="gradient-card border-border tech-border p-6 text-center animate-scale-in"
-                  style={{ animationDelay: "0.7s" }}
+                   style={{ animationDelay: "0.7s" }}
                 >
                   <h4 className="text-xl font-bold text-foreground mb-2">24/7 Support</h4>
                   <p className="text-muted-foreground mb-4 text-sm">
@@ -336,7 +336,7 @@ const Contact = () => {
           {/* Background Effects */}
           <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-glow"></div>
           <div
-            className="absolute bottom-0 right-0 w-72 h-72 bg-accent/3 rounded-full blur-3xl animate-pulse-glow"
+            className="absolute bottom-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-pulse-glow"
             style={{ animationDelay: "2s" }}
           ></div>
         </section>
@@ -345,6 +345,4 @@ const Contact = () => {
       <Footer />
     </div>
   );
-};
-
-export default Contact;
+}
