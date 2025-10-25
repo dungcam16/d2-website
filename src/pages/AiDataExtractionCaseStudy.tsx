@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, FileText, Brain, Zap, TrendingUp, CheckCircle, Clock, DollarSign, Users, Target, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -232,7 +232,7 @@ const AiDataExtractionCaseStudy = () => {
                 <Card className="text-center hover-scale">
                   <CardContent className="p-8">
                     <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <div classNameName="text-4xl font-bold text-primary mb-2">95%</div>
+                    <div className="text-4xl font-bold text-primary mb-2">95%</div>
                     <div className="text-muted-foreground">Extraction Accuracy</div>
                   </CardContent>
                 </Card>

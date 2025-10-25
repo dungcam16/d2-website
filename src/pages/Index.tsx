@@ -1,22 +1,13 @@
-"use client";
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-
-// New components for the homepage structure
-import HeroSection from "@/components/HeroSection";
-import ProblemPoints from "@/components/ProblemPoints";
-import FeaturedServices from "@/components/FeaturedServices";
-import FeaturedCaseStudies from "@/components/FeaturedCaseStudies";
-import SocialProof from "@/components/SocialProof";
-import HowWeWork from "@/components/HowWeWork";
-import IntegrationShowcase from "@/components/IntegrationShowcase";
-import RoiCalculatorSection from "@/components/RoiCalculatorSection";
-import IndustrySolutions from "@/components/IndustrySolutions";
-import BlogPreview from "@/components/BlogPreview";
-import FaqSection from "@/components/FaqSection";
-import BottomCta from "@/components/BottomCta";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import About from "@/components/About";
+import Technologies from "@/components/Technologies";
+import Testimonials from "@/components/Testimonials";
+import Contact from "@/components/Contact";
 
 
 const Index = () => {
@@ -73,18 +64,12 @@ const Index = () => {
         structuredData={structuredData}
       />
       <Header />
-      <HeroSection />
-      <ProblemPoints />
-      <FeaturedServices />
-      <FeaturedCaseStudies />
-      <SocialProof />
-      <HowWeWork />
-      <IntegrationShowcase />
-      <RoiCalculatorSection />
-      <IndustrySolutions />
-      <BlogPreview />
-      <FaqSection />
-      <BottomCta />
+      <Hero />
+      <Services />
+      <About />
+      <Technologies />
+      <Testimonials />
+      <Contact />
       <Footer />
     </div>
   );

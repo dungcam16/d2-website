@@ -5,10 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ChatbotService from "./pages/ChatbotService";
-import ZaloService from "./pages/ZaloService";
 import ContentService from "./pages/ContentService";
-import SeoService from "./pages/SeoService";
-import WebsiteService from "./pages/WebsiteService";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
 import CaseStudies from "./pages/CaseStudies";
@@ -21,10 +18,6 @@ import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import TemplateDetail from "./pages/TemplateDetail";
 import Admin from "./pages/Admin";
-import WorkflowAutomationService from "./pages/WorkflowAutomationService";
-import DataAiDevelopmentService from "./pages/DataAiDevelopmentService";
-import AiSolutionService from "./pages/AiSolutionService";
-import ApiIntegrationService from "./pages/ApiIntegrationService";
 import ConsultingStrategyService from "./pages/ConsultingStrategyService";
 import SupportOptimizationService from "./pages/SupportOptimizationService";
 import TrainingKnowledgeService from "./pages/TrainingKnowledgeService";
@@ -51,19 +44,12 @@ const App = () => (
           <Route path="/" element={<Index />} />
 
           {/* Service Routes */}
-          <Route path="/services/workflow-automation" element={<WorkflowAutomationService />} />
-          <Route path="/services/data-ai-development" element={<DataAiDevelopmentService />} />
-          <Route path="/services/ai-solution" element={<AiSolutionService />} />
-          <Route path="/services/api-integration" element={<ApiIntegrationService />} />
           <Route path="/services/consulting-strategy" element={<ConsultingStrategyService />} />
           <Route path="/services/support-optimization" element={<SupportOptimizationService />} />
           <Route path="/services/training-knowledge" element={<TrainingKnowledgeService />} />
           <Route path="/services/enterprise-infrastructure" element={<EnterpriseInfrastructureService />} />
           <Route path="/services/chatbot" element={<ChatbotService />} />
-          <Route path="/services/zalo" element={<ZaloService />} />
           <Route path="/services/content" element={<ContentService />} />
-          <Route path="/services/seo" element={<SeoService />} />
-          <Route path="/services/website" element={<WebsiteService />} />
 
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
