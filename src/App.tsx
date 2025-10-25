@@ -31,6 +31,11 @@ import ContentSeoPipelineCaseStudy from "./pages/ContentSeoPipelineCaseStudy";
 import DocumentProcessingCaseStudy from "./pages/DocumentProcessingCaseStudy";
 import EcommerceOrderAutomationCaseStudy from "./pages/EcommerceOrderAutomationCaseStudy";
 import SalesPipelineAutomationCaseStudy from "./pages/SalesPipelineAutomationCaseStudy";
+import N8nAutomation from "./pages/services/N8nAutomation";
+import AiChatbots from "./pages/services/AiChatbots";
+import ZapierMigration from "./pages/services/ZapierMigration";
+import NoCodeLowCode from "./pages/services/NoCodeLowCode";
+import MarketingAutomation from "./pages/services/MarketingAutomation";
 
 const queryClient = new QueryClient();
 
@@ -44,12 +49,11 @@ const App = () => (
           <Route path="/" element={<Index />} />
 
           {/* Service Routes */}
-          <Route path="/services/consulting-strategy" element={<ConsultingStrategyService />} />
-          <Route path="/services/support-optimization" element={<SupportOptimizationService />} />
-          <Route path="/services/training-knowledge" element={<TrainingKnowledgeService />} />
-          <Route path="/services/enterprise-infrastructure" element={<EnterpriseInfrastructureService />} />
-          <Route path="/services/chatbot" element={<ChatbotService />} />
-          <Route path="/services/content" element={<ContentService />} />
+          <Route path="/services/n8n-automation" element={<N8nAutomation />} />
+          <Route path="/services/ai-chatbots" element={<AiChatbots />} />
+          <Route path="/services/zapier-migration" element={<ZapierMigration />} />
+          <Route path="/services/nocode-lowcode" element={<NoCodeLowCode />} />
+          <Route path="/services/marketing-automation" element={<MarketingAutomation />} />
 
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
