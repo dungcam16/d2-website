@@ -9,7 +9,8 @@ import Technologies from "@/components/Technologies";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 
-export default function Index() {
+
+const Index = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -30,7 +31,7 @@ export default function Index() {
           itemOffered: {
             "@type": "Service",
             name: "n8n Workflow Automation",
-            description: "Complex multi-step workflows with error handling and API integrations"
+            description: "Complex multi-step workflows with error handling and API integrations",
           },
         },
         {
@@ -56,7 +57,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="D2 Group – AI Automation Agency for Remote Teams | n8n, RAG, SaaS Development"
+        title="D2 Group — AI Automation Agency for Remote Teams | n8n, RAG, SaaS Development"
         description="Professional AI automation agency serving US, Australia, and Europe. Expert in n8n workflows, GPT-4/Claude integration, RAG systems, and full-stack SaaS development with React & Node.js."
         keywords="AI automation agency, n8n developer, RAG systems, GPT-4 integration, remote team automation, SaaS development, full-stack developer, API integration, workflow automation, AI consultant"
         canonicalUrl="/"
@@ -72,4 +73,6 @@ export default function Index() {
       <Footer />
     </div>
   );
-}
+};
+
+export default Index;
