@@ -179,7 +179,7 @@ export default function Contact() {
                           onChange={handleChange}
                           placeholder="Your full name"
                           className="bg-card/50 border-border focus:border-primary transition-colors"
-                          required
+                           required
                          />
                     </div>
 
@@ -192,7 +192,7 @@ export default function Contact() {
                           onChange={handleChange}
                           placeholder="your@email.com"
                           className="bg-card/50 border-border focus:border-primary transition-colors"
-                          required
+                           required
                          />
                     </div>
                   </div>
@@ -213,13 +213,13 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-foreground">Company</label>
                     <Input
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        placeholder="Your company name"
-                        className="bg-card/50 border-border focus:border-primary transition-colors"
-                        required
-                       />
+                         name="company"
+                         value={formData.company}
+                         onChange={handleChange}
+                         placeholder="Your company name"
+                         className="bg-card/50 border-border focus:border-primary transition-colors"
+                         required
+                        />
                   </div>
 
                   <div className="space-y-2">
@@ -231,8 +231,8 @@ export default function Contact() {
                       <SelectContent>
                         {services.map((service) => (
                           <SelectItem key={service} value={service}>
-                            {service}
-                          </SelectItem>
+                              {service}
+                            </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
@@ -250,10 +250,10 @@ export default function Contact() {
                        />
                   </div>
 
-                 <Button type="submit" className="w-full shadow-glow group" disabled={isSubmitting}>
+                  <Button type="submit" className="w-full shadow-glow group" disabled={isSubmitting}>
                     {isSubmitting ? "Sending..." : "Send Message"}
-                    <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                     <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                   </Button>
                 </form>
               </Card>
 
@@ -270,12 +270,12 @@ export default function Contact() {
                         <Card
                           key={info.title}
                           className="gradient-card border-border tech-border p-6 group hover:shadow-glow transition-all duration-300 animate-scale-in"
-                          style={{ animationDelay: `${index * 0.1}s` }}
+                           style={{ animationDelay: `${index * 0.1}s` }}
                         >
                             <div
                               className={`inline-flex p-3 rounded-lg bg-card/50 ${info.color} mb-4 group-hover:scale-110 transition-transform`}
-                           >
-                              <IconComponent className="h-6 w-6" />
+                            >
+                            <IconComponent className="h-6 w-6" />
                             </div>
                             <h4 className="font-semibold text-foreground mb-2">{info.title}</h4>
                             <p className="text-muted-foreground text-sm">{info.description}</p>
@@ -291,28 +291,28 @@ export default function Contact() {
 
                   <Button variant="outline" className="w-full justify-start tech-border group" asChild>
                     <a href="https://wa.me/84909099421" target="_blank" rel="noopener noreferrer">
-                      <MessageSquare className="mr-3 h-5 w-5 text-green-500" />
+                       <MessageSquare className="mr-3 h-5 w-5 text-green-500" />
                        Message on WhatsApp
                     </a>
                   </Button>
 
                   <Button variant="outline" className="w-full justify-start tech-border group" asChild>
                     <a href="https://zalo.me/d2group" target="_blank" rel="noopener noreferrer">
-                      <MessageSquare className="mr-3 h-5 w-5 text-blue-500" />
+                       <MessageSquare className="mr-3 h-5 w-5 text-blue-500" />
                        Message on Zalo
                     </a>
                   </Button>
 
                   <Button variant="outline" className="w-full justify-start tech-border group" asChild>
                     <a href="https://m.me/d2groupmarketing" target="_blank" rel="noopener noreferrer">
-                      <MessageSquare className="mr-3 h-5 w-5 text-blue-600" />
+                       <MessageSquare className="mr-3 h-5 w-5 text-blue-600" />
                        Message on Messenger
                     </a>
                   </Button>
 
                   <Button variant="outline" className="w-full justify-start tech-border group" asChild>
                     <a href="https://t.me/d2group" target="_blank" rel="noopener noreferrer">
-                      <MessageSquare className="mr-3 h-5 w-5 text-sky-500" />
+                       <MessageSquare className="mr-3 h-5 w-5 text-sky-500" />
                        Message on Telegram
                     </a>
                   </Button>
@@ -321,7 +321,7 @@ export default function Contact() {
                 {/* Support Information */}
                 <Card
                   className="gradient-card border-border tech-border p-6 text-center animate-scale-in"
-                  style={{ animationDelay: "0.7s" }}
+                   style={{ animationDelay: "0.7s" }}
                 >
                   <h4 className="text-xl font-bold text-foreground mb-2">24/7 Support</h4>
                   <p className="text-muted-foreground mb-4 text-sm">
