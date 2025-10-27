@@ -61,7 +61,7 @@ export default function Team() {
     {
       name: "Tran Minh",
       role: "Chief Technology Officer",
-      avatar: teamTranMinh,
+      avatar: "",
       bio: "Technical architecture, AI systems, and innovation",
       responsibilities: ["Tech Architecture", "AI Development", "Quality Assurance"],
       linkedin: "#",
@@ -70,7 +70,7 @@ export default function Team() {
     {
       name: "Le Phuong",
       role: "Head of Operations",
-      avatar: teamLePhuong,
+      avatar: "",
       bio: "Process optimization, client success, and delivery oversight",
       responsibilities: ["Operations", "Client Success", "Process Design"],
       linkedin: "#",
@@ -283,7 +283,7 @@ export default function Team() {
                   <CardContent className="p-6 text-center">
                     <div className="relative inline-block mb-4">
                       <Avatar className="w-24 h-24 mx-auto group-hover:scale-110 transition-transform">
-                        <AvatarImage src={member.avatar} alt={member.name} />
+                        <AvatarImage src={member.avatar} alt={member.name} className="object-cover" />
                         <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full p-1 border-2 border-background">

@@ -80,7 +80,7 @@ const About = () => {
     {
       name: "Tran Minh",
       role: "Lead AI Engineer",
-      avatar: teamTranMinh,
+      avatar: "",
       bio: "AI specialist focused on RAG systems and LLM integration for business applications.",
       linkedin: "#",
       expertise: ["GPT-4", "RAG Systems", "NLP"]
@@ -88,7 +88,7 @@ const About = () => {
     {
       name: "Le Phuong",
       role: "Client Success Manager",
-      avatar: teamLePhuong,
+      avatar: "",
       bio: "Ensures every client achieves measurable ROI. 98% client satisfaction rate.",
       linkedin: "#",
       expertise: ["Project Management", "Client Relations", "Training"]
@@ -348,7 +348,7 @@ const About = () => {
               <Card key={index} className="group hover:shadow-xl transition-all">
                 <CardContent className="p-6 text-center">
                   <Avatar className="w-24 h-24 mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <AvatarImage src={member.avatar} alt={member.name} />
+                    <AvatarImage src={member.avatar} alt={member.name} className="object-cover" />
                     <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
                   </Avatar>
                   
