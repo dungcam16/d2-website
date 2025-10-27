@@ -34,8 +34,8 @@ export default function Pricing() {
   const projectPlans = [
     {
       name: "Starter",
-      price: "$3,000",
-      priceRange: "$3K - $5K",
+      price: "Contact Us",
+      priceRange: "Contact Us",
       period: "one-time",
       description: "Perfect for small businesses starting their automation journey",
       ideal: "1-3 simple workflows",
@@ -61,8 +61,8 @@ export default function Pricing() {
     },
     {
       name: "Professional",
-      price: "$8,000",
-      priceRange: "$8K - $15K",
+      price: "Contact Us",
+      priceRange: "Contact Us",
       period: "one-time",
       description: "For growing businesses needing comprehensive automation",
       ideal: "5-10 complex workflows",
@@ -86,12 +86,12 @@ export default function Pricing() {
       ],
       cta: "Most Popular",
       popular: true,
-      savings: "Save 40% vs hourly"
+      savings: "ROI within 3 months"
     },
     {
       name: "Enterprise",
-      price: "$25,000+",
-      priceRange: "$25K+",
+      price: "Contact Us",
+      priceRange: "Contact Us",
       period: "custom scope",
       description: "For large organizations with complex automation needs",
       ideal: "Unlimited workflows",
@@ -120,8 +120,8 @@ export default function Pricing() {
   const retainerPlans = [
     {
       name: "Maintenance",
-      price: "$500",
-      period: "/month",
+      price: "Contact Us",
+      period: "",
       description: "Keep your workflows running smoothly",
       features: [
         "Monitoring & bug fixes",
@@ -136,8 +136,8 @@ export default function Pricing() {
     },
     {
       name: "Growth",
-      price: "$1,500",
-      period: "/month",
+      price: "Contact Us",
+      period: "",
       description: "Continuous optimization and new features",
       features: [
         "Everything in Maintenance",
@@ -154,8 +154,8 @@ export default function Pricing() {
     },
     {
       name: "Dedicated",
-      price: "$5,000",
-      period: "/month",
+      price: "Contact Us",
+      period: "",
       description: "Full-time automation team at your service",
       features: [
         "Everything in Growth",
@@ -176,25 +176,25 @@ export default function Pricing() {
   const addons = [
     { 
       name: "Additional Workflow", 
-      price: "$800 - $2,500", 
+      price: "Contact Us", 
       description: "Price varies by complexity",
       icon: Zap 
     },
     { 
       name: "Training Session", 
-      price: "$400", 
+      price: "Contact Us", 
       description: "2-hour team training per session",
       icon: Users 
     },
     { 
       name: "Custom Integration", 
-      price: "$1,500 - $5,000", 
+      price: "Contact Us", 
       description: "Complex API development",
       icon: Shield 
     },
     { 
       name: "Migration Service", 
-      price: "$2,000 - $8,000", 
+      price: "Contact Us", 
       description: "Zapier/Make to n8n migration",
       icon: ArrowRight 
     }
@@ -299,7 +299,7 @@ export default function Pricing() {
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8">
               {[
-                { label: "Starting from", value: "$3,000" },
+                { label: "Custom Pricing", value: "Contact Us" },
                 { label: "Avg ROI Time", value: "4 months" },
                 { label: "Projects Delivered", value: "127+" },
                 { label: "Client Satisfaction", value: "98%" }
@@ -313,7 +313,7 @@ export default function Pricing() {
 
             <div className="flex gap-3 justify-center">
               <Button size="lg" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   <Phone className="w-4 h-4 mr-2" />
                   Book Free Consultation
                 </Link>
@@ -391,7 +391,7 @@ export default function Pricing() {
                           variant={plan.popular ? "default" : "outline"} 
                           asChild
                         >
-                          <Link to="/contact">
+                          <Link to="/company/contact">
                             {plan.cta} <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
                         </Button>

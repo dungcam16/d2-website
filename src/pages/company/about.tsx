@@ -57,31 +57,31 @@ const About = () => {
 
   const team = [
     {
-      name: "David Chen",
+      name: "Nguyen Dung",
       role: "Founder & CEO",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
       bio: "10+ years in automation and AI development. Former tech lead at Fortune 500 companies.",
       linkedin: "#",
       expertise: ["Strategy", "AI/ML", "Enterprise Architecture"]
     },
     {
-      name: "Sarah Johnson",
-      role: "Head of Automation",
+      name: "Danh Duyen",
+      role: "Head Marketing of Automation",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
-      bio: "n8n expert with 500+ workflows built. Specializes in complex integrations.",
+      bio: "Marketing automation expert with 500+ workflows built. Specializes in complex integrations and growth strategies.",
       linkedin: "#",
-      expertise: ["n8n", "Integrations", "Workflow Design"]
+      expertise: ["Marketing Automation", "Growth Strategy", "Campaign Design"]
     },
     {
-      name: "Michael Park",
+      name: "Tran Minh",
       role: "Lead AI Engineer",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop",
       bio: "AI specialist focused on RAG systems and LLM integration for business applications.",
       linkedin: "#",
       expertise: ["GPT-4", "RAG Systems", "NLP"]
     },
     {
-      name: "Emily Roberts",
+      name: "Le Phuong",
       role: "Client Success Manager",
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
       bio: "Ensures every client achieves measurable ROI. 98% client satisfaction rate.",
@@ -238,7 +238,7 @@ const About = () => {
 
               <div className="flex gap-3 mt-6">
                 <Button asChild>
-                  <Link to="/contact">
+                  <Link to="/company/contact">
                     Work With Us <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
@@ -444,7 +444,7 @@ const About = () => {
               </ul>
 
               <Button asChild className="mt-6">
-                <Link to="/solutions">
+                <Link to="/solutions/digital-agencies">
                   View Industry Solutions <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
@@ -502,7 +502,7 @@ const About = () => {
 
           <div className="flex gap-4 justify-center flex-wrap">
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/contact">
+              <Link to="/company/contact">
                 Schedule Free Consultation
               </Link>
             </Button>

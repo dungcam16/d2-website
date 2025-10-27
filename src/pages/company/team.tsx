@@ -36,34 +36,34 @@ import SEO from "@/components/SEO";
 export default function Team() {
   const humanLeadership = [
     {
-      name: "David Chen",
+      name: "Nguyen Dung",
       role: "Founder & CEO",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
       bio: "Strategic oversight, client relationships, and company vision",
       responsibilities: ["Strategy & Vision", "Client Partnerships", "Team Leadership"],
       linkedin: "#",
       type: "human"
     },
     {
-      name: "Sarah Johnson",
-      role: "Head of Marketing & Growth",
+      name: "Danh Duyen",
+      role: "Head Marketing of Automation",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
-      bio: "Brand strategy, growth initiatives, and market positioning",
-      responsibilities: ["Brand Strategy", "Growth Marketing", "Content Oversight"],
+      bio: "Marketing automation strategy, growth initiatives, and market positioning",
+      responsibilities: ["Marketing Automation", "Growth Strategy", "Campaign Design"],
       linkedin: "#",
       type: "human"
     },
     {
-      name: "Michael Park",
+      name: "Tran Minh",
       role: "Chief Technology Officer",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop",
       bio: "Technical architecture, AI systems, and innovation",
       responsibilities: ["Tech Architecture", "AI Development", "Quality Assurance"],
       linkedin: "#",
       type: "human"
     },
     {
-      name: "Emily Roberts",
+      name: "Le Phuong",
       role: "Head of Operations",
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
       bio: "Process optimization, client success, and delivery oversight",
