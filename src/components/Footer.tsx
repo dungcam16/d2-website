@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
     setIsSubmittingNewsletter(true);
 
     try {
-      const response = await fetch("https://n8n.d2group.co/webhook/d2group?flow=newsletter", {
+      const response = await fetch("https://n8n.d2group.co/webhook/d2group_website?flow=newsletter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

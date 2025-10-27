@@ -91,7 +91,7 @@ const Blog = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://n8n.d2group.co/webhook/website_d2group_newsletter", {
+      const response = await fetch("https://n8n.d2group.co/webhook/d2group_website?flow=newsletter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
