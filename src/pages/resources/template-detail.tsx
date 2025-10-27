@@ -4,6 +4,7 @@ import { ArrowLeft, Download, Eye, Grid3x3, Calendar, User, Tag, ExternalLink } 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import RichContent from "@/components/RichContent";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Separator } from "@/components/ui/separator";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import DOMPurify from "dompurify";
 
 interface WorkflowTemplate {
   id: string;
@@ -251,10 +251,7 @@ const TemplateDetail = () => {
                 <CardTitle>Workflow Details</CardTitle>
               </CardHeader>
               <CardContent>
-                <div
-                  className="prose prose-gray dark:prose-invert max-w-none"
-                  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(template.content) }}
-                />
+                <RichContent content={template.content} />
               </CardContent>
             </Card>
 

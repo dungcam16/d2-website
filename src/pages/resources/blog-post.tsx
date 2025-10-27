@@ -7,8 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import RichContent from "@/components/RichContent";
 import { supabase } from "@/integrations/supabase/client";
-import DOMPurify from "dompurify";
 
 interface BlogPost {
   id: string;
@@ -230,8 +230,8 @@ const BlogPostPage = () => {
             </div>
           </header>
 
-          <div className="prose dark:prose-invert prose-lg max-w-none mt-8">
-            <div className="text-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }} />
+          <div className="mt-8">
+            <RichContent content={post.content} />
           </div>
         </article>
 
