@@ -9,7 +9,8 @@ import {
   Settings,
   Image,
   BarChart3,
-  LogOut 
+  LogOut,
+  BookOpen
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -28,6 +29,7 @@ export function AdminLayout({ children, onLogout }: AdminLayoutProps) {
     { id: "blog", label: "Blog Posts", icon: FileText },
     { id: "templates", label: "Workflow Templates", icon: Workflow },
     { id: "case-studies", label: "Case Studies", icon: FolderKanban },
+    { id: "migration-guides", label: "Migration Guides", icon: BookOpen },
     { id: "users", label: "Users & Roles", icon: Users },
     { id: "media", label: "Media Library", icon: Image },
     { id: "analytics", label: "Analytics", icon: BarChart3 },

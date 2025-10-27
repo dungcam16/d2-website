@@ -18,15 +18,6 @@ import Pricing from "./pages/Pricing";
 import MigrationGuides from "./pages/resources/migration-guides";
 import RoiCalculator from "./pages/resources/roi-calculator";
 import CaseStudiesPage from "./pages/resources/casestudies";
-import AiSupportCaseStudy from "./pages/AiSupportCaseStudy";
-import MultiPlatformDataIntegrationCaseStudy from "./pages/MultiPlatformDataIntegrationCaseStudy";
-import RagChatbotCaseStudy from "./pages/RagChatbotCaseStudy";
-import AiDataExtractionCaseStudy from "./pages/AiDataExtractionCaseStudy";
-import AiResumeBuilderCaseStudy from "./pages/AiResumeBuilderCaseStudy";
-import ContentSeoPipelineCaseStudy from "./pages/ContentSeoPipelineCaseStudy";
-import DocumentProcessingCaseStudy from "./pages/DocumentProcessingCaseStudy";
-import EcommerceOrderAutomationCaseStudy from "./pages/EcommerceOrderAutomationCaseStudy";
-import SalesPipelineAutomationCaseStudy from "./pages/SalesPipelineAutomationCaseStudy";
 
 // Services
 import N8nAutomation from "./pages/services/N8nAutomation";
@@ -81,15 +72,7 @@ const App = () => (
 
           {/* Portfolio Routes */}
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/portfolio/ai-support-ticket-routing-n8n" element={<AiSupportCaseStudy />} />
-          <Route path="/portfolio/multi-system-data-sync-n8n" element={<MultiPlatformDataIntegrationCaseStudy />} />
-          <Route path="/portfolio/rag-powered-chatbot-pipelines" element={<RagChatbotCaseStudy />} />
-          <Route path="/portfolio/ai-data-extraction" element={<AiDataExtractionCaseStudy />} />
-          <Route path="/portfolio/ai-resume-builder" element={<AiResumeBuilderCaseStudy />} />
-          <Route path="/portfolio/content-seo-pipeline" element={<ContentSeoPipelineCaseStudy />} />
-          <Route path="/portfolio/document-processing-automation" element={<DocumentProcessingCaseStudy />} />
-          <Route path="/portfolio/ecommerce-order-automation" element={<EcommerceOrderAutomationCaseStudy />} />
-          <Route path="/portfolio/sales-pipeline-automation" element={<SalesPipelineAutomationCaseStudy />} />
+          <Route path="/portfolio/:slug" element={<Portfolio />} />
 
           {/* Company Routes */}
           <Route path="/company/about" element={<About />} />

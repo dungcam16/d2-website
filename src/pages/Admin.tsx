@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { BlogPostsManager } from "@/components/admin/BlogPostsManager";
 import { WorkflowTemplatesManager } from "@/components/admin/WorkflowTemplatesManager";
 import { CaseStudiesManager } from "@/components/admin/CaseStudiesManager";
+import { MigrationGuidesManager } from "@/components/admin/MigrationGuidesManager";
 import { UsersManager } from "@/components/admin/UsersManager";
 import { SettingsManager } from "@/components/admin/SettingsManager";
 import { MediaManager } from "@/components/admin/MediaManager";
@@ -186,6 +187,7 @@ export default function Admin() {
       {currentSection === "blog" && <BlogPostsManager />}
       {currentSection === "templates" && <WorkflowTemplatesManager />}
       {currentSection === "case-studies" && <CaseStudiesManager />}
+      {currentSection === "migration-guides" && <MigrationGuidesManager />}
       {currentSection === "users" && <UsersManager />}
       {currentSection === "media" && <MediaManager />}
       {currentSection === "analytics" && <AnalyticsManager />}
