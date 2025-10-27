@@ -17,7 +17,7 @@ import Admin from "./pages/Admin";
 import Pricing from "./pages/Pricing";
 import MigrationGuides from "./pages/resources/migration-guides";
 import RoiCalculator from "./pages/resources/roi-calculator";
-import Webinars from "./pages/resources/webinars";
+import CaseStudiesPage from "./pages/resources/casestudies";
 import AiSupportCaseStudy from "./pages/AiSupportCaseStudy";
 import MultiPlatformDataIntegrationCaseStudy from "./pages/MultiPlatformDataIntegrationCaseStudy";
 import RagChatbotCaseStudy from "./pages/RagChatbotCaseStudy";
@@ -75,9 +75,9 @@ const App = () => (
           <Route path="/resources/blog/:slug" element={<BlogPost />} />
           <Route path="/resources/templates" element={<Templates />} />
           <Route path="/resources/templates/:slug" element={<TemplateDetail />} />
+          <Route path="/resources/casestudies" element={<CaseStudiesPage />} />
           <Route path="/resources/migration-guides" element={<MigrationGuides />} />
           <Route path="/resources/roi-calculator" element={<RoiCalculator />} />
-          <Route path="/resources/webinars" element={<Webinars />} />
 
           {/* Portfolio Routes */}
           <Route path="/portfolio" element={<Portfolio />} />
