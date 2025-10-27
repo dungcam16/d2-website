@@ -31,6 +31,11 @@ import {
   Sparkles
 } from "lucide-react";
 
+import teamNguyenDung from "@/assets/team-nguyen-dung.jpg";
+import teamDanhDuyen from "@/assets/team-danh-duyen.png";
+import teamTranMinh from "@/assets/team-tran-minh.jpg";
+import teamLePhuong from "@/assets/team-le-phuong.jpg";
+
 const About = () => {
   const values = [
     {
@@ -59,7 +64,7 @@ const About = () => {
     {
       name: "Nguyen Dung",
       role: "Founder & CEO",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+      avatar: teamNguyenDung,
       bio: "10+ years in automation and AI development. Former tech lead at Fortune 500 companies.",
       linkedin: "#",
       expertise: ["Strategy", "AI/ML", "Enterprise Architecture"]
@@ -67,7 +72,7 @@ const About = () => {
     {
       name: "Danh Duyen",
       role: "Head Marketing of Automation",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+      avatar: teamDanhDuyen,
       bio: "Marketing automation expert with 500+ workflows built. Specializes in complex integrations and growth strategies.",
       linkedin: "#",
       expertise: ["Marketing Automation", "Growth Strategy", "Campaign Design"]
@@ -75,7 +80,7 @@ const About = () => {
     {
       name: "Tran Minh",
       role: "Lead AI Engineer",
-      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop",
+      avatar: teamTranMinh,
       bio: "AI specialist focused on RAG systems and LLM integration for business applications.",
       linkedin: "#",
       expertise: ["GPT-4", "RAG Systems", "NLP"]
@@ -83,7 +88,7 @@ const About = () => {
     {
       name: "Le Phuong",
       role: "Client Success Manager",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
+      avatar: teamLePhuong,
       bio: "Ensures every client achieves measurable ROI. 98% client satisfaction rate.",
       linkedin: "#",
       expertise: ["Project Management", "Client Relations", "Training"]
