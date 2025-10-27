@@ -4,10 +4,10 @@ import { Calendar, User, Clock, ArrowLeft, Share2, MessageCircle, Eye, Tag } fro
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import SEO from "../components/SEO";
-import { supabase } from "../integrations/supabase/client";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { supabase } from "@/integrations/supabase/client";
 import DOMPurify from "dompurify";
 
 interface BlogPost {

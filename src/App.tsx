@@ -3,39 +3,39 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Contact from "./pages/Contact";
-import Portfolio from "./pages/Portfolio";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
-import NotFound from "./pages/NotFound";
-import Templates from "./pages/Templates";
-import TemplateDetail from "./pages/TemplateDetail";
-import Admin from "./pages/Admin";
-import Pricing from "./pages/Pricing";
+import Home from "./pages/home";
+import Contact from "./pages/company/contact";
+import Portfolio from "./pages/resources/portfolio";
+import Blog from "./pages/resources/blog";
+import BlogPost from "./pages/resources/blog-post";
+import PrivacyPolicy from "./pages/legal/privacy-policy";
+import TermsOfService from "./pages/legal/terms-of-service";
+import NotFound from "./pages/not-found";
+import Templates from "./pages/resources/templates";
+import TemplateDetail from "./pages/resources/template-detail";
+import Admin from "./pages/admin";
+import Pricing from "./pages/company/pricing";
 import MigrationGuides from "./pages/resources/migration-guides";
 import RoiCalculator from "./pages/resources/roi-calculator";
-import CaseStudiesPage from "./pages/resources/casestudies";
+import CaseStudiesPage from "./pages/resources/case-studies";
 
 // Services
-import N8nAutomation from "./pages/services/N8nAutomation";
-import AiChatbots from "./pages/services/AiChatbots";
-import ZapierMigration from "./pages/services/ZapierMigration";
-import NoCodeLowCode from "./pages/services/NoCodeLowCode";
-import MarketingAutomation from "./pages/services/MarketingAutomation";
+import N8nAutomation from "./pages/services/n8n-automation";
+import AiChatbots from "./pages/services/ai-chatbots";
+import ZapierMigration from "./pages/services/zapier-migration";
+import NoCodeLowCode from "./pages/services/nocode-lowcode";
+import MarketingAutomation from "./pages/services/marketing-automation";
 
 // Solutions
-import SaasCompanies from "./pages/solutions/SaasCompanies";
-import EcommerceBrands from "./pages/solutions/EcommerceBrands";
-import DigitalAgencies from "./pages/solutions/DigitalAgencies";
-import FintechCompanies from "./pages/solutions/FintechCompanies";
+import SaasCompanies from "./pages/solutions/saas-companies";
+import EcommerceBrands from "./pages/solutions/ecommerce-brands";
+import DigitalAgencies from "./pages/solutions/digital-agencies";
+import FintechCompanies from "./pages/solutions/fintech-companies";
 
 // Company
-import About from "./pages/company/About";
-import Team from "./pages/company/Team";
-import Partners from "./pages/company/Partners";
+import About from "./pages/company/about";
+import Team from "./pages/company/team";
+import Partners from "./pages/company/partners";
 
 const queryClient = new QueryClient();
 
@@ -46,7 +46,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Home />} />
 
           {/* Service Routes */}
           <Route path="/services/n8n-automation" element={<N8nAutomation />} />
