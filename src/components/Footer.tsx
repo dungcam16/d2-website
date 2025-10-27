@@ -1,8 +1,42 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Linkedin, Twitter, Github, Youtube } from "lucide-react";
 
 const Footer: React.FC = () => {
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!newsletterEmail || !newsletterEmail.includes("@")) {
+      return;
+    }
+
+    setIsSubmittingNewsletter(true);
+
+    try {
+      const response = await fetch("https://n8n.d2group.co/webhook/d2group?flow=newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: newsletterEmail,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      if (response.ok) {
+        setNewsletterEmail("");
+        // Show success without alert - just reset form
+      }
+    } catch (error) {
+      console.error("Newsletter subscription error:", error);
+    } finally {
+      setIsSubmittingNewsletter(false);
+    }
+  };
   const services = [
     { name: "n8n Automation", href: "/services/n8n-automation" },
     { name: "AI Agents & Chatbots", href: "/services/ai-chatbots" },
@@ -110,16 +144,23 @@ const Footer: React.FC = () => {
                 </div>
             </div>
             
-            <form className="flex flex-col sm:flex-row items-center gap-2 w-full max-w-md order-1 lg:order-2">
+            <form className="flex flex-col sm:flex-row items-center gap-2 w-full max-w-md order-1 lg:order-2" onSubmit={handleNewsletterSubmit}>
                 <label htmlFor="email-newsletter" className="sr-only">Email for newsletter</label>
                 <input 
                     id="email-newsletter"
                     type="email" 
                     placeholder="Subscribe to our newsletter" 
                     className="bg-gray-800 border border-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    required
                 />
-                <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition-colors flex items-center justify-center w-full sm:w-auto shrink-0">
-                    Subscribe
+                <button 
+                    type="submit" 
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition-colors flex items-center justify-center w-full sm:w-auto shrink-0 disabled:opacity-50"
+                    disabled={isSubmittingNewsletter}
+                >
+                    {isSubmittingNewsletter ? "Subscribing..." : "Subscribe"}
                 </button>
             </form>
           </div>
