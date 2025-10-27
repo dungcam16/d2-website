@@ -242,7 +242,7 @@ const BlogPostPage = () => {
             <p className="text-muted-foreground mb-6">
               Contact D2 GROUP for a free consultation and get the best marketing strategy.
             </p>
-            <Button size="lg" onClick={() => navigate("/contact")}>
+            <Button size="lg" onClick={() => navigate("/company/contact")}>
               Get a Free Consultation Now
             </Button>
           </div>
