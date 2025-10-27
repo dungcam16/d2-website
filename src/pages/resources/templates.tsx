@@ -29,6 +29,84 @@ interface WorkflowTemplate {
   published_at: string;
 }
 
+const NewsletterCard = () => {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email) {
+      toast({
+        title: "Error",
+        description: "Please enter your email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://n8n.d2group.co/webhook/d2group?flow=templates", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "You have successfully subscribed to our newsletter.",
+        });
+        setEmail("");
+      } else {
+        throw new Error("Failed to submit");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An error occurred. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <h3 className="text-lg font-semibold">Subscribe to Newsletter</h3>
+      </CardHeader>
+      <CardContent>
+        <p className="text-sm text-muted-foreground mb-4">
+          Get the latest workflow templates from D2 GROUP.
+        </p>
+        <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+          <Input
+            placeholder="Your email address"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <Button type="submit" className="w-full" disabled={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Subscribe Now"}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
+  );
+};
+
 const Templates = () => {
   const [templates, setTemplates] = useState<WorkflowTemplate[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -176,6 +254,9 @@ const Templates = () => {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Newsletter Signup */}
+            <NewsletterCard />
           </aside>
 
           {/* Main Content */}
