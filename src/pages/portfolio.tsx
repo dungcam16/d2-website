@@ -166,7 +166,7 @@ export default function Portfolio() {
       description: "Build powerful automation workflows with n8n - the open-source workflow automation platform",
       features: ["Custom n8n workflows", "API integrations", "Process automation", "Scalable solutions"],
       outcomes: ["Average 40% time savings", "ROI within 3 months", "90% client retention"],
-      pricing: "Starting from $5,000",
+      pricing: "Contact Us",
       link: "/services/n8n-automation",
     },
     {
@@ -175,7 +175,7 @@ export default function Portfolio() {
       description: "Intelligent chatbots powered by GPT-4, Claude, and custom AI models for seamless customer interactions",
       features: ["GPT-4/Claude integration", "RAG systems", "Custom training", "Multi-platform support"],
       outcomes: ["85% faster response time", "24/7 availability", "70% cost reduction"],
-      pricing: "Starting from $8,000",
+      pricing: "Contact Us",
       link: "/services/ai-chatbots",
     },
     {
@@ -184,7 +184,7 @@ export default function Portfolio() {
       description: "Migrate from expensive Zapier workflows to cost-effective n8n solutions without losing functionality",
       features: ["Cost savings up to 90%", "Zero downtime migration", "Enhanced features", "Full support"],
       outcomes: ["90% cost savings", "2-week migration", "Enhanced functionality"],
-      pricing: "Starting from $3,000",
+      pricing: "Contact Us",
       link: "/services/zapier-migration",
     },
     {
@@ -193,7 +193,7 @@ export default function Portfolio() {
       description: "Build and deploy applications faster with modern no-code and low-code development platforms",
       features: ["Rapid development", "Visual builders", "API integration", "Custom solutions"],
       outcomes: ["5x faster development", "60% cost reduction", "Production-ready"],
-      pricing: "Starting from $7,000",
+      pricing: "Contact Us",
       link: "/services/nocode-lowcode",
     },
     {
@@ -202,7 +202,7 @@ export default function Portfolio() {
       description: "Automate your marketing campaigns, lead nurturing, and customer engagement workflows",
       features: ["Email automation", "Lead scoring", "Campaign tracking", "CRM integration"],
       outcomes: ["3x lead conversion", "50% time savings", "Automated reporting"],
-      pricing: "Starting from $6,000",
+      pricing: "Contact Us",
       link: "/services/marketing-automation",
     },
   ];

@@ -134,7 +134,7 @@ export default function SolutionTemplate({
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-12">Pricing for {industryName}</h2>
           <p className="text-xl mb-8">{pricing}</p>
-          <a href="/pricing" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full">View All Pricing</a>
+          <a href="/company/contact" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full">Contact Us</a>
         </div>
       </section>
 
