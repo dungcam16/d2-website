@@ -338,7 +338,7 @@ const RoiCalculator = () => {
                     className="w-full shadow-glow"
                     asChild
                   >
-                    <Link to="/contact">
+                    <Link to="/company/contact">
                       Start Saving Now
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Link>

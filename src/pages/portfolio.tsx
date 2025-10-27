@@ -1129,17 +1129,12 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex gap-4 justify-center flex-wrap">
+            {/* CTA Button */}
+            <div className="flex justify-center">
               <Button size="lg" variant="secondary" className="shadow-glow" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   <Phone className="w-4 h-4 mr-2" /> Book Free Strategy Call
                 </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-                <a href="mailto:info@d2group.co">
-                  <Mail className="w-4 h-4 mr-2" /> Email Us Directly
-                </a>
               </Button>
             </div>
           </div>
