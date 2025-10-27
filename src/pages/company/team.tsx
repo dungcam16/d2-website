@@ -487,7 +487,7 @@ export default function Team() {
 
             <div className="flex gap-4 justify-center flex-wrap">
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   <MessageSquare className="w-4 h-4 mr-2" />
                   Book a Demo
                 </Link>

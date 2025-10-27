@@ -322,7 +322,7 @@ const TemplateDetail = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   D2 Group's expert team is ready to help you deploy and customize workflows tailored to your needs
                 </p>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   <Button variant="default" className="w-full">
                     Contact for Consultation
                   </Button>

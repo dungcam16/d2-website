@@ -187,7 +187,7 @@ export default function NoCodeLowCode() {
   const pricingTiers = [
     {
       name: "Starter App",
-      price: "$5,000",
+      price: "Contact Us",
       timeline: "2-3 weeks",
       popular: false,
       ideal: "Small teams, simple workflows, internal tools",
@@ -202,7 +202,7 @@ export default function NoCodeLowCode() {
     },
     {
       name: "Professional App",
-      price: "$12,000",
+      price: "Contact Us",
       timeline: "3-4 weeks",
       popular: true,
       ideal: "SaaS companies, agencies, scaling businesses",
@@ -308,7 +308,7 @@ export default function NoCodeLowCode() {
 
               <div className="flex gap-4 justify-center flex-wrap mb-8">
                 <Button size="lg" asChild className="shadow-glow">
-                  <Link to="/contact">
+                  <Link to="/company/contact">
                     Schedule Free App Consultation
                     <PlayCircle className="ml-2 h-4 w-4" />
                   </Link>
@@ -568,7 +568,7 @@ export default function NoCodeLowCode() {
                     variant={tier.popular ? "default" : "outline"}
                     asChild
                   >
-                    <Link to="/contact">
+                    <Link to="/company/contact">
                       {tier.name === "Enterprise Solution" ? "Contact for Quote" : `Start with ${tier.name.split(' ')[0]}`}
                     </Link>
                   </Button>
@@ -628,7 +628,7 @@ export default function NoCodeLowCode() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button size="lg" variant="secondary" className="shadow-glow" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   Schedule Free 30-Min Consultation
                   <PlayCircle className="ml-2 h-5 w-5" />
                 </Link>

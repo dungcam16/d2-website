@@ -325,7 +325,7 @@ export default function AiChatbots() {
 
               <div className="flex gap-4 justify-center flex-wrap mb-8">
                 <Button size="lg" asChild className="shadow-glow">
-                  <Link to="/contact">
+                  <Link to="/company/contact">
                     Book Your AI Agent Demo
                     <PlayCircle className="ml-2 h-4 w-4" />
                   </Link>
@@ -576,7 +576,7 @@ export default function AiChatbots() {
                     variant={tier.popular ? "default" : "outline"}
                     asChild
                   >
-                    <Link to="/contact">
+                    <Link to="/company/contact">
                       {tier.name === "Enterprise" ? "Contact Sales" : tier.name === "Starter" ? "Start Free Trial" : "Book Professional Demo"}
                     </Link>
                   </Button>
@@ -655,13 +655,13 @@ export default function AiChatbots() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button size="lg" variant="secondary" className="shadow-glow" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   Book Your AI Agent Demo Today
                   <PlayCircle className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-white/20 hover:bg-white/30" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   Schedule with Sales Team
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

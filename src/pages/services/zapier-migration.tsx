@@ -181,8 +181,8 @@ export default function ZapierMigration() {
     {
       name: "Basic Migration",
       workflows: "10-50 Zapier workflows",
-      setup: "$5,000",
-      monthly: "$500",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       timeline: "2-3 weeks",
       popular: false,
       features: [
@@ -196,8 +196,8 @@ export default function ZapierMigration() {
     {
       name: "Professional Migration",
       workflows: "50-150 Zapier workflows",
-      setup: "$12,000",
-      monthly: "$1,500",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       timeline: "3-4 weeks",
       popular: true,
       features: [
@@ -311,7 +311,7 @@ export default function ZapierMigration() {
 
               <div className="flex gap-4 justify-center flex-wrap mb-8">
                 <Button size="lg" asChild className="shadow-glow">
-                  <Link to="/contact">
+                  <Link to="/company/contact">
                     Get Free Migration Audit
                     <PlayCircle className="ml-2 h-4 w-4" />
                   </Link>
@@ -677,7 +677,7 @@ export default function ZapierMigration() {
                     variant={tier.popular ? "default" : "outline"}
                     asChild
                   >
-                    <Link to="/contact">
+                    <Link to="/company/contact">
                       {tier.name === "Enterprise Migration" ? "Contact Sales" : "Get Started"}
                     </Link>
                   </Button>
@@ -760,7 +760,7 @@ export default function ZapierMigration() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button size="lg" variant="secondary" className="shadow-glow" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   Get Free Migration Audit
                   <PlayCircle className="ml-2 h-5 w-5" />
                 </Link>

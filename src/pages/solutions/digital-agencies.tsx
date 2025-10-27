@@ -364,7 +364,7 @@ export default function DigitalAgencies() {
 
               <div className="flex gap-4 justify-center flex-wrap mb-8">
                 <Button size="lg" asChild className="shadow-glow">
-                  <Link to="/contact">
+                  <Link to="/company/contact">
                     Get Free Agency Consultation
                     <PlayCircle className="ml-2 h-4 w-4" />
                   </Link>
@@ -671,7 +671,7 @@ export default function DigitalAgencies() {
                     variant={tier.popular ? "default" : "outline"}
                     asChild
                   >
-                    <Link to="/contact">
+                    <Link to="/company/contact">
                       {tier.name === "Agency Enterprise" ? "Contact Sales" : "Get Started"}
                     </Link>
                   </Button>
@@ -754,7 +754,7 @@ export default function DigitalAgencies() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button size="lg" variant="secondary" className="shadow-glow" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   Schedule Free Agency Consultation
                   <PlayCircle className="ml-2 h-5 w-5" />
                 </Link>

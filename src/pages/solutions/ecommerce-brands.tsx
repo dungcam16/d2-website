@@ -358,7 +358,7 @@ export default function EcommerceBrands() {
 
               <div className="flex gap-4 justify-center flex-wrap mb-8">
                 <Button size="lg" asChild className="shadow-glow">
-                  <Link to="/contact">
+                  <Link to="/company/contact">
                     Get Free E-Commerce Audit
                     <PlayCircle className="ml-2 h-4 w-4" />
                   </Link>
@@ -618,7 +618,7 @@ export default function EcommerceBrands() {
                     variant={tier.popular ? "default" : "outline"}
                     asChild
                   >
-                    <Link to="/contact">
+                    <Link to="/company/contact">
                       {tier.name === "Scale" ? "Contact Sales" : "Get Started"}
                     </Link>
                   </Button>
@@ -691,13 +691,13 @@ export default function EcommerceBrands() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button size="lg" variant="secondary" className="shadow-glow" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   Get Free E-Commerce Audit
                   <PlayCircle className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-white/20 hover:bg-white/30" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   Schedule Live Demo
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

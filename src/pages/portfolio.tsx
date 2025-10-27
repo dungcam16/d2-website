@@ -398,7 +398,7 @@ export default function Portfolio() {
 
             <div className="flex gap-4 justify-center flex-wrap">
               <Button size="lg" asChild className="shadow-glow">
-                <Link to="/contact">
+                <Link to="/company/contact">
                   <Phone className="w-4 h-4 mr-2" /> Schedule Free Consultation
                 </Link>
               </Button>
@@ -979,7 +979,7 @@ export default function Portfolio() {
             Every business has unique workflows that can be optimized.
           </p>
           <Button size="lg" asChild className="shadow-glow">
-            <Link to="/contact">
+            <Link to="/company/contact">
               Discuss Your Industry <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>

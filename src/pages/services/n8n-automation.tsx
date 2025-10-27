@@ -221,8 +221,8 @@ export default function N8nAutomation() {
   const pricingTiers = [
     {
       name: "Starter",
-      setup: "$5,000",
-      monthly: "$500",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       popular: false,
       ideal: "Companies spending $200-400/month on Zapier",
       features: [
@@ -239,8 +239,8 @@ export default function N8nAutomation() {
     },
     {
       name: "Professional",
-      setup: "$12,000",
-      monthly: "$1,500",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       popular: true,
       ideal: "Companies spending $400-800+/month on Zapier",
       features: [
@@ -349,7 +349,7 @@ export default function N8nAutomation() {
               </p>
               <div className="flex gap-4 justify-center flex-wrap mb-12">
                 <Button size="lg" asChild className="shadow-glow">
-                  <Link to="/contact">
+                  <Link to="/company/contact">
                     Book Free Automation Audit
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -631,7 +631,7 @@ export default function N8nAutomation() {
 
               <div className="mt-8 text-center">
                 <Button size="lg" asChild>
-                  <Link to="/contact">
+                  <Link to="/company/contact">
                     Get Detailed Savings Report
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -681,7 +681,7 @@ export default function N8nAutomation() {
                     variant={tier.popular ? "default" : "outline"}
                     asChild
                   >
-                    <Link to="/contact">
+                    <Link to="/company/contact">
                       {tier.name === "Enterprise" ? "Contact Sales" : "Get Started"}
                     </Link>
                   </Button>
@@ -756,7 +756,7 @@ export default function N8nAutomation() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button size="lg" variant="secondary" className="shadow-glow" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   Book Your Free Automation Audit Now
                   <PlayCircle className="ml-2 h-5 w-5" />
                 </Link>

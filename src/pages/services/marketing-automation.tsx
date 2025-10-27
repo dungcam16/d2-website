@@ -206,8 +206,8 @@ export default function MarketingAutomation() {
   const pricingTiers = [
     {
       name: "Starter",
-      setup: "$5,000",
-      monthly: "$1,000",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       popular: false,
       ideal: "Early-stage SaaS, small marketing teams, 1-3 tools",
       roi: "Average ROI: 300% in year 1 (pays for itself in 3-4 months)",
@@ -222,8 +222,8 @@ export default function MarketingAutomation() {
     },
     {
       name: "Professional",
-      setup: "$12,000",
-      monthly: "$2,000",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       popular: true,
       ideal: "Growth-stage SaaS, mid-size e-commerce, digital agencies, 3-8 marketers",
       roi: "Average ROI: 400-500% in year 1 ($50K-$150K value generated)",
@@ -328,7 +328,7 @@ export default function MarketingAutomation() {
 
               <div className="flex gap-4 justify-center flex-wrap mb-8">
                 <Button size="lg" asChild className="shadow-glow">
-                  <Link to="/contact">
+                  <Link to="/company/contact">
                     Get Free Marketing Audit
                     <PlayCircle className="ml-2 h-4 w-4" />
                   </Link>
@@ -578,7 +578,7 @@ export default function MarketingAutomation() {
                     variant={tier.popular ? "default" : "outline"}
                     asChild
                   >
-                    <Link to="/contact">
+                    <Link to="/company/contact">
                       {tier.name === "Enterprise" ? "Contact Sales" : "Get Started"}
                     </Link>
                   </Button>
@@ -655,7 +655,7 @@ export default function MarketingAutomation() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button size="lg" variant="secondary" className="shadow-glow" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   Schedule Free Marketing Audit
                   <PlayCircle className="ml-2 h-5 w-5" />
                 </Link>

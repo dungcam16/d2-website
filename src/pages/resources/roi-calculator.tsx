@@ -384,7 +384,7 @@ const RoiCalculator = () => {
                     <strong>Disclaimer:</strong> This calculator provides estimates based on the inputs provided. 
                     Actual results may vary depending on specific use cases, implementation complexity, and organizational factors. 
                     The calculations assume automation eliminates manual time completely, though actual time savings may be 70-95%. 
-                    For a personalized ROI analysis tailored to your specific workflows, <Link to="/contact" className="text-primary hover:underline">contact us for a free consultation</Link>.
+                    For a personalized ROI analysis tailored to your specific workflows, <Link to="/company/contact" className="text-primary hover:underline">contact us for a free consultation</Link>.
                   </p>
                 </div>
               </div>
@@ -527,7 +527,7 @@ const RoiCalculator = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" className="shadow-glow" asChild>
-              <Link to="/contact">
+              <Link to="/company/contact">
                 Schedule Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>

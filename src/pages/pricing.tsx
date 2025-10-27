@@ -466,7 +466,7 @@ export default function Pricing() {
                           variant={plan.popular ? "default" : "outline"} 
                           asChild
                         >
-                          <Link to="/contact">{plan.cta} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                          <Link to="/company/contact">{plan.cta} <ArrowRight className="ml-2 h-4 w-4" /></Link>
                         </Button>
                         
                         <ul className="space-y-3">
@@ -667,7 +667,7 @@ export default function Pricing() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="shadow-glow" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   <Phone className="w-4 h-4 mr-2" />
                   Book Free Consultation
                 </Link>

@@ -424,7 +424,7 @@ export default function Partners() {
                       </div>
 
                       <Button className="w-full mt-auto" asChild>
-                        <Link to="/contact">
+                        <Link to="/company/contact">
                           {program.cta} <ArrowRight className="w-4 h-4 ml-2" />
                         </Link>
                       </Button>
@@ -504,7 +504,7 @@ export default function Partners() {
 
             <div className="flex gap-4 justify-center flex-wrap">
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/contact">
+                <Link to="/company/contact">
                   Apply for Partnership
                 </Link>
               </Button>

@@ -217,7 +217,7 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button variant="default" className="shadow-glow" onClick={() => (window.location.href = "/contact")}>
+            <Button variant="default" className="shadow-glow" onClick={() => (window.location.href = "/company/contact")}>
               Book Free Audit
             </Button>
           </div>
@@ -320,7 +320,7 @@ const Header = () => {
                   variant="default"
                   className="w-full shadow-glow"
                   onClick={() => {
-                    window.location.href = "/contact";
+                    window.location.href = "/company/contact";
                     setIsMenuOpen(false);
                   }}
                 >
