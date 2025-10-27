@@ -4,35 +4,40 @@ import { Linkedin, Twitter, Github, Youtube } from "lucide-react";
 
 const Footer: React.FC = () => {
   const services = [
-    "n8n Automation",
-    "AI Agents & Chatbots",
-    "Zapier Migration",
-    "No-Code/Low-Code Dev",
-    "Marketing Automation",
+    { name: "n8n Automation", href: "/services/n8n-automation" },
+    { name: "AI Agents & Chatbots", href: "/services/ai-chatbots" },
+    { name: "Zapier Migration", href: "/services/zapier-migration" },
+    { name: "No-Code/Low-Code", href: "/services/nocode-lowcode" },
+    { name: "Marketing Automation", href: "/services/marketing-automation" },
   ];
 
   const solutions = [
-    "For SaaS Companies",
-    "For E-commerce Brands",
-    "For Digital Agencies",
-    "For FinTech Companies",
+    { name: "For SaaS Companies", href: "/solutions/saas-companies" },
+    { name: "For E-commerce Brands", href: "/solutions/ecommerce-brands" },
+    { name: "For Digital Agencies", href: "/solutions/digital-agencies" },
+    { name: "For FinTech Companies", href: "/solutions/fintech-companies" },
   ];
 
   const resources = [
-    "Blog & Insights",
-    "n8n Templates",
-    "Migration Guides",
-    "ROI Calculator",
-    "Webinars",
+    { name: "Blog & Insights", href: "/resources/blog" },
+    { name: "n8n Templates", href: "/resources/templates" },
+    { name: "Case Studies", href: "/resources/casestudies" },
+    { name: "Migration Guides", href: "/resources/migration-guides" },
+    { name: "ROI Calculator", href: "/resources/roi-calculator" },
   ];
 
-  const company = ["About Us", "Our Team", "Partners", "Contact"];
+  const company = [
+    { name: "About Us", href: "/company/about" },
+    { name: "Team", href: "/company/team" },
+    { name: "Partners", href: "/company/partners" },
+    { name: "Contact", href: "/company/contact" },
+  ];
 
   const legal = [
-    "Privacy Policy",
-    "Terms of Service",
-    "GDPR Compliance",
-    "Cookie Policy",
+    { name: "Privacy Policy", href: "/legal/privacy-policy" },
+    { name: "Terms of Service", href: "/legal/terms-of-service" },
+    { name: "GDPR Compliance", href: "/legal/gdpr-compliance" },
+    { name: "Cookie Policy", href: "/legal/cookie-policy" },
   ];
   
   const socialLinks = [
@@ -42,12 +47,12 @@ const Footer: React.FC = () => {
     { icon: Youtube, href: "#", name: "YouTube" },
   ];
 
-  const renderLinks = (links: string[]) => (
+  const renderLinks = (links: { name: string; href: string }[]) => (
     <ul className="space-y-3">
       {links.map((link) => (
-        <li key={link}>
-          <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm font-light">
-            {link}
+        <li key={link.name}>
+          <a href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm font-light">
+            {link.name}
           </a>
         </li>
       ))}

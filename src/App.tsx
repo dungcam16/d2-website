@@ -10,6 +10,8 @@ import Blog from "./pages/resources/blog";
 import BlogPost from "./pages/resources/blog-post";
 import PrivacyPolicy from "./pages/legal/privacy-policy";
 import TermsOfService from "./pages/legal/terms-of-service";
+import GDPRCompliance from "./pages/legal/gdpr-compliance";
+import CookiePolicy from "./pages/legal/cookie-policy";
 import NotFound from "./pages/not-found";
 import Templates from "./pages/resources/templates";
 import TemplateDetail from "./pages/resources/template-detail";
@@ -84,8 +86,17 @@ const App = () => (
 
           {/* Other Routes */}
           <Route path="/pricing" element={<Pricing />} />
+          
+          {/* Legal Routes */}
+          <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/legal/terms-of-service" element={<TermsOfService />} />
+          <Route path="/legal/gdpr-compliance" element={<GDPRCompliance />} />
+          <Route path="/legal/cookie-policy" element={<CookiePolicy />} />
+          
+          {/* Legacy legal routes for backward compatibility */}
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          
           <Route path="/admin" element={<Admin />} />
 
           {/* Legacy redirects for backward compatibility */}
