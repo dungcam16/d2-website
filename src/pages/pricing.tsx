@@ -22,7 +22,8 @@ import {
   Sparkles,
   Phone,
   Mail,
-  MessageSquare
+  MessageSquare,
+  TrendingUp
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
