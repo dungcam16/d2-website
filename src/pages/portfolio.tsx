@@ -607,68 +607,388 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Industry Sectors */}
-        <section className="py-20 px-6 bg-muted/30">
-          <div className="container mx-auto max-w-7xl">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Industries We Serve</h2>
-              <p className="text-xl text-muted-foreground">Specialized automation solutions across key sectors</p>
-            </div>
+{/* Enhanced Industry Sectors - 6 Industries */}
+<section className="py-20 px-6 bg-muted/30">
+  <div className="container mx-auto max-w-7xl">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl font-bold mb-4">Industries We Serve</h2>
+      <p className="text-xl text-muted-foreground">
+        Specialized automation solutions delivering measurable ROI across key sectors
+      </p>
+    </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="text-center hover:shadow-lg transition-all group">
-                <CardHeader>
-                  <ShoppingCart className="w-12 h-12 mx-auto mb-3 text-primary group-hover:scale-110 transition-transform" />
-                  <CardTitle className="text-xl">E-commerce & Retail</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Automated order processing, inventory management, and customer support for online stores
-                  </p>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    <Badge variant="secondary">Order Automation</Badge>
-                    <Badge variant="secondary">Inventory Sync</Badge>
-                    <Badge variant="secondary">Customer Support</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center hover:shadow-lg transition-all group">
-                <CardHeader>
-                  <Building2 className="w-12 h-12 mx-auto mb-3 text-primary group-hover:scale-110 transition-transform" />
-                  <CardTitle className="text-xl">Financial Services</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Financial reporting automation, invoice processing, and payment reconciliation systems
-                  </p>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    <Badge variant="secondary">Financial Reports</Badge>
-                    <Badge variant="secondary">Invoice Processing</Badge>
-                    <Badge variant="secondary">Reconciliation</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center hover:shadow-lg transition-all group">
-                <CardHeader>
-                  <MessageSquare className="w-12 h-12 mx-auto mb-3 text-primary group-hover:scale-110 transition-transform" />
-                  <CardTitle className="text-xl">SaaS & Technology</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    AI-powered customer support, lead nurturing, and multi-platform data integration
-                  </p>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    <Badge variant="secondary">AI Support</Badge>
-                    <Badge variant="secondary">Lead Nurturing</Badge>
-                    <Badge variant="secondary">Data Integration</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* E-commerce & Retail */}
+      <Card className="hover:shadow-xl transition-all group border-t-4 border-t-primary">
+        <CardHeader>
+          <div className="flex items-center justify-between mb-4">
+            <ShoppingCart className="w-12 h-12 text-primary group-hover:scale-110 transition-transform" />
+            <Badge variant="secondary">35+ Projects</Badge>
           </div>
-        </section>
+          <CardTitle className="text-2xl">E-commerce & Retail</CardTitle>
+          <CardDescription className="text-base">
+            End-to-end automation for online stores and retail operations
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              From order processing to inventory management and customer support automation, 
+              we help online stores scale efficiently.
+            </p>
+            
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-muted-foreground">Key Solutions:</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline">Order Automation</Badge>
+                <Badge variant="outline">Inventory Sync</Badge>
+                <Badge variant="outline">Customer Support</Badge>
+                <Badge variant="outline">Shipping Integration</Badge>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div className="space-y-2">
+              <p className="text-xs font-semibold">Typical Results:</p>
+              <ul className="space-y-1">
+                <li className="text-xs flex items-center gap-2">
+                  <TrendingUp className="w-3 h-3 text-primary" />
+                  <span>85% faster order processing</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <DollarSign className="w-3 h-3 text-primary" />
+                  <span>40% reduction in operational costs</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <Clock className="w-3 h-3 text-primary" />
+                  <span>24/7 automated customer service</span>
+                </li>
+              </ul>
+            </div>
+
+            <Button variant="outline" className="w-full mt-4 group-hover:bg-primary group-hover:text-white" asChild>
+              <Link to="/solutions/ecommerce">
+                View E-commerce Solutions <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Financial Services */}
+      <Card className="hover:shadow-xl transition-all group border-t-4 border-t-primary">
+        <CardHeader>
+          <div className="flex items-center justify-between mb-4">
+            <Building2 className="w-12 h-12 text-primary group-hover:scale-110 transition-transform" />
+            <Badge variant="secondary">28+ Projects</Badge>
+          </div>
+          <CardTitle className="text-2xl">Financial Services</CardTitle>
+          <CardDescription className="text-base">
+            Secure, compliant automation for fintech and financial institutions
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              ISO 27001 & SOC 2 certified automation solutions for financial reporting, 
+              invoice processing, and payment reconciliation.
+            </p>
+            
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-muted-foreground">Key Solutions:</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline">Financial Reports</Badge>
+                <Badge variant="outline">Invoice Processing</Badge>
+                <Badge variant="outline">Payment Reconciliation</Badge>
+                <Badge variant="outline">KYC/AML Automation</Badge>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div className="space-y-2">
+              <p className="text-xs font-semibold">Typical Results:</p>
+              <ul className="space-y-1">
+                <li className="text-xs flex items-center gap-2">
+                  <Shield className="w-3 h-3 text-primary" />
+                  <span>100% regulatory compliance</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <DollarSign className="w-3 h-3 text-primary" />
+                  <span>70% reduction in processing time</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-primary" />
+                  <span>99.9% accuracy in reconciliation</span>
+                </li>
+              </ul>
+            </div>
+
+            <Button variant="outline" className="w-full mt-4 group-hover:bg-primary group-hover:text-white" asChild>
+              <Link to="/solutions/fintech">
+                View FinTech Solutions <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* SaaS & Technology */}
+      <Card className="hover:shadow-xl transition-all group border-t-4 border-t-primary">
+        <CardHeader>
+          <div className="flex items-center justify-between mb-4">
+            <MessageSquare className="w-12 h-12 text-primary group-hover:scale-110 transition-transform" />
+            <Badge variant="secondary">42+ Projects</Badge>
+          </div>
+          <CardTitle className="text-2xl">SaaS & Technology</CardTitle>
+          <CardDescription className="text-base">
+            Scale your SaaS operations without scaling headcount
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              AI-powered customer support, automated lead nurturing, and seamless 
+              multi-platform data integration for modern SaaS companies.
+            </p>
+            
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-muted-foreground">Key Solutions:</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline">AI Support Bots</Badge>
+                <Badge variant="outline">Lead Nurturing</Badge>
+                <Badge variant="outline">Data Integration</Badge>
+                <Badge variant="outline">User Onboarding</Badge>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div className="space-y-2">
+              <p className="text-xs font-semibold">Typical Results:</p>
+              <ul className="space-y-1">
+                <li className="text-xs flex items-center gap-2">
+                  <TrendingUp className="w-3 h-3 text-primary" />
+                  <span>3x increase in lead conversion</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <Clock className="w-3 h-3 text-primary" />
+                  <span>90% faster response times</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <Users className="w-3 h-3 text-primary" />
+                  <span>Scale without hiring support team</span>
+                </li>
+              </ul>
+            </div>
+
+            <Button variant="outline" className="w-full mt-4 group-hover:bg-primary group-hover:text-white" asChild>
+              <Link to="/solutions/saas">
+                View SaaS Solutions <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Marketing & Agencies */}
+      <Card className="hover:shadow-xl transition-all group border-t-4 border-t-primary">
+        <CardHeader>
+          <div className="flex items-center justify-between mb-4">
+            <BarChart3 className="w-12 h-12 text-primary group-hover:scale-110 transition-transform" />
+            <Badge variant="secondary">31+ Projects</Badge>
+          </div>
+          <CardTitle className="text-2xl">Marketing & Agencies</CardTitle>
+          <CardDescription className="text-base">
+            Automate campaigns, reporting, and client management
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              End-to-end marketing automation from campaign execution to performance 
+              reporting and client communication.
+            </p>
+            
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-muted-foreground">Key Solutions:</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline">Campaign Automation</Badge>
+                <Badge variant="outline">Lead Scoring</Badge>
+                <Badge variant="outline">Client Reporting</Badge>
+                <Badge variant="outline">Social Media Automation</Badge>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div className="space-y-2">
+              <p className="text-xs font-semibold">Typical Results:</p>
+              <ul className="space-y-1">
+                <li className="text-xs flex items-center gap-2">
+                  <Target className="w-3 h-3 text-primary" />
+                  <span>50% more campaigns with same team</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <BarChart3 className="w-3 h-3 text-primary" />
+                  <span>Automated client reporting</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <Clock className="w-3 h-3 text-primary" />
+                  <span>30+ hours saved weekly</span>
+                </li>
+              </ul>
+            </div>
+
+            <Button variant="outline" className="w-full mt-4 group-hover:bg-primary group-hover:text-white" asChild>
+              <Link to="/solutions/agencies">
+                View Agency Solutions <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Healthcare & Medical */}
+      <Card className="hover:shadow-xl transition-all group border-t-4 border-t-primary">
+        <CardHeader>
+          <div className="flex items-center justify-between mb-4">
+            <Shield className="w-12 h-12 text-primary group-hover:scale-110 transition-transform" />
+            <Badge variant="secondary">18+ Projects</Badge>
+          </div>
+          <CardTitle className="text-2xl">Healthcare & Medical</CardTitle>
+          <CardDescription className="text-base">
+            HIPAA-compliant automation for healthcare providers
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Secure patient data management, appointment scheduling, and medical 
+              record processing with full HIPAA compliance.
+            </p>
+            
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-muted-foreground">Key Solutions:</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline">Patient Scheduling</Badge>
+                <Badge variant="outline">Medical Records</Badge>
+                <Badge variant="outline">Insurance Processing</Badge>
+                <Badge variant="outline">Appointment Reminders</Badge>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div className="space-y-2">
+              <p className="text-xs font-semibold">Typical Results:</p>
+              <ul className="space-y-1">
+                <li className="text-xs flex items-center gap-2">
+                  <Shield className="w-3 h-3 text-primary" />
+                  <span>100% HIPAA compliance</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <Clock className="w-3 h-3 text-primary" />
+                  <span>60% reduction in admin time</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <Users className="w-3 h-3 text-primary" />
+                  <span>Better patient experience</span>
+                </li>
+              </ul>
+            </div>
+
+            <Button variant="outline" className="w-full mt-4 group-hover:bg-primary group-hover:text-white" asChild>
+              <Link to="/solutions/healthcare">
+                View Healthcare Solutions <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Real Estate */}
+      <Card className="hover:shadow-xl transition-all group border-t-4 border-t-primary">
+        <CardHeader>
+          <div className="flex items-center justify-between mb-4">
+            <Building2 className="w-12 h-12 text-primary group-hover:scale-110 transition-transform" />
+            <Badge variant="secondary">22+ Projects</Badge>
+          </div>
+          <CardTitle className="text-2xl">Real Estate</CardTitle>
+          <CardDescription className="text-base">
+            Streamline property management and sales operations
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Automate lead management, property listings, client communication, 
+              and document processing for real estate firms.
+            </p>
+            
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-muted-foreground">Key Solutions:</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline">Lead Management</Badge>
+                <Badge variant="outline">Property Listings</Badge>
+                <Badge variant="outline">Document Automation</Badge>
+                <Badge variant="outline">Client Follow-ups</Badge>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div className="space-y-2">
+              <p className="text-xs font-semibold">Typical Results:</p>
+              <ul className="space-y-1">
+                <li className="text-xs flex items-center gap-2">
+                  <TrendingUp className="w-3 h-3 text-primary" />
+                  <span>2x more leads managed per agent</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <Clock className="w-3 h-3 text-primary" />
+                  <span>80% faster document processing</span>
+                </li>
+                <li className="text-xs flex items-center gap-2">
+                  <Target className="w-3 h-3 text-primary" />
+                  <span>35% increase in conversion rate</span>
+                </li>
+              </ul>
+            </div>
+
+            <Button variant="outline" className="w-full mt-4 group-hover:bg-primary group-hover:text-white" asChild>
+              <Link to="/solutions/real-estate">
+                View Real Estate Solutions <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+    </div>
+
+    {/* CTA for Custom Industries */}
+    <div className="mt-16 text-center">
+      <Card className="max-w-3xl mx-auto bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/20">
+        <CardContent className="pt-8 pb-8">
+          <Sparkles className="w-12 h-12 mx-auto mb-4 text-primary" />
+          <h3 className="text-2xl font-bold mb-3">Don't See Your Industry?</h3>
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            We've successfully delivered automation solutions across 15+ industries. 
+            Every business has unique workflows that can be optimized.
+          </p>
+          <Button size="lg" asChild className="shadow-glow">
+            <Link to="/contact">
+              Discuss Your Industry <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
+          </Button>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</section>
+
 
         {/* Methodology */}
         <section className="py-20 px-6">
