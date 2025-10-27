@@ -34,9 +34,9 @@ export default function Pricing() {
   const projectPlans = [
     {
       name: "Starter",
-      price: "Contact Us",
-      priceRange: "Contact Us",
-      period: "",
+      price: "$3,000",
+      priceRange: "$3K - $5K",
+      period: "one-time",
       description: "Perfect for small businesses starting their automation journey",
       ideal: "1-3 simple workflows",
       timeline: "2-3 weeks",
@@ -61,9 +61,9 @@ export default function Pricing() {
     },
     {
       name: "Professional",
-      price: "Contact Us",
-      priceRange: "Contact Us",
-      period: "",
+      price: "$8,000",
+      priceRange: "$8K - $15K",
+      period: "one-time",
       description: "For growing businesses needing comprehensive automation",
       ideal: "5-10 complex workflows",
       timeline: "4-6 weeks",
@@ -90,9 +90,9 @@ export default function Pricing() {
     },
     {
       name: "Enterprise",
-      price: "Contact Us",
-      priceRange: "Contact Us",
-      period: "",
+      price: "$25,000+",
+      priceRange: "$25K+",
+      period: "custom scope",
       description: "For large organizations with complex automation needs",
       ideal: "Unlimited workflows",
       timeline: "8-12 weeks",
@@ -120,8 +120,8 @@ export default function Pricing() {
   const retainerPlans = [
     {
       name: "Maintenance",
-      price: "Contact Us",
-      period: "",
+      price: "$500",
+      period: "/month",
       description: "Keep your workflows running smoothly",
       features: [
         "Monitoring & bug fixes",
@@ -136,8 +136,8 @@ export default function Pricing() {
     },
     {
       name: "Growth",
-      price: "Contact Us",
-      period: "",
+      price: "$1,500",
+      period: "/month",
       description: "Continuous optimization and new features",
       features: [
         "Everything in Maintenance",
@@ -154,8 +154,8 @@ export default function Pricing() {
     },
     {
       name: "Dedicated",
-      price: "Contact Us",
-      period: "",
+      price: "$5,000",
+      period: "/month",
       description: "Full-time automation team at your service",
       features: [
         "Everything in Growth",
@@ -176,25 +176,25 @@ export default function Pricing() {
   const addons = [
     { 
       name: "Additional Workflow", 
-      price: "Contact Us", 
+      price: "$800 - $2,500", 
       description: "Price varies by complexity",
       icon: Zap 
     },
     { 
       name: "Training Session", 
-      price: "Contact Us", 
+      price: "$400", 
       description: "2-hour team training per session",
       icon: Users 
     },
     { 
       name: "Custom Integration", 
-      price: "Contact Us", 
+      price: "$1,500 - $5,000", 
       description: "Complex API development",
       icon: Shield 
     },
     { 
       name: "Migration Service", 
-      price: "Contact Us", 
+      price: "$2,000 - $8,000", 
       description: "Zapier/Make to n8n migration",
       icon: ArrowRight 
     }
@@ -391,7 +391,7 @@ export default function Pricing() {
                           variant={plan.popular ? "default" : "outline"} 
                           asChild
                         >
-                          <Link to="/company/contact">
+                          <Link to="/contact">
                             {plan.cta} <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
                         </Button>
@@ -466,7 +466,7 @@ export default function Pricing() {
                           variant={plan.popular ? "default" : "outline"} 
                           asChild
                         >
-                          <Link to="/company/contact">{plan.cta} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                          <Link to="/contact">{plan.cta} <ArrowRight className="ml-2 h-4 w-4" /></Link>
                         </Button>
                         
                         <ul className="space-y-3">
