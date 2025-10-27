@@ -77,7 +77,7 @@ const Header = () => {
 
   const resources = [
     { name: "Blog & Insights", href: "/resources/blog" },
-    { name: "n8n Templates (Free)", href: "/resources/n8n-templates" },
+    { name: "n8n Templates (Free)", href: "/resources/templates" },
     { name: "Migration Guides", href: "/resources/migration-guides" },
     { name: "ROI Calculator", href: "/resources/roi-calculator" },
     { name: "Webinars", href: "/resources/webinars" },
