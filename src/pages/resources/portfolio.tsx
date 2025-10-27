@@ -162,52 +162,39 @@ export default function Portfolio() {
 
   const services = [
     {
-      icon: Database,
-      title: "Data & AI Development",
-      description: "Predictive models, ML, NLP, CV, data pipelines",
-      features: ["Machine Learning models", "Natural Language Processing", "Computer Vision", "Data engineering pipelines"],
-    },
-    {
       icon: Workflow,
-      title: "Workflow & Automation",
-      description: "n8n workflows, process automation, sync, optimization",
-      features: ["n8n workflows", "Process automation", "System synchronization", "Performance optimization"],
+      title: "n8n Automation",
+      description: "Build powerful automation workflows with n8n - the open-source workflow automation platform",
+      features: ["Custom n8n workflows", "API integrations", "Process automation", "Scalable solutions"],
+      link: "/services/n8n-automation",
     },
     {
-      icon: Network,
-      title: "Integration & API",
-      description: "Custom APIs, legacy systems, webhooks, tool integration",
-      features: ["REST & GraphQL APIs", "Legacy system integration", "Webhook handling", "Third-party integrations"],
+      icon: MessageSquare,
+      title: "AI Chatbots",
+      description: "Intelligent chatbots powered by GPT-4, Claude, and custom AI models for seamless customer interactions",
+      features: ["GPT-4/Claude integration", "RAG systems", "Custom training", "Multi-platform support"],
+      link: "/services/ai-chatbots",
     },
     {
-      icon: Target,
-      title: "Consulting & Strategy",
-      description: "AI strategy, tech stack, process audit, ROI analysis",
-      features: ["AI strategy planning", "Tech stack selection", "Process auditing", "ROI analysis"],
+      icon: Code,
+      title: "Zapier Migration",
+      description: "Migrate from expensive Zapier workflows to cost-effective n8n solutions without losing functionality",
+      features: ["Cost savings up to 90%", "Zero downtime migration", "Enhanced features", "Full support"],
+      link: "/services/zapier-migration",
     },
     {
-      icon: Settings,
-      title: "Support & Optimization",
-      description: "24/7 monitoring, tuning, bug fixes, security updates",
-      features: ["24/7 system monitoring", "Performance tuning", "Bug fixes & patches", "Security updates"],
+      icon: Cloud,
+      title: "No-Code/Low-Code",
+      description: "Build and deploy applications faster with modern no-code and low-code development platforms",
+      features: ["Rapid development", "Visual builders", "API integration", "Custom solutions"],
+      link: "/services/nocode-lowcode",
     },
     {
-      icon: GraduationCap,
-      title: "Training & Knowledge",
-      description: "Training programs, documentation, workshops, handoff",
-      features: ["Custom training programs", "Technical documentation", "Team workshops", "Knowledge handoff"],
-    },
-    {
-      icon: Bot,
-      title: "Custom AI Solutions",
-      description: "Chatbots, recommendation engines, anomaly detection",
-      features: ["AI chatbots", "Recommendation systems", "Anomaly detection", "Intelligent automation"],
-    },
-    {
-      icon: Server,
-      title: "Enterprise Infrastructure",
-      description: "Scalability, optimization, compliance, disaster recovery",
-      features: ["Scalability planning", "Infrastructure optimization", "Compliance management", "Disaster recovery"],
+      icon: BarChart3,
+      title: "Marketing Automation",
+      description: "Automate your marketing campaigns, lead nurturing, and customer engagement workflows",
+      features: ["Email automation", "Lead scoring", "Campaign tracking", "CRM integration"],
+      link: "/services/marketing-automation",
     },
   ];
 
@@ -319,26 +306,31 @@ export default function Portfolio() {
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Our Expertise</h2>
-              <p className="text-xl text-muted-foreground">Technical capabilities for complex automation and AI projects</p>
+              <h2 className="text-4xl font-bold mb-4">Our Services</h2>
+              <p className="text-xl text-muted-foreground">Expert automation and AI solutions tailored to your business needs</p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all">
+                <Card key={index} className="hover:shadow-lg transition-all flex flex-col">
                   <CardHeader>
                     <service.icon className="w-10 h-10 mb-3 text-primary" />
                     <CardTitle className="text-xl">{service.title}</CardTitle>
                     <CardDescription>{service.description}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                      <ul className="space-y-2">
-                        {service.features.map((feature, idx) => (
-                          <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                              <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                  <CardContent className="flex-grow flex flex-col">
+                    <ul className="space-y-2 mb-6">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button className="w-full mt-auto" asChild>
+                      <Link to={service.link}>
+                        Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                      </Link>
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
