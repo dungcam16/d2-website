@@ -427,7 +427,7 @@ export default function Portfolio() {
 
                         {/* CTA */}
                         <Button variant="outline" size="sm" className="w-full mt-auto" asChild>
-                          <Link to={`/portfolio/${project.slug}`}>
+                          <Link to={`/resources/casestudies/${project.slug}`}>
                             View Full Case Study <ArrowRight className="w-4 h-4 ml-2" />
                           </Link>
                         </Button>

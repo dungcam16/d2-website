@@ -96,7 +96,7 @@ const CaseStudiesPage = () => {
                     <Button
                       variant="outline"
                       className="w-full group-hover:bg-primary group-hover:text-primary-foreground"
-                      onClick={() => (window.location.href = `/portfolio/${study.slug}`)}
+                      onClick={() => (window.location.href = `/resources/casestudies/${study.slug}`)}
                     >
                       Read More
                       <ArrowRight className="ml-2 w-4 h-4" />

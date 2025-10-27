@@ -100,11 +100,11 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <img src={logoD2Group} alt="D2 Group Logo" width="40" height="40" className="h-10 w-10" />
             <span className="text-xl font-bold font-heading text-foreground">D2 Group</span>
             <span className="text-xs text-muted-foreground font-normal">AI Automation Agency</span>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

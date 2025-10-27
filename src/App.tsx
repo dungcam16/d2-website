@@ -18,6 +18,7 @@ import Pricing from "./pages/company/pricing";
 import MigrationGuides from "./pages/resources/migration-guides";
 import RoiCalculator from "./pages/resources/roi-calculator";
 import CaseStudiesPage from "./pages/resources/case-studies";
+import CaseStudyDetail from "./pages/resources/case-study-detail";
 
 // Services
 import N8nAutomation from "./pages/services/n8n-automation";
@@ -67,6 +68,7 @@ const App = () => (
           <Route path="/resources/templates" element={<Templates />} />
           <Route path="/resources/templates/:slug" element={<TemplateDetail />} />
           <Route path="/resources/casestudies" element={<CaseStudiesPage />} />
+          <Route path="/resources/casestudies/:slug" element={<CaseStudyDetail />} />
           <Route path="/resources/migration-guides" element={<MigrationGuides />} />
           <Route path="/resources/roi-calculator" element={<RoiCalculator />} />
 
