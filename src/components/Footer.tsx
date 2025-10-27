@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { Linkedin, Twitter, Github, Youtube } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Footer: React.FC = () => {
   const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false);
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
@@ -16,20 +18,18 @@ const Footer: React.FC = () => {
     setIsSubmittingNewsletter(true);
 
     try {
-      const response = await fetch("https://n8n.d2group.co/webhook/d2group_website?flow=newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      const { data, error } = await supabase.functions.invoke('newsletter-subscribe', {
+        body: {
           email: newsletterEmail,
-          timestamp: new Date().toISOString(),
-        }),
+          website: honeypot, // Honeypot field
+        },
       });
 
-      if (response.ok) {
+      if (error) throw error;
+
+      if (data?.success) {
         setNewsletterEmail("");
-        // Show success without alert - just reset form
+        setHoneypot("");
       }
     } catch (error) {
       console.error("Newsletter subscription error:", error);
@@ -154,6 +154,16 @@ const Footer: React.FC = () => {
                     value={newsletterEmail}
                     onChange={(e) => setNewsletterEmail(e.target.value)}
                     required
+                />
+                {/* Honeypot field - hidden from users */}
+                <input
+                    type="text"
+                    name="website"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    style={{ display: 'none' }}
+                    tabIndex={-1}
+                    autoComplete="off"
                 />
                 <button 
                     type="submit" 

@@ -80,18 +80,16 @@ const CaseStudiesPage = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://n8n.d2group.co/webhook/d2group_website?flow=casestudies", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      const { data, error } = await supabase.functions.invoke('newsletter-subscribe', {
+        body: {
           email,
-          timestamp: new Date().toISOString(),
-        }),
+          website: "", // Honeypot field (empty)
+        },
       });
 
-      if (response.ok) {
+      if (error) throw error;
+
+      if (data?.success) {
         toast({
           title: "Success!",
           description: "You have successfully subscribed to our newsletter.",

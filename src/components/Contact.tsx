@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
 import { contactFormSchema } from "@/lib/validations/contact";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const Contact = () => {
     phone: "",
     company: "",
     message: "",
+    website: "", // Honeypot field
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,21 +47,20 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://n8n.d2group.co/webhook/d2group_website?flow=contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      const { data, error } = await supabase.functions.invoke('contact-form', {
+        body: {
           name: result.data.name,
           email: result.data.email,
           phone: result.data.phone,
           company: result.data.company || "",
           message: result.data.message,
-        }),
+          website: formData.website, // Honeypot field
+        },
       });
 
-      if (response.ok) {
+      if (error) throw error;
+
+      if (data?.success) {
         toast({
           title: "Successfully Sent!",
           description: "Thank you for your message! We will get back to you as soon as possible.",
@@ -70,6 +71,7 @@ const Contact = () => {
           phone: "",
           company: "",
           message: "",
+          website: "",
         });
       } else {
         throw new Error("Failed to submit the form");
@@ -206,6 +208,17 @@ const Contact = () => {
                   required
                 />
               </div>
+
+              {/* Honeypot field - hidden from users */}
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                style={{ display: 'none' }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
 
               <Button type="submit" className="w-full shadow-glow group" disabled={isSubmitting}>
                 {isSubmitting ? "Sending..." : "Send Message"}

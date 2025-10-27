@@ -33,35 +33,41 @@ export default function Admin() {
 
   const checkAdminStatus = async () => {
     try {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-
-      if (!session) {
+      // Get current session first
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+      
+      if (sessionError || !session) {
+        console.log("No active session");
         setShowLogin(true);
         setLoading(false);
         return;
       }
 
-      const { data: roles, error } = await supabase
-        .from("user_roles" as any)
-        .select("role")
-        .eq("user_id", session.user.id)
-        .eq("role", "admin")
-        .maybeSingle();
+      console.log("Session found, verifying admin status via Edge Function");
 
-      if (error) throw error;
+      // Use Edge Function for server-side admin verification
+      const { data, error } = await supabase.functions.invoke('verify-admin');
 
-      if (roles) {
+      if (error) {
+        console.error("Error verifying admin status:", error);
+        toast.error("Error verifying admin access. Please try again.");
+        setShowLogin(true);
+        setLoading(false);
+        return;
+      }
+
+      if (data?.isAdmin) {
+        console.log("Admin role confirmed");
         setIsAdmin(true);
       } else {
+        console.log("User is not an admin");
         toast.error("You do not have permission to access this page.");
-        navigate("/");
+        navigate("/", { replace: true });
       }
     } catch (error) {
-      console.error("Error checking admin status:", error);
+      console.error("Error in checkAdminStatus:", error);
       toast.error("An error occurred while verifying your permissions.");
-      navigate("/");
+      setShowLogin(true);
     } finally {
       setLoading(false);
     }

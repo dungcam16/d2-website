@@ -9,6 +9,7 @@ import { toast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { contactFormSchema } from "@/lib/validations/contact";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -58,22 +59,21 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://n8n.d2group.co/webhook/d2group_website?flow=contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      const { data, error } = await supabase.functions.invoke('contact-form', {
+        body: {
           name: result.data.name,
           email: result.data.email,
           phone: result.data.phone,
-          company: result.data.company,
-          service: result.data.service,
+          company: result.data.company || "",
+          service: result.data.service || "",
           message: result.data.message,
-        }),
+          website: "", // Honeypot field (empty)
+        },
       });
 
-      if (response.ok) {
+      if (error) throw error;
+
+      if (data?.success) {
         toast({
           title: "Successfully Submitted!",
           description: "Thank you for contacting us! We'll respond as soon as possible.",
