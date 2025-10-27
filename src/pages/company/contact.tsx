@@ -21,11 +21,11 @@ const Contact = () => {
   });
 
   const services = [
-    "Automation Service - Workflow Automation",
-    "Chatbot Service - Intelligent Chatbot",
-    "Content Service - Content Creation",
-    "SEO Service - Search Engine Optimization",
-    "Zalo Service - Zalo Marketing",
+    "n8n Automation - Enterprise workflows with unlimited executions",
+    "AI Agents & Chatbots - GPT-4 powered automation for support & sales",
+    "Zapier Migration - Switch from Zapier and save 90% on costs",
+    "No-Code/Low-Code Development - Build apps with Webflow, Bubble, Retool",
+    "Digital Marketing Automation - Connect your entire marketing tech stack",
   ];
 
   const [isSubmitting, setIsSubmitting] = useState(false);
