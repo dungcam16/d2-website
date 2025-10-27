@@ -2,6 +2,12 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import johnNguyen from "@/assets/testimonial-john-nguyen.jpg";
+import janeTran from "@/assets/testimonial-jane-tran.jpg";
+import michaelLe from "@/assets/testimonial-michael-le.jpg";
+import dianaPham from "@/assets/testimonial-diana-pham.jpg";
+import davidHoang from "@/assets/testimonial-david-hoang.jpg";
+import sarahDang from "@/assets/testimonial-sarah-dang.jpg";
 
 interface Testimonial {
   name: string;
@@ -17,6 +23,7 @@ const testimonials: Testimonial[] = [
     name: "John Nguyen",
     position: "CEO",
     company: "TechCorp Vietnam",
+    image: johnNguyen,
     content:
       "D2 Group helped us automate 90% of our manual processes, saving over 40 work hours per week. We achieved a positive ROI in just 3 months of implementation.",
     rating: 5,
@@ -25,6 +32,7 @@ const testimonials: Testimonial[] = [
     name: "Jane Tran",
     position: "Marketing Director",
     company: "E-commerce Plus",
+    image: janeTran,
     content:
       "D2 Group's content marketing strategy helped us increase organic traffic by 300% and boost our conversion rate by 250% within 6 months.",
     rating: 5,
@@ -33,6 +41,7 @@ const testimonials: Testimonial[] = [
     name: "Michael Le",
     position: "CTO",
     company: "FinTech Solutions",
+    image: michaelLe,
     content:
       "The N8N automation solution from D2 Group is highly professional. Their support team is dedicated, the implementation was on schedule, and the results exceeded our expectations.",
     rating: 5,
@@ -41,6 +50,7 @@ const testimonials: Testimonial[] = [
     name: "Diana Pham",
     position: "Operations Manager",
     company: "Logistics Pro",
+    image: dianaPham,
     content:
       "D2 Group's AI Chatbot handles 85% of customer inquiries automatically, reducing our response time from 2 hours to just 2 minutes. Our customers are very satisfied.",
     rating: 5,
@@ -49,6 +59,7 @@ const testimonials: Testimonial[] = [
     name: "David Hoang",
     position: "Founder",
     company: "SaaS Startup",
+    image: davidHoang,
     content:
       "D2 Group's technical SEO service brought our website to the top 3 for 15 important keywords. Our traffic increased by 400% in just 4 months.",
     rating: 5,
@@ -57,6 +68,7 @@ const testimonials: Testimonial[] = [
     name: "Sarah Dang",
     position: "Business Development",
     company: "Manufacturing Corp",
+    image: sarahDang,
     content:
       "D2 Group is more than just a solution provider; they are a strategic partner. They deeply understand our industry and offer the most suitable solutions.",
     rating: 5,
@@ -99,9 +111,17 @@ const Testimonials = () => {
                 <p className="text-foreground mb-6 italic">"{testimonial.content}"</p>
 
                 <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-bold text-lg">{testimonial.name.charAt(0)}</span>
-                  </div>
+                  {testimonial.image ? (
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      className="h-12 w-12 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-primary font-bold text-lg">{testimonial.name.charAt(0)}</span>
+                    </div>
+                  )}
                   <div>
                     <div className="font-semibold text-foreground">{testimonial.name}</div>
                     <div className="text-sm text-muted-foreground">

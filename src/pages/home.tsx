@@ -17,6 +17,15 @@ import SEO from "@/components/SEO";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import heroImage from "@/assets/hero-automation-light.jpg";
+import serviceN8n from "@/assets/service-n8n-automation.jpg";
+import serviceAI from "@/assets/service-ai-chatbots.jpg";
+import serviceZapier from "@/assets/service-zapier-migration.jpg";
+import serviceNoCode from "@/assets/service-nocode-lowcode.jpg";
+import serviceMarketing from "@/assets/service-marketing-automation.jpg";
+import benefitTime from "@/assets/benefit-time-savings.jpg";
+import benefitCost from "@/assets/benefit-cost-savings.jpg";
+import benefitVisibility from "@/assets/benefit-visibility.jpg";
+import benefitScale from "@/assets/benefit-scale-growth.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Home = () => {
@@ -81,6 +90,7 @@ const Home = () => {
       color: "text-blue-500",
       delay: "0s",
       href: "/services/n8n-automation",
+      image: serviceN8n,
     },
     {
       icon: Bot,
@@ -95,6 +105,7 @@ const Home = () => {
       color: "text-purple-500",
       delay: "0.1s",
       href: "/services/ai-chatbots",
+      image: serviceAI,
     },
     {
       icon: Zap,
@@ -109,6 +120,7 @@ const Home = () => {
       color: "text-orange-500",
       delay: "0.2s",
       href: "/services/zapier-migration",
+      image: serviceZapier,
     },
     {
       icon: Code,
@@ -123,6 +135,7 @@ const Home = () => {
       color: "text-green-500",
       delay: "0.3s",
       href: "/services/nocode-lowcode",
+      image: serviceNoCode,
     },
     {
       icon: TrendingUp,
@@ -137,6 +150,7 @@ const Home = () => {
       color: "text-pink-500",
       delay: "0.4s",
       href: "/services/marketing-automation",
+      image: serviceMarketing,
     },
   ];
 
@@ -260,7 +274,8 @@ const Home = () => {
         "Automate repetitive workflows",
         "Focus on revenue-generating work"
       ],
-      impact: "That's 2 FTE salaries worth of time ($160K+ annually)"
+      impact: "That's 2 FTE salaries worth of time ($160K+ annually)",
+      image: benefitTime,
     },
     {
       icon: DollarSign,
@@ -273,7 +288,8 @@ const Home = () => {
         "No hidden fees",
         "Save $50K-$200K annually"
       ],
-      impact: "Zapier: $800/month vs D2 Group: $50/month = $9K annual savings"
+      impact: "Zapier: $800/month vs D2 Group: $50/month = $9K annual savings",
+      image: benefitCost,
     },
     {
       icon: BarChart3,
@@ -286,7 +302,8 @@ const Home = () => {
         "Process bottleneck visibility",
         "Data-driven budget allocation"
       ],
-      impact: "Optimize marketing spend 30-40%, Increase ROAS by 2-3x"
+      impact: "Optimize marketing spend 30-40%, Increase ROAS by 2-3x",
+      image: benefitVisibility,
     },
     {
       icon: TrendingUp,
@@ -299,7 +316,8 @@ const Home = () => {
         "Run 5x more campaigns",
         "Same team size"
       ],
-      impact: "Hire 1 person: $80K+ vs Automate: $1K-$3K/month (ROI: 0-2 months)"
+      impact: "Hire 1 person: $80K+ vs Automate: $1K-$3K/month (ROI: 0-2 months)",
+      image: benefitScale,
     }
   ];
 
@@ -374,12 +392,12 @@ const Home = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-              <Button size="lg" className="shadow-glow group text-lg px-8 py-4" onClick={() => window.location.href = '/contact'}>
+              <Button size="lg" className="shadow-glow group text-lg px-8 py-4" onClick={() => window.location.href = '/company/contact'}>
                 Get Started Free
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
 
-              <Button variant="outline" size="lg" className="tech-border group text-lg px-8 py-4" onClick={() => window.location.href = '/case-studies'}>
+              <Button variant="outline" size="lg" className="tech-border group text-lg px-8 py-4" onClick={() => window.location.href = '/resources/casestudies'}>
                 <PlayCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 View Case Studies
               </Button>
@@ -552,7 +570,7 @@ const Home = () => {
           </div>
 
           <div className="text-center">
-            <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/contact'}>
+            <Button size="lg" className="shadow-glow" onClick={() => window.location.href = '/company/contact'}>
               Start Your Free Audit
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -583,11 +601,17 @@ const Home = () => {
                 >
                   <div className="shimmer-effect">
                     <div className="p-8 relative z-10">
-                      <div className="relative mb-6">
-                        <div className={`inline-flex p-4 rounded-xl bg-card/50 ${service.color} group-hover:scale-110 transition-transform duration-300`}>
-                          <IconComponent className="h-8 w-8" />
+                      {/* Service Image */}
+                      <div className="relative mb-6 w-full h-48 rounded-lg overflow-hidden">
+                        <img 
+                          src={service.image} 
+                          alt={service.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+                        <div className={`absolute bottom-4 left-4 inline-flex p-3 rounded-xl bg-card/80 backdrop-blur-sm ${service.color}`}>
+                          <IconComponent className="h-6 w-6" />
                         </div>
-                        <div className="absolute inset-0 bg-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
 
                       <h3 className="text-2xl font-bold font-heading mb-4 text-foreground group-hover:text-primary transition-colors">
@@ -707,10 +731,12 @@ const Home = () => {
                     </div>
                   </div>
                   <div className={isEven ? '' : 'lg:order-1'}>
-                    <div className="glass-effect p-8 rounded-xl tech-border">
-                      <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center">
-                        <IconComponent className="h-32 w-32 text-primary opacity-50" />
-                      </div>
+                    <div className="relative rounded-xl overflow-hidden shadow-2xl">
+                      <img 
+                        src={benefit.image} 
+                        alt={benefit.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                 </div>
@@ -792,7 +818,7 @@ const Home = () => {
 
           <div className="text-center mt-12">
             <p className="text-lg text-muted-foreground mb-6">Still have questions?</p>
-            <Button size="lg" variant="outline" onClick={() => window.location.href = '/contact'}>
+            <Button size="lg" variant="outline" onClick={() => window.location.href = '/company/contact'}>
               Talk to Our Team
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -831,12 +857,12 @@ const Home = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button size="lg" variant="secondary" className="shadow-glow text-lg px-8 py-4" onClick={() => window.location.href = '/contact'}>
+            <Button size="lg" variant="secondary" className="shadow-glow text-lg px-8 py-4" onClick={() => window.location.href = '/company/contact'}>
               Start Free Discovery Call
               <PlayCircle className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="bg-white/20 hover:bg-white/30 text-lg px-8 py-4" onClick={() => window.location.href = '/resources'}>
-              Download: Automation ROI Guide
+            <Button size="lg" variant="outline" className="bg-white/20 hover:bg-white/30 text-lg px-8 py-4" onClick={() => window.location.href = '/resources/roi-calculator'}>
+              Calculate Your ROI
               <Download className="ml-2 h-5 w-5" />
             </Button>
           </div>
