@@ -200,8 +200,8 @@ export default function AiChatbots() {
     {
       name: "Starter",
       popular: false,
-      setup: "$5,000",
-      monthly: "$2,000",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "Growing SaaS companies handling 100+ support inquiries daily",
       roi: "Save $3-5K/month on support costs",
       specs: ["1 AI Agent", "5,000 conversations/month", "3 channel integrations"],
@@ -217,8 +217,8 @@ export default function AiChatbots() {
     {
       name: "Professional",
       popular: true,
-      setup: "$12,000",
-      monthly: "$5,000",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "Enterprise SaaS, E-commerce brands, Digital agencies",
       roi: "Save $10-20K/month on support + increase conversions by 40%",
       specs: ["2-3 AI Agents", "20,000 conversations/month", "Unlimited channels"],
@@ -238,8 +238,8 @@ export default function AiChatbots() {
     {
       name: "Enterprise",
       popular: false,
-      setup: "Custom",
-      monthly: "Custom",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "Fortune 500 companies, complex compliance requirements, agencies",
       roi: "Save $50K-200K/month, scale globally",
       specs: ["Unlimited AI Agents", "Unlimited conversations", "White-label option"],

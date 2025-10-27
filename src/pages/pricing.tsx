@@ -12,8 +12,8 @@ export default function Pricing() {
   const plans = [
     {
       name: "Starter",
-      price: "$2,500",
-      period: "one-time",
+      price: "Contact Us",
+      period: "",
       description: "Perfect for small businesses starting their automation journey",
       features: [
         "Up to 3 workflow automations",
@@ -23,13 +23,13 @@ export default function Pricing() {
         "Basic documentation",
         "1 revision round"
       ],
-      cta: "Get Started",
+      cta: "Contact Us",
       popular: false
     },
     {
       name: "Professional",
-      price: "$7,500",
-      period: "one-time",
+      price: "Contact Us",
+      period: "",
       description: "For growing businesses needing comprehensive automation",
       features: [
         "Up to 10 workflow automations",
@@ -46,8 +46,8 @@ export default function Pricing() {
     },
     {
       name: "Enterprise",
-      price: "Custom",
-      period: "pricing",
+      price: "Contact Us",
+      period: "",
       description: "For large organizations with complex automation needs",
       features: [
         "Unlimited workflow automations",
@@ -67,10 +67,10 @@ export default function Pricing() {
   ];
 
   const addons = [
-    { name: "Additional workflow", price: "$500-2,000", description: "Per workflow complexity" },
-    { name: "Monthly maintenance", price: "$500+", description: "Monitoring, updates & optimization" },
-    { name: "Training session", price: "$500", description: "2-hour team training" },
-    { name: "Custom integration", price: "$1,000-5,000", description: "Complex API development" }
+    { name: "Additional workflow", price: "Contact Us", description: "Per workflow complexity" },
+    { name: "Monthly maintenance", price: "Contact Us", description: "Monitoring, updates & optimization" },
+    { name: "Training session", price: "Contact Us", description: "2-hour team training" },
+    { name: "Custom integration", price: "Contact Us", description: "Complex API development" }
   ];
 
   return (

@@ -222,8 +222,8 @@ export default function DigitalAgencies() {
   const pricingTiers = [
     {
       name: "Agency Starter",
-      setup: "$8,000",
-      monthly: "$1,500",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "5-20 clients, small agencies (5-15 people)",
       roi: "$30K-$50K/year value",
       features: [
@@ -239,8 +239,8 @@ export default function DigitalAgencies() {
     },
     {
       name: "Agency Professional",
-      setup: "$15,000",
-      monthly: "$2,500",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "20-60 clients, growing agencies (15-50 people)",
       roi: "$80K-$150K/year value",
       features: [
@@ -260,8 +260,8 @@ export default function DigitalAgencies() {
     },
     {
       name: "Agency Enterprise",
-      setup: "$25,000+",
-      monthly: "$4,000+",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "60+ clients, scaling agencies (50+ people)",
       roi: "$200K-$500K+/year value",
       features: [

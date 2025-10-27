@@ -212,8 +212,8 @@ export default function EcommerceBrands() {
   const pricingTiers = [
     {
       name: "Startup",
-      setup: "$8,000",
-      monthly: "$1,500",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "Early-stage e-commerce (< $500K/year, <100 orders/day)",
       features: [
         "Order automation (single channel)",
@@ -230,8 +230,8 @@ export default function EcommerceBrands() {
     },
     {
       name: "Growth",
-      setup: "$15,000",
-      monthly: "$2,500",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "Growing e-commerce ($500K-$5M/year, 100-1,000 orders/day)",
       features: [
         "Multi-channel order automation",
@@ -250,8 +250,8 @@ export default function EcommerceBrands() {
     },
     {
       name: "Scale",
-      setup: "$35,000",
-      monthly: "$5,000",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "Established e-commerce ($5M+/year, 1,000+ orders/day)",
       features: [
         "Unlimited channel support",

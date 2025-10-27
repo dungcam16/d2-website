@@ -213,8 +213,8 @@ export default function SaasCompanies() {
   const pricingTiers = [
     {
       name: "Starter",
-      price: "$999/month",
-      setup: "$5,000",
+      price: "Contact Us",
+      setup: "Contact Us",
       ideal: "Early-stage SaaS (Seed to Series A)",
       features: [
         "Customer onboarding automation",
@@ -228,8 +228,8 @@ export default function SaasCompanies() {
     },
     {
       name: "Growth",
-      price: "$1,999/month",
-      setup: "$10,000",
+      price: "Contact Us",
+      setup: "Contact Us",
       ideal: "Scaling SaaS (Series A to B)",
       features: [
         "Advanced onboarding & retention",
@@ -245,8 +245,8 @@ export default function SaasCompanies() {
     },
     {
       name: "Enterprise",
-      price: "Custom",
-      setup: "Custom",
+      price: "Contact Us",
+      setup: "Contact Us",
       ideal: "Enterprise SaaS (Series B+)",
       features: [
         "Multi-product automation",

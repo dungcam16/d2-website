@@ -218,8 +218,8 @@ export default function FintechCompanies() {
   const pricingTiers = [
     {
       name: "Compliance Starter",
-      setup: "$8,000",
-      monthly: "$2,000",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "New FinTech platforms, early-stage teams",
       transactions: "50,000/month",
       features: [
@@ -235,8 +235,8 @@ export default function FintechCompanies() {
     },
     {
       name: "Enterprise Compliance",
-      setup: "$20,000",
-      monthly: "$5,000",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "Growing FinTech platforms, regional banks",
       transactions: "500,000/month",
       features: [
@@ -254,8 +254,8 @@ export default function FintechCompanies() {
     },
     {
       name: "Enterprise Plus",
-      setup: "$35,000+",
-      monthly: "$10,000+",
+      setup: "Contact Us",
+      monthly: "Contact Us",
       ideal: "Large FinTech platforms, banks, payment networks",
       transactions: "5,000,000+/month",
       features: [
