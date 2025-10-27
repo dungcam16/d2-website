@@ -211,24 +211,30 @@
 }
 
 @layer utilities {
+  /* Performance: Add will-change hints for animations to prevent forced reflows */
   .animate-float {
     animation: float 6s ease-in-out infinite;
+    will-change: transform;
   }
   
   .animate-glow {
     animation: glow 2s ease-in-out infinite;
+    will-change: box-shadow;
   }
   
   .animate-slide-up {
     animation: slide-up 0.6s ease-out;
+    will-change: transform, opacity;
   }
   
   .animate-scale-in {
     animation: scale-in 0.5s ease-out;
+    will-change: transform, opacity;
   }
   
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
+    will-change: opacity;
   }
 
   /* Animation delays */
@@ -391,5 +397,34 @@
 
   .b2b-card:hover::after {
     left: 100%;
+  }
+
+  /* Performance optimizations: CSS containment to reduce forced reflows */
+  /* Contain layout calculations within sections to prevent page-wide reflows */
+  section,
+  article,
+  [role="region"] {
+    contain: layout style;
+  }
+  
+  /* Optimize animated elements - remove will-change after animation completes */
+  .animate-slide-up,
+  .animate-scale-in {
+    animation-fill-mode: forwards;
+  }
+  
+  /* Optimize Radix UI components that measure DOM geometry */
+  [data-radix-popper-content-wrapper],
+  [data-radix-accordion-content],
+  [data-radix-dialog-content],
+  [data-radix-dropdown-menu-content],
+  [data-radix-popover-content] {
+    contain: layout;
+  }
+  
+  /* Optimize off-screen content rendering */
+  .content-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
   }
 }
