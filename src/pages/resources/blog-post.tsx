@@ -105,10 +105,10 @@ const BlogPostPage = () => {
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
             <p className="text-muted-foreground mb-8">{error}</p>
-            <Button onClick={() => navigate("/blog")}>
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Blog
-            </Button>
+             <Button onClick={() => navigate("/resources/blog")}>
+               <ArrowLeft className="mr-2 h-4 w-4" />
+               Back to Blog
+             </Button>
           </div>
         </div>
         <Footer />
@@ -139,10 +139,10 @@ const BlogPostPage = () => {
     datePublished: post.published_at,
     dateModified: post.published_at,
     description: post.excerpt || post.title,
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://d2group.co/blog/${post.slug}`,
-    },
+     mainEntityOfPage: {
+       "@type": "WebPage",
+       "@id": `https://d2group.co/resources/blog/${post.slug}`,
+     },
   };
 
   return (
@@ -154,16 +154,16 @@ const BlogPostPage = () => {
         }
         keywords={post.tags?.join(", ")}
         ogImage={post.image_url || undefined}
-        canonicalUrl={`/blog/${post.slug}`}
+        canonicalUrl={`/resources/blog/${post.slug}`}
         structuredData={articleStructuredData}
       />
       <Header />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-        <Button variant="ghost" onClick={() => navigate("/blog")} className="mb-8">
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Blog
-        </Button>
+         <Button variant="ghost" onClick={() => navigate("/resources/blog")} className="mb-8">
+           <ArrowLeft className="mr-2 h-4 w-4" />
+           Back to Blog
+         </Button>
 
         <article>
           {post.image_url && (

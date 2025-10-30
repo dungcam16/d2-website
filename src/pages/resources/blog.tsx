@@ -19,6 +19,7 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
+import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
 interface BlogPost {
@@ -204,7 +205,7 @@ const Blog = () => {
                       </div>
 
                       <h2 className="text-lg font-bold mb-3 hover:text-primary transition-colors line-clamp-2 flex-grow">
-                        <a href={`/blog/${post.slug}`}>{post.title}</a>
+                        <Link to={`/resources/blog/${post.slug}`}>{post.title}</Link>
                       </h2>
 
                       <p className="text-muted-foreground mb-4 line-clamp-3 text-sm">{post.excerpt || ""}</p>
@@ -228,12 +229,12 @@ const Blog = () => {
                       </div>
 
                       <div className="flex items-center justify-between">
-                        <a href={`/blog/${post.slug}`} className="w-full">
+                        <Link to={`/resources/blog/${post.slug}`} className="w-full">
                           <Button variant="outline" size="sm" className="text-xs w-full">
                             <BookOpen className="h-3 w-3 mr-1" />
                             Read More
                           </Button>
-                        </a>
+                        </Link>
                       </div>
                     </CardContent>
                   </Card>

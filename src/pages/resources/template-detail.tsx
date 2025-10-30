@@ -150,7 +150,7 @@ const TemplateDetail = () => {
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-3xl font-bold mb-4">Workflow Template Not Found</h1>
           <p className="text-muted-foreground mb-8">{error}</p>
-          <Link to="/templates">
+          <Link to="/resources/templates">
             <Button>
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Templates
@@ -188,7 +188,7 @@ const TemplateDetail = () => {
 
       <article className="container mx-auto px-4 py-12 max-w-6xl">
         <Link
-          to="/templates"
+          to="/resources/templates"
           className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8 transition-colors"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />

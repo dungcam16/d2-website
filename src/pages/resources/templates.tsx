@@ -286,7 +286,7 @@ const Templates = () => {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {filteredTemplates.map((template) => (
-                  <Link key={template.id} to={`/templates/${template.slug}`}>
+                  <Link key={template.id} to={`/resources/templates/${template.slug}`}>
                     <Card className="h-full hover:shadow-lg transition-shadow group">
                       <div className="relative overflow-hidden">
                         {template.thumbnail_url ? (
