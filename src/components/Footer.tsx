@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Github, Youtube } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -85,9 +86,9 @@ const Footer: React.FC = () => {
     <ul className="space-y-3">
       {links.map((link) => (
         <li key={link.name}>
-          <a href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm font-light">
+          <Link to={link.href} className="text-gray-400 hover:text-white transition-colors text-sm font-light">
             {link.name}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>

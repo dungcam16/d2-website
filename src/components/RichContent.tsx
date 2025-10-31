@@ -12,9 +12,11 @@ interface RichContentProps {
  */
 const RichContent: React.FC<RichContentProps> = ({ content, className = "" }) => {
   // Sanitize HTML to prevent XSS attacks
+  // Only allow iframes from trusted video platforms (YouTube, Vimeo)
   const sanitizedContent = DOMPurify.sanitize(content, {
     ADD_TAGS: ["iframe"],
-    ADD_ATTR: ["allow", "allowfullscreen", "frameborder", "scrolling"],
+    ADD_ATTR: ["allow", "allowfullscreen", "frameborder", "scrolling", "src"],
+    ALLOWED_URI_REGEXP: /^https:\/\/(www\.youtube\.com|player\.vimeo\.com|youtu\.be)/,
   });
 
   return (

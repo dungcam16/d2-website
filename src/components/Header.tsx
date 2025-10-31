@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import logoD2Group from "@/assets/logo_d2_group_transparent.png";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +16,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,11 +102,11 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+          <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <img src={logoD2Group} alt="D2 Group Logo" width="40" height="40" className="h-10 w-10" />
             <span className="text-xl font-bold font-heading text-foreground">D2 Group</span>
             <span className="text-xs text-muted-foreground font-normal">AI Automation Agency</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -120,10 +122,10 @@ const Header = () => {
                 <div className="space-y-2">
                   {services.map((service) => (
                     <DropdownMenuItem key={service.href} asChild>
-                      <a href={service.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
+                      <Link to={service.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
                         <div className="font-medium text-sm mb-0.5">{service.name}</div>
                         <div className="text-xs text-muted-foreground">{service.description}</div>
-                      </a>
+                      </Link>
                     </DropdownMenuItem>
                   ))}
                 </div>
@@ -141,20 +143,20 @@ const Header = () => {
                 <div className="space-y-2">
                   {solutions.map((item) => (
                     <DropdownMenuItem key={item.href} asChild>
-                      <a href={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
+                      <Link to={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
                         <div className="font-medium text-sm mb-0.5">{item.name}</div>
                         <div className="text-xs text-muted-foreground">{item.description}</div>
-                      </a>
+                      </Link>
                     </DropdownMenuItem>
                   ))}
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <a href="/portfolio" className="text-foreground hover:text-primary transition-smooth relative group">
+            <Link to="/portfolio" className="text-foreground hover:text-primary transition-smooth relative group">
               Portfolio
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </Link>
 
             {/* Resources Dropdown */}
             <DropdownMenu>
@@ -166,18 +168,18 @@ const Header = () => {
               <DropdownMenuContent className="w-[200px] bg-card border-border p-2 z-50">
                 {resources.map((item) => (
                   <DropdownMenuItem key={item.href} asChild>
-                    <a href={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
+                    <Link to={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
                       {item.name}
-                    </a>
+                    </Link>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <a href="/pricing" className="text-foreground hover:text-primary transition-smooth relative group">
+            <Link to="/pricing" className="text-foreground hover:text-primary transition-smooth relative group">
               Pricing
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </Link>
 
             {/* Company Dropdown */}
             <DropdownMenu>
@@ -189,9 +191,9 @@ const Header = () => {
               <DropdownMenuContent className="w-[200px] bg-card border-border p-2 z-50">
                 {company.map((item) => (
                   <DropdownMenuItem key={item.href} asChild>
-                    <a href={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
+                    <Link to={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
                       {item.name}
-                    </a>
+                    </Link>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
@@ -217,7 +219,7 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button variant="default" className="shadow-glow" onClick={() => (window.location.href = "/company/contact")}>
+            <Button variant="default" className="shadow-glow" onClick={() => navigate("/company/contact")}>
               Book Free Audit
             </Button>
           </div>
@@ -240,10 +242,10 @@ const Header = () => {
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Services</div>
                 {services.map((service) => (
-                  <a key={service.name} href={service.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
+                  <Link key={service.name} to={service.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
                     <div className="font-medium text-sm">{service.name}</div>
                     <div className="text-xs text-muted-foreground">{service.description}</div>
-                  </a>
+                  </Link>
                 ))}
               </div>
 
@@ -251,38 +253,38 @@ const Header = () => {
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Solutions</div>
                 {solutions.map((item) => (
-                  <a key={item.name} href={item.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
+                  <Link key={item.name} to={item.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
                     <div className="font-medium text-sm">{item.name}</div>
                     <div className="text-xs text-muted-foreground">{item.description}</div>
-                  </a>
+                  </Link>
                 ))}
               </div>
 
-              <a href="/portfolio" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/portfolio" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
                 Portfolio
-              </a>
+              </Link>
 
               {/* Mobile Resources */}
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Resources</div>
                 {resources.map((item) => (
-                  <a key={item.name} href={item.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
+                  <Link key={item.name} to={item.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
 
-              <a href="/pricing" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/pricing" className="block text-foreground hover:text-primary transition-smooth py-2" onClick={() => setIsMenuOpen(false)}>
                 Pricing
-              </a>
+              </Link>
 
               {/* Mobile Company */}
               <div className="border-t border-border pt-4 mt-4">
                 <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Company</div>
                 {company.map((item) => (
-                  <a key={item.name} href={item.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
+                  <Link key={item.name} to={item.href} className="block text-foreground hover:text-primary transition-smooth py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
 
@@ -320,7 +322,7 @@ const Header = () => {
                   variant="default"
                   className="w-full shadow-glow"
                   onClick={() => {
-                    window.location.href = "/company/contact";
+                    navigate("/company/contact");
                     setIsMenuOpen(false);
                   }}
                 >
