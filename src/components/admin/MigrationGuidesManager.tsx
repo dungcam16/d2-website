@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 import { Badge } from "@/components/ui/badge";
 import { Pencil, Trash2, Eye } from "lucide-react";
 
@@ -248,15 +247,20 @@ export const MigrationGuidesManager = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="content">Content</Label>
-            <ReactQuill
-              theme="snow"
+            <Label htmlFor="content">Content (HTML)</Label>
+            <Textarea
+              id="content"
               value={editingGuide.content}
-              onChange={(content) =>
-                setEditingGuide({ ...editingGuide, content })
+              onChange={(e) =>
+                setEditingGuide({ ...editingGuide, content: e.target.value })
               }
-              className="h-64 mb-12"
+              placeholder="Nhập nội dung migration guide (có thể sử dụng HTML)"
+              rows={15}
+              className="font-mono text-sm"
             />
+            <p className="text-xs text-muted-foreground">
+              Hỗ trợ HTML tags: h1-h6, p, strong, em, ul, ol, li, a, img, blockquote, code, pre
+            </p>
           </div>
 
           <div className="flex items-center space-x-2">
