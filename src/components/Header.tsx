@@ -15,6 +15,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const navigate = useNavigate();
 
@@ -112,7 +116,7 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
 
             {/* Services Dropdown */}
-            <DropdownMenu>
+            <DropdownMenu open={servicesOpen} onOpenChange={setServicesOpen}>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
                 Services
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -122,7 +126,7 @@ const Header = () => {
                 <div className="space-y-2">
                   {services.map((service) => (
                     <DropdownMenuItem key={service.href} asChild>
-                      <Link to={service.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
+                      <Link to={service.href} onClick={() => setServicesOpen(false)} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
                         <div className="font-medium text-sm mb-0.5">{service.name}</div>
                         <div className="text-xs text-muted-foreground">{service.description}</div>
                       </Link>
@@ -133,7 +137,7 @@ const Header = () => {
             </DropdownMenu>
 
             {/* Solutions Dropdown */}
-            <DropdownMenu>
+            <DropdownMenu open={solutionsOpen} onOpenChange={setSolutionsOpen}>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
                 Solutions
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -143,7 +147,7 @@ const Header = () => {
                 <div className="space-y-2">
                   {solutions.map((item) => (
                     <DropdownMenuItem key={item.href} asChild>
-                      <Link to={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
+                      <Link to={item.href} onClick={() => setSolutionsOpen(false)} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
                         <div className="font-medium text-sm mb-0.5">{item.name}</div>
                         <div className="text-xs text-muted-foreground">{item.description}</div>
                       </Link>
@@ -159,7 +163,7 @@ const Header = () => {
             </Link>
 
             {/* Resources Dropdown */}
-            <DropdownMenu>
+            <DropdownMenu open={resourcesOpen} onOpenChange={setResourcesOpen}>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
                 Resources
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -168,7 +172,7 @@ const Header = () => {
               <DropdownMenuContent className="w-[200px] bg-card border-border p-2 z-50">
                 {resources.map((item) => (
                   <DropdownMenuItem key={item.href} asChild>
-                    <Link to={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
+                    <Link to={item.href} onClick={() => setResourcesOpen(false)} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
                       {item.name}
                     </Link>
                   </DropdownMenuItem>
@@ -182,7 +186,7 @@ const Header = () => {
             </Link>
 
             {/* Company Dropdown */}
-            <DropdownMenu>
+            <DropdownMenu open={companyOpen} onOpenChange={setCompanyOpen}>
               <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-smooth relative group">
                 Company
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -191,7 +195,7 @@ const Header = () => {
               <DropdownMenuContent className="w-[200px] bg-card border-border p-2 z-50">
                 {company.map((item) => (
                   <DropdownMenuItem key={item.href} asChild>
-                    <Link to={item.href} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
+                    <Link to={item.href} onClick={() => setCompanyOpen(false)} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
                       {item.name}
                     </Link>
                   </DropdownMenuItem>
