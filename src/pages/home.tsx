@@ -368,14 +368,14 @@ const Home = () => {
         </div>
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 animate-float">
-            <Bot className="h-12 w-12 text-primary opacity-50" />
+          <div className="absolute top-20 left-10 opacity-30" style={{ willChange: 'transform' }}>
+            <Bot className="h-12 w-12 text-primary" />
           </div>
-          <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: "2s" }}>
-            <Workflow className="h-16 w-16 text-primary opacity-30" />
+          <div className="absolute top-40 right-20 opacity-20" style={{ willChange: 'transform' }}>
+            <Workflow className="h-16 w-16 text-primary" />
           </div>
-          <div className="absolute bottom-40 left-20 animate-float" style={{ animationDelay: "4s" }}>
-            <Zap className="h-10 w-10 text-primary opacity-40" />
+          <div className="absolute bottom-40 left-20 opacity-25" style={{ willChange: 'transform' }}>
+            <Zap className="h-10 w-10 text-primary" />
           </div>
         </div>
 

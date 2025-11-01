@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Github, Youtube } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer: React.FC = () => {
+  const { language, setLanguage } = useLanguage();
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [honeypot, setHoneypot] = useState("");
   const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false);
@@ -139,9 +141,19 @@ const Footer: React.FC = () => {
                     ))}
                 </div>
                 <div className="flex items-center text-sm">
-                    <button className="text-white font-semibold">EN</button>
+                    <button 
+                      onClick={() => setLanguage('en')}
+                      className={`font-semibold transition-colors ${language === 'en' ? 'text-white' : 'text-gray-400 hover:text-white'}`}
+                    >
+                      EN
+                    </button>
                     <span className="text-gray-600 mx-1">|</span>
-                    <button className="text-gray-400 hover:text-white">VN</button>
+                    <button 
+                      onClick={() => setLanguage('vi')}
+                      className={`font-semibold transition-colors ${language === 'vi' ? 'text-white' : 'text-gray-400 hover:text-white'}`}
+                    >
+                      VN
+                    </button>
                 </div>
             </div>
             

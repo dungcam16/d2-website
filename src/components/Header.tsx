@@ -122,7 +122,7 @@ const Header = () => {
                 <ChevronDown className="ml-1 h-4 w-4" />
                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[300px] bg-card border-border p-4 z-50">
+              <DropdownMenuContent className="w-[300px] bg-card/95 backdrop-blur-xl border-border p-4 z-[100] shadow-lg">
                 <div className="space-y-2">
                   {services.map((service) => (
                     <DropdownMenuItem key={service.href} asChild>
@@ -143,7 +143,7 @@ const Header = () => {
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[300px] bg-card border-border p-4 z-50">
+              <DropdownMenuContent className="w-[300px] bg-card/95 backdrop-blur-xl border-border p-4 z-[100] shadow-lg">
                 <div className="space-y-2">
                   {solutions.map((item) => (
                     <DropdownMenuItem key={item.href} asChild>
@@ -169,7 +169,7 @@ const Header = () => {
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[200px] bg-card border-border p-2 z-50">
+              <DropdownMenuContent className="w-[200px] bg-card/95 backdrop-blur-xl border-border p-2 z-[100] shadow-lg">
                 {resources.map((item) => (
                   <DropdownMenuItem key={item.href} asChild>
                     <Link to={item.href} onClick={() => setResourcesOpen(false)} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
@@ -192,7 +192,7 @@ const Header = () => {
                 <ChevronDown className="ml-1 h-4 w-4" />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[200px] bg-card border-border p-2 z-50">
+              <DropdownMenuContent className="w-[200px] bg-card/95 backdrop-blur-xl border-border p-2 z-[100] shadow-lg">
                 {company.map((item) => (
                   <DropdownMenuItem key={item.href} asChild>
                     <Link to={item.href} onClick={() => setCompanyOpen(false)} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
