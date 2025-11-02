@@ -1,10 +1,16 @@
 import { useEffect, useRef } from "react";
 
-// Declare n8n-demo web component for TypeScript
+interface WorkflowCanvasProps {
+  workflowData?: any;
+  embedUrl?: string;
+  workflowId?: string;
+}
+
+// Declare n8n-demo web component type
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'n8n-demo': {
+      'n8n-demo': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
         workflow?: string;
         collapseformobile?: string;
         clicktointeract?: string;
@@ -12,103 +18,93 @@ declare global {
         disableinteractivity?: string;
         theme?: string;
         frame?: string;
-      };
+      }, HTMLElement>;
     }
   }
 }
 
-interface WorkflowCanvasProps {
-  workflowData?: any;
-  embedUrl?: string;
-  workflowId?: string;
-}
-
-const WorkflowCanvas = ({ workflowData, embedUrl, workflowId }: WorkflowCanvasProps) => {
+export const WorkflowCanvas = ({ workflowData, embedUrl, workflowId }: WorkflowCanvasProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const scriptsLoadedRef = useRef(false);
 
   useEffect(() => {
     // Only load scripts once
     if (scriptsLoadedRef.current) return;
+    scriptsLoadedRef.current = true;
 
-    const loadScript = (src: string): Promise<void> => {
-      return new Promise((resolve, reject) => {
-        // Check if script already exists
-        if (document.querySelector(`script[src="${src}"]`)) {
-          resolve();
-          return;
-        }
+    // Load required scripts in order
+    const webcomponentsScript = document.createElement('script');
+    webcomponentsScript.src = 'https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.0.0/webcomponents-loader.js';
+    document.head.appendChild(webcomponentsScript);
 
-        const script = document.createElement('script');
-        script.src = src;
-        script.async = true;
-        script.onload = () => resolve();
-        script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
-        document.head.appendChild(script);
-      });
+    webcomponentsScript.onload = () => {
+      const litScript = document.createElement('script');
+      litScript.src = 'https://www.unpkg.com/lit@2.0.0-rc.2/polyfill-support.js';
+      document.head.appendChild(litScript);
+
+      litScript.onload = () => {
+        const n8nScript = document.createElement('script');
+        n8nScript.type = 'module';
+        n8nScript.src = 'https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component/n8n-demo.bundled.js';
+        document.head.appendChild(n8nScript);
+      };
     };
 
-    const loadScripts = async () => {
-      try {
-        // Load scripts in sequence
-        await loadScript('https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.0.0/webcomponents-loader.js');
-        await loadScript('https://www.unpkg.com/lit@2.0.0-rc.2/polyfill-support.js');
-        await loadScript('https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component/n8n-demo.bundled.js');
-        
-        scriptsLoadedRef.current = true;
-      } catch (error) {
-        console.error('Error loading n8n scripts:', error);
-      }
+    return () => {
+      // Cleanup is handled by browser
     };
-
-    loadScripts();
   }, []);
 
-  // Priority 1: workflowData with n8n-demo component
+  // If we have workflow data, use n8n-demo component
   if (workflowData) {
+    const workflowJson = JSON.stringify(workflowData);
+
     return (
-      <div className="w-full rounded-xl border-2 border-border bg-white overflow-hidden">
+      <div
+        ref={containerRef}
+        className="relative w-full rounded-xl border-2 border-border overflow-hidden bg-white"
+      >
         <n8n-demo
-          workflow={JSON.stringify(workflowData)}
+          workflow={workflowJson}
           collapseformobile="false"
           clicktointeract="true"
           hidecanvaserrors="true"
           disableinteractivity="false"
           theme="light"
           frame="true"
+          style={{ display: 'block', width: '100%' }}
         />
       </div>
     );
   }
 
-  // Priority 2: embedUrl with iframe
+  // Fallback: use embed URL if provided
   if (embedUrl) {
     return (
-      <div className="w-full rounded-xl border-2 border-border bg-background overflow-hidden">
+      <div
+        className="relative w-full rounded-xl border-2 border-border overflow-hidden bg-background"
+        style={{ height: 'calc(100vh - 200px)', minHeight: '600px' }}
+      >
         <iframe
           src={embedUrl}
-          className="w-full border-0"
-          style={{ 
-            height: 'calc(100vh - 200px)',
-            minHeight: '600px'
-          }}
-          title="N8N Workflow"
+          className="w-full h-full"
+          style={{ height: '100%' }}
+          frameBorder="0"
           allow="clipboard-read; clipboard-write"
-          sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+          title="n8n workflow"
         />
       </div>
     );
   }
 
-  // Priority 3: Fallback message
+  // No workflow data available
   return (
-    <div className="w-full rounded-xl border-2 border-border bg-muted/20 overflow-hidden">
-      <div className="flex items-center justify-center p-12">
-        <p className="text-muted-foreground text-center">
+    <div className="relative w-full h-[600px] bg-gradient-to-br from-background via-muted/20 to-background rounded-xl border-2 border-border flex items-center justify-center">
+      <div className="text-center p-8">
+        <p className="text-muted-foreground mb-4">
           Workflow preview không khả dụng
         </p>
       </div>
     </div>
   );
 };
-
-export default WorkflowCanvas;
