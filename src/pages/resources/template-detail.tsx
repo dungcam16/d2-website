@@ -5,11 +5,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import RichContent from "@/components/RichContent";
+import { WorkflowVisualizer } from "@/components/WorkflowVisualizer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -234,17 +236,40 @@ const TemplateDetail = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
-            {/* Workflow Thumbnail */}
-            {template.thumbnail_url && (
-              <div className="rounded-xl overflow-hidden border border-border/50 shadow-lg">
-                <img
-                  src={template.thumbnail_url}
-                  alt={`${template.title} - Workflow Preview`}
-                  className="w-full h-auto"
-                  loading="lazy"
-                />
-              </div>
-            )}
+            {/* Workflow Visualization Tabs */}
+            <Tabs defaultValue="diagram" className="w-full">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="diagram">Interactive Diagram</TabsTrigger>
+                <TabsTrigger value="preview">Preview Image</TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="diagram" className="mt-4">
+                {template.workflow_json ? (
+                  <WorkflowVisualizer workflowJson={template.workflow_json} />
+                ) : (
+                  <div className="flex items-center justify-center h-[500px] bg-muted/20 rounded-lg border border-border">
+                    <p className="text-muted-foreground">No workflow data available</p>
+                  </div>
+                )}
+              </TabsContent>
+              
+              <TabsContent value="preview" className="mt-4">
+                {template.thumbnail_url ? (
+                  <div className="rounded-xl overflow-hidden border border-border/50 shadow-lg">
+                    <img
+                      src={template.thumbnail_url}
+                      alt={`${template.title} - Workflow Preview`}
+                      className="w-full h-auto"
+                      loading="lazy"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center h-[500px] bg-muted/20 rounded-lg border border-border">
+                    <p className="text-muted-foreground">No preview image available</p>
+                  </div>
+                )}
+              </TabsContent>
+            </Tabs>
 
             <Card>
               <CardHeader>
