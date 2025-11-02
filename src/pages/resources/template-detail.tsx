@@ -240,7 +240,6 @@ const TemplateDetail = () => {
               <CardContent className="p-6">
                 <WorkflowCanvas 
                   workflowData={template.workflow_json}
-                  embedUrl="https://n8n.d2group.co/workflow/AsCVViY9L7csVmvo"
                 />
               </CardContent>
             </Card>
