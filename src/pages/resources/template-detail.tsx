@@ -5,13 +5,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import RichContent from "@/components/RichContent";
-import { WorkflowVisualizer } from "@/components/WorkflowVisualizer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -236,26 +234,39 @@ const TemplateDetail = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
-            {/* Workflow Visualization Tabs */}
-            <Tabs defaultValue="diagram" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="diagram">Interactive Diagram</TabsTrigger>
-                <TabsTrigger value="preview">Preview Image</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="diagram" className="mt-4">
-                {template.workflow_json ? (
-                  <WorkflowVisualizer workflowJson={template.workflow_json} />
-                ) : (
-                  <div className="flex items-center justify-center h-[500px] bg-muted/20 rounded-lg border border-border">
-                    <p className="text-muted-foreground">No workflow data available</p>
+            {/* N8N Workflow Embed */}
+            <Card className="overflow-hidden">
+              <CardContent className="p-0">
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    src="https://n8n.d2group.co/workflow/AsCVViY9L7csVmvo"
+                    className="absolute top-0 left-0 w-full h-full border-0"
+                    title={`${template.title} - N8N Workflow`}
+                    allow="clipboard-read; clipboard-write"
+                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                  />
+                </div>
+                <div className="p-4 bg-muted/30 border-t border-border">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm text-muted-foreground">Interactive N8N Workflow Editor</p>
+                    <Button variant="outline" size="sm" asChild>
+                      <a href="https://n8n.d2group.co/workflow/AsCVViY9L7csVmvo" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                        <ExternalLink className="h-4 w-4" />
+                        Open in N8N
+                      </a>
+                    </Button>
                   </div>
-                )}
-              </TabsContent>
-              
-              <TabsContent value="preview" className="mt-4">
-                {template.thumbnail_url ? (
-                  <div className="rounded-xl overflow-hidden border border-border/50 shadow-lg">
+                </div>
+              </CardContent>
+            </Card>
+            
+            {template.thumbnail_url && (
+              <Card className="mt-4">
+                <CardHeader>
+                  <CardTitle>Workflow Preview</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="rounded-lg overflow-hidden border border-border/50">
                     <img
                       src={template.thumbnail_url}
                       alt={`${template.title} - Workflow Preview`}
@@ -263,13 +274,9 @@ const TemplateDetail = () => {
                       loading="lazy"
                     />
                   </div>
-                ) : (
-                  <div className="flex items-center justify-center h-[500px] bg-muted/20 rounded-lg border border-border">
-                    <p className="text-muted-foreground">No preview image available</p>
-                  </div>
-                )}
-              </TabsContent>
-            </Tabs>
+                </CardContent>
+              </Card>
+            )}
 
             <Card>
               <CardHeader>
