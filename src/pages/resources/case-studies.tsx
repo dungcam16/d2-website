@@ -226,8 +226,28 @@ const CaseStudiesPage = () => {
             {/* Main Content */}
             <div className="lg:col-span-3">
               {loading ? (
-                <div className="text-center py-12">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  {[1, 2, 3, 4, 5, 6].map((i) => (
+                    <Card key={i} className="overflow-hidden">
+                      <div className="aspect-video bg-muted animate-pulse"></div>
+                      <CardHeader className="space-y-3">
+                        <div className="h-4 bg-muted rounded w-24 animate-pulse"></div>
+                        <div className="space-y-2">
+                          <div className="h-6 bg-muted rounded w-full animate-pulse"></div>
+                          <div className="h-6 bg-muted rounded w-4/5 animate-pulse"></div>
+                        </div>
+                        <div className="h-4 bg-muted rounded w-20 animate-pulse"></div>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div className="space-y-2">
+                          <div className="h-4 bg-muted rounded w-full animate-pulse"></div>
+                          <div className="h-4 bg-muted rounded w-full animate-pulse"></div>
+                          <div className="h-4 bg-muted rounded w-3/4 animate-pulse"></div>
+                        </div>
+                        <div className="h-10 bg-muted rounded w-full animate-pulse"></div>
+                      </CardContent>
+                    </Card>
+                  ))}
                 </div>
               ) : (
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

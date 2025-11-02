@@ -1,78 +1,61 @@
 import React, { useState } from "react";
-import { Send, MapPin, Phone, Mail, MessageSquare } from "lucide-react";
+import { Send, MapPin, Phone, Mail, MessageSquare, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "@/hooks/use-toast";
-import { contactFormSchema } from "@/lib/validations/contact";
+import { contactFormSchema, type ContactFormData } from "@/lib/validations/contact";
 import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    message: "",
-    website: "", // Honeypot field
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      message: "",
+    },
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const onSubmit = async (data: ContactFormData) => {
     if (isSubmitting) return;
-
-    // Validate form data
-    const result = contactFormSchema.safeParse({
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      company: formData.company,
-      message: formData.message,
-    });
-
-    if (!result.success) {
-      const errors = result.error.errors;
-      toast({
-        title: "Validation Error",
-        description: errors[0]?.message || "Please check your input and try again.",
-        variant: "destructive",
-      });
-      return;
-    }
-
+    
     setIsSubmitting(true);
+    setIsSuccess(false);
 
     try {
-      const { data, error } = await supabase.functions.invoke('contact-form', {
+      const { data: result, error } = await supabase.functions.invoke('contact-form', {
         body: {
-          name: result.data.name,
-          email: result.data.email,
-          phone: result.data.phone,
-          company: result.data.company || "",
-          message: result.data.message,
-          website: formData.website, // Honeypot field
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          company: data.company || "",
+          message: data.message,
+          website: "", // Honeypot field
         },
       });
 
       if (error) throw error;
 
-      if (data?.success) {
+      if (result?.success) {
+        setIsSuccess(true);
         toast({
           title: "Successfully Sent!",
           description: "Thank you for your message! We will get back to you as soon as possible.",
         });
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          message: "",
-          website: "",
-        });
+        form.reset();
+        
+        // Reset success state after animation
+        setTimeout(() => setIsSuccess(false), 3000);
       } else {
         throw new Error("Failed to submit the form");
       }
@@ -85,13 +68,6 @@ const Contact = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
   };
 
   const contactInfo = [
@@ -145,86 +121,136 @@ const Contact = () => {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Full Name</label>
-                  <Input
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your full name"
-                    className="bg-card/50 border-border focus:border-primary transition-colors"
-                    required
+                    render={({ field, fieldState }) => (
+                      <FormItem>
+                        <FormLabel>Full Name</FormLabel>
+                        <FormControl>
+                          <div className="relative">
+                            <Input
+                              placeholder="Your full name"
+                              className="bg-card/50 border-border focus:border-primary transition-colors"
+                              {...field}
+                            />
+                            {fieldState.error && (
+                              <AlertCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-destructive" />
+                            )}
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Email</label>
-                  <Input
-                    type="email"
+                  <FormField
+                    control={form.control}
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your@email.com"
-                    className="bg-card/50 border-border focus:border-primary transition-colors"
-                    required
+                    render={({ field, fieldState }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <div className="relative">
+                            <Input
+                              type="email"
+                              placeholder="your@email.com"
+                              className="bg-card/50 border-border focus:border-primary transition-colors"
+                              {...field}
+                            />
+                            {fieldState.error && (
+                              <AlertCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-destructive" />
+                            )}
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
-              </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">Phone Number</label>
-                <Input
-                  type="tel"
+                <FormField
+                  control={form.control}
                   name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="0xxx xxx xxx"
-                  className="bg-card/50 border-border focus:border-primary transition-colors"
-                  required
+                  render={({ field, fieldState }) => (
+                    <FormItem>
+                      <FormLabel>Phone Number</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Input
+                            type="tel"
+                            placeholder="+84 xxx xxx xxx"
+                            className="bg-card/50 border-border focus:border-primary transition-colors"
+                            {...field}
+                          />
+                          {fieldState.error && (
+                            <AlertCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-destructive" />
+                          )}
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">Company</label>
-                <Input
+                <FormField
+                  control={form.control}
                   name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Your company name"
-                  className="bg-card/50 border-border focus:border-primary transition-colors"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Company (Optional)</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Your company name"
+                          className="bg-card/50 border-border focus:border-primary transition-colors"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">Message</label>
-                <Textarea
+                <FormField
+                  control={form.control}
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your automation needs..."
-                  className="bg-card/50 border-border focus:border-primary transition-colors min-h-[120px]"
-                  required
+                  render={({ field, fieldState }) => (
+                    <FormItem>
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Textarea
+                            placeholder="Tell us about your automation needs..."
+                            className="bg-card/50 border-border focus:border-primary transition-colors min-h-[120px]"
+                            {...field}
+                          />
+                          {fieldState.error && (
+                            <AlertCircle className="absolute right-3 top-3 h-4 w-4 text-destructive" />
+                          )}
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
 
-              {/* Honeypot field - hidden from users */}
-              <input
-                type="text"
-                name="website"
-                value={formData.website}
-                onChange={handleChange}
-                style={{ display: 'none' }}
-                tabIndex={-1}
-                autoComplete="off"
-              />
-
-              <Button type="submit" className="w-full shadow-glow group" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Send Message"}
-                <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </form>
+                <Button 
+                  type="submit" 
+                  className="w-full shadow-glow group relative" 
+                  disabled={isSubmitting || isSuccess}
+                >
+                  {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  {isSuccess && <CheckCircle2 className="mr-2 h-4 w-4 text-green-500" />}
+                  {isSubmitting ? "Sending..." : isSuccess ? "Message Sent!" : "Send Message"}
+                  {!isSubmitting && !isSuccess && (
+                    <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  )}
+                </Button>
+              </form>
+            </Form>
           </Card>
 
           {/* Contact Information */}
