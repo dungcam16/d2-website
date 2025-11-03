@@ -252,7 +252,7 @@ const CaseStudiesPage = () => {
               ) : (
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {filteredCaseStudies.map((study) => (
-                <Card key={study.id} className="group hover:shadow-glow transition-all">
+                <Card key={study.id} className="group hover-lift transition-all">
                   {study.image_url && (
                     <div className="aspect-video overflow-hidden rounded-t-lg">
                       <img

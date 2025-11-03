@@ -199,7 +199,7 @@ const Blog = () => {
                 {filteredPosts.map((post) => (
                   <Card
                     key={post.id}
-                    className="gradient-card overflow-hidden hover:shadow-elevation transition-all duration-300 flex flex-col"
+                    className="gradient-card overflow-hidden hover-lift transition-all duration-300 flex flex-col"
                   >
                     <div className="h-48 bg-muted flex-shrink-0">
                       <img

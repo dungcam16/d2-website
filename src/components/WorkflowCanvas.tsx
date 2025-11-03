@@ -1,4 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Loader2, AlertCircle } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 interface WorkflowCanvasProps {
   workflowData?: any;
@@ -26,34 +28,75 @@ declare global {
 export const WorkflowCanvas = ({ workflowData, embedUrl, workflowId }: WorkflowCanvasProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const scriptsLoadedRef = useRef(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     // Only load scripts once
     if (scriptsLoadedRef.current) return;
     scriptsLoadedRef.current = true;
 
+    const timeout = setTimeout(() => {
+      if (loading) {
+        setError("Workflow loading timeout. Please refresh the page.");
+        setLoading(false);
+      }
+    }, 15000); // 15 second timeout
+
     // Load required scripts in order
     const webcomponentsScript = document.createElement('script');
     webcomponentsScript.src = 'https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.0.0/webcomponents-loader.js';
+    
+    webcomponentsScript.onerror = () => {
+      setError("Failed to load workflow component. Please check your connection.");
+      setLoading(false);
+    };
+
     document.head.appendChild(webcomponentsScript);
 
     webcomponentsScript.onload = () => {
       const litScript = document.createElement('script');
       litScript.src = 'https://www.unpkg.com/lit@2.0.0-rc.2/polyfill-support.js';
+      
+      litScript.onerror = () => {
+        setError("Failed to load required dependencies.");
+        setLoading(false);
+      };
+
       document.head.appendChild(litScript);
 
       litScript.onload = () => {
         const n8nScript = document.createElement('script');
         n8nScript.type = 'module';
         n8nScript.src = 'https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component/n8n-demo.bundled.js';
+        
+        n8nScript.onerror = () => {
+          setError("Failed to load workflow viewer.");
+          setLoading(false);
+        };
+
+        n8nScript.onload = () => {
+          setTimeout(() => setLoading(false), 1000); // Give component time to render
+        };
+
         document.head.appendChild(n8nScript);
       };
     };
 
     return () => {
-      // Cleanup is handled by browser
+      clearTimeout(timeout);
     };
   }, []);
+
+  // Error state
+  if (error) {
+    return (
+      <Alert variant="destructive" className="my-4">
+        <AlertCircle className="h-4 w-4" />
+        <AlertDescription>{error}</AlertDescription>
+      </Alert>
+    );
+  }
 
   // If we have workflow data, use n8n-demo component
   if (workflowData) {
@@ -62,8 +105,16 @@ export const WorkflowCanvas = ({ workflowData, embedUrl, workflowId }: WorkflowC
     return (
       <div
         ref={containerRef}
-        className="relative w-full rounded-xl border-2 border-border overflow-hidden bg-white"
+        className="relative w-full rounded-xl border-2 border-border overflow-hidden bg-white transition-shadow hover:shadow-lg"
       >
+        {loading && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/80 backdrop-blur-sm">
+            <div className="text-center">
+              <Loader2 className="h-8 w-8 animate-spin text-primary mx-auto mb-2" />
+              <p className="text-sm text-muted-foreground">Loading workflow...</p>
+            </div>
+          </div>
+        )}
         <n8n-demo
           workflow={workflowJson}
           collapseformobile="false"
@@ -72,7 +123,7 @@ export const WorkflowCanvas = ({ workflowData, embedUrl, workflowId }: WorkflowC
           disableinteractivity="false"
           theme="light"
           frame="true"
-          style={{ display: 'block', width: '100%' }}
+          style={{ display: 'block', width: '100%', minHeight: '400px' }}
         />
       </div>
     );

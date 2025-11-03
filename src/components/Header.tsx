@@ -104,6 +104,14 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Skip to content link for accessibility */}
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:shadow-lg"
+        >
+          Skip to content
+        </a>
+        
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
@@ -239,7 +247,14 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 glass-effect border-t border-border animate-slide-up z-50">
+          <>
+            {/* Backdrop overlay */}
+            <div 
+              className="md:hidden fixed inset-0 top-16 bg-background/80 backdrop-blur-sm z-40 animate-fade-in"
+              onClick={() => setIsMenuOpen(false)}
+            />
+            
+            <div className="md:hidden absolute top-full left-0 right-0 glass-effect border-t border-border animate-slide-up z-50 max-h-[calc(100vh-4rem)] overflow-y-auto">
             <nav className="px-4 py-6 space-y-4">
               
               {/* Mobile Services */}
@@ -335,6 +350,7 @@ const Header = () => {
               </div>
             </nav>
           </div>
+          </>
         )}
       </div>
     </header>

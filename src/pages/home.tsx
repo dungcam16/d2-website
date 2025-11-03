@@ -361,20 +361,20 @@ const Home = () => {
       <Header />
       
       {/* Hero Section - Updated with stronger value prop */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section id="main-content" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Automation Technology Background" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-hero"></div>
         </div>
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 opacity-30" style={{ willChange: 'transform' }}>
+          <div className="absolute top-20 left-10 opacity-40 animate-float" style={{ willChange: 'transform' }}>
             <Bot className="h-12 w-12 text-primary" />
           </div>
-          <div className="absolute top-40 right-20 opacity-20" style={{ willChange: 'transform' }}>
+          <div className="absolute top-40 right-20 opacity-40 animate-float" style={{ willChange: 'transform', animationDelay: '0.5s' }}>
             <Workflow className="h-16 w-16 text-primary" />
           </div>
-          <div className="absolute bottom-40 left-20 opacity-25" style={{ willChange: 'transform' }}>
+          <div className="absolute bottom-40 left-20 opacity-40 animate-float" style={{ willChange: 'transform', animationDelay: '1s' }}>
             <Zap className="h-10 w-10 text-primary" />
           </div>
         </div>
@@ -392,12 +392,12 @@ const Home = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-              <Button size="lg" className="shadow-glow group text-lg px-8 py-4" onClick={() => window.location.href = '/company/contact'}>
+              <Button size="lg" className="shadow-glow group text-lg px-8 py-4 button-scale" onClick={() => window.location.href = '/company/contact'}>
                 Get Started Free
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
 
-              <Button variant="outline" size="lg" className="tech-border group text-lg px-8 py-4" onClick={() => window.location.href = '/resources/casestudies'}>
+              <Button variant="outline" size="lg" className="tech-border group text-lg px-8 py-4 button-scale" onClick={() => window.location.href = '/resources/casestudies'}>
                 <PlayCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 View Case Studies
               </Button>

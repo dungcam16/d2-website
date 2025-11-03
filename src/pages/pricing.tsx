@@ -341,12 +341,12 @@ export default function Pricing() {
               <TabsContent value="project">
                 <div className="grid md:grid-cols-3 gap-8 mb-12">
                   {projectPlans.map((plan, index) => (
-                    <Card 
+                   <Card 
                       key={index} 
-                      className={`relative flex flex-col ${plan.popular ? 'border-primary shadow-xl scale-105 z-10' : 'hover:shadow-lg'} transition-all`}
+                      className={`relative flex flex-col transition-all hover-lift ${plan.popular ? 'border-primary shadow-xl scale-105 z-10' : ''}`}
                     >
                       {plan.popular && (
-                        <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 shadow-lg" variant="default">
+                        <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 shadow-lg bg-gradient-primary" variant="default">
                           <Star className="w-3 h-3 mr-1" />
                           Most Popular
                         </Badge>
@@ -438,10 +438,10 @@ export default function Pricing() {
                   {retainerPlans.map((plan, index) => (
                     <Card 
                       key={index} 
-                      className={`relative flex flex-col ${plan.popular ? 'border-primary shadow-xl scale-105' : 'hover:shadow-lg'} transition-all`}
+                      className={`relative flex flex-col transition-all hover-lift ${plan.popular ? 'border-primary shadow-xl scale-105' : ''}`}
                     >
                       {plan.popular && (
-                        <Badge className="absolute -top-3 left-1/2 -translate-x-1/2" variant="default">
+                        <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-primary" variant="default">
                           Most Popular
                         </Badge>
                       )}
