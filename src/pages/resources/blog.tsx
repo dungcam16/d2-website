@@ -16,6 +16,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { SkeletonLoader } from "@/components/ui/skeleton-loader";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
@@ -165,40 +167,13 @@ const Blog = () => {
           <div className="lg:col-span-3">
             {loading ? (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {[...Array(6)].map((_, i) => (
-                  <Card key={i} className="overflow-hidden">
-                    <div className="h-48 bg-muted animate-pulse"></div>
-                    <CardContent className="p-4 space-y-4">
-                      <div className="flex gap-2">
-                        <div className="h-5 bg-muted rounded-full w-16 animate-pulse"></div>
-                        <div className="h-5 bg-muted rounded-full w-20 animate-pulse"></div>
-                      </div>
-                      <div className="space-y-2">
-                        <div className="h-5 bg-muted rounded w-full animate-pulse"></div>
-                        <div className="h-5 bg-muted rounded w-4/5 animate-pulse"></div>
-                      </div>
-                      <div className="space-y-2">
-                        <div className="h-4 bg-muted rounded w-full animate-pulse"></div>
-                        <div className="h-4 bg-muted rounded w-full animate-pulse"></div>
-                        <div className="h-4 bg-muted rounded w-3/4 animate-pulse"></div>
-                      </div>
-                      <div className="flex items-center justify-between pt-2">
-                        <div className="flex gap-4">
-                          <div className="h-4 bg-muted rounded w-20 animate-pulse"></div>
-                          <div className="h-4 bg-muted rounded w-16 animate-pulse"></div>
-                        </div>
-                        <div className="h-4 bg-muted rounded w-12 animate-pulse"></div>
-                      </div>
-                      <div className="h-9 bg-muted rounded w-full animate-pulse"></div>
-                    </CardContent>
-                  </Card>
-                ))}
+                <SkeletonLoader variant="blog" count={6} />
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {filteredPosts.map((post) => (
+                {filteredPosts.map((post, index) => (
+                  <ScrollReveal key={post.id} delay={index * 50} direction="up">
                   <Card
-                    key={post.id}
                     className="gradient-card overflow-hidden hover-lift transition-all duration-300 flex flex-col"
                   >
                     <div className="h-48 bg-muted flex-shrink-0">
@@ -255,6 +230,7 @@ const Blog = () => {
                       </div>
                     </CardContent>
                   </Card>
+                  </ScrollReveal>
                 ))}
               </div>
             )}

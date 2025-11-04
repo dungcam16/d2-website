@@ -11,10 +11,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SkeletonLoader } from "@/components/ui/skeleton-loader";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { Separator } from "@/components/ui/separator";
+import { RelatedTemplates } from "@/components/RelatedTemplates";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { ScrollReveal } from "@/components/ScrollReveal";
 
 interface WorkflowTemplate {
   id: string;
@@ -354,6 +355,13 @@ const TemplateDetail = () => {
             </Card>
           </aside>
         </div>
+
+        {/* Related Templates */}
+        <RelatedTemplates 
+          currentTemplateId={template.id}
+          category={template.category}
+          limit={3}
+        />
       </article>
 
       <Footer />

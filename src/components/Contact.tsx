@@ -24,6 +24,7 @@ const Contact = () => {
       company: "",
       message: "",
     },
+    mode: "onChange", // Enable real-time validation
   });
 
   const onSubmit = async (data: ContactFormData) => {

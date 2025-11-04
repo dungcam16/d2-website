@@ -6,6 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { SkeletonLoader } from "@/components/ui/skeleton-loader";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { ArrowRight, Eye, Search, Tag } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -227,32 +229,13 @@ const CaseStudiesPage = () => {
             <div className="lg:col-span-3">
               {loading ? (
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                  {[1, 2, 3, 4, 5, 6].map((i) => (
-                    <Card key={i} className="overflow-hidden">
-                      <div className="aspect-video bg-muted animate-pulse"></div>
-                      <CardHeader className="space-y-3">
-                        <div className="h-4 bg-muted rounded w-24 animate-pulse"></div>
-                        <div className="space-y-2">
-                          <div className="h-6 bg-muted rounded w-full animate-pulse"></div>
-                          <div className="h-6 bg-muted rounded w-4/5 animate-pulse"></div>
-                        </div>
-                        <div className="h-4 bg-muted rounded w-20 animate-pulse"></div>
-                      </CardHeader>
-                      <CardContent className="space-y-4">
-                        <div className="space-y-2">
-                          <div className="h-4 bg-muted rounded w-full animate-pulse"></div>
-                          <div className="h-4 bg-muted rounded w-full animate-pulse"></div>
-                          <div className="h-4 bg-muted rounded w-3/4 animate-pulse"></div>
-                        </div>
-                        <div className="h-10 bg-muted rounded w-full animate-pulse"></div>
-                      </CardContent>
-                    </Card>
-                  ))}
+                  <SkeletonLoader variant="card" count={6} />
                 </div>
               ) : (
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                  {filteredCaseStudies.map((study) => (
-                <Card key={study.id} className="group hover-lift transition-all">
+                  {filteredCaseStudies.map((study, index) => (
+                <ScrollReveal key={study.id} delay={index * 50} direction="up">
+                <Card className="group hover-lift transition-all">
                   {study.image_url && (
                     <div className="aspect-video overflow-hidden rounded-t-lg">
                       <img
@@ -284,6 +267,7 @@ const CaseStudiesPage = () => {
                     </Button>
                   </CardContent>
                 </Card>
+                </ScrollReveal>
                   ))}
                 </div>
               )}

@@ -27,6 +27,8 @@ import benefitCost from "@/assets/benefit-cost-savings.jpg";
 import benefitVisibility from "@/assets/benefit-visibility.jpg";
 import benefitScale from "@/assets/benefit-scale-growth.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const Home = () => {
   const { t } = useLanguage();

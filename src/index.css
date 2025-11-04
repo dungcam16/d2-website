@@ -244,6 +244,50 @@
     scroll-behavior: smooth;
   }
 
+  /* Gradient underline for section headings */
+  .heading-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .heading-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 2px;
+  }
+
+  /* Pulse effect for CTAs */
+  .pulse-cta {
+    animation: pulse-glow 2s ease-in-out infinite;
+    position: relative;
+  }
+
+  .pulse-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    opacity: 0;
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50%, 100% {
+      transform: scale(1.1);
+      opacity: 0;
+    }
+  }
+
   /* Accessibility - Skip to content link */
   .skip-to-content {
     position: fixed;

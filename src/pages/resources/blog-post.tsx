@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import RichContent from "@/components/RichContent";
+import { FeaturedBlogPosts } from "@/components/FeaturedBlogPosts";
 import { supabase } from "@/integrations/supabase/client";
 
 interface BlogPost {
@@ -247,6 +248,9 @@ const BlogPostPage = () => {
             </Button>
           </div>
         </div>
+
+        {/* Featured Blog Posts */}
+        <FeaturedBlogPosts excludeSlug={post.slug} limit={3} />
       </main>
 
       <Footer />

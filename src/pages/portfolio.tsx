@@ -12,6 +12,8 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 // Import case study images
 import caseAiSupportTicketRouting from "@/assets/case-ai-support-ticket-routing.jpg";
@@ -384,20 +386,28 @@ export default function Portfolio() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center group hover:scale-105 transition-transform">
+                <ScrollReveal key={index} delay={index * 100} direction="up">
+                <div className="text-center group hover:scale-105 transition-transform">
                   <stat.icon className="w-8 h-8 mx-auto mb-2 text-primary" />
-                  <div className="text-3xl font-bold text-foreground">{stat.value}</div>
+                  <div className="text-3xl font-bold text-foreground">
+                    <AnimatedCounter 
+                      end={parseInt(stat.value.replace(/[^0-9]/g, ''))} 
+                      suffix={stat.value.includes('+') ? '+' : ''}
+                      duration={2000}
+                    />
+                  </div>
                   <div className="text-sm font-medium text-muted-foreground">{stat.label}</div>
                   <div className="text-xs text-muted-foreground mt-1">{stat.context}</div>
                   <div className="text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity mt-1">
                     {stat.description}
                   </div>
                 </div>
+                </ScrollReveal>
               ))}
             </div>
 
             <div className="flex gap-4 justify-center flex-wrap">
-              <Button size="lg" asChild className="shadow-glow">
+              <Button size="lg" asChild className="shadow-glow animate-pulse-glow">
                 <Link to="/company/contact">
                   <Phone className="w-4 h-4 mr-2" /> Schedule Free Consultation
                 </Link>
