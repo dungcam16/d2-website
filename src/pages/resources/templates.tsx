@@ -9,6 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { SkeletonLoader } from "@/components/ui/skeleton-loader";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -300,65 +302,67 @@ const Templates = () => {
               </Card>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {filteredTemplates.map((template) => (
-                  <Link key={template.id} to={`/resources/templates/${template.slug}`}>
-                    <Card className="h-full hover-lift transition-all group">
-                      <div className="relative overflow-hidden">
-                        {template.thumbnail_url ? (
-                          <img
-                            src={template.thumbnail_url}
-                            alt={template.title}
-                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                            <Grid3x3 className="h-16 w-16 text-muted-foreground" />
-                          </div>
-                        )}
-                        {template.difficulty_level && (
-                          <Badge className={`absolute top-3 right-3 ${getDifficultyColor(template.difficulty_level)}`}>
-                            {template.difficulty_level}
-                          </Badge>
-                        )}
-                      </div>
-                      <CardContent className="p-6">
-                        <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                          {template.title}
-                        </h3>
-                        <p className="text-muted-foreground mb-4 line-clamp-2">{template.description}</p>
-
-                        {template.integrations && template.integrations.length > 0 && (
-                          <div className="flex flex-wrap gap-1 mb-4">
-                            {template.integrations.slice(0, 3).map((integration, idx) => (
-                              <Badge key={idx} variant="secondary" className="text-xs">
-                                {integration}
-                              </Badge>
-                            ))}
-                            {template.integrations.length > 3 && (
-                              <Badge variant="secondary" className="text-xs">
-                                +{template.integrations.length - 3}
-                              </Badge>
-                            )}
-                          </div>
-                        )}
-
-                        <div className="flex items-center justify-between text-sm text-muted-foreground pt-4 border-t">
-                          <div className="flex items-center gap-4">
-                            <span className="flex items-center gap-1">
-                              <Eye className="h-4 w-4" />
-                              {template.views || 0}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Download className="h-4 w-4" />
-                              {template.downloads || 0}
-                            </span>
-                          </div>
-                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                {filteredTemplates.map((template, index) => (
+                  <ScrollReveal key={template.id} delay={index * 50} direction="up">
+                    <Link to={`/resources/templates/${template.slug}`}>
+                      <Card className="h-full hover-lift transition-all group">
+                        <div className="relative overflow-hidden">
+                          {template.thumbnail_url ? (
+                            <img
+                              src={template.thumbnail_url}
+                              alt={template.title}
+                              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                          ) : (
+                            <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                              <Grid3x3 className="h-16 w-16 text-muted-foreground" />
+                            </div>
+                          )}
+                          {template.difficulty_level && (
+                            <Badge className={`absolute top-3 right-3 ${getDifficultyColor(template.difficulty_level)}`}>
+                              {template.difficulty_level}
+                            </Badge>
+                          )}
                         </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
+                        <CardContent className="p-6">
+                          <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                            {template.title}
+                          </h3>
+                          <p className="text-muted-foreground mb-4 line-clamp-2">{template.description}</p>
+
+                          {template.integrations && template.integrations.length > 0 && (
+                            <div className="flex flex-wrap gap-1 mb-4">
+                              {template.integrations.slice(0, 3).map((integration, idx) => (
+                                <Badge key={idx} variant="secondary" className="text-xs">
+                                  {integration}
+                                </Badge>
+                              ))}
+                              {template.integrations.length > 3 && (
+                                <Badge variant="secondary" className="text-xs">
+                                  +{template.integrations.length - 3}
+                                </Badge>
+                              )}
+                            </div>
+                          )}
+
+                          <div className="flex items-center justify-between text-sm text-muted-foreground pt-4 border-t">
+                            <div className="flex items-center gap-4">
+                              <span className="flex items-center gap-1">
+                                <Eye className="h-4 w-4" />
+                                {template.views || 0}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Download className="h-4 w-4" />
+                                {template.downloads || 0}
+                              </span>
+                            </div>
+                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </ScrollReveal>
                 ))}
               </div>
             )}

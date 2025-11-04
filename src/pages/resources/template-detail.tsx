@@ -10,9 +10,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { SkeletonLoader } from "@/components/ui/skeleton-loader";
 import { Separator } from "@/components/ui/separator";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 interface WorkflowTemplate {
   id: string;
@@ -132,10 +134,10 @@ const TemplateDetail = () => {
           <Skeleton className="h-6 w-2/3 mb-8" />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
-              <Skeleton className="h-96 w-full" />
+              <SkeletonLoader variant="workflow" />
             </div>
             <div>
-              <Skeleton className="h-64 w-full" />
+              <SkeletonLoader variant="card" />
             </div>
           </div>
         </div>
@@ -236,6 +238,7 @@ const TemplateDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
             {/* N8N Workflow Canvas */}
+            <ScrollReveal direction="up">
             <Card className="overflow-hidden">
               <CardContent className="p-6">
                 <WorkflowCanvas 
@@ -243,7 +246,9 @@ const TemplateDetail = () => {
                 />
               </CardContent>
             </Card>
+            </ScrollReveal>
             
+            <ScrollReveal direction="up" delay={100}>
             {template.thumbnail_url && (
               <Card className="mt-4">
                 <CardHeader>
@@ -261,7 +266,9 @@ const TemplateDetail = () => {
                 </CardContent>
               </Card>
             )}
+            </ScrollReveal>
 
+            <ScrollReveal direction="up" delay={150}>
             <Card>
               <CardHeader>
                 <CardTitle>Workflow Details</CardTitle>
@@ -270,7 +277,9 @@ const TemplateDetail = () => {
                 <RichContent content={template.content} />
               </CardContent>
             </Card>
+            </ScrollReveal>
 
+            <ScrollReveal direction="up" delay={200}>
             {template.integrations && template.integrations.length > 0 && (
               <Card>
                 <CardHeader>
@@ -287,6 +296,7 @@ const TemplateDetail = () => {
                 </CardContent>
               </Card>
             )}
+            </ScrollReveal>
           </div>
 
           <aside className="lg:col-span-1 space-y-6">
