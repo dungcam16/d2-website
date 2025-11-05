@@ -236,16 +236,24 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-3">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="gap-2">
+                <Button variant="ghost" size="sm" className="gap-2 transition-smooth">
                   <Globe className="h-4 w-4" />
                   <span className="uppercase">{language}</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage("vi")} className="cursor-pointer">
+              <DropdownMenuContent align="end" className="bg-card/95 backdrop-blur-xl border-border z-[100] shadow-lg">
+                <DropdownMenuItem 
+                  onPointerDown={() => setLanguage("vi")}
+                  onClick={() => setLanguage("vi")} 
+                  className="cursor-pointer transition-smooth hover:bg-muted"
+                >
                   🇻🇳 Tiếng Việt
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage("en")} className="cursor-pointer">
+                <DropdownMenuItem 
+                  onPointerDown={() => setLanguage("en")}
+                  onClick={() => setLanguage("en")} 
+                  className="cursor-pointer transition-smooth hover:bg-muted"
+                >
                   🇬🇧 English
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -330,27 +338,35 @@ const Header = () => {
               <div className="space-y-3 pt-4 border-t border-border mt-4">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="outline" className="w-full gap-2">
+                    <Button variant="outline" className="w-full gap-2 transition-smooth">
                       <Globe className="h-4 w-4" />
                       <span className="uppercase">{language}</span>
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuContent align="end" className="w-48 bg-card/95 backdrop-blur-xl border-border z-[100] shadow-lg">
                     <DropdownMenuItem
+                      onPointerDown={() => {
+                        setLanguage("vi");
+                        setIsMenuOpen(false);
+                      }}
                       onClick={() => {
                         setLanguage("vi");
                         setIsMenuOpen(false);
                       }}
-                      className="cursor-pointer"
+                      className="cursor-pointer transition-smooth hover:bg-muted"
                     >
                       🇻🇳 Tiếng Việt
                     </DropdownMenuItem>
                     <DropdownMenuItem
+                      onPointerDown={() => {
+                        setLanguage("en");
+                        setIsMenuOpen(false);
+                      }}
                       onClick={() => {
                         setLanguage("en");
                         setIsMenuOpen(false);
                       }}
-                      className="cursor-pointer"
+                      className="cursor-pointer transition-smooth hover:bg-muted"
                     >
                       🇬🇧 English
                     </DropdownMenuItem>
