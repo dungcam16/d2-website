@@ -134,7 +134,14 @@ const Header = () => {
                 <div className="space-y-2">
                   {services.map((service) => (
                     <DropdownMenuItem key={service.href} asChild>
-                      <Link to={service.href} onClick={() => setServicesOpen(false)} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
+                      <Link 
+                        to={service.href} 
+                        onClick={(e) => {
+                          setServicesOpen(false);
+                          // Allow navigation to proceed
+                        }} 
+                        className="cursor-pointer block py-2 px-3 rounded hover:bg-muted"
+                      >
                         <div className="font-medium text-sm mb-0.5">{service.name}</div>
                         <div className="text-xs text-muted-foreground">{service.description}</div>
                       </Link>
@@ -155,7 +162,13 @@ const Header = () => {
                 <div className="space-y-2">
                   {solutions.map((item) => (
                     <DropdownMenuItem key={item.href} asChild>
-                      <Link to={item.href} onClick={() => setSolutionsOpen(false)} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted">
+                      <Link 
+                        to={item.href} 
+                        onClick={(e) => {
+                          setSolutionsOpen(false);
+                        }} 
+                        className="cursor-pointer block py-2 px-3 rounded hover:bg-muted"
+                      >
                         <div className="font-medium text-sm mb-0.5">{item.name}</div>
                         <div className="text-xs text-muted-foreground">{item.description}</div>
                       </Link>
@@ -180,7 +193,13 @@ const Header = () => {
               <DropdownMenuContent className="w-[200px] bg-card/95 backdrop-blur-xl border-border p-2 z-[100] shadow-lg">
                 {resources.map((item) => (
                   <DropdownMenuItem key={item.href} asChild>
-                    <Link to={item.href} onClick={() => setResourcesOpen(false)} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
+                    <Link 
+                      to={item.href} 
+                      onClick={(e) => {
+                        setResourcesOpen(false);
+                      }} 
+                      className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm"
+                    >
                       {item.name}
                     </Link>
                   </DropdownMenuItem>
@@ -203,7 +222,13 @@ const Header = () => {
               <DropdownMenuContent className="w-[200px] bg-card/95 backdrop-blur-xl border-border p-2 z-[100] shadow-lg">
                 {company.map((item) => (
                   <DropdownMenuItem key={item.href} asChild>
-                    <Link to={item.href} onClick={() => setCompanyOpen(false)} className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm">
+                    <Link 
+                      to={item.href} 
+                      onClick={(e) => {
+                        setCompanyOpen(false);
+                      }} 
+                      className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm"
+                    >
                       {item.name}
                     </Link>
                   </DropdownMenuItem>
