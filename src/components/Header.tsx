@@ -136,10 +136,8 @@ const Header = () => {
                     <DropdownMenuItem key={service.href} asChild>
                       <Link 
                         to={service.href} 
-                        onClick={(e) => {
-                          setServicesOpen(false);
-                          // Allow navigation to proceed
-                        }} 
+                        onPointerDown={() => setServicesOpen(false)}
+                        onClick={() => setServicesOpen(false)} 
                         className="cursor-pointer block py-2 px-3 rounded hover:bg-muted"
                       >
                         <div className="font-medium text-sm mb-0.5">{service.name}</div>
@@ -164,9 +162,8 @@ const Header = () => {
                     <DropdownMenuItem key={item.href} asChild>
                       <Link 
                         to={item.href} 
-                        onClick={(e) => {
-                          setSolutionsOpen(false);
-                        }} 
+                        onPointerDown={() => setSolutionsOpen(false)}
+                        onClick={() => setSolutionsOpen(false)} 
                         className="cursor-pointer block py-2 px-3 rounded hover:bg-muted"
                       >
                         <div className="font-medium text-sm mb-0.5">{item.name}</div>
@@ -195,9 +192,8 @@ const Header = () => {
                   <DropdownMenuItem key={item.href} asChild>
                     <Link 
                       to={item.href} 
-                      onClick={(e) => {
-                        setResourcesOpen(false);
-                      }} 
+                      onPointerDown={() => setResourcesOpen(false)}
+                      onClick={() => setResourcesOpen(false)} 
                       className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm"
                     >
                       {item.name}
@@ -224,9 +220,8 @@ const Header = () => {
                   <DropdownMenuItem key={item.href} asChild>
                     <Link 
                       to={item.href} 
-                      onClick={(e) => {
-                        setCompanyOpen(false);
-                      }} 
+                      onPointerDown={() => setCompanyOpen(false)}
+                      onClick={() => setCompanyOpen(false)} 
                       className="cursor-pointer block py-2 px-3 rounded hover:bg-muted text-sm"
                     >
                       {item.name}
