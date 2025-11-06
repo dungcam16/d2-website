@@ -23,10 +23,8 @@ export type Database = {
           id: string
           image_url: string | null
           is_published: boolean | null
-          keyword: string | null
           published_at: string
           read_time: number | null
-          services: string | null
           slug: string
           tags: string[] | null
           title: string
@@ -41,10 +39,8 @@ export type Database = {
           id?: string
           image_url?: string | null
           is_published?: boolean | null
-          keyword?: string | null
           published_at?: string
           read_time?: number | null
-          services?: string | null
           slug: string
           tags?: string[] | null
           title: string
@@ -59,10 +55,8 @@ export type Database = {
           id?: string
           image_url?: string | null
           is_published?: boolean | null
-          keyword?: string | null
           published_at?: string
           read_time?: number | null
-          services?: string | null
           slug?: string
           tags?: string[] | null
           title?: string
@@ -82,6 +76,7 @@ export type Database = {
           image_url: string | null
           is_published: boolean | null
           order_index: number | null
+          prompt: string | null
           slug: string
           sort: number | null
           title: string
@@ -98,6 +93,7 @@ export type Database = {
           image_url?: string | null
           is_published?: boolean | null
           order_index?: number | null
+          prompt?: string | null
           slug: string
           sort?: number | null
           title: string
@@ -114,6 +110,7 @@ export type Database = {
           image_url?: string | null
           is_published?: boolean | null
           order_index?: number | null
+          prompt?: string | null
           slug?: string
           sort?: number | null
           title?: string
@@ -186,7 +183,6 @@ export type Database = {
           published_at: string
           slug: string
           tags: string[] | null
-          thumbnail_url: string | null
           title: string
           updated_at: string
           views: number | null
@@ -207,7 +203,6 @@ export type Database = {
           published_at?: string
           slug: string
           tags?: string[] | null
-          thumbnail_url?: string | null
           title: string
           updated_at?: string
           views?: number | null
@@ -228,7 +223,6 @@ export type Database = {
           published_at?: string
           slug?: string
           tags?: string[] | null
-          thumbnail_url?: string | null
           title?: string
           updated_at?: string
           views?: number | null

@@ -14,7 +14,7 @@ type WorkflowTemplate = {
   description: string;
   content: string;
   author: string;
-  thumbnail_url: string | null;
+  
   category: string | null;
   tags: string[];
   difficulty_level: string | null;
@@ -188,14 +188,6 @@ export function WorkflowTemplatesManager() {
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium mb-2">URL hình thu nhỏ</label>
-            <Input
-              value={editingTemplate?.thumbnail_url || ""}
-              onChange={(e) => setEditingTemplate({ ...editingTemplate, thumbnail_url: e.target.value })}
-              placeholder="https://example.com/thumbnail.jpg"
-            />
-          </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>

@@ -25,7 +25,7 @@ interface WorkflowTemplate {
   content: string;
   workflow_json: any;
   author: string;
-  thumbnail_url: string | null;
+  
   category: string | null;
   tags: string[] | null;
   difficulty_level: string | null;
@@ -185,7 +185,6 @@ const TemplateDetail = () => {
         title={`${template.title} - N8N Workflow Template`}
         description={template.description || ""}
         keywords={template.tags?.join(", ") || ""}
-        ogImage={template.thumbnail_url || undefined}
         structuredData={templateStructuredData}
       />
       <Header />
@@ -250,23 +249,6 @@ const TemplateDetail = () => {
             </ScrollReveal>
             
             <ScrollReveal direction="up" delay={100}>
-            {template.thumbnail_url && (
-              <Card className="mt-4">
-                <CardHeader>
-                  <CardTitle>Workflow Preview</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="rounded-lg overflow-hidden border border-border/50">
-                    <img
-                      src={template.thumbnail_url}
-                      alt={`${template.title} - Workflow Preview`}
-                      className="w-full h-auto"
-                      loading="lazy"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-            )}
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={150}>

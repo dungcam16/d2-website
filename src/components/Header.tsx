@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logoD2Group from "@/assets/logo_d2_group_transparent.png";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,6 +29,16 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const location = useLocation();
+  useEffect(() => {
+    // Close all menus instantly on route change
+    setServicesOpen(false);
+    setSolutionsOpen(false);
+    setResourcesOpen(false);
+    setCompanyOpen(false);
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
     const services = [
     {

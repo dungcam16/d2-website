@@ -42,6 +42,7 @@ const CaseStudiesPage = () => {
         .from("case_studies")
         .select("*")
         .eq("is_published", true)
+        .order("sort", { ascending: true })
         .order("created_at", { ascending: false });
 
       if (error) throw error;

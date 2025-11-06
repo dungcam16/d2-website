@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Eye, Download, Grid3x3, ArrowRight } from "lucide-react";
+import { Eye, Download, ArrowRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
@@ -10,7 +10,6 @@ interface Template {
   id: string;
   title: string;
   slug: string;
-  thumbnail_url: string | null;
   category: string | null;
   difficulty_level: string | null;
   views: number | null;
@@ -35,7 +34,7 @@ export const RelatedTemplates = ({ currentTemplateId, category, limit = 3 }: Rel
     try {
       let query = supabase
         .from("workflow_templates")
-        .select("id, title, slug, thumbnail_url, category, difficulty_level, views, downloads")
+        .select("id, title, slug, category, difficulty_level, views, downloads")
         .eq("is_published", true)
         .neq("id", currentTemplateId)
         .limit(limit);
@@ -78,30 +77,18 @@ export const RelatedTemplates = ({ currentTemplateId, category, limit = 3 }: Rel
           <ScrollReveal key={template.id} delay={index * 100} direction="up">
             <Link to={`/resources/templates/${template.slug}`}>
               <Card className="h-full hover-lift transition-all group">
-                <div className="relative overflow-hidden">
-                  {template.thumbnail_url ? (
-                    <img
-                      src={template.thumbnail_url}
-                      alt={template.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                      <Grid3x3 className="h-16 w-16 text-muted-foreground" />
-                    </div>
-                  )}
-                  {template.difficulty_level && (
-                    <Badge className={`absolute top-3 right-3 ${getDifficultyColor(template.difficulty_level)}`}>
-                      {template.difficulty_level}
-                    </Badge>
-                  )}
-                </div>
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold mb-4 group-hover:text-primary transition-colors line-clamp-2">
-                    {template.title}
-                  </h3>
-                  <div className="flex items-center justify-between text-sm text-muted-foreground">
+                  <div className="flex items-start justify-between">
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                      {template.title}
+                    </h3>
+                    {template.difficulty_level && (
+                      <Badge className={getDifficultyColor(template.difficulty_level)}>
+                        {template.difficulty_level}
+                      </Badge>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between text-sm text-muted-foreground pt-2">
                     <div className="flex items-center gap-4">
                       <span className="flex items-center gap-1">
                         <Eye className="h-4 w-4" />

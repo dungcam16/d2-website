@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Search, Download, Eye, Tag, Grid3x3, ArrowRight } from "lucide-react";
+import { Search, Download, Eye, Tag, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -20,7 +20,6 @@ interface WorkflowTemplate {
   slug: string;
   description: string | null;
   author: string;
-  thumbnail_url: string | null;
   category: string | null;
   tags: string[] | null;
   difficulty_level: string | null;
@@ -272,7 +271,7 @@ const Templates = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[1, 2, 3, 4, 5, 6].map((i) => (
                   <Card key={i} className="overflow-hidden animate-pulse">
-                    <Skeleton className="h-48 w-full rounded-none" />
+                    
                     <CardContent className="p-6 space-y-4">
                       <div className="flex items-start justify-between gap-3">
                         <Skeleton className="h-6 w-2/3" />
@@ -306,29 +305,17 @@ const Templates = () => {
                   <ScrollReveal key={template.id} delay={index * 50} direction="up">
                     <Link to={`/resources/templates/${template.slug}`}>
                       <Card className="h-full hover-lift transition-all group">
-                        <div className="relative overflow-hidden">
-                          {template.thumbnail_url ? (
-                            <img
-                              src={template.thumbnail_url}
-                              alt={template.title}
-                              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                              loading="lazy"
-                            />
-                          ) : (
-                            <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                              <Grid3x3 className="h-16 w-16 text-muted-foreground" />
-                            </div>
-                          )}
-                          {template.difficulty_level && (
-                            <Badge className={`absolute top-3 right-3 ${getDifficultyColor(template.difficulty_level)}`}>
-                              {template.difficulty_level}
-                            </Badge>
-                          )}
-                        </div>
                         <CardContent className="p-6">
-                          <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                            {template.title}
-                          </h3>
+                          <div className="flex items-start justify-between">
+                            <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                              {template.title}
+                            </h3>
+                            {template.difficulty_level && (
+                              <Badge className={getDifficultyColor(template.difficulty_level)}>
+                                {template.difficulty_level}
+                              </Badge>
+                            )}
+                          </div>
                           <p className="text-muted-foreground mb-4 line-clamp-2">{template.description}</p>
 
                           {template.integrations && template.integrations.length > 0 && (
