@@ -247,11 +247,8 @@ const TemplateDetail = () => {
               </CardContent>
             </Card>
             </ScrollReveal>
-            
-            <ScrollReveal direction="up" delay={100}>
-            </ScrollReveal>
 
-            <ScrollReveal direction="up" delay={150}>
+            <ScrollReveal direction="up" delay={100}>
             <Card>
               <CardHeader>
                 <CardTitle>Workflow Details</CardTitle>
