@@ -119,6 +119,99 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_submissions: {
+        Row: {
+          company: string | null
+          consent_marketing: boolean | null
+          created_at: string | null
+          email: string
+          id: string
+          ip_address: string | null
+          message: string
+          name: string
+          phone: string
+          service: string | null
+          source: string | null
+          status: string | null
+          submitted_at: string | null
+          updated_at: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          company?: string | null
+          consent_marketing?: boolean | null
+          created_at?: string | null
+          email: string
+          id?: string
+          ip_address?: string | null
+          message: string
+          name: string
+          phone: string
+          service?: string | null
+          source?: string | null
+          status?: string | null
+          submitted_at?: string | null
+          updated_at?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          company?: string | null
+          consent_marketing?: boolean | null
+          created_at?: string | null
+          email?: string
+          id?: string
+          ip_address?: string | null
+          message?: string
+          name?: string
+          phone?: string
+          service?: string | null
+          source?: string | null
+          status?: string | null
+          submitted_at?: string | null
+          updated_at?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      newsletter_subscribers: {
+        Row: {
+          consent_marketing: boolean | null
+          created_at: string | null
+          email: string
+          id: string
+          ip_address: string | null
+          source: string | null
+          status: string | null
+          subscribed_at: string | null
+          unsubscribed_at: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          consent_marketing?: boolean | null
+          created_at?: string | null
+          email: string
+          id?: string
+          ip_address?: string | null
+          source?: string | null
+          status?: string | null
+          subscribed_at?: string | null
+          unsubscribed_at?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          consent_marketing?: boolean | null
+          created_at?: string | null
+          email?: string
+          id?: string
+          ip_address?: string | null
+          source?: string | null
+          status?: string | null
+          subscribed_at?: string | null
+          unsubscribed_at?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       site_settings: {
         Row: {
           description: string | null

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Send, MapPin, Phone, Mail, MessageSquare, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from "@/components/ui/form";
 import { toast } from "@/hooks/use-toast";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations/contact";
 import { supabase } from "@/integrations/supabase/client";
@@ -23,6 +25,7 @@ const Contact = () => {
       phone: "",
       company: "",
       message: "",
+      consentMarketing: false,
     },
     mode: "onChange", // Enable real-time validation
   });
@@ -41,6 +44,7 @@ const Contact = () => {
           phone: data.phone,
           company: data.company || "",
           message: data.message,
+          consentMarketing: data.consentMarketing || false,
           website: "", // Honeypot field
         },
       });
@@ -234,6 +238,29 @@ const Contact = () => {
                         </div>
                       </FormControl>
                       <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="consentMarketing"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-border/50 p-3 bg-card/30">
+                      <FormControl>
+                        <Checkbox
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
+                      </FormControl>
+                      <div className="space-y-1 leading-none">
+                        <FormLabel className="text-sm font-normal">
+                          I agree to receive marketing communications from D2 Group
+                        </FormLabel>
+                        <FormDescription className="text-xs">
+                          You can unsubscribe anytime. <Link to="/legal/privacy-policy" className="underline text-primary">Privacy Policy</Link>
+                        </FormDescription>
+                      </div>
                     </FormItem>
                   )}
                 />

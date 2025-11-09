@@ -12,6 +12,8 @@ import { MediaManager } from "@/components/admin/MediaManager";
 import { AnalyticsManager } from "@/components/admin/AnalyticsManager";
 import { Dashboard } from "@/components/admin/Dashboard";
 import { AdminLayout } from "@/components/admin/AdminLayout";
+import ContactSubmissionsManager from "@/components/admin/ContactSubmissionsManager";
+import NewsletterSubscribersManager from "@/components/admin/NewsletterSubscribersManager";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -194,6 +196,8 @@ export default function Admin() {
       {currentSection === "templates" && <WorkflowTemplatesManager />}
       {currentSection === "case-studies" && <CaseStudiesManager />}
       {currentSection === "migration-guides" && <MigrationGuidesManager />}
+      {currentSection === "contact-submissions" && <ContactSubmissionsManager />}
+      {currentSection === "newsletter-subscribers" && <NewsletterSubscribersManager />}
       {currentSection === "users" && <UsersManager />}
       {currentSection === "media" && <MediaManager />}
       {currentSection === "analytics" && <AnalyticsManager />}
