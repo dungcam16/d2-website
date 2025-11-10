@@ -13,6 +13,7 @@ import { AnalyticsManager } from "@/components/admin/AnalyticsManager";
 import { Dashboard } from "@/components/admin/Dashboard";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import ContactSubmissionsManager from "@/components/admin/ContactSubmissionsManager";
+import { DemoBookingsManager } from "@/components/admin/DemoBookingsManager";
 import NewsletterSubscribersManager from "@/components/admin/NewsletterSubscribersManager";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -197,6 +198,7 @@ export default function Admin() {
       {currentSection === "case-studies" && <CaseStudiesManager />}
       {currentSection === "migration-guides" && <MigrationGuidesManager />}
       {currentSection === "contact-submissions" && <ContactSubmissionsManager />}
+      {currentSection === "demo-bookings" && <DemoBookingsManager />}
       {currentSection === "newsletter-subscribers" && <NewsletterSubscribersManager />}
       {currentSection === "users" && <UsersManager />}
       {currentSection === "media" && <MediaManager />}

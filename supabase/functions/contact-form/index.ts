@@ -16,9 +16,82 @@ const contactSchema = z.object({
   service: z.string().trim().max(100).optional(),
   message: z.string().trim().min(1, { message: "Message is required" }).max(2000),
   consentMarketing: z.boolean().optional(),
+  companySize: z.string().optional(),
+  budgetRange: z.string().optional(),
+  // UTM parameters
+  utmSource: z.string().optional(),
+  utmMedium: z.string().optional(),
+  utmCampaign: z.string().optional(),
+  utmTerm: z.string().optional(),
+  utmContent: z.string().optional(),
   // Honeypot field - should be empty
   website: z.string().max(0).optional(),
 });
+
+// Lead scoring algorithm
+function calculateLeadScore(data: any): { score: number; priority: string } {
+  let score = 0;
+  
+  // Company size scoring
+  const companySizeScores: Record<string, number> = {
+    '1-10': 10,
+    '11-50': 20,
+    '51-200': 30,
+    '201-1000': 40,
+    '1000+': 50,
+  };
+  score += companySizeScores[data.companySize || ''] || 0;
+  
+  // Budget range scoring
+  const budgetScores: Record<string, number> = {
+    'under-5k': 5,
+    '5k-20k': 15,
+    '20k-50k': 30,
+    '50k-100k': 45,
+    '100k+': 50,
+  };
+  score += budgetScores[data.budgetRange || ''] || 0;
+  
+  // Service type scoring
+  if (data.service) {
+    const highValueServices = ['AI Chatbots', 'Zapier Migration', 'n8n Automation'];
+    if (highValueServices.includes(data.service)) {
+      score += 20;
+    } else {
+      score += 10;
+    }
+  }
+  
+  // Message quality scoring (length and keywords)
+  if (data.message) {
+    const messageLength = data.message.length;
+    if (messageLength > 200) score += 10;
+    else if (messageLength > 100) score += 5;
+    
+    const highIntentKeywords = ['urgent', 'asap', 'budget', 'contract', 'proposal', 'partnership'];
+    const lowercaseMessage = data.message.toLowerCase();
+    const keywordMatches = highIntentKeywords.filter(kw => lowercaseMessage.includes(kw)).length;
+    score += keywordMatches * 5;
+  }
+  
+  // Company field filled = more serious lead
+  if (data.company && data.company.trim() !== '') {
+    score += 10;
+  }
+  
+  // Marketing consent = higher engagement
+  if (data.consentMarketing) {
+    score += 5;
+  }
+  
+  // Determine priority based on score
+  let priority = 'low';
+  if (score >= 80) priority = 'urgent';
+  else if (score >= 50) priority = 'high';
+  else if (score >= 30) priority = 'medium';
+  
+  return { score, priority };
+}
 
 Deno.serve(async (req) => {
   // Handle CORS preflight
@@ -70,6 +143,10 @@ Deno.serve(async (req) => {
       );
     }
 
+    // Calculate lead score and priority
+    const { score, priority } = calculateLeadScore(validated);
+    console.log(`Lead score: ${score}, Priority: ${priority}`);
+
     // Save to database FIRST (critical for GDPR compliance)
     const { data: submission, error: dbError } = await supabaseClient
       .from('contact_submissions')
@@ -81,6 +158,15 @@ Deno.serve(async (req) => {
         service: validated.service,
         message: validated.message,
         consent_marketing: validated.consentMarketing || false,
+        company_size: validated.companySize,
+        budget_range: validated.budgetRange,
+        utm_source: validated.utmSource,
+        utm_medium: validated.utmMedium,
+        utm_campaign: validated.utmCampaign,
+        utm_term: validated.utmTerm,
+        utm_content: validated.utmContent,
+        lead_score: score,
+        priority: priority,
         ip_address: req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown',
         user_agent: req.headers.get('user-agent') || 'unknown',
       })

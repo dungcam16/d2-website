@@ -121,57 +121,143 @@ export type Database = {
       }
       contact_submissions: {
         Row: {
+          budget_range: string | null
           company: string | null
+          company_size: string | null
           consent_marketing: boolean | null
           created_at: string | null
           email: string
           id: string
           ip_address: string | null
+          lead_score: number | null
           message: string
           name: string
           phone: string
+          priority: string | null
           service: string | null
           source: string | null
           status: string | null
           submitted_at: string | null
           updated_at: string | null
           user_agent: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
         }
         Insert: {
+          budget_range?: string | null
           company?: string | null
+          company_size?: string | null
           consent_marketing?: boolean | null
           created_at?: string | null
           email: string
           id?: string
           ip_address?: string | null
+          lead_score?: number | null
           message: string
           name: string
           phone: string
+          priority?: string | null
           service?: string | null
           source?: string | null
           status?: string | null
           submitted_at?: string | null
           updated_at?: string | null
           user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Update: {
+          budget_range?: string | null
           company?: string | null
+          company_size?: string | null
           consent_marketing?: boolean | null
           created_at?: string | null
           email?: string
           id?: string
           ip_address?: string | null
+          lead_score?: number | null
           message?: string
           name?: string
           phone?: string
+          priority?: string | null
           service?: string | null
           source?: string | null
           status?: string | null
           submitted_at?: string | null
           updated_at?: string | null
           user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Relationships: []
+      }
+      demo_bookings: {
+        Row: {
+          company: string | null
+          company_size: string | null
+          contact_submission_id: string | null
+          created_at: string | null
+          email: string
+          id: string
+          name: string
+          notes: string | null
+          phone: string | null
+          preferred_date: string | null
+          preferred_time: string | null
+          status: string | null
+          updated_at: string | null
+          use_case: string | null
+        }
+        Insert: {
+          company?: string | null
+          company_size?: string | null
+          contact_submission_id?: string | null
+          created_at?: string | null
+          email: string
+          id?: string
+          name: string
+          notes?: string | null
+          phone?: string | null
+          preferred_date?: string | null
+          preferred_time?: string | null
+          status?: string | null
+          updated_at?: string | null
+          use_case?: string | null
+        }
+        Update: {
+          company?: string | null
+          company_size?: string | null
+          contact_submission_id?: string | null
+          created_at?: string | null
+          email?: string
+          id?: string
+          name?: string
+          notes?: string | null
+          phone?: string | null
+          preferred_date?: string | null
+          preferred_time?: string | null
+          status?: string | null
+          updated_at?: string | null
+          use_case?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "demo_bookings_contact_submission_id_fkey"
+            columns: ["contact_submission_id"]
+            isOneToOne: false
+            referencedRelation: "contact_submissions"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       migration_guides: {
         Row: {

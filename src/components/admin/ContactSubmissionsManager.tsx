@@ -20,7 +20,11 @@ import {
   CheckCircle2,
   XCircle,
   Clock,
-  Download
+  Download,
+  TrendingUp,
+  AlertCircle,
+  Users,
+  DollarSign
 } from "lucide-react";
 import { format } from "date-fns";
 
@@ -38,6 +42,13 @@ type ContactSubmission = {
   ip_address: string | null;
   submitted_at: string;
   created_at: string;
+  lead_score: number | null;
+  priority: string | null;
+  company_size: string | null;
+  budget_range: string | null;
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
 };
 
 const ContactSubmissionsManager = () => {
@@ -139,6 +150,26 @@ const ContactSubmissionsManager = () => {
     );
   };
 
+  const getPriorityBadge = (priority: string | null) => {
+    if (!priority) return null;
+    
+    const variants: Record<string, { variant: any; className: string }> = {
+      urgent: { variant: "destructive", className: "animate-pulse" },
+      high: { variant: "default", className: "bg-orange-500" },
+      medium: { variant: "secondary", className: "" },
+      low: { variant: "outline", className: "" },
+    };
+
+    const config = variants[priority] || variants.medium;
+
+    return (
+      <Badge variant={config.variant} className={`gap-1 ${config.className}`}>
+        <AlertCircle className="h-3 w-3" />
+        {priority.toUpperCase()}
+      </Badge>
+    );
+  };
+
   const filteredSubmissions = filterStatus === "all" 
     ? submissions 
     : submissions.filter(sub => sub.status === filterStatus);
@@ -151,6 +182,10 @@ const ContactSubmissionsManager = () => {
     conversionRate: submissions.length > 0 
       ? ((submissions.filter(s => s.status === 'converted').length / submissions.length) * 100).toFixed(1)
       : 0,
+    avgLeadScore: submissions.length > 0
+      ? (submissions.reduce((sum, s) => sum + (s.lead_score || 0), 0) / submissions.length).toFixed(0)
+      : 0,
+    highPriority: submissions.filter(s => s.priority === 'urgent' || s.priority === 'high').length,
   };
 
   if (loading) {
@@ -177,7 +212,7 @@ const ContactSubmissionsManager = () => {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid gap-4 md:grid-cols-5">
+      <div className="grid gap-4 md:grid-cols-6">
         <Card className="p-4">
           <div className="text-sm font-medium text-muted-foreground">Total</div>
           <div className="text-2xl font-bold">{stats.total}</div>
@@ -187,16 +222,20 @@ const ContactSubmissionsManager = () => {
           <div className="text-2xl font-bold text-primary">{stats.new}</div>
         </Card>
         <Card className="p-4">
+          <div className="text-sm font-medium text-muted-foreground">High Priority</div>
+          <div className="text-2xl font-bold text-orange-500">{stats.highPriority}</div>
+        </Card>
+        <Card className="p-4">
           <div className="text-sm font-medium text-muted-foreground">Contacted</div>
           <div className="text-2xl font-bold">{stats.contacted}</div>
         </Card>
         <Card className="p-4">
-          <div className="text-sm font-medium text-muted-foreground">Converted</div>
-          <div className="text-2xl font-bold text-green-600">{stats.converted}</div>
+          <div className="text-sm font-medium text-muted-foreground">Avg Score</div>
+          <div className="text-2xl font-bold text-blue-600">{stats.avgLeadScore}</div>
         </Card>
         <Card className="p-4">
           <div className="text-sm font-medium text-muted-foreground">Conversion</div>
-          <div className="text-2xl font-bold">{stats.conversionRate}%</div>
+          <div className="text-2xl font-bold text-green-600">{stats.conversionRate}%</div>
         </Card>
       </div>
 
@@ -227,13 +266,22 @@ const ContactSubmissionsManager = () => {
           filteredSubmissions.map((submission) => (
             <Card key={submission.id} className="p-6">
               <div className="flex justify-between items-start mb-4">
-                <div className="space-y-1">
-                  <h3 className="text-lg font-semibold">{submission.name}</h3>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg font-semibold">{submission.name}</h3>
+                    {submission.lead_score !== null && (
+                      <Badge variant="outline" className="gap-1">
+                        <TrendingUp className="h-3 w-3" />
+                        Score: {submission.lead_score}
+                      </Badge>
+                    )}
+                  </div>
                   <p className="text-sm text-muted-foreground">
                     Submitted {format(new Date(submission.submitted_at), "PPpp")}
                   </p>
                 </div>
                 <div className="flex gap-2 items-center">
+                  {getPriorityBadge(submission.priority)}
                   {getStatusBadge(submission.status)}
                   <Select
                     value={submission.status}
@@ -283,16 +331,39 @@ const ContactSubmissionsManager = () => {
                 <p className="text-sm whitespace-pre-wrap">{submission.message}</p>
               </div>
 
-              <div className="flex gap-4 mt-4 text-xs text-muted-foreground">
-                <span>Source: {submission.source}</span>
-                {submission.consent_marketing && (
-                  <Badge variant="outline" className="text-xs">
-                    Marketing Consent
-                  </Badge>
-                )}
-                {submission.ip_address && (
-                  <span>IP: {submission.ip_address}</span>
-                )}
+              <div className="mt-4 space-y-2">
+                <div className="flex gap-3 flex-wrap text-xs">
+                  {submission.company_size && (
+                    <Badge variant="secondary" className="gap-1">
+                      <Users className="h-3 w-3" />
+                      {submission.company_size} employees
+                    </Badge>
+                  )}
+                  {submission.budget_range && (
+                    <Badge variant="secondary" className="gap-1">
+                      <DollarSign className="h-3 w-3" />
+                      ${submission.budget_range}
+                    </Badge>
+                  )}
+                  {submission.consent_marketing && (
+                    <Badge variant="outline" className="text-xs">
+                      Marketing Consent
+                    </Badge>
+                  )}
+                </div>
+                
+                <div className="flex gap-4 text-xs text-muted-foreground flex-wrap">
+                  <span>Source: {submission.source}</span>
+                  {submission.utm_source && (
+                    <span>UTM: {submission.utm_source}/{submission.utm_medium}</span>
+                  )}
+                  {submission.utm_campaign && (
+                    <span>Campaign: {submission.utm_campaign}</span>
+                  )}
+                  {submission.ip_address && (
+                    <span>IP: {submission.ip_address}</span>
+                  )}
+                </div>
               </div>
             </Card>
           ))

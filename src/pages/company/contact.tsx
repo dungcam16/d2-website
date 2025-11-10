@@ -17,9 +17,11 @@ import Footer from "@/components/Footer";
 import { contactFormSchema } from "@/lib/validations/contact";
 import { supabase } from "@/integrations/supabase/client";
 
-// Extended schema with service field
+// Extended schema with service field and lead qualification
 const contactPageSchema = contactFormSchema.extend({
   service: z.string().optional(),
+  companySize: z.string().optional(),
+  budgetRange: z.string().optional(),
 });
 
 const Contact = () => {
@@ -44,6 +46,8 @@ const Contact = () => {
       service: "",
       message: "",
       consentMarketing: false,
+      companySize: "",
+      budgetRange: "",
     },
   });
 
@@ -54,6 +58,16 @@ const Contact = () => {
     setIsSuccess(false);
 
     try {
+      // Extract UTM parameters from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmParams = {
+        utmSource: urlParams.get('utm_source') || undefined,
+        utmMedium: urlParams.get('utm_medium') || undefined,
+        utmCampaign: urlParams.get('utm_campaign') || undefined,
+        utmTerm: urlParams.get('utm_term') || undefined,
+        utmContent: urlParams.get('utm_content') || undefined,
+      };
+
       const { data: result, error } = await supabase.functions.invoke('contact-form', {
         body: {
           name: data.name,
@@ -63,6 +77,9 @@ const Contact = () => {
           service: data.service || "",
           message: data.message,
           consentMarketing: data.consentMarketing || false,
+          companySize: data.companySize,
+          budgetRange: data.budgetRange,
+          ...utmParams,
           website: "", // Honeypot field
         },
       });
