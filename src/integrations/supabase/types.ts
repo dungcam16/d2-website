@@ -173,6 +173,60 @@ export type Database = {
         }
         Relationships: []
       }
+      migration_guides: {
+        Row: {
+          author: string
+          content: string
+          created_at: string | null
+          difficulty_level: string
+          estimated_time: string
+          excerpt: string
+          from_platform: string
+          id: string
+          is_published: boolean | null
+          slug: string
+          thumbnail_url: string | null
+          title: string
+          to_platform: string
+          updated_at: string | null
+          views: number | null
+        }
+        Insert: {
+          author?: string
+          content: string
+          created_at?: string | null
+          difficulty_level?: string
+          estimated_time: string
+          excerpt: string
+          from_platform: string
+          id?: string
+          is_published?: boolean | null
+          slug: string
+          thumbnail_url?: string | null
+          title: string
+          to_platform?: string
+          updated_at?: string | null
+          views?: number | null
+        }
+        Update: {
+          author?: string
+          content?: string
+          created_at?: string | null
+          difficulty_level?: string
+          estimated_time?: string
+          excerpt?: string
+          from_platform?: string
+          id?: string
+          is_published?: boolean | null
+          slug?: string
+          thumbnail_url?: string | null
+          title?: string
+          to_platform?: string
+          updated_at?: string | null
+          views?: number | null
+        }
+        Relationships: []
+      }
       newsletter_subscribers: {
         Row: {
           consent_marketing: boolean | null
@@ -334,6 +388,10 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      increment_migration_guide_views: {
+        Args: { guide_slug: string }
+        Returns: undefined
       }
     }
     Enums: {

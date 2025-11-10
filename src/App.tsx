@@ -22,6 +22,7 @@ const TemplateDetail = lazy(() => import("./pages/resources/template-detail"));
 const Admin = lazy(() => import("./pages/admin"));
 const Pricing = lazy(() => import("./pages/pricing"));
 const MigrationGuides = lazy(() => import("./pages/resources/migration-guides"));
+const MigrationGuideDetail = lazy(() => import("./pages/resources/migration-guide-detail"));
 const RoiCalculator = lazy(() => import("./pages/resources/roi-calculator"));
 const CaseStudiesPage = lazy(() => import("./pages/resources/case-studies"));
 const CaseStudyDetail = lazy(() => import("./pages/resources/case-study-detail"));
@@ -95,6 +96,7 @@ const App = () => (
               <Route path="/resources/casestudies" element={<CaseStudiesPage />} />
               <Route path="/resources/casestudies/:slug" element={<CaseStudyDetail />} />
               <Route path="/resources/migration-guides" element={<MigrationGuides />} />
+              <Route path="/resources/migration-guides/:slug" element={<MigrationGuideDetail />} />
               <Route path="/resources/roi-calculator" element={<RoiCalculator />} />
 
               {/* Portfolio Routes */}
