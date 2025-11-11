@@ -5,6 +5,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { AnalyticsTracker } from "@/components/analytics/AnalyticsTracker";
+import { ExitIntentPopup } from "@/components/conversion/ExitIntentPopup";
+import { SocialProof } from "@/components/conversion/SocialProof";
+import { LiveChat } from "@/components/conversion/LiveChat";
 import Home from "./pages/home";
 
 // Lazy load non-critical pages
@@ -71,6 +75,10 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <AnalyticsTracker />
+          <ExitIntentPopup />
+          <SocialProof />
+          <LiveChat />
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />
