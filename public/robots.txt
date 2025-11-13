@@ -21,8 +21,8 @@ Disallow: /private/
 Disallow: /staging/
 Disallow: /drafts/
 
-# Content-Signal directive (allow search indexing, disallow AI training)
-Content-Signal: search=yes, ai-train=no
+# Note: robots.txt doesn't support AI training directives
+# Use meta tags or Terms of Service to address AI crawling concerns
 
 # Sitemap location (updated by n8n workflow)
 Sitemap: https://d2group.co/sitemap.xml
