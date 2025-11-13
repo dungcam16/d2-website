@@ -58,9 +58,9 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         blue: {
-          primary: "hsl(210 100% 45%)",
-          light: "hsl(200 100% 55%)",
-          glow: "hsl(210 100% 45% / 0.25)",
+          primary: "hsl(210 100% 40%)",
+          light: "hsl(200 100% 50%)",
+          glow: "hsl(210 100% 40% / 0.25)",
         },
       },
       fontFamily: {
@@ -98,10 +98,10 @@ export default {
         },
         glow: {
           "0%, 100%": { 
-            boxShadow: "0 0 20px hsl(210 100% 45% / 0.3), 0 0 40px hsl(210 100% 45% / 0.1)"
+            boxShadow: "0 0 20px hsl(210 100% 40% / 0.3), 0 0 40px hsl(210 100% 40% / 0.1)"
           },
           "50%": { 
-            boxShadow: "0 0 30px hsl(210 100% 45% / 0.4), 0 0 60px hsl(210 100% 45% / 0.2)"
+            boxShadow: "0 0 30px hsl(210 100% 40% / 0.4), 0 0 60px hsl(210 100% 40% / 0.2)"
           },
         },
         "slide-up": {

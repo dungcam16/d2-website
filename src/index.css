@@ -16,8 +16,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 15%;
 
-    /* Blue gradient primary matching logo */
-    --primary: 210 100% 45%;
+    /* Blue gradient primary matching logo - adjusted for WCAG AA contrast */
+    --primary: 210 100% 40%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96%;
@@ -26,7 +26,7 @@
     --muted: 220 13% 96%;
     --muted-foreground: 220 13% 45%;
 
-    --accent: 210 100% 50%;
+    --accent: 210 100% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -34,18 +34,18 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 210 100% 45%;
+    --ring: 210 100% 40%;
 
     --radius: 0.75rem;
 
     /* Blue gradients matching D2 logo */
-    --gradient-primary: linear-gradient(135deg, hsl(210 100% 45%), hsl(200 100% 55%));
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 40%), hsl(200 100% 50%));
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 50%, hsl(210 100% 98%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0 0% 98%), hsl(210 40% 97%));
-    --gradient-accent: linear-gradient(135deg, hsl(200 100% 60%), hsl(210 100% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(200 100% 55%), hsl(210 100% 45%));
 
     /* Shadows with blue tint */
-    --shadow-glow: 0 0 50px hsl(210 100% 45% / 0.25);
+    --shadow-glow: 0 0 50px hsl(210 100% 40% / 0.25);
     --shadow-card: 0 10px 30px -10px hsl(220 20% 15% / 0.1);
     --shadow-elevation: 0 20px 40px -12px hsl(220 20% 15% / 0.15);
 
