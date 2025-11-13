@@ -30,6 +30,7 @@ const MigrationGuideDetail = lazy(() => import("./pages/resources/migration-guid
 const RoiCalculator = lazy(() => import("./pages/resources/roi-calculator"));
 const CaseStudiesPage = lazy(() => import("./pages/resources/case-studies"));
 const CaseStudyDetail = lazy(() => import("./pages/resources/case-study-detail"));
+const LeadMagnets = lazy(() => import("./pages/resources/lead-magnets"));
 
 // Services - lazy loaded
 const N8nAutomation = lazy(() => import("./pages/services/n8n-automation"));
@@ -106,6 +107,7 @@ const App = () => (
               <Route path="/resources/migration-guides" element={<MigrationGuides />} />
               <Route path="/resources/migration-guides/:slug" element={<MigrationGuideDetail />} />
               <Route path="/resources/roi-calculator" element={<RoiCalculator />} />
+              <Route path="/resources/lead-magnets" element={<LeadMagnets />} />
 
               {/* Portfolio Routes */}
               <Route path="/portfolio" element={<Portfolio />} />
