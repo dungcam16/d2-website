@@ -54,6 +54,7 @@ export const LiveChat = () => {
           onClick={handleOpen}
           size="lg"
           className="fixed bottom-6 right-6 z-50 rounded-full w-14 h-14 shadow-lg"
+          aria-label="Open live chat"
         >
           <MessageCircle className="w-6 h-6" />
         </Button>
@@ -73,6 +74,7 @@ export const LiveChat = () => {
               size="sm"
               onClick={() => setIsOpen(false)}
               className="text-primary-foreground hover:bg-primary-foreground/20"
+              aria-label="Close chat"
             >
               <X className="w-4 h-4" />
             </Button>
