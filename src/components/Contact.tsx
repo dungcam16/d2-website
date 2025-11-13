@@ -8,14 +8,18 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from "@/components/ui/form";
 import { toast } from "@/hooks/use-toast";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations/contact";
 import { supabase } from "@/integrations/supabase/client";
+import { MultiStepForm } from "@/components/MultiStepForm";
+import { useABTest } from "@/hooks/useABTest";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const { variant: formVariant } = useABTest('contact_form_placement');
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -126,7 +130,15 @@ const Contact = () => {
               </p>
             </div>
 
-            <Form {...form}>
+            {/* Form Tabs for A/B Testing */}
+            <Tabs defaultValue={formVariant === 'modal' ? 'simple' : 'multi'} className="w-full">
+              <TabsList className="grid w-full grid-cols-2 mb-6">
+                <TabsTrigger value="simple">Quick Form</TabsTrigger>
+                <TabsTrigger value="multi">Detailed Form</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="simple">
+                <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <FormField
@@ -279,7 +291,13 @@ const Contact = () => {
                 </Button>
               </form>
             </Form>
-          </Card>
+          </TabsContent>
+
+          <TabsContent value="multi">
+            <MultiStepForm onSubmit={onSubmit} isSubmitting={isSubmitting} />
+          </TabsContent>
+        </Tabs>
+      </Card>
 
           {/* Contact Information */}
           <div className="space-y-8">
