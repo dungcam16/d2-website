@@ -119,7 +119,7 @@ const CaseStudyDetail = () => {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: caseStudy.title,
-    image: caseStudy.image_url || "https://d2group.co/logo_d2_group.png",
+    image: caseStudy.image_url || "https://storage.googleapis.com/gpt-engineer-file-uploads/GfwJGgB5PVUTbVt9ullbKBHrjTg2/uploads/1758965954495-logo d2 group.png",
     author: {
       "@type": "Organization",
       name: "D2 Group",
@@ -129,7 +129,7 @@ const CaseStudyDetail = () => {
       name: "D2 Group",
       logo: {
         "@type": "ImageObject",
-        url: "https://d2group.co/logo_d2_group.png",
+        url: "https://storage.googleapis.com/gpt-engineer-file-uploads/GfwJGgB5PVUTbVt9ullbKBHrjTg2/uploads/1758965954495-logo d2 group.png",
       },
     },
     datePublished: caseStudy.created_at,

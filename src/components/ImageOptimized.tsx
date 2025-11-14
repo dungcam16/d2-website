@@ -4,19 +4,27 @@ import { cn } from "@/lib/utils";
 interface ImageOptimizedProps {
   src: string;
   alt: string;
+  title?: string;
   className?: string;
-  blurDataURL?: string;
-  sizes?: string;
+  width?: number;
+  height?: number;
+  loading?: 'lazy' | 'eager';
   priority?: boolean;
+  sizes?: string;
+  blurDataURL?: string;
 }
 
 export const ImageOptimized = ({
   src,
   alt,
+  title,
   className,
+  width,
+  height,
   blurDataURL,
   sizes = "100vw",
   priority = false,
+  loading = "lazy",
 }: ImageOptimizedProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -45,12 +53,17 @@ export const ImageOptimized = ({
 
       {/* Main image */}
       <picture>
-        <source srcSet={webpSrc} type="image/webp" />
+        <source srcSet={webpSrc} type="image/webp" sizes={sizes} />
         <img
           src={src}
           alt={alt}
+          title={title || alt}
+          width={width}
+          height={height}
           sizes={sizes}
-          loading={priority ? "eager" : "lazy"}
+          loading={priority ? "eager" : loading}
+          fetchPriority={priority ? "high" : "auto"}
+          decoding={priority ? "sync" : "async"}
           className={cn(
             "w-full h-full object-cover transition-all duration-500",
             isLoaded ? "opacity-100 blur-0" : "opacity-0 blur-sm",

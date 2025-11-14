@@ -20,6 +20,10 @@ type BlogPost = {
   views: number;
   read_time: number;
   published_at: string;
+  meta_title: string | null;
+  meta_description: string | null;
+  focus_keyword: string | null;
+  canonical_url: string | null;
 };
 
 export function BlogPostsManager() {
@@ -180,6 +184,56 @@ export function BlogPostsManager() {
               onChange={(e) => setEditingPost({ ...editingPost, tags: e.target.value.split(",").map(t => t.trim()) })}
               placeholder="automation, ai, workflow"
             />
+          </div>
+
+          {/* SEO Fields */}
+          <div className="border-t pt-4 space-y-4">
+            <h3 className="text-lg font-semibold">SEO Optimization</h3>
+            
+            <div>
+              <label className="block text-sm font-medium mb-2">Meta Title (Max 60 chars)</label>
+              <Input
+                value={editingPost?.meta_title || ""}
+                onChange={(e) => setEditingPost({ ...editingPost, meta_title: e.target.value })}
+                placeholder="Optimized title for search engines"
+                maxLength={60}
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                {editingPost?.meta_title?.length || 0}/60 characters
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Meta Description (Max 160 chars)</label>
+              <Textarea
+                value={editingPost?.meta_description || ""}
+                onChange={(e) => setEditingPost({ ...editingPost, meta_description: e.target.value })}
+                placeholder="Compelling description for search results"
+                maxLength={160}
+                rows={3}
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                {editingPost?.meta_description?.length || 0}/160 characters
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Focus Keyword</label>
+              <Input
+                value={editingPost?.focus_keyword || ""}
+                onChange={(e) => setEditingPost({ ...editingPost, focus_keyword: e.target.value })}
+                placeholder="Primary keyword for SEO"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Canonical URL (Optional)</label>
+              <Input
+                value={editingPost?.canonical_url || ""}
+                onChange={(e) => setEditingPost({ ...editingPost, canonical_url: e.target.value })}
+                placeholder="https://d2group.co/resources/blog/..."
+              />
+            </div>
           </div>
 
           <div className="flex items-center gap-2">
