@@ -17,12 +17,16 @@ export type Database = {
       blog_posts: {
         Row: {
           author: string
+          canonical_url: string | null
           content: string
           created_at: string
           excerpt: string | null
+          focus_keyword: string | null
           id: string
           image_url: string | null
           is_published: boolean | null
+          meta_description: string | null
+          meta_title: string | null
           published_at: string
           read_time: number | null
           slug: string
@@ -33,12 +37,16 @@ export type Database = {
         }
         Insert: {
           author?: string
+          canonical_url?: string | null
           content: string
           created_at?: string
           excerpt?: string | null
+          focus_keyword?: string | null
           id?: string
           image_url?: string | null
           is_published?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
           published_at?: string
           read_time?: number | null
           slug: string
@@ -49,12 +57,16 @@ export type Database = {
         }
         Update: {
           author?: string
+          canonical_url?: string | null
           content?: string
           created_at?: string
           excerpt?: string | null
+          focus_keyword?: string | null
           id?: string
           image_url?: string | null
           is_published?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
           published_at?: string
           read_time?: number | null
           slug?: string
@@ -72,9 +84,12 @@ export type Database = {
           content: string | null
           created_at: string
           excerpt: string | null
+          focus_keyword: string | null
           id: string
           image_url: string | null
           is_published: boolean | null
+          meta_description: string | null
+          meta_title: string | null
           order_index: number | null
           prompt: string | null
           slug: string
@@ -89,9 +104,12 @@ export type Database = {
           content?: string | null
           created_at?: string
           excerpt?: string | null
+          focus_keyword?: string | null
           id?: string
           image_url?: string | null
           is_published?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
           order_index?: number | null
           prompt?: string | null
           slug: string
@@ -106,9 +124,12 @@ export type Database = {
           content?: string | null
           created_at?: string
           excerpt?: string | null
+          focus_keyword?: string | null
           id?: string
           image_url?: string | null
           is_published?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
           order_index?: number | null
           prompt?: string | null
           slug?: string
@@ -267,9 +288,12 @@ export type Database = {
           difficulty_level: string
           estimated_time: string
           excerpt: string
+          focus_keyword: string | null
           from_platform: string
           id: string
           is_published: boolean | null
+          meta_description: string | null
+          meta_title: string | null
           slug: string
           thumbnail_url: string | null
           title: string
@@ -284,9 +308,12 @@ export type Database = {
           difficulty_level?: string
           estimated_time: string
           excerpt: string
+          focus_keyword?: string | null
           from_platform: string
           id?: string
           is_published?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
           slug: string
           thumbnail_url?: string | null
           title: string
@@ -301,9 +328,12 @@ export type Database = {
           difficulty_level?: string
           estimated_time?: string
           excerpt?: string
+          focus_keyword?: string | null
           from_platform?: string
           id?: string
           is_published?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
           slug?: string
           thumbnail_url?: string | null
           title?: string
@@ -409,9 +439,12 @@ export type Database = {
           description: string | null
           difficulty_level: string | null
           downloads: number | null
+          focus_keyword: string | null
           id: string
           integrations: string[] | null
           is_published: boolean | null
+          meta_description: string | null
+          meta_title: string | null
           node_count: number | null
           published_at: string
           slug: string
@@ -429,9 +462,12 @@ export type Database = {
           description?: string | null
           difficulty_level?: string | null
           downloads?: number | null
+          focus_keyword?: string | null
           id?: string
           integrations?: string[] | null
           is_published?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
           node_count?: number | null
           published_at?: string
           slug: string
@@ -449,9 +485,12 @@ export type Database = {
           description?: string | null
           difficulty_level?: string | null
           downloads?: number | null
+          focus_keyword?: string | null
           id?: string
           integrations?: string[] | null
           is_published?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
           node_count?: number | null
           published_at?: string
           slug?: string

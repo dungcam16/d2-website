@@ -1,13 +1,23 @@
+# Security Headers
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://*.supabase.co; frame-ancestors 'none';
+
 # Cache static assets with hashed filenames for 1 year
 # These files have content hashes in their names, so they can be cached indefinitely
 /assets/*.js
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 /assets/*.css
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 /assets/*.woff2
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
+  Access-Control-Allow-Origin: *
 
 /assets/*.woff
   Cache-Control: public, max-age=31536000, immutable
@@ -19,13 +29,15 @@
   Cache-Control: public, max-age=31536000, immutable
 
 /assets/*.jpg
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
+  Accept: image/webp, image/avif, image/jpeg
 
 /assets/*.jpeg
   Cache-Control: public, max-age=31536000, immutable
 
 /assets/*.png
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
+  Accept: image/webp, image/avif, image/png
 
 /assets/*.gif
   Cache-Control: public, max-age=31536000, immutable

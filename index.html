@@ -3,9 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGB5V26E74"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XGB5V26E74', {
+        page_path: window.location.pathname,
+        send_page_view: true
+      });
+    </script>
+    
     <title>D2 Group - AI Automation Agency</title>
     <meta name="description" content="D2 Group delivers enterprise-grade automation without enterprise-level costs. Our expertise includes n8n workflow automation, multi-platform AI chatbots (Zalo, Facebook, WhatsApp), SEO automation systems, and API integrations. We've automated 10,000+ hours of manual work for clients across SaaS, e-commerce, and digital marketing sectors">
     <meta name="author" content="D2 Group" />
+    
+    <!-- Google Search Console Verification - Replace with your actual code -->
+    <meta name="google-site-verification" content="YOUR_GSC_VERIFICATION_CODE" />
     
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/GfwJGgB5PVUTbVt9ullbKBHrjTg2/social-images/social-1758965925583-514270009_692154340477059_2925918850980454621_n (1).jpg">
@@ -22,6 +38,16 @@
   
   
   <link rel="icon" type="image/x-icon" href="https://storage.googleapis.com/gpt-engineer-file-uploads/GfwJGgB5PVUTbVt9ullbKBHrjTg2/uploads/1758965954495-logo d2 group.png">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066cc">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   
   <!-- Preload critical fonts to reduce network chain -->
   <link rel="preload" href="/assets/inter-latin-400-normal-C38fXH4l.woff2" as="font" type="font/woff2" crossorigin>
