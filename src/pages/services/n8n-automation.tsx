@@ -37,6 +37,7 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function N8nAutomation() {
   const [taskVolume, setTaskVolume] = useState(50000);
@@ -328,6 +329,13 @@ export default function N8nAutomation() {
         keywords="n8n automation, workflow automation, n8n integration, zapier alternative, n8n migration, enterprise automation"
         canonicalUrl="/services/n8n-automation"
         structuredData={[structuredData, faqStructuredData]}
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services/n8n-automation' },
+          { name: 'n8n Automation', url: '/services/n8n-automation' }
+        ]}
       />
       <div className="min-h-screen bg-background">
         <Header />

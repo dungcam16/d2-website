@@ -36,6 +36,7 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function MarketingAutomation() {
   const structuredData = {
@@ -305,6 +306,13 @@ export default function MarketingAutomation() {
         keywords="marketing automation, email automation, lead nurturing, campaign automation, marketing workflows, CRM automation, attribution tracking"
         canonicalUrl="/services/marketing-automation"
         structuredData={[structuredData, faqStructuredData]}
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services/marketing-automation' },
+          { name: 'Marketing Automation', url: '/services/marketing-automation' }
+        ]}
       />
       <div className="min-h-screen bg-background">
         <Header />

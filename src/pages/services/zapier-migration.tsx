@@ -35,6 +35,7 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function ZapierMigration() {
   const [taskCount, setTaskCount] = useState(50000);
@@ -288,6 +289,13 @@ export default function ZapierMigration() {
         keywords="Zapier migration, n8n migration, Zapier alternative, automation migration, reduce automation costs, zapier to n8n"
         canonicalUrl="/services/zapier-migration"
         structuredData={[structuredData, faqStructuredData]}
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services/zapier-migration' },
+          { name: 'Zapier Migration', url: '/services/zapier-migration' }
+        ]}
       />
       <div className="min-h-screen bg-background">
         <Header />

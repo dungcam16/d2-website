@@ -37,6 +37,7 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function AiChatbots() {
   const structuredData = {
@@ -302,6 +303,13 @@ export default function AiChatbots() {
         keywords="AI chatbot, GPT-4 chatbot, AI agents, customer support automation, lead qualification AI, conversational AI, enterprise chatbot"
         canonicalUrl="/services/ai-chatbots"
         structuredData={[structuredData, faqStructuredData]}
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services/ai-chatbots' },
+          { name: 'AI Chatbots', url: '/services/ai-chatbots' }
+        ]}
       />
       <div className="min-h-screen bg-background">
         <Header />
