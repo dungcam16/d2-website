@@ -1,28 +1,6 @@
-# D2 Group - Automation & AI Solutions
-# https://d2group.co
-
-# Allow all major search engines
-User-agent: Googlebot
-User-agent: Bingbot
-User-agent: Slurp
-User-agent: DuckDuckBot
-User-agent: Baiduspider
-User-agent: YandexBot
-User-agent: Applebot
-Allow: /
-
-# Default rules for all other bots
 User-agent: *
 Allow: /
-
-# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /private/
-Disallow: /staging/
-Disallow: /drafts/
 
-# Note: robots.txt doesn't support AI training directives
-# Use meta tags or Terms of Service to address AI crawling concerns
-
-# Sitemap location (updated by n8n workflow)
 Sitemap: https://d2group.co/sitemap.xml

@@ -36,6 +36,7 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function NoCodeLowCode() {
   const structuredData = {
@@ -287,6 +288,13 @@ export default function NoCodeLowCode() {
         keywords="no-code development, low-code platform, Bubble development, Webflow development, rapid application development, Retool dashboard, Airtable automation"
         canonicalUrl="/services/nocode-lowcode"
         structuredData={[structuredData, faqStructuredData]}
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services/nocode-lowcode' },
+          { name: 'No-Code/Low-Code', url: '/services/nocode-lowcode' }
+        ]}
       />
       <div className="min-h-screen bg-background">
         <Header />
