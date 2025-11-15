@@ -280,6 +280,54 @@ export type Database = {
           },
         ]
       }
+      knowledge_base: {
+        Row: {
+          category: string
+          content: string
+          created_at: string | null
+          embedding: string | null
+          excerpt: string | null
+          id: string
+          is_published: boolean | null
+          keywords: string[] | null
+          metadata: Json | null
+          slug: string
+          title: string
+          updated_at: string | null
+          view_count: number | null
+        }
+        Insert: {
+          category: string
+          content: string
+          created_at?: string | null
+          embedding?: string | null
+          excerpt?: string | null
+          id?: string
+          is_published?: boolean | null
+          keywords?: string[] | null
+          metadata?: Json | null
+          slug: string
+          title: string
+          updated_at?: string | null
+          view_count?: number | null
+        }
+        Update: {
+          category?: string
+          content?: string
+          created_at?: string | null
+          embedding?: string | null
+          excerpt?: string | null
+          id?: string
+          is_published?: boolean | null
+          keywords?: string[] | null
+          metadata?: Json | null
+          slug?: string
+          title?: string
+          updated_at?: string | null
+          view_count?: number | null
+        }
+        Relationships: []
+      }
       migration_guides: {
         Row: {
           author: string
@@ -514,9 +562,26 @@ export type Database = {
         }
         Returns: boolean
       }
+      increment_kb_views: { Args: { article_slug: string }; Returns: undefined }
       increment_migration_guide_views: {
         Args: { guide_slug: string }
         Returns: undefined
+      }
+      search_knowledge_base: {
+        Args: {
+          match_count?: number
+          match_threshold?: number
+          query_embedding: string
+        }
+        Returns: {
+          category: string
+          content: string
+          excerpt: string
+          id: string
+          similarity: number
+          slug: string
+          title: string
+        }[]
       }
     }
     Enums: {
