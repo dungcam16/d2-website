@@ -125,7 +125,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-            <img src={logoD2Group} alt="D2 Group Logo" width="40" height="40" className="h-10 w-10" />
+            <div className="h-10 w-10 rounded-lg bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center p-1 shadow-sm">
+              <img src={logoD2Group} alt="D2 Group Logo" className="h-full w-full object-contain" />
+            </div>
             <span className="text-xl font-bold font-heading text-foreground">D2 Group</span>
             <span className="text-xs text-muted-foreground font-normal">AI Automation Agency</span>
           </Link>
