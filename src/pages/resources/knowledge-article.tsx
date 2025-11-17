@@ -55,7 +55,7 @@ export default function KnowledgeArticle() {
       // Load related articles from same category
       const { data: relatedData } = await supabase
         .from('knowledge_base')
-        .select('id, category, title, slug, excerpt, keywords, view_count, updated_at')
+        .select('id, category, title, slug, content, excerpt, keywords, view_count, updated_at')
         .eq('category', articleData.category)
         .eq('is_published', true)
         .neq('id', articleData.id)
@@ -88,7 +88,10 @@ export default function KnowledgeArticle() {
   if (!article) {
     return (
       <>
-        <SEO title="Article Not Found - D2 Group" />
+        <SEO 
+          title="Article Not Found - D2 Group" 
+          description="The article you're looking for doesn't exist or has been removed."
+        />
         <Header />
         <main className="min-h-screen bg-background py-20">
           <div className="container mx-auto px-4 text-center">

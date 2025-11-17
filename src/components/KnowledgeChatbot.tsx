@@ -123,11 +123,11 @@ export function KnowledgeChatbot() {
 
       {/* Chat Window */}
       {isOpen && (
-        <Card className="fixed bottom-6 right-6 w-[400px] h-[600px] shadow-2xl z-50 flex flex-col">
-          <CardHeader className="border-b flex flex-row items-center justify-between space-y-0 pb-4">
+        <Card className="fixed bottom-6 right-6 w-[400px] h-[600px] shadow-2xl z-50 flex flex-col bg-background/95 backdrop-blur-sm border-border">
+          <CardHeader className="border-b border-border/50 flex flex-row items-center justify-between space-y-0 pb-4 bg-background/80">
             <div className="flex items-center gap-2">
-              <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center">
-                <MessageCircle className="h-5 w-5 text-primary-foreground" />
+              <div className="h-10 w-10 rounded-full bg-background border-2 border-primary/20 flex items-center justify-center">
+                <MessageCircle className="h-5 w-5 text-primary" />
               </div>
               <div>
                 <CardTitle className="text-lg">D2 Group Assistant</CardTitle>
@@ -144,8 +144,8 @@ export function KnowledgeChatbot() {
             </Button>
           </CardHeader>
 
-          <CardContent className="flex-1 flex flex-col p-0">
-            <ScrollArea ref={scrollRef} className="flex-1 p-4">
+          <CardContent className="flex-1 flex flex-col p-0 bg-background/60">
+            <ScrollArea ref={scrollRef} className="flex-1 p-4 bg-transparent">
               <div className="space-y-4">
                 {messages.map((message, index) => (
                   <div
@@ -200,7 +200,7 @@ export function KnowledgeChatbot() {
               </div>
             </ScrollArea>
 
-            <div className="p-4 border-t">
+            <div className="p-4 border-t border-border/50 bg-background/80">
               <div className="flex gap-2">
                 <Input
                   value={input}
