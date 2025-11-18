@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { AnalyticsTracker } from "@/components/analytics/AnalyticsTracker";
-import { ExitIntentPopup } from "@/components/conversion/ExitIntentPopup";
 import { SocialProof } from "@/components/conversion/SocialProof";
 import { LiveChat } from "@/components/conversion/LiveChat";
 import Home from "./pages/home";
@@ -77,7 +76,6 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AnalyticsTracker />
-          <ExitIntentPopup />
           <SocialProof />
           <LiveChat />
           <Suspense fallback={<PageLoader />}>
