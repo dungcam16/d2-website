@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import logoD2Group from "@/assets/logo_d2_group_optimized.webp";
+import logoD2Group from "@/assets/logo_d2_group_new.png";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
