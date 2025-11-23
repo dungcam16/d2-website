@@ -39,6 +39,8 @@ export const SEOHelmet = ({
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@d2group" />
+      <meta name="twitter:creator" content="@d2group" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />

@@ -179,7 +179,7 @@ const Blog = () => {
                     <div className="h-48 bg-muted flex-shrink-0">
                       <img
                         src={post.image_url || "/placeholder.svg"}
-                        alt={post.title}
+                        alt={`${post.title} - ${post.excerpt?.substring(0, 60) || 'D2 Group blog article about automation and AI'}`}
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           const target = e.currentTarget as HTMLImageElement;

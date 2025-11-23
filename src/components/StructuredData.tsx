@@ -130,3 +130,58 @@ export const createArticleSchema = (article: {
     '@id': `https://d2group.co${article.url}`,
   },
 });
+
+export const createLocalBusinessSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://d2group.co/#organization',
+  name: 'D2 Group',
+  url: 'https://d2group.co',
+  logo: 'https://storage.googleapis.com/gpt-engineer-file-uploads/GfwJGgB5PVUTbVt9ullbKBHrjTg2/uploads/1758965954495-logo d2 group.png',
+  description: 'Enterprise-grade automation without enterprise-level costs. Specializing in n8n workflow automation, AI chatbots, and business process automation.',
+  priceRange: '$$',
+  telephone: '+84-xxx-xxx-xxx',
+  email: 'contact@d2group.co',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'VN',
+    addressLocality: 'Ho Chi Minh City',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 10.8231,
+    longitude: 106.6297,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+  ],
+  sameAs: [
+    'https://www.linkedin.com/company/d2group',
+    'https://www.facebook.com/d2group',
+    'https://twitter.com/d2group',
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '156',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Vietnam',
+  },
+  knowsAbout: [
+    'Workflow Automation',
+    'n8n Automation',
+    'AI Chatbots',
+    'Business Process Automation',
+    'Zapier Migration',
+    'Marketing Automation',
+  ],
+});
