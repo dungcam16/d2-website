@@ -29,53 +29,58 @@ import benefitScale from "@/assets/benefit-scale-growth.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { createLocalBusinessSchema } from "@/components/StructuredData";
 
 const Home = () => {
   const { t } = useLanguage();
   const [showFaq, setShowFaq] = useState(false);
   
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "D2 Group - AI Automation Agency",
-    description: "Enterprise automation solutions that save companies 40+ hours/week and generate $50K-$200K in annual value without the complexity or cost of Zapier",
-    url: "https://d2group.co",
-    sameAs: ["https://facebook.com/d2group", "https://linkedin.com/company/d2group"],
-    serviceArea: {
-      "@type": "Place",
-      name: "Global - US, Australia, Europe"
+  // Combine Organization and LocalBusiness schemas
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "D2 Group - AI Automation Agency",
+      description: "Enterprise automation solutions that save companies 40+ hours/week and generate $50K-$200K in annual value without the complexity or cost of Zapier",
+      url: "https://d2group.co",
+      sameAs: ["https://facebook.com/d2group", "https://linkedin.com/company/d2group"],
+      serviceArea: {
+        "@type": "Place",
+        name: "Global - US, Australia, Europe"
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "AI Automation & Development Services",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "n8n Workflow Automation",
+              description: "Unlimited workflow automation with custom code support and 90% cost savings vs Zapier",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "AI Chatbots & Agents",
+              description: "GPT-4 powered chatbots with 24/7 automation and multi-language support",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Zapier Migration",
+              description: "Save $50K-$150K annually migrating from Zapier to n8n with zero downtime",
+            },
+          },
+        ],
+      },
     },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "AI Automation & Development Services",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "n8n Workflow Automation",
-            description: "Unlimited workflow automation with custom code support and 90% cost savings vs Zapier",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "AI Chatbots & Agents",
-            description: "GPT-4 powered chatbots with 24/7 automation and multi-language support",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Zapier Migration",
-            description: "Save $50K-$150K annually migrating from Zapier to n8n with zero downtime",
-          },
-        },
-      ],
-    },
-  };
+    createLocalBusinessSchema(),
+  ];
 
   // Core Services (giữ nguyên như code cũ)
   const coreServices = [
@@ -365,7 +370,7 @@ const Home = () => {
       {/* Hero Section - Updated with stronger value prop */}
       <section id="main-content" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={heroImage} alt="Automation Technology Background" className="w-full h-full object-cover opacity-20" />
+          <img src={heroImage} alt="Enterprise automation technology - AI-powered workflow automation and business process management by D2 Group" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-hero"></div>
         </div>
 
@@ -607,7 +612,7 @@ const Home = () => {
                       <div className="relative mb-6 w-full h-48 rounded-lg overflow-hidden">
                         <img 
                           src={service.image} 
-                          alt={service.title}
+                          alt={`${service.title} - ${service.desc.substring(0, 80)} by D2 Group`}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>

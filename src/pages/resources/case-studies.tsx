@@ -241,7 +241,7 @@ const CaseStudiesPage = () => {
                     <div className="aspect-video overflow-hidden rounded-t-lg">
                       <img
                         src={study.image_url}
-                        alt={study.title}
+                        alt={`${study.title} - ${study.excerpt?.substring(0, 70) || 'D2 Group automation case study'}`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>

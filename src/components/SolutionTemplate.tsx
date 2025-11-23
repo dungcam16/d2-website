@@ -105,7 +105,12 @@ export default function SolutionTemplate({
                 <h3 className="text-2xl font-semibold mb-4">{category.category}</h3>
                 <div className="flex flex-wrap gap-4">
                   {category.logos.map((logo, idx) => (
-                    <img key={idx} src={logo} alt="Tech Logo" className="h-12 w-auto" />
+                    <img 
+                      key={idx} 
+                      src={logo} 
+                      alt={`${category.category} integration - Technology partner logo for ${industryName} automation solutions`}
+                      className="h-12 w-auto" 
+                    />
                   ))}
                 </div>
               </div>

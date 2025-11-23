@@ -114,7 +114,7 @@ const Testimonials = () => {
                   {testimonial.image ? (
                     <img 
                       src={testimonial.image} 
-                      alt={testimonial.name}
+                      alt={`${testimonial.name}, ${testimonial.position} at ${testimonial.company} - D2 Group client testimonial`}
                       className="h-12 w-12 rounded-full object-cover"
                     />
                   ) : (

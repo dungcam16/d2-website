@@ -68,7 +68,7 @@ export const FeaturedBlogPosts = ({ limit = 3, excludeSlug }: FeaturedBlogPostsP
                 <div className="h-48 bg-muted flex-shrink-0">
                   <img
                     src={post.image_url || "/placeholder.svg"}
-                    alt={post.title}
+                    alt={`Featured image for ${post.title} - ${post.excerpt?.substring(0, 50) || 'D2 Group blog article'}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     onError={(e) => {

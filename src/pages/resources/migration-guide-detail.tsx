@@ -163,7 +163,7 @@ const MigrationGuideDetail = () => {
           {guide.thumbnail_url && (
             <img
               src={guide.thumbnail_url}
-              alt={guide.title}
+              alt={`${guide.title} - Migration guide from ${guide.from_platform} to ${guide.to_platform} by D2 Group`}
               className="w-full h-64 object-cover rounded-lg mb-8"
             />
           )}
