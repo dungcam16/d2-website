@@ -185,3 +185,78 @@ export const createLocalBusinessSchema = () => ({
     'Marketing Automation',
   ],
 });
+
+// AggregateRating Schema for Reviews/Testimonials
+export const createAggregateRatingSchema = (reviews: Array<{
+  author: string;
+  rating: number;
+  reviewBody: string;
+  company?: string;
+}>) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'D2 Group',
+  url: 'https://d2group.co',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1),
+    reviewCount: reviews.length.toString(),
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: reviews.map((review) => ({
+    '@type': 'Review',
+    author: {
+      '@type': 'Person',
+      name: review.author,
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: review.rating.toString(),
+      bestRating: '5',
+      worstRating: '1',
+    },
+    reviewBody: review.reviewBody,
+    ...(review.company && {
+      itemReviewed: {
+        '@type': 'Organization',
+        name: review.company,
+      },
+    }),
+  })),
+});
+
+// HowTo Schema for Migration Guides and Tutorials
+export const createHowToSchema = (howTo: {
+  name: string;
+  description: string;
+  totalTime?: string;
+  estimatedCost?: { currency: string; value: string };
+  steps: Array<{
+    name: string;
+    text: string;
+    url?: string;
+    image?: string;
+  }>;
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: howTo.name,
+  description: howTo.description,
+  ...(howTo.totalTime && { totalTime: howTo.totalTime }),
+  ...(howTo.estimatedCost && {
+    estimatedCost: {
+      '@type': 'MonetaryAmount',
+      currency: howTo.estimatedCost.currency,
+      value: howTo.estimatedCost.value,
+    },
+  }),
+  step: howTo.steps.map((step, index) => ({
+    '@type': 'HowToStep',
+    position: index + 1,
+    name: step.name,
+    text: step.text,
+    ...(step.url && { url: step.url }),
+    ...(step.image && { image: step.image }),
+  })),
+});

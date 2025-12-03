@@ -2,6 +2,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { StructuredData, createHowToSchema, createAggregateRatingSchema } from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -173,6 +174,28 @@ const MigrationGuides = () => {
     }
   ];
 
+  // HowTo Schema for Migration Process
+  const howToSchema = createHowToSchema({
+    name: "How to Migrate Automation Workflows to n8n",
+    description: "Complete guide to migrating your automation workflows from Zapier, Make, or IFTTT to n8n with zero downtime. Save 70-90% on automation costs.",
+    totalTime: "P4W", // 4 weeks in ISO 8601 duration format
+    steps: migrationProcess.map((step) => ({
+      name: step.title,
+      text: step.description,
+      url: `https://d2group.co/resources/migration-guides#step-${step.step}`,
+    })),
+  });
+
+  // Reviews Schema for testimonials
+  const reviewsSchema = createAggregateRatingSchema(
+    testimonials.map((t) => ({
+      author: t.author,
+      rating: 5,
+      reviewBody: t.quote,
+      company: t.company,
+    }))
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <SEO
@@ -181,6 +204,7 @@ const MigrationGuides = () => {
         keywords="migration guide, zapier to n8n, make to n8n, workflow migration, automation migration, ifttt to n8n"
         canonicalUrl="/resources/migration-guides"
       />
+      <StructuredData data={[howToSchema, reviewsSchema]} />
       <Header />
 
       {/* Hero Section */}
