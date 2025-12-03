@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { StructuredData, createAggregateRatingSchema } from "@/components/StructuredData";
 import johnNguyen from "@/assets/testimonial-john-nguyen.jpg";
 import janeTran from "@/assets/testimonial-jane-tran.jpg";
 import michaelLe from "@/assets/testimonial-michael-le.jpg";
@@ -77,9 +78,18 @@ const testimonials: Testimonial[] = [
 
 const Testimonials = () => {
   const { t } = useLanguage();
+
+  // Create structured data for reviews
+  const reviewsForSchema = testimonials.map((t) => ({
+    author: t.name,
+    rating: t.rating,
+    reviewBody: t.content,
+    company: t.company,
+  }));
   
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <StructuredData data={createAggregateRatingSchema(reviewsForSchema)} />
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
